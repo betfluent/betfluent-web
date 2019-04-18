@@ -1,0 +1,2514 @@
+body, html {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+td {
+  border: none !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.noWrap {
+  flex-wrap: nowrap;
+}
+
+.flexItem {
+  display: inline-block;
+  text-align: center;
+  width: 43%;
+  height: 84px;
+  margin-bottom: 16px;
+  vertical-align: top;
+}
+
+.flexVertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: #fff;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.lottieFile {
+  width: 100%;
+  height: 36px;
+  position: relative;
+  top: -36px;
+}
+
+.mobileBanner {
+  background-color: #fff;
+  text-align: left;
+  padding: 0 6.25% 0 6.25%;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.mobileMenu a {
+  min-width: 56px !important;
+  height: 56px !important;
+}
+
+
+.winningConfetti {
+  z-index: 2000 !important;
+}
+
+.wagerConfetti {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* -------- Styles for FAQ page -------- */
+.faqContent, .sourcesContent {
+  padding: 48px 0;
+  width: 87.5%;
+  margin: auto;
+  text-align: left;
+}
+
+.faqContent h1, .sourcesContent h1 {
+  margin: 36px 0;
+  margin-top: 0;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.faqContent h2, .sourcesContent h2 {
+  margin: 12px 0;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.questionsContainer, .sourcesContainer {
+  margin-bottom: 64px;
+}
+
+.questionsContainer h3 {
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.questionsContainer p {
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.questionItem {
+  margin-bottom: 36px;
+}
+/* ----------------------------------------- */
+
+/* -------- Styles for Contact page -------- */
+.contactUs, .faq, .sources {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.contactContent {
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contactCard {
+  width: 80%;
+  text-align: left;
+  padding: 48px 64px;
+  opacity: 0.96;
+}
+
+.contactCard h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.contactForm, .moreContact {
+  width: 40%;
+}
+
+.moreContact h3, .moreContact h4 {
+  margin: 16px 0;
+  margin-top: 32px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.moreContact h4 {
+  margin-bottom: 8px;
+}
+
+.moreContact td {
+  padding: 0 12px 8px 0;
+  font-size: 14px;
+}
+
+.moreContact p {
+  font-size: 12px;
+}
+
+/* --------------------------------------- */
+
+/* -------- Styles for Sources page -------- */
+.faq, .sources {
+  padding-top: 80px;
+}
+
+.sourcesItem {
+  margin-bottom: 16px;
+}
+/* --------------------------------------- */
+
+/* -------- Styles for legal page -------- */
+.legalTerms {
+  text-align: left;
+  width: 76%;
+  padding: 36px;
+}
+
+.legalTerms h3 {
+  display: inline-block;
+}
+
+.legalTerms ol {
+  padding-left: 16px;
+  counter-reset: item;
+}
+
+.legalTerms ul {
+  padding-left: 16px;
+  list-style-type: disc;
+}
+
+.legalTerms li {
+  margin: 12px 0;
+}
+
+.legalTerms ol > li {
+  counter-increment: item;
+}
+
+.legalTerms ol ol > li {
+  display: block;
+}
+
+.legalTerms ol ol > li:before {
+  content: counters(item, ".") ". ";
+}
+/* --------------------------------------- */
+
+/* -------- Styles for footer -------- */
+.footer {
+  position: relative;
+  padding: 12px 40px;
+  background-color: #757575;
+  color: #fff;
+}
+
+.footer .footerContent {
+  text-align: left;
+}
+
+.footer h3 {
+  font-size: 14px;
+  margin-bottom: 16props.interaction.timepx;
+}
+
+.footer p {
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.footer .footerIcons {
+  width: 30%;
+  text-align: right;
+  position: relative;
+}
+
+.socials {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  justify-content: flex-end;
+}
+
+.socials img {
+  height: 14px;
+  margin-left: 12px;
+}
+
+.otherIcons {
+  position: absolute;
+  right: 40px;
+  bottom: 44px;
+}
+
+.otherIcons img {
+  height: 40px;
+  margin-left: 14px;
+}
+
+.footerContent a:hover {
+  color: rgba(255,255,255,0.87);
+}
+
+.copyRight {
+  line-height: 14px;
+  text-align: center;
+}
+
+.copyRight img {
+  height: 14px;
+  vertical-align: bottom;
+}
+/* ----------------------------------- */
+
+/* -------- Styles for Contact page -------- */
+.comingSoonBody {
+  padding: 80px 20% 100px;
+  height: 100vh;
+  box-sizing: border-box;
+  justify-content: space-around;
+}
+
+.countingDown {
+  justify-content: space-around;
+}
+
+.countingDownUnit {
+  width: 80px;
+}
+
+.countingDownUnit h2 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.emailInput input {
+  box-sizing: border-box;
+  width: 240px;
+  height: 36px;
+  font-size: 16px;
+  line-height: 36px;
+  padding: 0 12px;
+  margin-right: 24px;
+  border: 2px solid #e0e0e0;
+  border-radius: 2px;
+}
+
+.comingSoonCopy {
+  text-align: left;
+}
+
+.comingSoonCopy h1, .comingSoonCopy p {
+  font-weight: 300
+}
+
+.comingSoonCopy p {
+  font-size: 18px;
+}
+
+.peekImg {
+  position: absolute;
+  right: 20%;
+  bottom: -450px;
+}
+
+.peekImg img {
+  width: 300px;
+}
+/* ----------------------------------------- */
+
+/* -------- Styles for landing page -------- */
+.lpHeader, .mlpHeader {
+  width: 100vw;
+  height: 80px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.mlpHeader {
+  position: static;
+  align-items: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.mlpHeaderBtns button {
+  min-width: 0 !important;
+  border-radius: 6px !important;
+}
+
+.lpHome {
+  position: relative;
+  margin-top: 80px;
+  height: 85vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mlpHome, .mlpHome img {
+  width: 100%;
+  position: relative;
+}
+
+.mlpHomeContent {
+  position: absolute;
+  bottom: 56px;
+  width: 100%;
+}
+
+.mlpHomeContent a {
+  display: block;
+  margin: auto;
+}
+
+.mlpbody p {
+  width: 90%;
+  margin: auto;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 300;
+}
+
+.scrollBtn {
+  position: absolute;
+  z-index: 20;
+  background-color: #fff;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+
+.scrollUpBtn {
+  display: none;
+  bottom: 36px;
+}
+
+.lpHomeContent {
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  padding-top: 5vh;
+  height: 80vh;
+}
+
+.lpHomeContent h1, .lpHomeContent h2 {
+  letter-spacing: 1px;
+}
+
+.lpHomeContent h1 {
+  font-size: 50px;
+}
+
+.lpHomeContent h2 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.lpContent, .mlpContent {
+  width: 90%;
+  margin: auto;
+  position: relative;
+  padding: 36px 0;
+}
+
+.lpContent h1, .mlpContent h1 {
+  font-size: 36px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+
+.mlpContent h2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 12px auto;
+}
+
+.mlpFits, .mlpGuides {
+  padding-bottom: 48px;
+}
+
+.mlpFits {
+  background-color: #fff;
+}
+
+.mlpFit .learnMoreVideo img {
+  height: 120px;
+  margin-top: 20px;
+}
+
+.mlpFit ul {
+  list-style: disc;
+  padding: 0 12px 0 36px;
+  text-align: left;
+  font-size: 24px;
+  margin: 12px auto;
+}
+
+.mlpFit ul p {
+  font-size: 16px;
+  margin: 12px 0;
+  width: 100%;
+}
+
+.mlpGuide {
+  width: 26%;
+  margin: 42px 0;
+}
+
+.mlpGuide img {
+  width: 86px;
+  margin: 16px auto;
+}
+
+.betExplanation .lpContent h1 {
+  margin-bottom: 56px;
+}
+
+.guideCards, .industryPartners, .betExplanation, .faqBlock {
+  padding: 48px 0 80px 0;
+  background-color: #fff;
+}
+
+.faqBlock p {
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 300;
+}
+
+.betCard {
+  width: 100%;
+  padding: 20px 15px;
+  cursor: pointer;
+}
+
+.betCard h2, .guideCard h2 {
+  color: rgba(0,0,0,0.54);
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.betCard img, .guideCard img {
+  height: 100px;
+  margin: 24px auto;
+}
+
+.betCard p, .guideCard p {
+  color: #2DB12F;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.guideCopies {
+  margin: 24px auto;
+  width: 88%;
+}
+
+.guideCopies .guideCopyContainer {
+  width: 30%;
+  text-align: center;
+}
+
+.guideScreenshot img {
+  width: 90%;
+}
+
+.guideIcon {
+  width: 86px;
+  height: 86px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.guideIcon img {
+  width: 100%;
+}
+
+.guideCopy {
+  color: rgba(0,0,0,0.87);
+}
+
+.guideCopy h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.guideCopy p {
+  font-size: 18px;
+  color: rgba(0,0,0,0.54);
+  font-weight: 300;
+}
+
+.cardContainer, .guideCard {
+  display: inline-block;
+  width: 30%;
+  max-width: 236px;
+}
+
+.industryPartners {
+  background-color: #f5f5f5;
+  padding-bottom: 24px;
+}
+
+.industryPartners p {
+  width: 80%;
+  margin: 24px auto;
+  font-weight: 300;
+  line-height: 24px;
+  font-size: 18px;
+}
+
+.industryPartners hr {
+  width: 100px;
+  margin: auto !important;
+}
+
+.logos {
+  margin-top: 48px;
+  justify-content: space-around;
+}
+
+.logoContainer {
+  margin-top: 12px;
+}
+
+.logoContainer img {
+  height: 32px;
+  margin-top: 8px;
+}
+
+.betExplanation h1 {
+  margin-bottom: 40px;
+}
+
+.explanationContainer, .explanationText {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.explanationContainer {
+  min-height: 455px;
+}
+
+.explanationText {
+  justify-content: space-between;
+  width: 56%;
+}
+
+.explanationCopy {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 300;
+  text-align: left;
+  margin-bottom: 36px;
+}
+
+.betBook {
+  width: 45%;
+}
+
+.betOptions {
+  height: 48px;
+  margin-bottom: 24px;
+  text-align: left;
+  border-left: 4px solid #2DB12F;
+  border-radius: 2px;
+  padding: 6px 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.betOptions:hover {
+  background-color: rgba(22, 106, 255,0.16);
+}
+
+.betOptions p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.betOptions p:nth-child(2) {
+  color: rgba(0,0,0,0.54);
+}
+
+.explanationCard {
+  width: 30%;
+  min-width: 328px;
+}
+
+.modalCard {
+  position: relative;
+}
+
+.modalCardHeader {
+  height: 24px;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 20px;
+  color: #fff;
+  border-bottom: 1px solid #bdbdbd;
+  text-align: left;
+}
+
+.betIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #bdbdbd;
+  position: absolute;
+  right: 32px;
+  top: 44px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.betType {
+  text-align: right;
+  font-size: 12px;
+  line-height: 20px;
+  padding-right: 80px;
+  margin-bottom: 32px;
+}
+
+.modalCardContent {
+  text-align: left;
+  padding: 0 24px;
+  position: relative;
+}
+
+.modalCardContent img {
+  width: 12px;
+  height: 160px;
+  position: absolute;
+  top: 4px;
+}
+
+.betNumbersContainer {
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.betNumbers {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 20px;
+  width: 86px;
+  float: left;
+}
+
+.betNumExplanation {
+  display: inline-block;
+  height: 48px;
+  float: left;
+}
+
+.betNumExplanation h3 {
+  font-weight: 300;
+  font-size: 18px;
+  margin: 0;
+}
+
+.betNumExplanation p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.modalCardContent:last-child p {
+  font-size: 12px;
+  line-height: 16px;
+  margin: 4px 0;
+  padding-bottom: 32px;
+}
+/* -------------------------------- */
+
+/* -----------Style for Sports Preference------------ */
+.sportsPreference h1 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 36px auto 24px;
+}
+
+.sportsPreference p {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 300;
+  margin: 0 auto;
+}
+
+.sportsChoices {
+  align-items: center;
+  width: 30%;
+  margin: 24px auto;
+}
+
+.sportsChoice {
+  width: 30%;
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.sportsChoice:hover {
+  background-color: rgba(22, 106, 255,0.16) !important;
+}
+
+.sportsChoice img {
+  width: 50%;
+  margin: 12px auto 0;
+}
+
+.sportsChoice p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 8px auto;
+}
+
+.editUsername:hover, .editSportsPreference:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.sportsPreferenceContainer {
+  overflow-y: hidden;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* -------------------------------- */
+
+/* --------------Deposit Page Styles-------------- */
+.depositHeader {
+  margin: 0;
+  padding: 8px 24px;
+  color: #fff;
+  text-align: left;
+}
+
+.depositHeader h1 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.depositTerms {
+  font-size: 12px;
+  padding: 0 24px;
+  text-align: left;
+}
+
+.depositAmounts {
+  padding: 24px;
+}
+
+.depositAmounts h2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 auto 16px;
+  text-align: left;
+}
+
+.populatedAmount {
+  width: 40%;
+  background-color: #fff;
+  height: 86px;
+}
+
+.populatedAmount h3 {
+  font-weight: 500;
+  font-size: 28px;
+  text-align: center;
+}
+
+.depositReason {
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid #f0f0f0;
+  width: 300px;
+  margin: 24px 0;
+}
+
+.depositReason h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 24px auto ;
+}
+
+.depositReason ul {
+  list-style: disc;
+  margin-left: 24px;
+  padding-right: 24px;
+}
+
+.depositReason li {
+  text-align: left;
+  font-size: 24px;
+  line-height: 20px;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.depositReason li span {
+  font-size: 16px;
+}
+
+.depositReason div {
+  margin: 36px auto;
+  font-size: 12px;
+  padding: 0 36px;
+}
+
+/* -------------------------------- */
+
+.contentHeader, .content {
+  position: relative;
+  margin: auto;
+  width: 52%;
+  max-width: 544px;
+}
+
+.FillEdges {
+  position: absolute;
+  width: 100%;
+  background-color: #FFF;
+  height: 48px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.tabContent {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(0,0,0,0.38);
+  width: 544px;
+  margin: 0 auto;
+  margin-top: 3px;
+  padding-bottom: 24px;
+}
+
+.navbackArrow {
+  text-align: left;
+  width: 24px;
+  height: 24px;
+  margin: 18px 0;
+  margin-left: -5px;
+  float: left;
+  color: rgba(0,0,0,0.38) !important;
+  cursor: pointer !important;
+}
+
+.logo {
+  float: left !important;
+  padding-top: 10px;
+}
+
+.login-submit {
+  position: relative;
+  width: 200px;
+  margin-top: 48px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.FundCards {
+  margin: 0 auto;
+  height: 100%;
+  padding: 0;
+  padding-top: 32px;
+  box-sizing: border-box;
+}
+
+.FundCard {
+  margin-bottom: 32px;
+}
+
+.FundCardItem:hover {
+  background-color: #f5f5f5 !important;
+}
+
+.FundHeader {
+  background-color: #fff;
+  text-align: left;
+  padding: 20px 0 16px 0;
+}
+
+.MuiCardContent-root-10 {
+  padding: 16px !important;
+}
+
+.poolCardContent {
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
+
+.bettingManagerInfo {
+  width: 24%;
+  max-width: 80px;
+  min-width: 64px;
+}
+
+.bettingManagerInfo .avatarContainer {
+  margin: auto;
+}
+
+.bettingManagerInfo p {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.poolDetail {
+  margin-left: 12px;
+  position: relative;
+}
+
+.wageredTag {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+}
+
+.poweredByContainer {
+  align-items: baseline;
+}
+
+.poweredByContainer > span {
+  font-size: 12px;
+  display: inline-block;
+  margin: 0 6px 0 0;
+  align-self: flex-end;
+}
+
+.poweredByContainer .avatarContainer, .poweredByContainer .avatarImg, .poweredByDetail .avatarContainer, .poweredByDetail .avatarImg {
+  margin: 0;
+}
+
+.poweredByDetail {
+  justify-content: flex-start;
+}
+
+.PortfolioHeader, .AccountHeader, .PerformanceHeader {
+  background-color: #fff;
+  text-align: left;
+  padding: 32px 0 16px 0;
+}
+
+.GameDetails {
+  background-color: #FFF;
+  padding: 20px 0 16px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.PortfolioCard, .GameCard {
+  margin: 16px auto;
+  padding: 12px 32px;
+  position: relative;
+}
+
+.GameCard {
+  padding: 12px 16px;
+}
+
+.gameTopHeader, .networksInfo {
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 16px;
+}
+
+.networksInfo {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.gameScores {
+  margin: 8px auto;
+  margin-bottom: 0;
+}
+
+.gameScores .teamsInfo {
+  float: left;
+  text-align: left;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.gameScores .scoresInfo {
+  float: right;
+}
+
+.scoresInfo table th, .scoresInfo table td {
+  font-size: 12px;
+  line-height: 14px;
+  padding: 0 4px;
+  text-align: center;
+}
+
+.scoresInfo table th {
+  color: rgba(0,0,0,0.38);
+  font-weight: 400;
+}
+
+.scoresInfo table td {
+  padding-top: 2px;
+  line-height: 14px;
+}
+
+.latestPbp .pbpItem {
+  justify-content: flex-start;
+}
+
+.latestPbp .pbpItem .pbpPlay {
+  width: 84%;
+}
+
+.InteractionCards {
+  column-count: 2;
+}
+
+.InteractionCard {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.FundTitle {
+  float:left;
+}
+
+.recharts-wrapper {
+  margin: 0 auto;
+}
+
+.loginForm {
+  width: 352px;
+  margin: auto;
+  margin-top: 30vh;
+  transform: translateY(-10%);
+}
+
+.locationWrapper {
+  position: absolute;
+  height: 400px;
+  width: 352px;
+  top: 50%;
+  left: 50%;
+  margin-left: -176px;
+  margin-top: -200px;
+}
+
+.locationBlocked {
+  position: absolute;
+  height: 500px;
+  width: 352px;
+  top: 50%;
+  left: 50%;
+  margin-left: -176px;
+  margin-top: -250px;
+}
+
+.locationBlocked ol {
+  text-align: left;
+  padding-left: 20px;
+  font-size: 14px;
+}
+
+.locationBlocked ol li {
+  margin-bottom: 12px;
+}
+
+.formInputStyle {
+  height: 78px !important;
+}
+
+.formInputStyle label {
+  line-height: 24px !important;
+  top: 38px !important;
+}
+
+.formTextAreaStyle label {
+  line-height: 24px !important;
+  top: 10px !important;
+}
+
+.formInputStyle input {
+  margin-top: 10px !important;
+}
+
+.passwordError {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #d50000;
+}
+
+.passwordError p {
+  margin: 0;
+}
+
+.pwVisibility {
+  position: absolute;
+  width: 20px;
+  margin-top: 40px;
+  margin-left: -24px;
+}
+
+.registrationForm {
+  height: 460px;
+  margin-top: -230px;
+}
+
+.pinForm {
+  text-align: center;
+}
+
+.pinForm h2 {
+  font-size: 14px;
+}
+
+.pinInput {
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  outline: none;
+  border: none;
+  letter-spacing: 8px;
+  color: #2DB12F;
+  font-size: 24px;
+  width: 65px;
+  display: block;
+  margin: auto;
+}
+
+.pinInput::-webkit-input-placeholder {
+  color: #2DB12F;
+}
+.pinInput:-moz-placeholder {
+  color: #2DB12F;
+}
+.pinInput::-moz-placeholder {
+  color: #2DB12F;
+}
+.pinInput:-ms-input-placeholder {
+  color: #2DB12F;
+}
+
+/* ---------------Fund Activity Style----------------  */
+.activityInOpenFund .flexContainer {
+  padding: 12px 0;
+}
+
+.activityInOpenFund .avatarContainer {
+  margin-right: 8px;
+}
+
+.activityInOpenFund .avatarImg {
+  margin-bottom: 0;
+}
+/* -------------------------------------------------  */
+
+/* ---------------Account Page Style----------------  */
+.AccountHeader, .PerformanceHeader {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.avatarContainer {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.avatarImg img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.avatarImg span {
+  font-weight: 500;
+  color: #fff;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.avatarBtn {
+  position: relative;
+  width: 80px;
+}
+
+.avatarBtn input {
+  width: 80px;
+  height: 24px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.AccountCard {
+  text-align: left;
+}
+
+.AccountCard h2 {
+  color: rgba(0,0,0,0.38);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  margin-top: 24px;
+}
+
+.accountOptions a {
+  height: 40px;
+}
+
+.accountOptions a>div, .accountOption {
+  position: relative;
+  padding: 12px 12px 0 12px;
+  font-size: 12px;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.accountOptions a>div:hover {
+  background-color: #f0f0f0;
+}
+
+.accountOption {
+  cursor: auto;
+}
+
+.logoutBtn {
+  border: none;
+  background-color: #f5f5f5;
+  margin: 20px auto;
+  color: #2DB12F;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logoutBtn:hover {
+  opacity: 0.6;
+}
+/* ------------------------------------------------------  */
+
+.recentText {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.emptyPageHolder {
+  width: 352px;
+  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -80px;
+  margin-left: -56px;
+}
+
+.emptyPortfolio {
+  text-align: center;
+  width: 352px;
+  margin: 36px auto;
+}
+
+.emptyPageHolder svg, .emptyPortfolio svg {
+  color: rgba(0,0,0,0.38) !important;
+  width: 80px !important;
+  height: 80px !important;
+}
+
+.emptyPageHolder p, .emptyPortfolio p {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(0,0,0,0.38);
+}
+
+.dialogContent {
+  width: 352px !important;
+}
+
+.dialogPaper {
+  padding-top: 36px;
+  height: 388px;
+}
+
+.learnMoreBtn {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  width: 90px;
+  cursor: pointer;
+  color: #2DB12F;
+}
+
+.btbThumbs {
+  margin-top: 16px;
+  width: 124px;
+  text-align: center;
+}
+
+.thumbUp svg, .thumbDown svg {
+  height: 20px !important;
+  vertical-align: bottom !important;
+  margin-right: 2px;
+}
+
+.poweredBy {
+  width: 100%;
+  height: 30px;
+  padding: 2px 0;
+  text-align: right;
+  line-height: 30px;
+}
+
+.poweredBy span {
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.poweredBy img {
+  height: 100%;
+  float: right;
+}
+
+.progressDots {
+  width: 48px;
+  height: 10px;
+  margin: 24px auto;
+}
+
+.progressDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.recentCard {
+  padding: 0 16px;
+}
+
+.recentCard:hover {
+  background-color: #f0f0f0 !important;
+}
+
+.recentCard:active {
+  background-color: #f0f0f0 !important;
+}
+
+/*--------------------Styles for Compete Banners-------------------*/
+.competeBanners {
+  padding: 0 32px 32px 0;
+}
+
+.competeBanners img {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 2px;
+}
+
+/*--------------------Styles for Beat the bettor-------------------*/
+.publicBtbLandingPage {
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+.btbLpHeader, .btbHowToPlay {
+  padding: 36px;
+}
+
+.btbLpHeader {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+}
+
+.btbLpHeader h1 {
+  font-family: "Audiowide";
+}
+
+.btbLpHeader h2 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 48px;
+}
+
+.btbHowToPlay {
+  padding-bottom: 48px;
+}
+
+.btbHowToPlay svg {
+  height: 20px !important;
+  position: relative;
+  top: 4px;
+}
+
+.btbHowToPlay li {
+  line-height: 24px;
+  margin: 24px 0;
+  text-align: left;
+  font-weight: 300;
+}
+
+.btbHowToPlay li span {
+  font-weight: 500;
+}
+
+.btbScreenShot {
+  padding-top: 24px;
+  width: 36%;
+}
+
+.btbScreenShot img {
+  width: 280px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  margin: 16px 0;
+}
+
+.btbScreenShot svg {
+  width: 100% !important;
+  height: 36px !important;
+}
+
+.btbRules img {
+  width: 100%;
+}
+
+.btbRules .betScreenshot {
+  margin-bottom: 24px;
+  padding: 20px;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btbRules .betScreenshot img {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.btbRules {
+  padding: 0 20px 20px !important;
+  margin: auto;
+}
+
+.btbRulesCard {
+  margin-bottom: 16px;
+}
+
+.btbRules ul {
+  padding: 28px 32px 16px;
+  margin: 0 auto;
+}
+
+.btbRules ul li {
+  padding-left: 24px;
+  padding-bottom: 24px;
+  border-left: 2px solid #2DB12F;
+  position: relative;
+}
+
+.btbRules ul li:last-child {
+  padding-bottom: 0;
+  border-left: 2px solid #0000;
+}
+
+.btbRules ul li i {
+  position: absolute;
+  top: -1px;
+  left: -10px;
+  width: 18px;
+  height: 18px;
+  color: #2DB12F;
+  border: 2px solid #2DB12F;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  font-style: normal;
+}
+
+.btbRules ul svg {
+  height: 18px !important;
+  position: relative;
+  top: 2px;
+}
+
+.btbRules ul li div {
+  font-size: 18px;
+  line-height: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.btbRules ul li span {
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 300;
+}
+
+.leaderBoardCards {
+  margin: 12px auto;
+  padding: 0 12px;
+}
+
+.btbLeaderboard .avatarContainer {
+  margin: 0 8px;
+}
+
+.btbLeaderboard .avatarImg {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 0;
+}
+
+.btbLeaderboard .avatarImg span {
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.btbLeaderboard table {
+  width: 100%;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.btbLeaderboard tr {
+  border-bottom: 1pt solid #e0e0e0;
+}
+
+.btbLeaderboard th, .btbLeaderboard td {
+  padding: 12px 4px;
+}
+
+.btbLeaderboard tr th:first-child, .btbLeaderboard tr td:first-child {
+  text-align: left;
+}
+
+.PredictionCard {
+  padding: 0;
+  margin: 24px auto;
+}
+
+.predictionDialog .PredictionCard {
+  margin-top: 0;
+  box-shadow: none !important;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.predictionDialogCopy {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.predictionBetInfo {
+  padding: 16px 16px 0 0;
+}
+
+.predictionMgInfoContainer, .predictionThumbContainer {
+  height: 48px;
+  width: 76%;
+  color: #fff;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.predictionMgInfoContainer {
+  border-right: 24px solid #fff;
+  border-top-left-radius: 2px;
+}
+
+.predictionThumbContainer {
+  border-left: 24px solid #fff;
+  border-bottom: 48px solid rgba(22, 106, 255,0.7);
+  border-bottom-right-radius: 2px;
+}
+
+.predictionMgInfo, .predictionThumb {
+  position: absolute;
+}
+
+.predictionMgInfo {
+  left: 16px;
+  top: -40px;
+}
+
+.predictionMgInfo img {
+  border: 1px solid #fff;
+}
+
+.predictionPoints {
+  height: 20px;
+  margin: 16px 0 0 16px;
+}
+
+.predictionThumbContainer span {
+  position: absolute;
+  right: 76px;
+  top: 8px;
+}
+
+.predictionThumb svg {
+  height: 20px !important;
+  width: 20px !important;
+  margin-top: 15px;
+}
+
+.predictionThumb {
+  width: 48px;
+  height: 48px;
+  background-color: #fff;
+  border: 1px solid #2DB12F;
+  border-radius: 50%;
+  text-align: center;
+  right: 16px;
+  top: -8px;
+}
+
+/* ----------------Play by Play Styles----------------- */
+.pbpList {
+  text-align: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.pbpItem {
+  align-items: center;
+}
+
+.pbpClock {
+  width: 10%;
+}
+
+.pbpScore {
+  width: 18%;
+  text-align: right;
+}
+
+.pbpPlay {
+  width: 66%;
+}
+
+/*----------------Withdraw Styles----------------- */
+.withdrawCard {
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.withdrawCard h2 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.withdrawAddressContainer {
+  text-align: left;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.withdrawAddressContainer h3 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.withdrawAddressContainer span {
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.withdrawRules {
+  max-width: 300px;
+  margin: auto;
+}
+
+.withdrawRules p {
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0;
+  text-align: left;
+}
+/*----------------------------------------- */
+
+/*------------------Comment Styles------------------- */
+.commentUserinfo {
+  width: 80%;
+  height: 25px;
+  margin: 4px 0 8px;
+  padding-top: 4px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.commentUserinfo .avatarContainer {
+  height: 25px;
+  margin-right: 8px;
+}
+
+.reportBtn:hover {
+  color: #2DB12F;
+}
+
+.deleteBtn:hover {
+  color: #11CC88;
+}
+
+.reportedFlag {
+  position: relative;
+  bottom: 6px;
+  left: 4px;
+}
+
+.reportedFlag svg {
+  width: 16px !important;
+}
+
+/*----------------------------------------- */
+
+/*-----------------Email Verification Styles----------------- */
+.emailVerification {
+  margin-top: 40vh;
+  transform: translateY(-50%);
+}
+
+.emailVerification p {
+  width: 75%;
+  margin: auto;
+}
+/*----------------------------------------- */
+
+/*------------------Mobile View Styles------------------ */
+@media only screen and (max-width: 624px) {
+
+  body, html {
+    overflow-x: hidden;
+  }
+
+  .footer {
+    padding: 12px 20px;
+  }
+
+  .footer h3 {
+    margin-bottom: 16px;
+  }
+
+  .footer .locations {
+    display: none;
+  }
+
+  .footer .footerIcons {
+    width: auto;
+  }
+
+  .contactCard {
+    width: 87.5%;
+    padding: 24px;
+  }
+
+  .contactForm {
+    width: 100%;
+  }
+
+  .moreContact {
+    display: none;
+  }
+
+  .sportsChoices {
+    width: 87.5%;
+  }
+
+  .contentHeader {
+    width: 87.5%;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .emptyPageHolder {
+    width: 232px;
+    margin-left: -116px;
+  }
+
+  .emptyPortfolio {
+    width: 232px;
+  }
+
+  .PortfolioCard {
+    padding: 12px 16px;
+  }
+
+  .GameCard {
+    padding: 16px;
+  }
+
+  .FundCard {
+    margin-bottom: 8px;
+  }
+
+  .InteractionCards {
+    column-count: 1;
+  }
+
+  .InteractionCard {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .loginForm {
+    width: 280px;
+  }
+
+  .locationWrapper {
+    width: 280px;
+    margin-left: -140px;
+  }
+
+  .locationBlocked {
+    width: 280px;
+    margin-left: -140px;
+  }
+
+  .dialogContent {
+    width: 87.5% !important;
+  }
+
+  .dialogPaper {
+    padding-top: 0;
+    height: 352px;
+  }
+
+  .tabContent {
+    width: 87.5%;
+    padding-bottom: 0;
+  }
+
+  .flexItem {
+    margin-bottom: 4px;
+  }
+
+  .lpHome {
+  }
+
+  .lpHomeContent h1 {
+    font-size: 18px;
+    margin-top: 10vh;
+  }
+
+  .lpHomeContent h2 {
+    font-size: 14px;
+    line-height: 20px;
+    width: 64%;
+    margin: 5vh auto 0;
+  }
+
+  .lpContent, .mlpContent {
+    width: 87.5%;
+  }
+
+  .guideCards {
+    padding: 48px 0;
+  }
+
+  .guideCards .flexContainer {
+    flex-direction: column;
+  }
+
+  .guideCopies .guideCopyContainer {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 36px;
+  }
+
+  .betExplanation {
+    padding: 32px 0;
+  }
+
+  .guideCards h1, .betExplanation h1 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+  }
+
+  .guideCards h2 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+    color: rgba(0,0,0,0.87);
+  }
+
+  .guideCards p {
+    color: rgba(0,0,0,0.54);
+    width: 90%;
+    margin: auto;
+  }
+
+  .mlpGuide {
+    width: 100%;
+    margin: 42px 0;
+  }
+
+  .logos {
+    margin-top: 24px;
+  }
+
+  .logoContainer img {
+    height: 20px;
+    margin-top: 4px;
+    width: 130px;
+  }
+
+  .betExplanation .lpContent h1 {
+    margin-bottom: 36px;
+  }
+
+  .explanationText {
+    width: 94%;
+    margin-bottom: 24px;
+  }
+
+  .betBook {
+    width: 49%;
+  }
+
+  .betOptions {
+    padding: 6px;
+  }
+
+  .betOptions p {
+    font-size: 12px;
+  }
+
+  .betExplanation h2 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.38);
+  }
+
+  .explanationCard {
+    margin: auto;
+  }
+
+  .modalCard {
+    padding: 0;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .modalCard h1 {
+    margin-bottom: 16px;
+  }
+
+  .modalCard .flexItem {
+    height: 80px;
+  }
+
+  .scrollUpBtn {
+    display: block;
+  }
+
+  .latestPbp .pbpItem .pbpPlay {
+    width: 68%;
+  }
+
+  .btbLpHeader h1 {
+    font-size: 28px;
+  }
+
+  .btbHowToPlay li {
+    width: 100%;
+  }
+
+  .competeBanners {
+    padding: 0;
+    width: 87.5%;
+    margin: 8px auto;
+    margin-top: 0;
+  }
+
+  .predictionMgInfoContainer {
+    width: 100%;
+  }
+
+  .predictionThumbContainer {
+    width: 72%;
+  }
+
+  .depositTerms {
+    margin-bottom: 68px;
+  }
+
+  .comingSoonBody {
+    padding: 80px 5% 100px;
+  }
+
+  .countingDownUnit {
+    width: 72px;
+  }
+
+  .emailInput input {
+    display: block;
+    margin: 24px auto;
+  }
+
+  .peekImg {
+    right: 50%;
+    margin-right: -150px;
+  }
+}
+/*----------------------------------------- */
+
+/*-------------------Tablet View Styles------------------ */
+@media (min-width: 624px) and (max-width: 1100px) {
+
+  .sportsChoices {
+    width: 48%;
+  }
+
+  .betBook {
+    width: 49%;
+  }
+
+  .logoContainer img {
+    height: 28px;
+    margin-top: 4px;
+  }
+
+  .emptyPageHolder {
+    width: 260px;
+    margin-left: -38px;
+  }
+
+  .emptyPortfolio {
+    width: 260px;
+  }
+
+  .contentHeader, .content {
+    width: 65%;
+    max-width: 380px;
+  }
+
+  .loginForm {
+    width: 320px;
+  }
+
+  .locationWrapper {
+    width: 320px;
+    margin-left: -160px;
+  }
+
+  .locationBlocked {
+    width: 320px;
+    margin-left: -160px;
+  }
+
+  .FundCard {
+    margin-bottom: 16px;
+  }
+
+  .dialogContent {
+    width: 320px !important;
+  }
+
+  .dialogPaper {
+    padding: 20px 0 32px 0;
+    height: 372px;
+  }
+
+  .tabContent {
+    width: 380px;
+  }
+
+  .latestPbp .pbpItem .pbpPlay {
+    width: 76%;
+  }
+
+  .competeBanners {
+    padding: 0;
+    width: 65%;
+    max-width: 380px;
+    margin: 16px auto;
+    margin-top: 0;
+  }
+
+  .predictionMgInfoContainer {
+    width: 84%;
+  }
+
+  .predictionThumbContainer {
+    width: 80%;
+  }
+}
+/*----------------------------------------- */
+
+/*------------------Large Desktop View Styles------------------- */
+@media only screen and (min-width: 1100px) {
+  .FundCards {
+    max-width: 768px;
+  }
+
+  .FundCard {
+    width: 47.8%;
+    max-width: 352px;
+    margin-right: 32px;
+    display: inline-block;
+    float: left;
+  }
+
+  .btbRules ul {
+    padding: 28px 56px 32px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+
+  body, html {
+    overflow-x: hidden;
+  }
+
+  .FundCards {
+    padding-top: 20px;
+  }
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/*----------------------Styles for Bettor Manager------------------*/
+.managerOnboarding {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1350;
+}
+
+.onboardingContent {
+  padding: 24px 0;
+}
+
+.onboardingContent h1 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.onboardingContent h2 {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 300;
+  margin: 16px 0;
+  text-align: left;
+}
+
+.onboardingInputs {
+  margin: 36px auto;
+  text-align: left;
+}
+
+.specialtyInput {
+  margin-top: 30px;
+}
+
+.onboardingGuide {
+  margin: 24px auto;
+  font-size: 14px;
+}
+
+.fundCreationTips {
+  font-size: 14px;
+}
+
+.fundCreationTips div {
+  margin: 12px auto;
+  line-height: 18px;
+}
+
+.fundCreationTips span {
+  font-weight: 500;
+  color: rgba(0,0,0,0.87);
+}
+
+.manageBtns {
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  justify-content: center;
+}
+
+.performanceCard {
+  margin-top: 24px;
+}
+
+.performanceCardHeader {
+  padding: 8px 16px 0;
+}
+
+.performanceCardBody {
+  padding: 0 16px 16px;
+}
+
+.betsPlacedCard, .streaksCard {
+  width: 164px;
+  flex-grow: 1;
+}
+
+.deleteBtn {
+  text-align: right;
+}
+
+.deleteBtn span {
+  cursor: pointer;
+}
+
+.deleteBtn span:hover {
+  font-weight: 500;
+}
+
+.streaksCard {
+  margin-left: 24px;
+}
+
+.statsQuestion {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 300;
+  margin-top: 48px;
+}
+
+.statsQuestion span {
+  font-weight: 400;
+}
+
+.numberType {
+  margin: 16px 0 8px 16px;
+}
+
+.statsDaysNumbers {
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.gameChoice, .gameLine {
+  width: 48%;
+  margin: 8px 0;
+  padding: 12px;
+  padding-right: 5%;
+  border-left: 4px solid #11CC88;
+  cursor: pointer;
+  box-sizing: border-box
+}
+
+.teamInfo {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.teamInfo:first-child {
+  margin-bottom: 8px;
+}
+
+.teamInfo>div {
+  margin-right: 8px;
+}
+
+.selectedGames tr {
+  border-bottom: 1px solid rgba(0,0,0,0.38);
+}
+
+.selectedGames {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.54);
+  margin-top: 8px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.selectedGames tr td {
+  padding: 8px 0;
+}
+
+.potentialGamesCopy {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 24px;
+}
+
+.gameLine {
+  text-align: left;
+  font-size: 14px;
+  padding: 0 12px;
+}
+
+.currentBets {
+  margin: 16px 24px 0;
+  text-align: left;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.currentBet {
+  margin-top: 12px;
+  flex-wrap: nowrap;
+}
+
+.currentBet div:last-child {
+  font-weight: 500;
+  margin-left: 16px;
+}
+
+.moneyAlert {
+  margin-top: 8px;
+}
+
+.moneyAlert span {
+  display: inline-block;
+  padding: 6px 2px;
+  background-color: #f5f5f5;
+}
+
+@media only screen and (max-width: 624px) {
+  .mlpHeader {
+    padding: 0 20px;
+  }
+
+  .managerOnboarding {
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .betsPlacedCard, .streaksCard {
+    width: auto;
+  }
+
+  .gameChoice {
+    width: 100%;
+    padding-right: 10%;
+  }
+
+  .gameLine {
+    width: 100%;
+    margin: 8px auto;
+  }
+}
+
+.managerGreenIcon {
+  color: #11CC88;
+}
+
+.managerSizeIcon {
+  font-size: 24px !important;
+}
