@@ -10,6 +10,7 @@ import * as Scroll from "react-scroll";
 import { gMuiTheme } from "./../Styles";
 import browseLobby from "../../../Assets/browse_lobby.png";
 import placeBet from "../../../Assets/place_bet.png";
+import followBet from "../../../Assets/follow_bet.png";
 import LearningModalCard from "../LearningModalCard";
 import Bet from "../../Models/Bet";
 import MobileTopHeaderContainer from "../../Containers/MobileTopHeaderContainer";
@@ -156,7 +157,7 @@ export default class LandingPage extends Component<BetProps, BetState> {
                   </div>
                   <div className="guideCopyContainer">
                     <div className="guideIcon">
-                      <img src={``} alt="Follow Bet" />
+                      <img src={followBet} alt="Follow Bet" />
                     </div>
                     <div className="guideCopy">
                       <h3>

@@ -6,7 +6,7 @@ import { gMuiTheme } from "./Styles";
 import moneylineB from "../../Assets/moneyline_blue.png";
 import spreadB from "../../Assets/spread_blue.png";
 import overunderB from "../../Assets/overunder_blue.png";
-import progressBar from "../../Assets/progressBar.png";
+import progressBar from "../../Assets/progressBarGreen.png";
 
 type CardProps = {
   betDetail: string,

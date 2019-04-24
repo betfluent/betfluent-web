@@ -9,6 +9,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { gMuiTheme } from "./Styles";
 import browseLobby from "../../Assets/browse_lobby.png";
 import placeBet from "../../Assets/place_bet.png";
+import followBet from "../../Assets/follow_bet.png";
 
 const themeColor = gMuiTheme.palette.themeColor;
 const textColor1 = gMuiTheme.palette.textColor1;
@@ -100,7 +101,7 @@ export default class TourDialog extends Component<TourDialogProps> {
       },
       {
         text: "VIEW THE BETS AND FOLLOW THE ACTION",
-        icon: <img src={``} alt="Follow Bet" style={iconStyle} />
+        icon: <img src={followBet} alt="Follow Bet" style={iconStyle} />
       }
     ];
 
