@@ -1,5 +1,6 @@
 // @flow
-
+/* eslint-disable */
+/* eslint-disable */
 import React, { Component } from "react";
 import ReactGA from "react-ga";
 import RaisedButton from "material-ui/RaisedButton";

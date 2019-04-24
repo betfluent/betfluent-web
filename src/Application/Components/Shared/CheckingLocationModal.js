@@ -1,5 +1,6 @@
 // @flow
-
+/* eslint-disable */
+/* eslint-disable */
 import React from "react";
 import Dialog from "material-ui/Dialog";
 import Lottie from "react-lottie";

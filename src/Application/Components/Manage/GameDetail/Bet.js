@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable */
 
 import React, { Component } from "react";
 import { IntlProvider, FormattedNumber } from "react-intl";

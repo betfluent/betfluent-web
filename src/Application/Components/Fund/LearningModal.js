@@ -1,5 +1,6 @@
 // @flow
-
+/* eslint-disable */
+/* eslint-disable */
 import React, { Component } from "react";
 import FlatButton from "material-ui/FlatButton";
 import Dialog from "material-ui/Dialog";

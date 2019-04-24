@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable */
 
 import React, { Component } from "react";
 import ErrorPic from "../../Assets/404.png";

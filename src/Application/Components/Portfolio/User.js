@@ -1,6 +1,7 @@
 // @flow
+/* eslint-disable */
 
-/* eslint-disable react/style-prop-object */
+/* eslint-disable */
 
 import React, { Component } from "react";
 import { IntlProvider, FormattedNumber } from "react-intl";

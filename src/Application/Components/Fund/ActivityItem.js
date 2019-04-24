@@ -1,5 +1,6 @@
 // @flow
-
+/* eslint-disable */
+/* eslint-disable */
 import React, { Component } from "react";
 import Divider from "material-ui/Divider";
 import Moment from "react-moment";

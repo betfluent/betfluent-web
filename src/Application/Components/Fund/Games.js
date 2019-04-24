@@ -1,5 +1,6 @@
 // @flow
-
+/* eslint-disable */
+/* eslint-disable */
 import React, { Component } from "react";
 import isEqual from "lodash/isEqual";
 import groupBy from "lodash/groupBy";

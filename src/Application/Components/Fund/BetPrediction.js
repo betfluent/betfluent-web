@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable */
 
 import React, { Component } from "react";
 import ThumbUp from "material-ui/svg-icons/action/thumb-up";

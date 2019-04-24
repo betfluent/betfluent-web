@@ -1,5 +1,6 @@
 // @flow
-
+/* eslint-disable */
+/* eslint-disable */
 import React from "react";
 import Dialog from "material-ui/Dialog";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";

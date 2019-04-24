@@ -1,5 +1,5 @@
 import Idle from "react-idle";
-
+/* eslint-disable */
 export default class IdleLock extends Idle {
   componentWillReceiveProps(nextProps) {
     if (!nextProps.lock) {

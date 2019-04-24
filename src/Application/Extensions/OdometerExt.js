@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable */
 
 import ReactOdometer from "react-odometerjs";
 import "odometer/themes/odometer-theme-default.css";

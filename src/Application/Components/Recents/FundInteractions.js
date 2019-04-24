@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable */
 
 import { Component } from "react";
 import { getFundInteractionsFeed } from "../../Services/DbService";

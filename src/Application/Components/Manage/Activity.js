@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable */
 
 import React, { Component } from "react";
 import Divider from "material-ui/Divider";

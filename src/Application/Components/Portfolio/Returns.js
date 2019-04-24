@@ -1,5 +1,6 @@
 // @flow
-
+/* eslint-disable */
+/* eslint-disable */
 import React, { Component } from "react";
 import EmptyWork from "material-ui/svg-icons/action/work";
 import groupBy from "lodash/groupBy";

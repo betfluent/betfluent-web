@@ -1,5 +1,6 @@
 // @flow
-
+/* eslint-disable */
+/* eslint-disable */
 import React, { Component } from "react";
 import { IntlProvider, FormattedNumber } from "react-intl";
 import Divider from "material-ui/Divider";
