@@ -202,7 +202,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
           title={
             <Link to="/">
               <img
-                src="/bf-logo.png"
+                src="/betfluent-logo.png"
                 alt="Betfluent"
                 style={{ height: "36px" }}
               />
@@ -227,7 +227,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
               src={
                 this.props.isManager
                   ? "/betfluent-logo.png"
-                  : "/betfluent-logo.png"
+                  : "/bf-logo.png"
               }
               height={48}
               style={logoStyle}
