@@ -16,7 +16,7 @@ import Lottie from "react-lottie";
 import CheckMark from "material-ui/svg-icons/navigation/check";
 import { getNewUid } from "../../Services/DbService";
 import { WagerService } from "../../Services/BackendService";
-import { gMuiTheme } from "../Styles";
+import { gMuiTheme, mobileBreakPoint } from "../Styles";
 import loadingDots from "../../../Assets/loadingDots.json";
 import ReauthenticateModal from "../Shared/ReauthenticateModal";
 import CloseConsoleModal from "../Shared/CloseConsoleModal";
@@ -26,6 +26,7 @@ import RestrictedLocationModal from "../Shared/RestrictedLocationModal";
 const textColor1 = gMuiTheme.palette.textColor1;
 const textColor3 = gMuiTheme.palette.textColor3;
 const alertColor = gMuiTheme.palette.alertColor;
+const themeColor = gMuiTheme.palette.themeColor;
 
 const loadingDotsOptions = {
   loop: true,
@@ -157,8 +158,29 @@ export default class WagerDialog extends Component<WagerDialogProps> {
 
   render() {
     const wagerTitleStyle = {
-      textAlign: "center"
+      textAlign: "center",
+      color: themeColor
     };
+
+    const subTitleStyle = {
+      color: textColor1,
+      width: 215,
+      fontSize: "12px",
+      fontWeight: 400,
+      margin: "0 auto",
+      textAlign: "center"
+    }
+
+    const avatarWrapperStyle = {
+      margin: "16px auto",
+      textAlign: "center"
+    }
+
+    const avatarStyle = {
+      width: 136,
+      height: 136,
+      borderRadius: 68
+    }
 
     const buttonContainerStyle = {
       position: "absolute",
@@ -214,7 +236,8 @@ export default class WagerDialog extends Component<WagerDialogProps> {
     };
 
     const modalStyle = {
-      width: this.props.size > 340 ? 350 : 310
+      width: this.props.size > 340 ? 350 : 310,
+      transform: this.props.size > 375 ? "translate(0, 64px)" : "translate(0, 32px)"
     };
 
     const checkStyle = {
@@ -243,7 +266,7 @@ export default class WagerDialog extends Component<WagerDialogProps> {
           </div>
         );
       }
-      return "WAGER";
+      return "BET WITH";
     };
 
     const actions = [
@@ -366,20 +389,30 @@ export default class WagerDialog extends Component<WagerDialogProps> {
       });
     }
 
+    console.log(this.props.size)
+
     return (
       <Dialog
-        title="Place a Wager"
+        title="Bet With"
         titleStyle={wagerTitleStyle}
         actions={actions}
         actionsContainerStyle={buttonContainerStyle}
         modal
         open={this.state.open}
         onRequestClose={this.handleClose}
-        bodyStyle={{ minHeight: 270, overflowX: "hidden" }}
+        bodyStyle={{ minHeight: 270, overflowX: "hidden", overflowY: "scroll" }}
         contentStyle={modalStyle}
-        paperProps={{ style: { minHeight: 415 } }}
+        paperProps={{ style: { minHeight: this.props.size > 375 ? 610 : 575 } }}
         style={{ overflowY: "scroll" }}
       >
+        <div style={subTitleStyle}>
+            You are choosing to ride with {this.props.fund.manager.name}, 
+            You will be notified of the bet details 
+            10 minutes before the game starts.
+        </div>
+        <div style={avatarWrapperStyle}>
+          <img style={avatarStyle} src={this.props.fund.manager.avatarUrl} />
+        </div>
         <div style={{ textAlign: "center" }}>
           <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
           <div style={balanceStyle}>
@@ -420,9 +453,6 @@ export default class WagerDialog extends Component<WagerDialogProps> {
               width: "200px"
             }}
           >
-            <Link to="/termsofuse#riskdisclosure" target="_blank">
-              Please review our Risk Disclosure
-            </Link>
             <div className="wagerConfetti">
               <DomConfetti
                 active={this.state.wagerConfirmed}
