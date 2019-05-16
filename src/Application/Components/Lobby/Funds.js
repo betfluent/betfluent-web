@@ -110,7 +110,7 @@ export default class Funds extends Component<FundsProps> {
             <MobileTopHeaderContainer />
           ) : null}
             { this.state.managers ?
-              this.state.managers.map((m, i) => <ManagerRow key={i} manager={m} user={this.props.user} />)
+              this.state.managers.map((m, i) => <ManagerRow key={i} manager={m} user={this.props.user} size={this.props.size} />)
             : (
               <div className="emptyPageHolder">
                 <EmptyPlayList />

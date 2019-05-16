@@ -1,13 +1,15 @@
 .manager-wrapper {
     display: flex;
     align-items: center;
-    padding: 24px 64px;
+    padding: 8px 64px;
+    padding-right: 0;
 }
 
 .manager-details {
     display: flex;
     align-items: center;
-    width: 356px;
+    min-width: 356px;
+    max-width: 356px;
 }
 
 .manager-avatar {
@@ -39,4 +41,15 @@
 
 .pool-wrapper {
     display: flex;
+    overflow-x: scroll;
+    overflow-y: visible;
+}
+
+.carousel-container {
+    padding: 16px 0;
+    padding-right: 16px;
+}
+
+.carousel-item {
+    width: 368px !important;
 }
