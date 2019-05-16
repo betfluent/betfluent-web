@@ -636,12 +636,15 @@ export function getOpenFundsFeed(callback) {
     } else {
       const funds = [];
       fundModels.forEach((fund, index) => {
-        getManager(fund.managerId).then(manager => {
-          fund.manager = manager; // eslint-disable-line no-param-reassign
-          funds.splice(index, 0, fund);
-          if (funds.length === fundModels.length) {
-            callback(funds);
-          }
+        getFundDetails(fund.id).then(fundDetails => {
+          getManager(fund.managerId).then(manager => {
+            fund.manager = manager; // eslint-disable-line no-param-reassign
+            fund.fundDetails = fundDetails;
+            funds.splice(index, 0, fund);
+            if (funds.length === fundModels.length) {
+              callback(funds);
+            }
+          });
         });
       });
     }

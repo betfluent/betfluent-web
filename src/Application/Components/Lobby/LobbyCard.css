@@ -1,0 +1,47 @@
+.pool-badges {
+    text-align: center;
+    height: 8px;
+    width: 100%;
+}
+
+.pool-title {
+    margin-bottom: 8px;
+}
+
+.pool-game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pool-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(0, 0, 0, 0.38);
+    width: 124px;
+    padding: 8px;
+    font-size: 12px;
+}
+
+.pool-actions {
+    border-top: 1px solid #D8D8D8;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.pool-action {
+    display:flex;
+    color: #1A661A;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 48px;
+}
+
+.left-border {
+    border-left: 1px solid #D8D8D8;
+}

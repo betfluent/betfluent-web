@@ -29,7 +29,8 @@ module.exports = class Fund {
       type,
       wagers
     },
-    manager
+    manager,
+    fundDetails
   ) {
     this.amountReturned = amountReturned;
     this.amountWagered = amountWagered;
@@ -42,6 +43,7 @@ module.exports = class Fund {
     if (isTraining) this.isTraining = isTraining;
     this.league = league;
     if (manager) this.manager = manager;
+    if (fundDetails) this.fundDetails = fundDetails;
     this.managerId = managerId;
     this.maxBalance = maxBalance;
     this.maxInvestment = maxInvestment;
