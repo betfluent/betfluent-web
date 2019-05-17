@@ -1,4 +1,5 @@
 import React from 'react';
+import Divider from 'material-ui/Divider';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import LobbyCard from './LobbyCard';
@@ -27,24 +28,27 @@ const ManagerRow = ({ manager, user, size }) => {
     };
 
     return (
-        <div className="manager-wrapper">
-            <div className="manager-details">
-                <img className="manager-avatar" src={manager.avatarUrl} />
-                <div className="manager-content">
-                    <div className="manager-name">{manager.name}</div>
-                    <div className="manager-follow">FOLLOW +</div>
-                    <div className="manager-followers">{`${manager.followers || 0} Followers`}</div>
-                    <div className="manager-performance">{`Recent Performance`}</div>
+        <React.Fragment>
+            <div className="manager-wrapper">
+                <div className="manager-details">
+                    <img className="manager-avatar" src={manager.avatarUrl} />
+                    <div className="manager-content">
+                        <div className="manager-name">{manager.name}</div>
+                        <div className="manager-follow">FOLLOW +</div>
+                        <div className="manager-followers">{`${manager.followers || 0} Followers`}</div>
+                        <div className="manager-performance">{`Recent Performance`}</div>
+                    </div>
+                </div>
+                <div className="pool-wrapper">
+                    <Carousel responsive={responsive} containerClass="carousel-container" itemClass="carousel-item" autoPlay={false}>
+                        {manager.funds && manager.funds.map((fund, i) => (
+                            <LobbyCard key={i} fund={fund} user={user} />
+                        ))}
+                    </Carousel>
                 </div>
             </div>
-            <div className="pool-wrapper">
-                <Carousel responsive={responsive} containerClass="carousel-container" itemClass="carousel-item" autoPlay={false}>
-                    {manager.funds && manager.funds.map((fund, i) => (
-                        <LobbyCard key={i} fund={fund} user={user} />
-                    ))}
-                </Carousel>
-            </div>
-        </div>
+            <Divider />
+        </React.Fragment>
     )
 }
 
