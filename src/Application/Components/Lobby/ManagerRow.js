@@ -17,12 +17,12 @@ const ManagerRow = ({ manager, user, size }) => {
           items: calcItems({ size, count: manager.funds.length })
         },
         tablet: {
-          breakpoint: { max: 1024, min: 464 },
+          breakpoint: { max: 1024, min: 624 },
           items: calcItems({ size, count: manager.funds.length })
         },
         mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: calcItems({ size, count: manager.funds.length })
+          breakpoint: { max: 624, min: 0 },
+          items: 1
         }
     };
 

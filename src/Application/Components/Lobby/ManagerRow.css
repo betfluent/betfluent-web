@@ -1,12 +1,14 @@
 .manager-wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 8px 64px;
+    padding: 8px 0px;
     padding-right: 0;
 }
 
 .manager-details {
     display: flex;
+    flex-direction: column;
     align-items: center;
     min-width: 356px;
     max-width: 356px;
@@ -41,15 +43,33 @@
 
 .pool-wrapper {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: hidden;
     overflow-y: visible;
+    max-width: 100%;
 }
 
 .carousel-container {
     padding: 16px 0;
-    padding-right: 16px;
 }
 
 .carousel-item {
-    width: 368px !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 624px) {
+    .manager-wrapper, .manager-details {
+        flex-direction: row;
+    }
+
+    .manager-wrapper {
+        padding: 8px 64px;
+        padding-right: 0;
+    }
+
+    .carousel-item {
+        width: 384px !important;
+        display: block;
+    }
 }
