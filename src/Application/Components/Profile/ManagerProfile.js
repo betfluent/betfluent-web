@@ -537,9 +537,9 @@ export default class Performance extends Component<PerformanceProps> {
         }
       };
 
-      const firstRealFund = this.state.funds.filter(
+      const firstRealFund = (Array.isArray(this.state.funds) && this.state.funds.filter(
         fund => !fund.isTraining
-      )[0];
+      ) || [])[0];
       const now = new Date();
       const currentTimeMillis = now.getTime();
       const startTimeMillis = firstRealFund
