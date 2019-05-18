@@ -55,6 +55,7 @@ type FundsProps = {
 export default class Funds extends Component<FundsProps> {
   constructor() {
     super();
+    this.state = {};
     this.onFundsChange = this.onFundsChange.bind(this);
   }
 
@@ -83,16 +84,14 @@ export default class Funds extends Component<FundsProps> {
     }, {})
 
     const fundsByManagerArr = Object.keys(fundsByManager).map(k => ({ ...fundsByManager[k] }));
-
-    console.log(fundsByManagerArr);
-
+    
     this.setState({
       managers: fundsByManagerArr
     });
   }
 
   render() {
-    if (!this.props.user || !this.state || !this.state.managers)
+    if (!this.state.managers)
       return (
         <MuiThemeProvider theme={appTheme}>
           <div className="fill-window center-flex">
@@ -109,7 +108,7 @@ export default class Funds extends Component<FundsProps> {
           {this.props.size < mobileBreakPoint ? (
             <MobileTopHeaderContainer />
           ) : null}
-            { this.state.managers ?
+            { this.state.managers.length ?
               this.state.managers.map((m, i) => <ManagerRow key={i} manager={m} user={this.props.user} size={this.props.size} />)
             : (
               <div className="emptyPageHolder">

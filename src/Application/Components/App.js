@@ -100,21 +100,21 @@ const LoginPage = (props: routeProps) => {
       return <Redirect to={props.location.state.referrer} />;
     }
   }
-  return <Redirect to="/lobby" />;
+  return <Redirect to="/" />;
 };
 
 const ForgotPasswordPage = (props: routeProps) => {
   if (!props.authUser || props.authUser === null) {
     return <ForgotPassword {...props} size={props.size} />;
   }
-  return <Redirect to="/lobby" />;
+  return <Redirect to="/" />;
 };
 
 const RegistrationPage = (props: routeProps) => {
   if (!props.authUser || props.authUser === null) {
     return <Register {...props} size={props.size} />;
   }
-  return <Redirect to="/lobby" />;
+  return <Redirect to="/" />;
 };
 
 const ManagerRoute = ({ component: PrivateComponent, ...rest }: routeProps) => {
@@ -262,9 +262,6 @@ class App extends Component<AppProps> {
   render() {
     const paneSize = () => {
       const { pathname } = this.props.location;
-      if (pathname.includes("register") || pathname === "/") {
-        return { marginLeft: 0, marginBottom: 0 };
-      }
       if (this.state.size > desktopBreakPoint) {
         return { marginLeft: 240 };
       }
@@ -283,19 +280,58 @@ class App extends Component<AppProps> {
       }
       return (
         <div className="App">
-          {this.props.authUser ? (
-            <HeaderRouter
-              setLock={this.setLock}
-              size={this.state.size}
-              authUser={this.props.authUser}
-            />
-          ) : null}
-
+          <HeaderRouter
+            setLock={this.setLock}
+            size={this.state.size}
+            authUser={this.props.authUser}
+          />
           <div style={paneSize()}>
             <Switch>
               <Route
                 exact
                 path="/"
+                render={() => (
+                  <FundsContainer
+                    authUser={this.props.authUser}
+                    size={this.state.size}
+                    isManager={this.props.isManager}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/pools/:fund"
+                render={() => (
+                  <FundRouter
+                    authUser={this.props.authUser}
+                    size={this.state.size}
+                    isManager={this.props.isManager}
+                  />
+                )}
+              />
+              <Route
+                path="/pools/:fund/:game"
+                render={() => (
+                  <GameDetailRouter
+                    authUser={this.props.authUser}
+                    size={this.state.size}
+                    isManager={this.props.isManager}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/managers/:managerId"
+                render={() => (
+                  <ProfileRouter 
+                    authUser={this.props.authUser}
+                    size={this.state.size}
+                    isManager={this.props.isManager}
+                  />
+                )}
+              />
+              <Route
+                path="/login"
                 render={() => (
                   <LoginPage
                     authUser={this.props.authUser}
@@ -321,13 +357,6 @@ class App extends Component<AppProps> {
                     size={this.state.size}
                   />
                 )}
-              />
-              <PrivateRoute
-                path="/lobby"
-                component={FundsContainer}
-                authUser={this.props.authUser}
-                size={this.state.size}
-                isManager={this.props.isManager}
               />
               <PrivateRoute
                 path="/portfolio"
@@ -402,29 +431,6 @@ class App extends Component<AppProps> {
                 exact
                 path="/manage/pools/:fund/:game"
                 component={ManageGameDetailRouter}
-                authUser={this.props.authUser}
-                size={this.state.size}
-                isManager={this.props.isManager}
-              />
-              <PrivateRoute
-                exact
-                path="/pools/:fund"
-                component={FundRouter}
-                authUser={this.props.authUser}
-                size={this.state.size}
-                isManager={this.props.isManager}
-              />
-              <PrivateRoute
-                path="/pools/:fund/:game"
-                component={GameDetailRouter}
-                authUser={this.props.authUser}
-                size={this.state.size}
-                isManager={this.props.isManager}
-              />
-              <PrivateRoute
-                exact
-                path="/managers/:managerId"
-                component={ProfileRouter}
                 authUser={this.props.authUser}
                 size={this.state.size}
                 isManager={this.props.isManager}

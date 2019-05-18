@@ -49,7 +49,7 @@ type FundProps = {
   fund: {
     status: string
   },
-  computedMatch: {
+  match: {
     params: {
       fund: string
     }
@@ -72,7 +72,7 @@ type FundProps = {
 export default class Fund extends Component<FundProps> {
   constructor(props) {
     super(props);
-    this.fundId = props.computedMatch.params.fund;
+    this.fundId = props.match.params.fund;
     this.classesSet = false;
     this.setClasses = this.setClasses.bind(this);
     this.onFundChange = this.onFundChange.bind(this);
@@ -173,7 +173,8 @@ export default class Fund extends Component<FundProps> {
   }
 
   setWagering() {
-    this.setState({ wagering: true });
+    if (this.props.user) this.setState({ wagering: true });
+    else this.props.history.push("/login");
   }
 
   endWagering() {
@@ -342,7 +343,7 @@ export default class Fund extends Component<FundProps> {
   render() {
     if (this.state.fund === null) return <NotFound />;
 
-    if (!this.state || !this.state.fund || !this.props.user) {
+    if (!this.state || !this.state.fund) {
       return (
         <MuiThemeProvider theme={appTheme}>
           <div className="fill-window center-flex">
@@ -359,7 +360,7 @@ export default class Fund extends Component<FundProps> {
       userWager = this.state.fund.amountWagered
         ? this.state.fund.amountWagered / 100
         : 0;
-    } else {
+    } else if (this.props.user && Array.isArray(this.props.user.investments)) {
       userWager = this.props.user.investments[this.state.fund.id] / 100;
       userCurrent = this.state.fund.userReturn(userWager * 100) / 100;
     }
@@ -419,8 +420,8 @@ export default class Fund extends Component<FundProps> {
       props.open ? (
         <RaisedButton
           primary
-          disabled={!this.props.authUser.emailVerified}
-          label="WAGER"
+          disabled={this.props.authUser && !this.props.authUser.emailVerified}
+          label={!props.user ? "SIGN IN" : "WAGER"}
           style={
             this.props.size > mobileBreakPoint
               ? wagerButtonStyle

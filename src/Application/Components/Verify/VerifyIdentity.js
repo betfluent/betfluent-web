@@ -330,7 +330,7 @@ export default class VerifyIdentity extends Component<VerifyIdentityProps> {
   }
 
   gotoLobby() {
-    this.props.history.replace("/lobby");
+    this.props.history.replace("/");
   }
 
   gotoDeposit(amount) {
@@ -347,7 +347,7 @@ export default class VerifyIdentity extends Component<VerifyIdentityProps> {
   }
 
   handleClose() {
-    this.props.history.replace("/lobby");
+    this.props.history.replace("/");
   }
 
   closeIdentityDialog = () => {

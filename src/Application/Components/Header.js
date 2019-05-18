@@ -89,11 +89,26 @@ const HistoryWithBadge = props => (
   </Badge>
 );
 
+const unauthenticatedMenu = [
+  {
+    label: "Lobby",
+    icon: AvFeaturedPlayList,
+    url: "/",
+    index: 0
+  },
+  {
+    label: "Learn",
+    icon: School,
+    url: "/learn",
+    index: 4
+  }
+]
+
 const clientMenuMobile = [
   {
     label: "Lobby",
     icon: AvFeaturedPlayList,
-    url: "/lobby"
+    url: "/"
   },
   {
     label: "Portfolio",
@@ -116,7 +131,7 @@ const clientMenu = [
   {
     label: "Lobby",
     icon: AvFeaturedPlayList,
-    url: "/lobby",
+    url: "/",
     index: 0
   },
   {
@@ -150,7 +165,7 @@ const managerMenu = [
   {
     label: "Lobby",
     icon: AvFeaturedPlayList,
-    url: "/lobby"
+    url: "/"
   },
   {
     label: "Manage",
@@ -205,11 +220,16 @@ type DesktopIconsType = {
   primaryTextStyle: {},
   selectedIndex: number,
   isManager: boolean,
+  isAuthenticated: boolean,
   unread: boolean
 };
 
 const DesktopIcons = (props: DesktopIconsType) => {
-  const list = props.isManager ? managerMenu : clientMenu;
+  let list;
+  if (props.isManager) list = managerMenu;
+  else if (props.isAuthenticated) list = clientMenu;
+  else list = unauthenticatedMenu;
+
   return (
     <div style={{ paddingBottom: 56 }}>
       {list.map(
@@ -269,12 +289,14 @@ export default class Header extends Component<HeaderProps> {
   componentDidMount() {
     this.setRoute(this.props);
     this.setData(this.props);
-    this.interactionsCount = getUserInteractionsCount(
-      this.props.user.id,
-      unread => {
-        this.setState({ unread });
-      }
-    );
+    if (this.props.user) {
+      this.interactionsCount = getUserInteractionsCount(
+        this.props.user.id,
+        unread => {
+          this.setState({ unread });
+        }
+      );
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -291,9 +313,9 @@ export default class Header extends Component<HeaderProps> {
   setRoute = props => {
     const iLocation = props.history.location.pathname;
     let selectedIndex = 0;
-    if (!props.isManager) {
+    if (!!props.authUser) {
       switch (iLocation) {
-        case "/lobby":
+        case "/":
           selectedIndex = 0;
           this.setState({ selectedIndex });
           break;
@@ -317,9 +339,9 @@ export default class Header extends Component<HeaderProps> {
           selectedIndex = this.state.selectedIndex;
           this.setState({ selectedIndex });
       }
-    } else {
+    } else if (!props.isManager) {
       switch (iLocation) {
-        case "/lobby":
+        case "/":
           selectedIndex = 0;
           this.setState({ selectedIndex });
           break;
@@ -339,24 +361,40 @@ export default class Header extends Component<HeaderProps> {
           selectedIndex = this.state.selectedIndex;
           this.setState({ selectedIndex });
       }
+    } else {
+      switch (iLocation) {
+        case "/":
+          selectedIndex = 0;
+          this.setState({ selectedIndex });
+          break;
+        case "/learn":
+          selectedIndex = 1;
+          this.setState({ selectedIndex });
+          break;
+        default:
+          selectedIndex = this.state.selectedIndex;
+          this.setState({ selectedIndex });
+      }
     }
   };
 
   setData(props) {
     const data = [];
-    data.push({ value: props.user.balance / 100 });
+    if (props.user) {
+      data.push({ value: props.user.balance / 100 });
 
-    const returnKeys = props.user.returns
-      ? Object.keys(props.user.returns)
-      : [];
-    const investments = props.user.investments
-      ? Object.keys(props.user.investments).reduce((total, key) => {
-          if (!returnKeys.includes(key))
-            return total + props.user.investments[key];
-          return total;
-        }, 0)
-      : 0;
-    data.push({ value: investments / 100 });
+      const returnKeys = props.user.returns
+        ? Object.keys(props.user.returns)
+        : [];
+      const investments = props.user.investments
+        ? Object.keys(props.user.investments).reduce((total, key) => {
+            if (!returnKeys.includes(key))
+              return total + props.user.investments[key];
+            return total;
+          }, 0)
+        : 0;
+      data.push({ value: investments / 100 });
+    }
     this.setState({ data });
   }
 
@@ -367,7 +405,8 @@ export default class Header extends Component<HeaderProps> {
   }
 
   gotoDeposit() {
-    this.props.history.push("/account/deposit");
+    if (this.props.authUser) this.props.history.push("/account/deposit");
+    else this.props.history.push("/login");
   }
 
   render() {
@@ -448,15 +487,18 @@ export default class Header extends Component<HeaderProps> {
     };
 
     const renderUserData = () => {
+      const { authUser, user } = this.props;
+      const { data } = this.state;
+
       if (!this.props.isManager) {
         return (
           <div style={{ height: 236 }}>
-            <div style={nameStyle}>{this.props.user.public.name}</div>
+            <div style={nameStyle}>{user && user.public.name}</div>
             <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
             <div style={balanceStyle}>
               $<span style={{ position: "relative", bottom: 2 }}>
                 <OdometerExt
-                  value={this.state.data[0].value + 0.001}
+                  value={data.length && data[0].value + 0.001}
                   format="(,ddd).ddd"
                 />
               </span>
@@ -465,7 +507,7 @@ export default class Header extends Component<HeaderProps> {
             <div style={balanceStyle}>
               $<span style={{ position: "relative", bottom: 2 }}>
                 <OdometerExt
-                  value={this.state.data[1].value + 0.001}
+                  value={data.length && data[1].value + 0.001}
                   format="(,ddd).ddd"
                 />
               </span>
@@ -473,9 +515,9 @@ export default class Header extends Component<HeaderProps> {
             <RaisedButton
               style={{ width: 128 }}
               primary
-              disabled={!this.props.authUser.emailVerified}
+              disabled={authUser && !authUser.emailVerified}
               onClick={() => this.gotoDeposit()}
-              label="Deposit"
+              label={authUser ? "DEPOSIT" : "SIGN IN"}
             />
           </div>
         );
@@ -508,6 +550,7 @@ export default class Header extends Component<HeaderProps> {
                 <Divider style={dividerStyle} />
                 <DesktopIcons
                   isManager={this.props.isManager}
+                  isAuthenticated={!!this.props.authUser}
                   selectedIndex={this.state.selectedIndex}
                   unread={this.state.unread}
                   activeStyle={activeStyle}
@@ -520,17 +563,23 @@ export default class Header extends Component<HeaderProps> {
             </IntlProvider>
           );
         }
-        return (
-          <Logged
-            key={11}
-            isManager={this.props.isManager}
-            selectedIndex={this.state.selectedIndex}
-            unread={this.state.unread}
-            activeStyle={activeStyle}
-            inactiveStyle={inactiveStyle}
-            bottomNavStyle={bottomNavStyle}
-          />
-        );
+        return !!this.props.authUser ? (
+            <Logged
+              key={11}
+              isManager={this.props.isManager}
+              isAuthenticated={!!this.props.authUser}
+              selectedIndex={this.state.selectedIndex}
+              unread={this.state.unread}
+              activeStyle={activeStyle}
+              inactiveStyle={inactiveStyle}
+              bottomNavStyle={bottomNavStyle}
+            />
+          )
+          : (
+            <div className="header-sign-in" onClick={() => this.props.history.push("/login")}>
+              SIGN IN
+            </div>
+          )
       }
       return null;
     };

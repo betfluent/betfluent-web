@@ -20,7 +20,7 @@ type ProfileProps = {
 
 export default class Profile extends Component<ProfileProps> {
   componentWillMount() {
-    getManagerDetail(this.props.computedMatch.params.managerId).then(
+    getManagerDetail(this.props.match.params.managerId).then(
       manager => {
         this.setState({ manager });
       }

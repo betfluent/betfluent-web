@@ -38,13 +38,14 @@ type MobileTopHeaderProps = {
 class MobileTopHeader extends Component<MobileTopHeaderProps> {
   constructor() {
     super();
+    this.data = [];
     this.state = {
       drawerOpen: false
     };
   }
 
   componentWillMount() {
-    if (this.props.user) {
+    if (this.props.user && this.props.user) {
       this.setData(this.props);
     }
   }
@@ -56,8 +57,8 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
   }
 
   setData(nextProps) {
+    const data = [];
     if (nextProps.user) {
-      const data = [];
       data.push({ value: nextProps.user.balance / 100 });
 
       const returnKeys = nextProps.user.returns
@@ -71,8 +72,8 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
           }, 0)
         : 0;
       data.push({ value: investments / 100 });
-      this.data = data;
     }
+    this.data = data;
   }
 
   gotoDeposit = () => {
@@ -85,8 +86,6 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
   };
 
   render() {
-    if (!this.props.user) return null;
-
     const activeStyle = {
       fontSize: 14,
       fontWeight: 500,
@@ -160,7 +159,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
       if (!this.props.isManager) {
         return (
           <div style={{ height: 236 }}>
-            <div style={nameStyle}>{this.props.user.public.name}</div>
+            <div style={nameStyle}>{this.props.user && this.props.user.public.name}</div>
             <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
             <div style={balanceStyle}>
               <span style={{ position: "relative", bottom: 2 }}>
@@ -168,7 +167,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
                   style="currency"
                   currency="USD"
                   minimumFractionDigits={0}
-                  value={this.data[0].value}
+                  value={this.data.length && this.data[0].value}
                 />
               </span>
             </div>
@@ -179,7 +178,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
                   style="currency"
                   currency="USD"
                   minimumFractionDigits={0}
-                  value={this.data[1].value}
+                  value={this.data.length && this.data[1].value}
                 />
               </span>
             </div>
@@ -188,12 +187,12 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
               primary
               onClick={() => this.gotoDeposit()}
               label="Deposit"
-              disabled={!this.props.authUser.emailVerified}
+              disabled={this.props.authUser && !this.props.authUser.emailVerified}
             />
           </div>
         );
       }
-      return <div style={nameStyle}>{this.props.user.name}</div>;
+      return <div style={nameStyle}>{this.props.user && this.props.user.name}</div>;
     };
 
     return (
@@ -209,7 +208,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
             </Link>
           }
           className="mobileBanner"
-          style={{ backgroundColor: "white" }}
+          style={{ backgroundColor: "white", position: "fixed" }}
           titleStyle={{ height: "36px", lineHeight: "36px", marginTop: "12px" }}
           onLeftIconButtonClick={this.showNavMenu}
         />

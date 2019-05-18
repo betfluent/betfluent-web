@@ -2511,3 +2511,18 @@ td {
 .managerSizeIcon {
   font-size: 24px !important;
 }
+
+.header-sign-in {
+  background-color: rgb(45,177,47);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 56px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px -1px 6px, rgba(0, 0, 0, 0.12) 0px -1px 4px;
+  z-index: 9999;
+}

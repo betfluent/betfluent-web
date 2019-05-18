@@ -29,7 +29,7 @@ const renderTime = closingTime => {
     return <CountDown diff={diff} />;
 }
 
-const renderCardContent = ({ fund, user }) => {
+const renderCardContent = ({ fund }) => {
     const game = fund.fundDetails.potentialGames[0];
     return (
         <div className="poolCardContent">
@@ -153,7 +153,7 @@ const mainStyle = {
         height: 8,
         borderRadius: 6,
         top: 15,
-        backgroundColor: user.isManager
+        backgroundColor: user && user.isManager
             ? "rgba(17,204,136,0.2)"
             : "rgba(90,150,255,0.2)"
     };
@@ -174,7 +174,7 @@ const mainStyle = {
                     </span>,
                     <WagerRatio
                         key={7}
-                        isManager={user.isManager}
+                        isManager={user && user.isManager}
                         fund={fund}
                         wagerRatioStyle={wagerRatioStyle}
                     />
@@ -184,7 +184,7 @@ const mainStyle = {
                 />
                 <Divider />
                 <CardContent>
-                    {renderCardContent({ fund, user })}
+                    {renderCardContent({ fund })}
                 </CardContent>
                 </Card>
             </IntlProvider>

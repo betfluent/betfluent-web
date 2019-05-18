@@ -72,7 +72,7 @@ export default class Verify extends Component<VerifyProps> {
       (this.props.user.documentStatus === "VERIFIED" ||
         this.props.user.documentStatus === "PENDING")
     ) {
-      this.props.history.replace("/lobby");
+      this.props.history.replace("/");
     }
   }
 
@@ -231,7 +231,7 @@ export default class Verify extends Component<VerifyProps> {
   }
 
   handleClose() {
-    this.props.history.replace("/lobby");
+    this.props.history.replace("/");
   }
 
   closeOnFidoDialog = () => {
@@ -374,7 +374,7 @@ export default class Verify extends Component<VerifyProps> {
               this.goBackToFund();
             }}
             gotoLobby={() => {
-              this.props.history.replace("/lobby");
+              this.props.history.replace("/");
             }}
             onFidoCheck
             loading={this.state.onFidoLoading}

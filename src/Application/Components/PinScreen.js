@@ -153,7 +153,7 @@ export default class PinScreen extends Component<PinScreenProps> {
       color: textColor3
     };
 
-    if (!user)
+    if (user === undefined)
       return (
         <MuiThemeProvider theme={appTheme}>
           <div style={{ marginTop: 24 }} className="center-flex">
@@ -162,7 +162,7 @@ export default class PinScreen extends Component<PinScreenProps> {
         </MuiThemeProvider>
       );
 
-    if (user.pin) {
+    if (user && user.pin) {
       return (
         <div>
           <h2 style={{ color: this.state.pinMegColor }}>{this.state.pinMeg}</h2>
@@ -205,7 +205,7 @@ export default class PinScreen extends Component<PinScreenProps> {
   }
 
   render() {
-    if (!this.props.authUser) return null;
+    if (this.props.authUser === undefined) return null;
 
     const paperStyle = {
       position: "absolute",

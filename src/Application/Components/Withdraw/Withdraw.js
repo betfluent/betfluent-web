@@ -169,7 +169,7 @@ export default class Withdraw extends Component<WithdrawProps> {
 
     CallbackService(callbackRequest).then(() => {
       window.setTimeout(() => {
-        this.props.history.push("/lobby");
+        this.props.history.push("/");
       }, 5000);
     });
     window.finalizeTransaction = undefined;
