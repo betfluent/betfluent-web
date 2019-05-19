@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Divider from 'material-ui/Divider';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -31,9 +32,11 @@ const ManagerRow = ({ manager, user, size, onClick }) => {
         <React.Fragment>
             <div className="manager-wrapper">
                 <div className="manager-details">
-                    <img className="manager-avatar" src={manager.avatarUrl} />
+                    <Link to={`/managers/${manager.id}`}>
+                        <img className="manager-avatar" src={manager.avatarUrl} />
+                    </Link>
                     <div className="manager-content">
-                        <div className="manager-name">{manager.name}</div>
+                        <Link to={`/managers/${manager.id}`}><div className="manager-name">{manager.name}</div></Link>
                         <div className="manager-follow">FOLLOW +</div>
                         <div className="manager-followers">{`${manager.followers || 0} Followers`}</div>
                         <div className="manager-performance">{`Recent Performance`}</div>
