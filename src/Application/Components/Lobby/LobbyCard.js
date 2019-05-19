@@ -56,14 +56,6 @@ const renderCardContent = ({ fund }) => {
                     />
                 </div>
             </div>
-            <div className="pool-actions">
-                <div className="pool-action">
-                    BET AGAINST
-                </div>
-                <div className="pool-action left-border">
-                    BET WITH
-                </div>
-            </div>
         </div>
     );
 }
@@ -144,7 +136,7 @@ const mainStyle = {
   )
 }
 
-  const LobbyCard = ({ fund, user }) => {
+  const LobbyCard = ({ fund, user, onClick }) => {
     const linearStyle = {
         position: "absolute",
         right: 20,
@@ -159,36 +151,46 @@ const mainStyle = {
     };
     
     return (
-        <Link key={fund.id} to={`/pools/${fund.id}`}>
-            <IntlProvider locale="en">
-                <Card
-                style={mainStyle}
-                zDepth={2}
-                className="FundCardItem"
-                >
-                <CardHeader
-                    title={[
-                    <Alarm key={11} style={alarmStyle} />,
-                    <span key={10} style={timeStyle}>
-                        {renderTime(fund.closingTime)} Left
-                    </span>,
-                    <WagerRatio
-                        key={7}
-                        isManager={user && user.isManager}
-                        fund={fund}
-                        wagerRatioStyle={wagerRatioStyle}
+        <React.Fragment>
+            <Link key={fund.id} to={`/pools/${fund.id}`}>
+                <IntlProvider locale="en">
+                    <Card
+                    style={mainStyle}
+                    zDepth={2}
+                    className="FundCardItem"
+                    >
+                    <CardHeader
+                        title={[
+                        <Alarm key={11} style={alarmStyle} />,
+                        <span key={10} style={timeStyle}>
+                            {renderTime(fund.closingTime)} Left
+                        </span>,
+                        <WagerRatio
+                            key={7}
+                            isManager={user && user.isManager}
+                            fund={fund}
+                            wagerRatioStyle={wagerRatioStyle}
+                        />
+                        ]}
+                        titleStyle={cardHeaderTitleStyle}
+                        style={cardHeaderStyle}
                     />
-                    ]}
-                    titleStyle={cardHeaderTitleStyle}
-                    style={cardHeaderStyle}
-                />
-                <Divider />
-                <CardContent>
-                    {renderCardContent({ fund })}
-                </CardContent>
-                </Card>
-            </IntlProvider>
-        </Link>
+                    <Divider />
+                    <CardContent>
+                        {renderCardContent({ fund, onClick })}
+                    </CardContent>
+                    </Card>
+                </IntlProvider>
+            </Link>
+            <div className="pool-actions">
+                <div id="bet-against" className="pool-action" onClick={onClick(fund)}>
+                    BET AGAINST
+                </div>
+                <div id="bet-with" className="pool-action left-border" onClick={onClick(fund)}>
+                    BET WITH
+                </div>
+            </div>
+        </React.Fragment>
     )
   }
 

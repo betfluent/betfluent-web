@@ -9,11 +9,13 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { MuiThemeProvider as V0MuiThemeProvider } from "material-ui";
 import moment from "moment";
 import EmptyPlayList from "material-ui/svg-icons/av/featured-play-list";
+import { IntlProvider } from "react-intl";
 import { getOpenFundsFeed } from "../../Services/DbService";
 import { appTheme, gMuiTheme } from "../Styles";
 import { mgMuiTheme } from "../ManagerStyles";
 import MobileTopHeaderContainer from "../../Containers/MobileTopHeaderContainer";
 import ManagerRow from "./ManagerRow";
+import WagerDialogContainer from "../../Containers/WagerDialogContainer";
 
 moment.updateLocale("en", {
   relativeTime: {
@@ -57,6 +59,8 @@ export default class Funds extends Component<FundsProps> {
     super();
     this.state = {};
     this.onFundsChange = this.onFundsChange.bind(this);
+    this.handleClick= this.handleClick.bind(this);
+    this.endWagering = this.endWagering.bind(this);
   }
 
   componentDidMount() {
@@ -90,6 +94,19 @@ export default class Funds extends Component<FundsProps> {
     });
   }
 
+  handleClick(fund) {
+    return (e) => {
+      e.stopPropagation();
+      const wagering = true;
+      const fade = e.target.id === 'bet-against';
+      this.setState({ wagering, fund, fade })  
+    }
+  }
+
+  endWagering() {
+    this.setState({ wagering: false, fund: null, fade: null });
+  }
+
   render() {
     if (!this.state.managers)
       return (
@@ -104,23 +121,36 @@ export default class Funds extends Component<FundsProps> {
       <V0MuiThemeProvider
         muiTheme={this.props.isManager ? mgMuiTheme : gMuiTheme}
       >
-        <div>
-          {this.props.size < mobileBreakPoint ? (
-            <MobileTopHeaderContainer />
-          ) : null}
-            { this.state.managers.length ?
-              this.state.managers.map((m, i) => <ManagerRow key={i} manager={m} user={this.props.user} size={this.props.size} />)
-            : (
-              <div className="emptyPageHolder">
-                <EmptyPlayList />
-                <p>
-                  Looks like there aren&apos;t any open pools. <br />
-                  Check back later to get in on the action.
-                </p>
-              </div>
-            )}
-            <div className="clear" />
-        </div>
+        <React.Fragment>
+          <div>
+            {this.props.size < mobileBreakPoint ? (
+              <MobileTopHeaderContainer />
+            ) : null}
+              { this.state.managers.length ?
+                this.state.managers.map((m, i) => <ManagerRow key={i} manager={m} user={this.props.user} size={this.props.size} onClick={this.handleClick} />)
+              : (
+                <div className="emptyPageHolder">
+                  <EmptyPlayList />
+                  <p>
+                    Looks like there aren&apos;t any open pools. <br />
+                    Check back later to get in on the action.
+                  </p>
+                </div>
+              )}
+              <div className="clear" />
+          </div>
+          {this.state.fund && (
+            <IntlProvider locale="en">
+              <WagerDialogContainer
+                user={this.props.user}
+                fund={this.state.fund}
+                open={this.state.wagering}
+                endWagering={this.endWagering}
+                size={this.props.size}
+                fade={this.state.fade}
+              />
+            </IntlProvider>)}
+        </React.Fragment>
       </V0MuiThemeProvider>
     );
   }

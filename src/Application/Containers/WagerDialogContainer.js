@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import { authenticateUser } from "../Actions";
 import WagerDialog from "../Components/Fund/WagerDialog";
 
@@ -21,4 +22,4 @@ const WagerDialogContainer = connect(mapStateToProps, mapDispatchToProps)(
   WagerDialog
 );
 
-export default WagerDialogContainer;
+export default withRouter(WagerDialogContainer);

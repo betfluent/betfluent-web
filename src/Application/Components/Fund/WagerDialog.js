@@ -259,6 +259,7 @@ export default class WagerDialog extends Component<WagerDialogProps> {
 
     const infoStyle = {
       fontSize: "14px",
+      textAlign: "center",
       color: textColor3,
       fontWeight: 200,
       margin: "20px 0"
@@ -319,6 +320,25 @@ export default class WagerDialog extends Component<WagerDialogProps> {
       />
     ];
 
+    const signInAction = [
+      <RaisedButton
+        key={0}
+        label="SIGN IN"
+        style={buttonStyle}
+        primary
+        fullWidth
+        onClick={() => {this.props.history.push("/login")}}
+      />,
+      <FlatButton
+        key={1}
+        label="CANCEL"
+        style={buttonStyle}
+        primary
+        fullWidth
+        onClick={this.handleClose}
+      />
+    ]
+
     const SubTitle = props => (
       <span>
         {[
@@ -339,16 +359,16 @@ export default class WagerDialog extends Component<WagerDialogProps> {
       </span>
     );
 
-    if (!this.props.isAuthenticated) {
-      return (
-        <ReauthenticateModal
-          size={this.props.size}
-          open={this.state.open}
-          authUser={this.props.authUser}
-          authenticateUser={this.props.authenticateUser}
-        />
-      );
-    }
+    // if (!this.props.isAuthenticated) {
+    //   return (
+    //     <ReauthenticateModal
+    //       size={this.props.size}
+    //       open={this.state.open}
+    //       authUser={this.props.authUser}
+    //       authenticateUser={this.props.authenticateUser}
+    //     />
+    //   );
+    // }
 
     if (this.props.openConsole) {
       return (
@@ -359,71 +379,71 @@ export default class WagerDialog extends Component<WagerDialogProps> {
       );
     }
 
-    if (
-      !this.props.location ||
-      this.props.approved === null ||
-      this.props.approved === undefined
-    ) {
-      if (this.state.open) {
-        const startCheckingTime = new Date();
-        this.startCheckingTime = startCheckingTime.getTime();
-        ReactGA.modalview("locationModal");
-      }
-      return (
-        <CheckingLocationModal size={this.props.size} open={this.state.open} />
-      );
-    }
+    // if (
+    //   !this.props.location ||
+    //   this.props.approved === null ||
+    //   this.props.approved === undefined
+    // ) {
+    //   if (this.state.open) {
+    //     const startCheckingTime = new Date();
+    //     this.startCheckingTime = startCheckingTime.getTime();
+    //     ReactGA.modalview("locationModal");
+    //   }
+    //   return (
+    //     <CheckingLocationModal size={this.props.size} open={this.state.open} />
+    //   );
+    // }
 
-    if (
-      this.props.location &&
-      this.props.approved &&
-      this.startCheckingTime !== null
-    ) {
-      const endCheckingTime = new Date();
-      const checkingTime = endCheckingTime.getTime() - this.startCheckingTime;
-      this.startCheckingTime = null;
-      ReactGA.timing({
-        category: "Checking Location",
-        variable: "checking location",
-        value: checkingTime,
-        label: "Location Modal"
-      });
-    }
+    // if (
+    //   this.props.location &&
+    //   this.props.approved &&
+    //   this.startCheckingTime !== null
+    // ) {
+    //   const endCheckingTime = new Date();
+    //   const checkingTime = endCheckingTime.getTime() - this.startCheckingTime;
+    //   this.startCheckingTime = null;
+    //   ReactGA.timing({
+    //     category: "Checking Location",
+    //     variable: "checking location",
+    //     value: checkingTime,
+    //     label: "Location Modal"
+    //   });
+    // }
 
-    if (this.props.approved === false) {
-      if (this.state.open) {
-        const startRestrictedTime = new Date();
-        this.startRestrictedTime = startRestrictedTime.getTime();
-        ReactGA.modalview("restrictedLocationModal");
-      }
-      return (
-        <RestrictedLocationModal
-          size={this.props.size}
-          open={this.state.open}
-          handleClose={this.handleClose}
-          behavior="wager"
-        />
-      );
-    }
+    // if (this.props.approved === false) {
+    //   if (this.state.open) {
+    //     const startRestrictedTime = new Date();
+    //     this.startRestrictedTime = startRestrictedTime.getTime();
+    //     ReactGA.modalview("restrictedLocationModal");
+    //   }
+    //   return (
+    //     <RestrictedLocationModal
+    //       size={this.props.size}
+    //       open={this.state.open}
+    //       handleClose={this.handleClose}
+    //       behavior="wager"
+    //     />
+    //   );
+    // }
 
-    if (this.props.approved && this.startRestrictedTime !== null) {
-      const endRestrictedTime = new Date();
-      const restrictedTime =
-        endRestrictedTime.getTime() - this.startRestrictedTime;
-      this.startRestrictedTime = null;
-      ReactGA.timing({
-        category: "Restricted Location",
-        variable: "restricted location",
-        value: restrictedTime,
-        label: "Restricted Location Modal"
-      });
-    }
+    // if (this.props.approved && this.startRestrictedTime !== null) {
+    //   const endRestrictedTime = new Date();
+    //   const restrictedTime =
+    //     endRestrictedTime.getTime() - this.startRestrictedTime;
+    //   this.startRestrictedTime = null;
+    //   ReactGA.timing({
+    //     category: "Restricted Location",
+    //     variable: "restricted location",
+    //     value: restrictedTime,
+    //     label: "Restricted Location Modal"
+    //   });
+    // }
 
     return (
       <Dialog
         title={this.props.fade ? "Bet Against" : "Bet With"}
         titleStyle={wagerTitleStyle}
-        actions={actions}
+        actions={this.props.authUser ? actions : signInAction}
         actionsContainerStyle={buttonContainerStyle}
         modal
         open={this.state.open}
@@ -432,7 +452,7 @@ export default class WagerDialog extends Component<WagerDialogProps> {
         bodyStyle={{ minHeight: 270, overflowX: "hidden", overflowY: "scroll" }}
         contentStyle={modalStyle}
         paperClassName="global-modal-paper"
-        paperProps={{ style: { minHeight: this.props.size > 375 ? 610 : 526 } }}
+        paperProps={{ style: { minHeight: this.props.authUser ? this.props.size > 375 ? 610 : 526 : 424 } }}
         className="global-modal-style"
         style={{ overflowY: "scroll" }}
       >
@@ -443,54 +463,60 @@ export default class WagerDialog extends Component<WagerDialogProps> {
           <img style={avatarStyle} src={this.props.fund.manager.avatarUrl} />
           {this.props.fade && <img style={notStyle} src={notSign} />}
         </div>
-        <div style={{ textAlign: "center" }}>
-          <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
-          <div style={balanceStyle}>
-            <FormattedNumber
-              style="currency"
-              currency="USD"
-              minimumFractionDigits={2}
-              value={this.props.user.balance / 100}
-            />
-          </div>
-          <div style={balanceTitleStyle}>AMOUNT TO WAGER</div>
-          <div style={{ position: "relative" }}>
-            <div style={usdStyle}>$</div>
-            <TextField
-              style={{ width: 150 }}
-              hintStyle={hintStyle}
-              inputStyle={textBoxStyle}
-              className="wagerText"
-              hintText="0"
-              type="number"
-              onChange={this.onWagerChange}
-              value={this.state.displayAmount}
-              errorText={this.state.wagerError}
-              errorStyle={errorStyle}
-            />
+        {!!this.props.authUser && (
+          <div style={{ textAlign: "center" }}>
+            <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
+            <div style={balanceStyle}>
+              <FormattedNumber
+                style="currency"
+                currency="USD"
+                minimumFractionDigits={2}
+                value={this.props.user.balance / 100}
+              />
+            </div>
+            <div style={balanceTitleStyle}>AMOUNT TO WAGER</div>
+            <div style={{ position: "relative" }}>
+              <div style={usdStyle}>$</div>
+              <TextField
+                style={{ width: 150 }}
+                hintStyle={hintStyle}
+                inputStyle={textBoxStyle}
+                className="wagerText"
+                hintText="0"
+                type="number"
+                onChange={this.onWagerChange}
+                value={this.state.displayAmount}
+                errorText={this.state.wagerError}
+                errorStyle={errorStyle}
+              />
+              <div style={infoStyle}>
+                <SubTitle fund={this.props.fund} />
+              </div>
+            </div>
+            <div
+              style={{
+                fontSize: 12,
+                color: textColor3,
+                position: "absolute",
+                bottom: 104,
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "200px"
+              }}
+            >
+              <div className="wagerConfetti">
+                <DomConfetti
+                  active={this.state.wagerConfirmed}
+                  config={confettiConfig}
+                />
+              </div>
+            </div>
+          </div>)}
+          {!this.props.authUser && (
             <div style={infoStyle}>
               <SubTitle fund={this.props.fund} />
             </div>
-          </div>
-          <div
-            style={{
-              fontSize: 12,
-              color: textColor3,
-              position: "absolute",
-              bottom: 104,
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "200px"
-            }}
-          >
-            <div className="wagerConfetti">
-              <DomConfetti
-                active={this.state.wagerConfirmed}
-                config={confettiConfig}
-              />
-            </div>
-          </div>
-        </div>
+          )}
       </Dialog>
     );
   }

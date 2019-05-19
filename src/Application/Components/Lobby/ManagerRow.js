@@ -11,7 +11,7 @@ const calcItems = ({ size, count }) => {
     return Math.min(count, Math.floor(poolContainerWidth / poolWidth));
 }
 
-const ManagerRow = ({ manager, user, size }) => {
+const ManagerRow = ({ manager, user, size, onClick }) => {
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
@@ -42,7 +42,7 @@ const ManagerRow = ({ manager, user, size }) => {
                 <div className="pool-wrapper">
                     <Carousel responsive={responsive} containerClass="carousel-container" itemClass="carousel-item" autoPlay={false}>
                         {manager.funds && manager.funds.map((fund, i) => (
-                            <LobbyCard key={i} fund={fund} user={user} />
+                            <LobbyCard key={i} fund={fund} user={user} onClick={onClick} />
                         ))}
                     </Carousel>
                 </div>
