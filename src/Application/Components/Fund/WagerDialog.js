@@ -16,8 +16,9 @@ import Lottie from "react-lottie";
 import CheckMark from "material-ui/svg-icons/navigation/check";
 import { getNewUid } from "../../Services/DbService";
 import { WagerService } from "../../Services/BackendService";
-import { gMuiTheme, mobileBreakPoint } from "../Styles";
+import { gMuiTheme } from "../Styles";
 import loadingDots from "../../../Assets/loadingDots.json";
+import * as notSign from "./not-sign.svg";
 import ReauthenticateModal from "../Shared/ReauthenticateModal";
 import CloseConsoleModal from "../Shared/CloseConsoleModal";
 import CheckingLocationModal from "../Shared/CheckingLocationModal";
@@ -27,6 +28,21 @@ const textColor1 = gMuiTheme.palette.textColor1;
 const textColor3 = gMuiTheme.palette.textColor3;
 const alertColor = gMuiTheme.palette.alertColor;
 const themeColor = gMuiTheme.palette.themeColor;
+
+const getModalCopy = (fade, influencer) => {
+  if (!fade) {
+    return `
+      You are choosing to ride with ${influencer}, 
+      You will be notified of the bet details 
+      10 minutes before the game starts.
+    `
+  }
+  return `
+    You will be notified of the bet details 
+    10 minutes before the game starts.
+    The OPPOSITE of what ${influencer} chooses.
+  `
+}
 
 const loadingDotsOptions = {
   loop: true,
@@ -119,7 +135,8 @@ export default class WagerDialog extends Component<WagerDialogProps> {
       deviceLocation: this.props.location,
       request: {
         fundId: this.props.fund.id,
-        amount: this.state.amount
+        amount: this.state.amount,
+        fade: !!this.props.fade
       }
     };
 
@@ -172,14 +189,26 @@ export default class WagerDialog extends Component<WagerDialogProps> {
     }
 
     const avatarWrapperStyle = {
+      position: "relative",
       margin: "16px auto",
-      textAlign: "center"
+      textAlign: "center",
+      height: 116,
+      width: 116
     }
 
     const avatarStyle = {
-      width: 136,
-      height: 136,
-      borderRadius: 68
+      width: 116,
+      height: 116,
+      borderRadius: 58,
+      position: "absolute",
+      top: 0,
+      left: 0
+    }
+
+    const notStyle = {
+      position: "absolute",
+      left: 0,
+      top: 0
     }
 
     const buttonContainerStyle = {
@@ -237,7 +266,7 @@ export default class WagerDialog extends Component<WagerDialogProps> {
 
     const modalStyle = {
       width: this.props.size > 340 ? 350 : 310,
-      transform: this.props.size > 375 ? "translate(0, 64px)" : "translate(0, 32px)"
+      transform: this.props.size > 375 ? "translate(0, 64px)" : "translate(0, 16px)"
     };
 
     const checkStyle = {
@@ -266,7 +295,7 @@ export default class WagerDialog extends Component<WagerDialogProps> {
           </div>
         );
       }
-      return "BET WITH";
+      return this.props.fade ? "BET AGAINST" : "BET WITH";
     };
 
     const actions = [
@@ -278,6 +307,7 @@ export default class WagerDialog extends Component<WagerDialogProps> {
         primary
         fullWidth
         onClick={this.onPlaceWager}
+        className={this.props.fade && `fade-wager-button ${this.state.disabled && 'global-disabled'}`}
       />,
       <FlatButton
         key={1}
@@ -389,29 +419,29 @@ export default class WagerDialog extends Component<WagerDialogProps> {
       });
     }
 
-    console.log(this.props.size)
-
     return (
       <Dialog
-        title="Bet With"
+        title={this.props.fade ? "Bet Against" : "Bet With"}
         titleStyle={wagerTitleStyle}
         actions={actions}
         actionsContainerStyle={buttonContainerStyle}
         modal
         open={this.state.open}
         onRequestClose={this.handleClose}
+        bodyClassName="proper-wager-modal-height"
         bodyStyle={{ minHeight: 270, overflowX: "hidden", overflowY: "scroll" }}
         contentStyle={modalStyle}
-        paperProps={{ style: { minHeight: this.props.size > 375 ? 610 : 575 } }}
+        paperClassName="global-modal-paper"
+        paperProps={{ style: { minHeight: this.props.size > 375 ? 610 : 526 } }}
+        className="global-modal-style"
         style={{ overflowY: "scroll" }}
       >
         <div style={subTitleStyle}>
-            You are choosing to ride with {this.props.fund.manager.name}, 
-            You will be notified of the bet details 
-            10 minutes before the game starts.
+            {getModalCopy(this.props.fade, this.props.fund.manager.name)}
         </div>
         <div style={avatarWrapperStyle}>
           <img style={avatarStyle} src={this.props.fund.manager.avatarUrl} />
+          {this.props.fade && <img style={notStyle} src={notSign} />}
         </div>
         <div style={{ textAlign: "center" }}>
           <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>

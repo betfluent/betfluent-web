@@ -89,12 +89,12 @@ export const tryAgain = () => () => {
   window.location.reload();
 };
 
-export const authTimeout = () => dispatch => {
-  if (authInterval) clearInterval(authInterval);
-  authInterval = setInterval(() => {
-    dispatch(authenticateUser(false));
-  }, 1000 * 60 * 15);
-};
+// export const authTimeout = () => dispatch => {
+//   if (authInterval) clearInterval(authInterval);
+//   authInterval = setInterval(() => {
+//     dispatch(authenticateUser(false));
+//   }, 1000 * 60 * 15);
+// };
 
 export const fetchUser = () => dispatch => {
   onAuthUserChanged(authUser => {
@@ -111,10 +111,7 @@ export const fetchUser = () => dispatch => {
         // Parse the ID token.
         const userToken = JSON.parse(b64DecodeUnicode(idToken.split(".")[1]));
         const isManager = userToken.manager === true;
-        if (moment().diff(moment(userToken.auth_time * 1000), "m") < 15)
-          dispatch(authenticateUser(true));
-        else dispatch(authenticateUser(false));
-        dispatch(authTimeout());
+        dispatch(authenticateUser(true));
         dispatch(setManager(isManager));
       });
     } else {

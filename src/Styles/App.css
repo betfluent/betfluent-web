@@ -2526,3 +2526,52 @@ td {
   box-shadow: rgba(0, 0, 0, 0.12) 0px -1px 6px, rgba(0, 0, 0, 0.12) 0px -1px 4px;
   z-index: 9999;
 }
+
+.global-modal-style {
+  padding-top: 0 !important;
+}
+
+.global-modal-style > div {
+  height: 100vh;
+}
+
+.global-modal-style > div > div {
+  height: 100vh;
+  transform: unset !important;
+}
+
+.global-modal-paper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.proper-wager-modal-height {
+  max-height: 396px !important;
+}
+
+.fade-wager-button > button {
+  background-color: #d50000 !important;
+}
+
+.global-disabled > button {
+  background-color: rgba(213,0,0, 0.7) !important;
+}
+
+.wager-button-wrapper {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  bottom: 84px;
+  width: 50vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 624px) {
+  .wager-button-wrapper {
+    left: calc(50% + 120px);
+  }
+}
