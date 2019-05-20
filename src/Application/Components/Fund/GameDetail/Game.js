@@ -318,50 +318,50 @@ export default class Game extends Component<GameProps> {
     if (this.props.league === "MLB") {
       return (
         <div>
-          <div
-            style={{
-              position: "relative",
-              display: "flex",
-              height: 32,
-              width: 45,
-              margin: "0 auto"
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                left: 6,
-                top: 14,
-                width: 12,
-                height: 12,
-                transform: "rotate(45deg)",
-                backgroundColor: this.renderBaseColor(game, game.bases.third)
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                left: 16,
-                top: 4,
-                width: 12,
-                height: 12,
-                transform: "rotate(45deg)",
-                backgroundColor: this.renderBaseColor(game, game.bases.second)
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                left: 26,
-                top: 14,
-                width: 12,
-                height: 12,
-                transform: "rotate(45deg)",
-                backgroundColor: this.renderBaseColor(game, game.bases.first)
-              }}
-            />
-          </div>
-          {this.renderBaseBallScore(game)}
+           <div
+             style={{
+               position: "relative",
+               display: "flex",
+               height: 32,
+               width: 45,
+               margin: "0 auto"
+             }}
+           >
+             <div
+               style={{
+                 position: "absolute",
+                 left: 6,
+                 top: 14,
+                 width: 12,
+                 height: 12,
+                 transform: "rotate(45deg)",
+                 backgroundColor: this.renderBaseColor(game, game.bases.third)
+               }}
+             />
+             <div
+               style={{
+                 position: "absolute",
+                 left: 16,
+                 top: 4,
+                 width: 12,
+                 height: 12,
+                 transform: "rotate(45deg)",
+                 backgroundColor: this.renderBaseColor(game, game.bases.second)
+               }}
+             />
+             <div
+               style={{
+                 position: "absolute",
+                 left: 26,
+                 top: 14,
+                 width: 12,
+                 height: 12,
+                 transform: "rotate(45deg)",
+                 backgroundColor: this.renderBaseColor(game, game.bases.first)
+               }}
+             />
+           </div>
+           {this.renderBaseBallScore(game)}
         </div>
       );
     }

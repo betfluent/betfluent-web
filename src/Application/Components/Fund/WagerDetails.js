@@ -24,7 +24,7 @@ export default class Wagers extends Component<WagersProps> {
     super(props);
     this.state = {
       wager: {}
-    };
+    };  
     this.updateData = this.updateData.bind(this);
   }
 
@@ -42,32 +42,58 @@ export default class Wagers extends Component<WagersProps> {
     );
 
     if (totalReturn.length > 0) {
-      totalReturn =
-        this.props.userWager *
-        100 /
-        this.props.fund.amountWagered *
-        totalReturn.reduce((total, item) => total + item);
-      totalReturn =
-        this.props.userCurrent > this.props.userWager
-          ? totalReturn * (1 - this.props.fund.percentFee / 100)
-          : totalReturn;
+      if (this.props.isFade) {
+        totalReturn = 
+          this.props.userWager * 100 / this.props.fund.fadeAmountWagered *
+          totalReturn.reduce((total, item) => total + item);
+        totalReturn =
+          this.props.userCurrent > this.props.userWager
+            ? totalReturn * (1 - this.props.fund.percentFee / 100)
+            : totalReturn
+      } else {
+        totalReturn =
+          this.props.userWager *
+          100 /
+          this.props.fund.amountWagered *
+          totalReturn.reduce((total, item) => total + item);
+        totalReturn =
+          this.props.userCurrent > this.props.userWager
+            ? totalReturn * (1 - this.props.fund.percentFee / 100)
+            : totalReturn;
+      }
     }
 
     return (
       <div>
-        {Object.keys(this.props.fund.wagers).map((wager, index) => (
-          <WagerDetailItem
-            size={this.props.size}
-            key={index}
-            index={index}
-            userWager={this.props.userWager}
-            fund={this.props.fund}
-            user={this.props.user}
-            publicUser={this.props.user.public}
-            wagerId={wager}
-            game={this.props.game}
-          />
-        ))}
+        {this.props.isFade ?
+          Object.keys(this.props.fund.fadeWagers).map((wager, index) => (
+            <WagerDetailItem
+              size={this.props.size}
+              key={index}
+              index={index}
+              userWager={this.props.userWager}
+              fund={this.props.fund}
+              user={this.props.user}
+              publicUser={this.props.user.public}
+              wagerId={wager}
+              game={this.props.game}
+              isFade={this.props.isFade}
+            />
+          )) :
+          Object.keys(this.props.fund.wagers).map((wager, index) => (
+            <WagerDetailItem
+              size={this.props.size}
+              key={index}
+              index={index}
+              userWager={this.props.userWager}
+              fund={this.props.fund}
+              user={this.props.user}
+              publicUser={this.props.user.public}
+              wagerId={wager}
+              game={this.props.game}
+              isFade={this.props.isFade}
+            />
+          ))}
       </div>
     );
   }

@@ -32,13 +32,14 @@ export default class OnFidoStatusDialog extends Component<
   }
 
   onConfirm() {
-    if (!this.props.user.balance) {
+    if (this.props.user && !this.props.user.balance) {
       this.props.history.push("/account/deposit");
       return;
     }
     if (
-      this.props.user.documentStatus === "FAIL" ||
-      this.props.user.documentStatus === undefined
+      this.props.user &&
+      (this.props.user.documentStatus === "FAIL" ||
+        this.props.user.documentStatus === undefined)
     ) {
       this.props.history.push(`/account/verify-document#${this.props.fund.id}`);
     }
@@ -79,10 +80,10 @@ export default class OnFidoStatusDialog extends Component<
     };
 
     const renderTitle = () => {
-      if (!user.balance) {
+      if (user && !user.balance) {
         return "Deposit";
       }
-      switch (user.documentStatus) {
+      switch (user && user.documentStatus) {
         case undefined:
           return "Verify";
         case "FAIL":
@@ -95,14 +96,14 @@ export default class OnFidoStatusDialog extends Component<
     };
 
     const renderCopy = () => {
-      if (!user.balance) {
+      if (user && !user.balance) {
         return (
           <div>
             There is $0 in your account. <br />Please deposit.
           </div>
         );
       }
-      switch (user.documentStatus) {
+      switch (user && user.documentStatus) {
         case undefined:
           return (
             <div>
@@ -127,10 +128,10 @@ export default class OnFidoStatusDialog extends Component<
     };
 
     const renderActionLabel = () => {
-      if (!user.balance) {
+      if (user && !user.balance) {
         return "Deposit";
       }
-      if (user.documentStatus === "FAIL" || user.documentStatus === undefined) {
+      if (user && (user.documentStatus === "FAIL" || user.documentStatus === undefined)) {
         return "Verify";
       }
       return "OK";

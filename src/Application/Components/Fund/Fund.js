@@ -49,7 +49,7 @@ type FundProps = {
   fund: {
     status: string
   },
-  computedMatch: {
+  match: {
     params: {
       fund: string
     }
@@ -72,7 +72,7 @@ type FundProps = {
 export default class Fund extends Component<FundProps> {
   constructor(props) {
     super(props);
-    this.fundId = props.computedMatch.params.fund;
+    this.fundId = props.match.params.fund;
     this.classesSet = false;
     this.setClasses = this.setClasses.bind(this);
     this.onFundChange = this.onFundChange.bind(this);
@@ -172,8 +172,9 @@ export default class Fund extends Component<FundProps> {
     }
   }
 
-  setWagering() {
-    this.setState({ wagering: true });
+  setWagering(fade) {
+    if (this.props.user) return () => this.setState({ wagering: true, fade });
+    else return () => this.props.history.push("/login");
   }
 
   endWagering() {
@@ -342,7 +343,7 @@ export default class Fund extends Component<FundProps> {
   render() {
     if (this.state.fund === null) return <NotFound />;
 
-    if (!this.state || !this.state.fund || !this.props.user) {
+    if (!this.state || !this.state.fund) {
       return (
         <MuiThemeProvider theme={appTheme}>
           <div className="fill-window center-flex">
@@ -354,14 +355,17 @@ export default class Fund extends Component<FundProps> {
 
     let userWager;
     let userCurrent;
+    let isFade = false;
 
     if (this.state.fund.status === "OPEN") {
       userWager = this.state.fund.amountWagered
         ? this.state.fund.amountWagered / 100
         : 0;
-    } else {
-      userWager = this.props.user.investments[this.state.fund.id] / 100;
-      userCurrent = this.state.fund.userReturn(userWager * 100) / 100;
+    } else if (this.props.user && this.props.user.investments) {
+      userWager = this.props.user.investments[this.state.fund.id];
+      if (userWager < 0) isFade = true;
+      userCurrent = this.state.fund.userReturn(userWager) / 100;
+      userWager = Math.abs(userWager / 100);
     }
 
     const openSize = this.props.size < desktopBreakPoint ? "100%" : 320;
@@ -369,21 +373,6 @@ export default class Fund extends Component<FundProps> {
     const tabBarStyle = {
       width: this.state.fund.status === "OPEN" ? openSize : closedSize,
       height: "48px"
-    };
-
-    const wagerButtonStyle = {
-      position: "fixed",
-      bottom: 56,
-      width: 136,
-      transform: "translateX(-50%)"
-    };
-
-    const wagerMobileStyle = {
-      position: "fixed",
-      bottom: 96,
-      left: "50%",
-      transform: "translateX(-50%)",
-      zIndex: 0
     };
 
     const tabContentContainerStyle = {
@@ -419,14 +408,10 @@ export default class Fund extends Component<FundProps> {
       props.open ? (
         <RaisedButton
           primary
-          disabled={!this.props.authUser.emailVerified}
-          label="WAGER"
-          style={
-            this.props.size > mobileBreakPoint
-              ? wagerButtonStyle
-              : wagerMobileStyle
-          }
-          onClick={this.setWagering}
+          disabled={this.props.authUser && !this.props.authUser.emailVerified}
+          label={!props.user ? "SIGN IN" : props.fade ? "BET AGAINST" : "BET WITH"}
+          className={props.fade && `fade-wager-button`}
+          onClick={this.setWagering(props.fade)}
         />
       ) : null;
 
@@ -499,6 +484,7 @@ export default class Fund extends Component<FundProps> {
                         userWager={userWager}
                         fund={this.state.fund}
                         user={this.props.user}
+                        isFade={isFade}
                       />
                     </div>
                   </Tab>
@@ -546,7 +532,10 @@ export default class Fund extends Component<FundProps> {
               </Tabs>
             </div>
             {!this.props.isManager ? (
-              <WagerButton open={this.state.fund.status === "OPEN"} />
+              <div className="wager-button-wrapper">
+                <WagerButton open={this.state.fund.status === "OPEN"} user={!!this.props.user} />
+                {this.props.user && <WagerButton open={this.state.fund.status === "OPEN"} user={!!this.props.user} fade />}
+              </div>
             ) : null}
             <WagerDialogContainer
               user={this.props.user}
@@ -554,6 +543,7 @@ export default class Fund extends Component<FundProps> {
               open={this.state.wagering}
               endWagering={this.endWagering}
               size={this.props.size}
+              fade={this.state.fade}
             />
             <OnFidoStatusDialog
               user={this.props.user}

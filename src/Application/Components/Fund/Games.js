@@ -72,6 +72,7 @@ export default class Games extends Component<GamesProps> {
         user={props.user}
         league={props.fund.games[game]}
         fund={props.fund}
+        isFade={this.props.isFade}
       />
     ));
 

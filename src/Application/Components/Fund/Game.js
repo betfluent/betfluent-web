@@ -540,6 +540,7 @@ export default class Game extends Component<GameProps> {
               fund={this.props.fund}
               userWager={this.props.userWager}
               user={this.props.user}
+              isFade={this.props.isFade}
             />
           ) : null}
         </Card>

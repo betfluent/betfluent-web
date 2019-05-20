@@ -46,7 +46,7 @@ export default class VerifyEmail extends Component<VerifyEmailProps> {
       const message = `${authUser.email} has already been verified.`;
       this.setState({ emailVerified: true, message });
       setTimeout(() => {
-        this.props.history.replace("/lobby");
+        this.props.history.replace("/");
       }, 3000);
     } else {
       const emailCode = window.location.hash.replace("#", "");
@@ -59,7 +59,7 @@ export default class VerifyEmail extends Component<VerifyEmailProps> {
               message: response.message
             });
             setTimeout(() => {
-              this.props.history.replace("/lobby");
+              this.props.history.replace("/");
             }, 3000);
           } else {
             this.setState({

@@ -108,7 +108,7 @@ export async function getLinesForGame(gameLeague, gameId) {
     .ref("lines")
     .child(gameLeague.toLowerCase())
     .child(gameId)
-    .child("station")
+    .child("consensus")
     .once("value");
   return snapshot.val();
 }
@@ -297,14 +297,12 @@ export async function getManagerStats(
   sinceTimeMillis = 0,
   onlyTraining = false
 ) {
-  const idToken = await firebase.auth().currentUser.getIdToken(true);
   let url = `${BASE_URL}v1/profile/manager/${managerId}?onlyTraining=${onlyTraining}`;
   if (sinceTimeMillis) url += `&sinceTimeMillis=${sinceTimeMillis}`;
   return fetch(url, {
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json",
-      token: idToken
+      "Content-Type": "application/json"
     }
   })
     .then(response => response.json())
