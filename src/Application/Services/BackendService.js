@@ -44,7 +44,10 @@ export const RegistrationService = (
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then(userCredential => userCredential.user.getIdToken(true))
+    .then(userCredential => {
+      userCredential.user.sendEmailVerification()
+      return userCredential.user.getIdToken(true)
+    })
     .then(idToken =>
       fetch(`${BASE_URL}v1/users`, {
         method: "post",
