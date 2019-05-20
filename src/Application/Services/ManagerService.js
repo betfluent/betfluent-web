@@ -108,7 +108,7 @@ export async function getLinesForGame(gameLeague, gameId) {
     .ref("lines")
     .child(gameLeague.toLowerCase())
     .child(gameId)
-    .child("station")
+    .child("consensus")
     .once("value");
   return snapshot.val();
 }

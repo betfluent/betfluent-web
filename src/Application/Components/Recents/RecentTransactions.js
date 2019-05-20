@@ -98,7 +98,7 @@ export default class RecentTransactions extends Component<
       const fundInteractions = flatten(this.fundInteractions);
       fundFilteredInteractions = fundInteractions.filter(
         interaction =>
-          interaction.type !== "Wager" && interaction.type !== "Return"
+          interaction.type !== "Wager" && interaction.type !== "Return" && interaction.type !== "Wager Against"
       );
     }
 

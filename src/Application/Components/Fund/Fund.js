@@ -355,14 +355,17 @@ export default class Fund extends Component<FundProps> {
 
     let userWager;
     let userCurrent;
+    let isFade = false;
 
     if (this.state.fund.status === "OPEN") {
       userWager = this.state.fund.amountWagered
         ? this.state.fund.amountWagered / 100
         : 0;
-    } else if (this.props.user && Array.isArray(this.props.user.investments)) {
-      userWager = this.props.user.investments[this.state.fund.id] / 100;
-      userCurrent = this.state.fund.userReturn(userWager * 100) / 100;
+    } else if (this.props.user && this.props.user.investments) {
+      userWager = this.props.user.investments[this.state.fund.id];
+      if (userWager < 0) isFade = true;
+      userCurrent = this.state.fund.userReturn(userWager) / 100;
+      userWager = Math.abs(userWager / 100);
     }
 
     const openSize = this.props.size < desktopBreakPoint ? "100%" : 320;
@@ -481,6 +484,7 @@ export default class Fund extends Component<FundProps> {
                         userWager={userWager}
                         fund={this.state.fund}
                         user={this.props.user}
+                        isFade={isFade}
                       />
                     </div>
                   </Tab>

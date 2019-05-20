@@ -389,7 +389,7 @@ export default class Header extends Component<HeaderProps> {
       const investments = props.user.investments
         ? Object.keys(props.user.investments).reduce((total, key) => {
             if (!returnKeys.includes(key))
-              return total + props.user.investments[key];
+              return total + Math.abs(props.user.investments[key]);
             return total;
           }, 0)
         : 0;
@@ -522,7 +522,7 @@ export default class Header extends Component<HeaderProps> {
           </div>
         );
       }
-      return <div style={nameStyle}>{this.props.user.name}</div>;
+      return <div style={nameStyle}>{this.props.user ? this.props.user.name : ''}</div>;
     };
 
     const renderHeader = () => {

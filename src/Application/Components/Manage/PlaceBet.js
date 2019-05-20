@@ -142,7 +142,7 @@ type PlaceBetProps = {
     push: () => void,
     goBack: () => void
   },
-  computedMatch: {
+  match: {
     params: {
       fund: string
     }
@@ -153,7 +153,7 @@ export default class PlaceBet extends Component<PlaceBetProps> {
   constructor(props) {
     super(props);
     this.hash = this.props.history.location.hash;
-    this.fundId = props.computedMatch.params.fund;
+    this.fundId = props.match.params.fund;
     this.onWagerChange = this.onWagerChange.bind(this);
     this.onWagerPctChange = this.onWagerPctChange.bind(this);
     this.placeBet = this.placeBet.bind(this);
@@ -253,8 +253,8 @@ export default class PlaceBet extends Component<PlaceBetProps> {
     }
   };
 
-  selectLine = line => {
-    this.setState({ line, errorTextLine: null });
+  selectLine = (line, fade) => {
+    this.setState({ line, fade, errorTextLine: null });
   };
 
   previewBet() {
@@ -310,8 +310,8 @@ export default class PlaceBet extends Component<PlaceBetProps> {
       gameLeague: this.state.gameSelected.league,
       managerId: this.props.user.managerId,
       status: "STAGED",
-      returning: parseInt(this.state.line.returning, 10),
-      type: this.state.line.type,
+      line: this.state.line,
+      fade: this.state.fade,
       pctOfFund,
       wagered
     };
@@ -327,18 +327,8 @@ export default class PlaceBet extends Component<PlaceBetProps> {
       request: bet
     };
 
-    if (this.state.line.type === "SPREAD") {
-      bet.points = parseFloat(this.state.line.points, 10);
-      bet.selection = this.state.line.selection;
-      bet.selectionId = this.state.line.selectionId;
-    } else if (this.state.line.type === "OVER_UNDER") {
-      bet.points = parseFloat(this.state.line.points, 10);
-      bet.overUnder = this.state.line.overUnder;
-    } else {
-      bet.selection = this.state.line.selection;
-      bet.selectionId = this.state.line.selectionId;
-    }
     placeBet(betPayload);
+
     this.setState({ betPlaced: true });
     window.setTimeout(() => {
       this.setState({ betPlaced: false });

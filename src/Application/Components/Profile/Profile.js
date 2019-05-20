@@ -9,7 +9,7 @@ import { appTheme } from "../Styles";
 import { getManagerDetail } from "../../Services/DbService";
 
 type ProfileProps = {
-  computedMatch: {
+  match: {
     params: {
       managerId: string
     }

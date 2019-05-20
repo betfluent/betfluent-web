@@ -60,6 +60,14 @@ export default class ActivityItem extends Component<ActivityItemProps> {
       } else {
         title = `${this.state.publicUser.name} wagered`;
       }
+    } else if (this.props.interaction.type === "Wager Against") {
+      if (this.props.user.publicId === this.props.interaction.userId) {
+        title = "You wagered against";
+        amount = this.props.interaction.amount;
+        amountColor = textColor1;
+      } else {
+        title = `${this.state.publicUser.name} wagered against`;
+      }
     } else if (this.props.interaction.type === "Bet") {
       title = `Bet on ${this.props.interaction.wagerSummary}`;
       amount = this.props.interaction.amount;

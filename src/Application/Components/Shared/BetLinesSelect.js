@@ -13,6 +13,8 @@ import Bet from "../../Models/Bet";
 const textColor2 = mgAppTheme.palette.text.secondary;
 const themeColorLight = mgAppTheme.palette.primary.light;
 
+const getFadeWager = i => i % 2 === 0 ? i + 1 : i - 1;
+
 type BetLinesSelectProps = {
   game: Game,
   selectLine: (line: {}) => void
@@ -40,6 +42,20 @@ export default class BetLinesSelect extends Component<BetLinesSelectProps> {
 
     if (!lines) return this.renderEmptyMessage();
 
+    const sortedLines = Object.keys(lines)
+      .map(lineId => ({ lineId, ...lines[lineId]}))
+      .sort((a, b) => {
+        if (a.type === "MONEYLINE" && b.type !== "MONEYLINE") {
+          return -1;
+        }
+        if (a.type === "OVER_UNDER" && b.type !== "OVER_UNDER") {
+          return 1;
+        }
+        return a.type.localeCompare(b.type, "en", {
+          ignorePunctuation: true
+        });
+      })
+
     return (
       <MuiThemeProvider theme={mgAppTheme}>
         <div>
@@ -51,20 +67,8 @@ export default class BetLinesSelect extends Component<BetLinesSelectProps> {
           </h3>
 
           <div className="flexContainer gameLines">
-            {Object.keys(lines)
-              .map(lineId => lines[lineId])
-              .sort((a, b) => {
-                if (a.type === "MONEYLINE" && b.type !== "MONEYLINE") {
-                  return -1;
-                }
-                if (a.type === "OVER_UNDER" && b.type !== "OVER_UNDER") {
-                  return 1;
-                }
-                return a.type.localeCompare(b.type, "en", {
-                  ignorePunctuation: true
-                });
-              })
-              .map((line, index) => {
+            {
+              sortedLines.map((line, index) => {
                 const bet = new Bet(line);
 
                 return (
@@ -76,8 +80,9 @@ export default class BetLinesSelect extends Component<BetLinesSelectProps> {
                         this.selected === index ? themeColorLight : "#fff"
                     }}
                     onClick={() => {
+                      const fade = sortedLines[getFadeWager(index)];
                       this.selected = index;
-                      this.props.selectLine(line);
+                      this.props.selectLine(line, fade);
                     }}
                   >
                     {

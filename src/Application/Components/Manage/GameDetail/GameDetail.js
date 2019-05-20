@@ -17,7 +17,7 @@ const desktopBreakpoint = mgMuiTheme.palette.desktopBreakpoint;
 export default class GameDetail extends Component {
   constructor(props) {
     super(props);
-    this.fundId = props.computedMatch.params.fund;
+    this.fundId = props.match.params.fund;
     this.onFundChange = this.onFundChange.bind(this);
   }
 
@@ -78,7 +78,7 @@ export default class GameDetail extends Component {
       <Game
         size={this.props.size}
         fund={this.state.fund}
-        gameId={this.props.computedMatch.params.game}
+        gameId={this.props.match.params.game}
         userWager={userWager}
         history={this.props.history}
         league={this.state.fund.league}

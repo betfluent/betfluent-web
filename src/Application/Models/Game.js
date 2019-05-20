@@ -15,16 +15,16 @@ module.exports = class Game {
       homeTeamId,
       homeTeamName,
       homeTeamAlias,
-      awayTeamScore,
+      awayTeamScore = 0,
       awayScoring,
-      homeTeamScore,
+      homeTeamScore = 0,
       homeScoring,
       broadcastNetwork,
       clock,
       period,
       possession,
       // MLB-specific fields
-      count: { balls, strikes, outs } = {},
+      count: { balls, strikes, outs } = { balls: 0, strikes: 0, outs: 0},
       bases: { first, second, third } = {},
       awayTeamHits = 0,
       awayTeamErrors = 0,
@@ -68,8 +68,8 @@ module.exports = class Game {
     this.period = period;
     if (possession) this.possession = possession;
     if (league === "MLB") {
-      if (balls !== undefined) this.count = { balls, strikes, outs };
-      if (first !== undefined) this.bases = { first, second, third };
+      this.count = { balls, strikes, outs };
+      this.bases = { first, second, third };
       if (awayTeamHits !== undefined) this.awayTeamHits = awayTeamHits;
       if (awayTeamErrors !== undefined) this.awayTeamErrors = awayTeamErrors;
       if (homeTeamHits !== undefined) this.homeTeamHits = homeTeamHits;
