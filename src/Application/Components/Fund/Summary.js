@@ -213,7 +213,7 @@ export default class Summary extends Component<SummaryProps> {
           style={{ marginTop: this.props.size > mobileBreakPoint ? 80 : 72 }}
         >
           <p className="copyRight">
-            <img src={usaFlag} alt="Based in the USA" /> © 2016-2018 Betfluent
+            <img src={usaFlag} alt="Based in the USA" /> © 2019 Betfluent
             All Rights Reserved
           </p>
         </div>
