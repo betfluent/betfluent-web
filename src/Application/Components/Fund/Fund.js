@@ -405,11 +405,11 @@ export default class Fund extends Component<FundProps> {
     );
 
     const WagerButton = props =>
-      props.open ? (
+      props.open && !!props.user ? (
         <RaisedButton
           primary
           disabled={this.props.authUser && !this.props.authUser.emailVerified}
-          label={!props.user ? "SIGN IN" : props.fade ? "BET AGAINST" : "BET WITH"}
+          label={props.fade ? "BET AGAINST" : "BET WITH"}
           className={props.fade && `fade-wager-button`}
           onClick={this.setWagering(props.fade)}
         />
