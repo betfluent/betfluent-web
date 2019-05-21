@@ -29,10 +29,15 @@
     display: flex;
     position: absolute;
     bottom: 0;
-    left: 16px;
     width: 352px;
     z-index: 9999;
     cursor: pointer;
+}
+
+@media (min-width: 624px) {
+    .pool-actions {
+        left: 16px;
+    }
 }
 
 .pool-action {

@@ -16,6 +16,7 @@ import { mgMuiTheme } from "../ManagerStyles";
 import MobileTopHeaderContainer from "../../Containers/MobileTopHeaderContainer";
 import ManagerRow from "./ManagerRow";
 import WagerDialogContainer from "../../Containers/WagerDialogContainer";
+import Banner from "./Banner";
 
 moment.updateLocale("en", {
   relativeTime: {
@@ -126,6 +127,7 @@ export default class Funds extends Component<FundsProps> {
             {this.props.size < mobileBreakPoint ? (
               <MobileTopHeaderContainer />
             ) : null}
+              <Banner />
               { this.state.managers.length ?
                 this.state.managers.map((m, i) => <ManagerRow key={i} manager={m} user={this.props.user} size={this.props.size} onClick={this.handleClick} />)
               : (
