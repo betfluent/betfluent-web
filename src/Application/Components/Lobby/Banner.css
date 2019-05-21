@@ -5,6 +5,7 @@
     background-position: 50% 50%;
     height: 256px;
     width: 100%;
+    vertical-align: middle;
 }
 
 @media (min-width: 624px) {
@@ -12,5 +13,6 @@
         background-image: url('./DESKTOP HEADER BETFLUENT.png');
         background-size: cover;
         height: 18vw;
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
     }
 }
