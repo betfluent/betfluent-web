@@ -32,8 +32,8 @@ const themeColor = gMuiTheme.palette.themeColor;
 const getModalCopy = (fade, influencer) => {
   if (!fade) {
     return `
-      You are choosing to ride with ${influencer}, 
-      You will be notified of the bet details 
+      You are choosing to ride with ${influencer},
+      You will be notified of the bet details
       10 minutes before the game starts.
     `
   }
