@@ -331,6 +331,16 @@ class App extends Component<AppProps> {
                 )}
               />
               <Route
+                path="/learn"
+                render={() => (
+                  <LearnContainer
+                    authUser={this.props.authUser}
+                    size={this.state.size}
+                    isManager={this.props.isManager}
+                  />
+                )}
+              />
+              <Route
                 path="/login"
                 render={() => (
                   <LoginPage
@@ -368,13 +378,6 @@ class App extends Component<AppProps> {
               <PrivateRoute
                 path="/recent"
                 component={RecentsContainer}
-                authUser={this.props.authUser}
-                size={this.state.size}
-                isManager={this.props.isManager}
-              />
-              <PrivateRoute
-                path="/learn"
-                component={LearnContainer}
                 authUser={this.props.authUser}
                 size={this.state.size}
                 isManager={this.props.isManager}
