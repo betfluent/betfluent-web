@@ -136,7 +136,7 @@ export default class LandingPage extends Component<BetProps, BetState> {
                         Explore the Lobby<br />Choose a Sport
                       </h3>
                       <p>
-                        Betting managers host different sports themed betting
+                        Influencers host different sports themed betting
                         pools — find one you love and make a wager.
                       </p>
                     </div>
@@ -150,7 +150,7 @@ export default class LandingPage extends Component<BetProps, BetState> {
                         Bets are placed<br />after Pools close
                       </h3>
                       <p>
-                        The manager decides what bets should be placed based on
+                        The influencer decides what bets should be placed based on
                         the theme of the pool you choose.
                       </p>
                     </div>
