@@ -195,7 +195,7 @@ type FundProps = {
 export default class FundDetail extends Component<FundProps> {
   constructor(props) {
     super(props);
-    this.fundId = props.match.params.fund;
+    this.fundId = props.computedMatch.params.fund;
     this.onFundChange = this.onFundChange.bind(this);
     this.navBack = this.navBack.bind(this);
     this.closeOpenFund = this.closeOpenFund.bind(this);
