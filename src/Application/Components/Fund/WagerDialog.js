@@ -32,15 +32,15 @@ const themeColor = gMuiTheme.palette.themeColor;
 const getModalCopy = (fade, influencer) => {
   if (!fade) {
     return `
-      You are choosing to ride with ${influencer},
-      You will be notified of the bet details
-      10 minutes before the game starts.
+    <h3>You are betting with ${influencer}'s betting decision </h3>
+    (If ${influencer} wins you win)
+    <b><p style="color: #D50000;">Bets placed 10 minutes before game</p></b>
     `
   }
   return `
-    You will be notified of the bet details 
-    10 minutes before the game starts.
-    The <b>OPPOSITE</b> of what ${influencer} chooses.
+    <h3>You are "Fading" ${influencer}</h3>
+    (Betting against ${influencer})
+    <b><p style="color: #D50000;">Bets placed 10 minutes before game</p></b>
   `
 }
 
