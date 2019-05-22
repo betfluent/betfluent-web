@@ -40,7 +40,7 @@ const getModalCopy = (fade, influencer) => {
   return `
     You will be notified of the bet details 
     10 minutes before the game starts.
-    The OPPOSITE of what ${influencer} chooses.
+    The <b>OPPOSITE</b> of what ${influencer} chooses.
   `
 }
 
@@ -456,9 +456,7 @@ export default class WagerDialog extends Component<WagerDialogProps> {
         className="global-modal-style"
         style={{ overflowY: "scroll" }}
       >
-        <div style={subTitleStyle}>
-            {getModalCopy(this.props.fade, this.props.fund.manager.name)}
-        </div>
+        <div style={subTitleStyle} dangerouslySetInnerHTML={{ __html: getModalCopy(this.props.fade, this.props.fund.manager.name )}} />
         <div style={avatarWrapperStyle}>
           <img style={avatarStyle} src={this.props.fund.manager.avatarUrl} />
           {this.props.fade && <img style={notStyle} src={notSign} />}

@@ -173,8 +173,7 @@ export default class Fund extends Component<FundProps> {
   }
 
   setWagering(fade) {
-    if (this.props.user) return () => this.setState({ wagering: true, fade });
-    else return () => this.props.history.push("/login");
+    return () => this.setState({ wagering: true, fade });
   }
 
   endWagering() {
@@ -405,7 +404,7 @@ export default class Fund extends Component<FundProps> {
     );
 
     const WagerButton = props =>
-      props.open && !!props.user ? (
+      props.open ? (
         <RaisedButton
           primary
           disabled={this.props.authUser && !this.props.authUser.emailVerified}
@@ -534,7 +533,7 @@ export default class Fund extends Component<FundProps> {
             {!this.props.isManager ? (
               <div className="wager-button-wrapper">
                 <WagerButton open={this.state.fund.status === "OPEN"} user={!!this.props.user} />
-                {this.props.user && <WagerButton open={this.state.fund.status === "OPEN"} user={!!this.props.user} fade />}
+                <WagerButton open={this.state.fund.status === "OPEN"} user={!!this.props.user} fade />
               </div>
             ) : null}
             <WagerDialogContainer
