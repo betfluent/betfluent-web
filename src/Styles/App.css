@@ -1000,6 +1000,12 @@ td {
   padding: 20px 0 16px 0;
 }
 
+@media (max-width: 624px) {
+  .FundHeader {
+    margin-top: 56px;
+  }
+}
+
 .MuiCardContent-root-10 {
   padding: 16px !important;
 }

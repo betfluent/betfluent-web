@@ -153,7 +153,7 @@ export default class PlaceBet extends Component<PlaceBetProps> {
   constructor(props) {
     super(props);
     this.hash = this.props.history.location.hash;
-    this.fundId = props.match.params.fund;
+    this.fundId = props.computedMatch.params.fund;
     this.onWagerChange = this.onWagerChange.bind(this);
     this.onWagerPctChange = this.onWagerPctChange.bind(this);
     this.placeBet = this.placeBet.bind(this);
