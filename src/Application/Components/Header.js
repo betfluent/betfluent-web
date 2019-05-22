@@ -100,7 +100,7 @@ const unauthenticatedMenu = [
     label: "Learn",
     icon: School,
     url: "/learn",
-    index: 4
+    index: 1
   }
 ]
 
@@ -313,7 +313,7 @@ export default class Header extends Component<HeaderProps> {
   setRoute = props => {
     const iLocation = props.history.location.pathname;
     let selectedIndex = 0;
-    if (!!props.authUser) {
+    if (!!props.authUser && !props.isManager) {
       switch (iLocation) {
         case "/":
           selectedIndex = 0;
@@ -339,7 +339,7 @@ export default class Header extends Component<HeaderProps> {
           selectedIndex = this.state.selectedIndex;
           this.setState({ selectedIndex });
       }
-    } else if (!props.isManager) {
+    } else if (!!props.authUser && props.isManager) {
       switch (iLocation) {
         case "/":
           selectedIndex = 0;
