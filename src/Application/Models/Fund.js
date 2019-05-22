@@ -78,7 +78,7 @@ module.exports = class Fund {
    */
   hasPendingBets() {
     const betCount = this.wagers ? Object.keys(this.wagers).length : 0;
-    const fadeCount = this.fadeWagers ? Object.keys(this.wagers).length: 0;
+    const fadeCount = this.fadeWagers ? Object.keys(this.fadeWagers).length: 0;
     const resultCount = this.results ? Object.keys(this.results).length : 0;
     const fadeResultCount = this.fadeResults ? Object.keys(this.fadeResults) : 0;
     return betCount !== resultCount && fadeCount !== fadeResultCount;
