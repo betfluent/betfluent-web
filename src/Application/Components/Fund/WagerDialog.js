@@ -441,7 +441,7 @@ export default class WagerDialog extends Component<WagerDialogProps> {
 
     return (
       <Dialog
-        title={this.props.fade ? "Bet Against" : "Bet With"}
+        title={this.props.fade ? `Bet Against ${this.props.fund.manager.name}` : `Bet With ${this.props.fund.manager.name}`}
         titleStyle={wagerTitleStyle}
         actions={this.props.authUser ? actions : signInAction}
         actionsContainerStyle={buttonContainerStyle}

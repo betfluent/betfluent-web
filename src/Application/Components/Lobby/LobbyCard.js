@@ -183,11 +183,11 @@ const mainStyle = {
                 </IntlProvider>
             </Link>
             <div className="pool-actions">
-                <div id="bet-against" className="pool-action" onClick={onClick(fund)}>
-                    BET AGAINST
-                </div>
-                <div id="bet-with" className="pool-action left-border" onClick={onClick(fund)}>
+                <div id="bet-with" className="pool-action" onClick={onClick(fund)}>
                     BET WITH
+                </div>
+                <div id="bet-against" className="pool-action left-border" onClick={onClick(fund)}>
+                    BET AGAINST
                 </div>
             </div>
         </React.Fragment>
