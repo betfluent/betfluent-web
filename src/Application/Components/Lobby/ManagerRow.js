@@ -6,6 +6,12 @@ import 'react-multi-carousel/lib/styles.css';
 import LobbyCard from './LobbyCard';
 import './ManagerRow.css';
 
+const calcRemainder = ({ size }) => {
+    const poolWidth = 352;
+    const poolContainerWidth = size - 660;
+    return poolContainerWidth % poolWidth
+}
+
 const calcItems = ({ size, count }) => {
     const poolWidth = 352;
     const poolContainerWidth = size - 660;
@@ -13,10 +19,12 @@ const calcItems = ({ size, count }) => {
 }
 
 const ManagerRow = ({ manager, user, size, onClick }) => {
+    const count = manager.funds.length;
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
-          items: calcItems({ size, count: manager.funds.length })
+          items: calcItems({ size, count }),
+          paritialVisibilityGutter: count > calcItems({ size, count }) ? Math.floor(calcRemainder({ size }) / (calcItems({ size, count }) * 1.16)) : 0
         },
         tablet: {
           breakpoint: { max: 1024, min: 624 },
@@ -43,7 +51,7 @@ const ManagerRow = ({ manager, user, size, onClick }) => {
                     </div>
                 </div>
                 <div className="pool-wrapper">
-                    <Carousel responsive={responsive} containerClass="carousel-container" itemClass="carousel-item" autoPlay={false}>
+                    <Carousel responsive={responsive} partialVisbile containerClass="carousel-container" itemClass="carousel-item" autoPlay={false}>
                         {manager.funds && manager.funds.map((fund, i) => (
                             <LobbyCard key={i} fund={fund} user={user} onClick={onClick} />
                         ))}
