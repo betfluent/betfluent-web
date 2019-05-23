@@ -53,21 +53,13 @@ export default class ActivityItem extends Component<ActivityItemProps> {
     let amount = null;
 
     if (this.props.interaction.type === "Wager") {
-      if (this.props.user.publicId === this.props.interaction.userId) {
         title = "You wagered";
         amount = this.props.interaction.amount;
         amountColor = textColor1;
-      } else {
-        title = `${this.state.publicUser.name} wagered`;
-      }
     } else if (this.props.interaction.type === "Wager Against") {
-      if (this.props.user.publicId === this.props.interaction.userId) {
         title = "You wagered against";
         amount = this.props.interaction.amount;
         amountColor = textColor1;
-      } else {
-        title = `${this.state.publicUser.name} wagered against`;
-      }
     } else if (this.props.interaction.type === "Bet") {
       title = `Bet on ${this.props.interaction.wagerSummary}`;
       amount = this.props.interaction.amount;
@@ -108,8 +100,9 @@ export default class ActivityItem extends Component<ActivityItemProps> {
 
     const renderAmount = () => {
       if (
+        this.props.user &&
         this.props.user.publicId === this.props.interaction.userId ||
-        this.props.interaction.type !== "Wager"
+        this.props.interaction.type !== "Wager" || this.props.interaction.type !== "Wager Against"
       ) {
         if (amount >= 0) {
           return `$${(amount / 100).toFixed(2)}`;

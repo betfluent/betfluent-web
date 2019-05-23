@@ -341,7 +341,7 @@ export default class Account extends Component<AccountProps, AccountState> {
         <div>
           {this.props.size < mobileBreakPoint ? (
             <MobileTopHeaderContainer />
-          ) : null}
+          ) : null}   
           <div className="AccountHeader">
             <div className="contentHeader">
               <UserInfo user={user} showRealName allowUpload />

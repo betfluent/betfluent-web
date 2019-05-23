@@ -358,7 +358,7 @@ export default class Fund extends Component<FundProps> {
 
     if (this.state.fund.status === "OPEN") {
       userWager = this.state.fund.amountWagered
-        ? this.state.fund.amountWagered / 100
+        ? (this.state.fund.amountWagered + this.state.fund.fadeAmountWagered) / 100
         : 0;
     } else if (this.props.user && this.props.user.investments) {
       userWager = this.props.user.investments[this.state.fund.id];

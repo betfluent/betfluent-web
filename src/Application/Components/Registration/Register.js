@@ -532,7 +532,7 @@ export default class Register extends Component {
               <span style={{ color: textColor3, fontSize: 14 }}>
                 Already have an account?{" "}
               </span>
-              <Link to="/">
+              <Link to="/login">
                 <FlatButton primary label="Sign In" />
               </Link>
             </div>

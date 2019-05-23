@@ -113,7 +113,7 @@ const mainStyle = {
         }}
       >
         $<OdometerExt
-          value={props.fund.amountWagered ? props.fund.amountWagered / 100 : 0}
+          value={(props.fund.amountWagered ? props.fund.amountWagered / 100 : 0) + (props.fund.fadeAmountWagered ? props.fund.fadeAmountWagered / 100 : 0)}
           format="(,ddd)"
         />
       </span>

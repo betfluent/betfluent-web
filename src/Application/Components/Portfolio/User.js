@@ -43,7 +43,7 @@ export default class Userinfo extends Component<UserinfoProps> {
     const investments = this.props.user.investments
       ? Object.keys(this.props.user.investments).reduce((total, key) => {
           if (!returnKeys.includes(key))
-            return total + this.props.user.investments[key];
+            return total + Math.abs(this.props.user.investments[key]);
           return total;
         }, 0)
       : 0;

@@ -136,6 +136,9 @@ export default class Portfolio extends Component<PortfolioProps> {
 
     return (
       <OldMuiThemeProvider muiTheme={gMuiTheme}>
+        {this.props.size < mobileBreakPoint ? (
+            <MobileTopHeaderContainer />
+          ) : null}
         <div
           style={{
             height: this.props.size > mobileBreakPoint ? "100vh" : "100%",
@@ -143,9 +146,6 @@ export default class Portfolio extends Component<PortfolioProps> {
             position: "relative"
           }}
         >
-          {this.props.size < mobileBreakPoint ? (
-            <MobileTopHeaderContainer />
-          ) : null}
           <div className="PortfolioHeader">
             <div className="contentHeader">
               <User size={this.props.size} user={this.props.user} />

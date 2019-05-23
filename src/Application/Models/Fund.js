@@ -96,11 +96,24 @@ module.exports = class Fund {
       : 0;
   }
 
+  fadeStake() {
+    const resultBetIds = this.fadeResults ? Object.keys(this.fadeResults) : [];
+    return this.wagers
+      ? Object.keys(this.fadeWagers)
+          .filter(betId => !resultBetIds.includes(betId))
+          .reduce((total, betId) => total + this.fadeWagers[betId], 0)
+      : 0;
+  }
+
   /**
    * @return {number} Absolute value of fund in cents
    */
   absValue() {
     return this.balance + this.atStake() + this.amountReturned;
+  }
+
+  fadeAbsValue() {
+    return this.counterBalance + this.fadeStake() + this.fadeAmountWagered;
   }
 
   /**

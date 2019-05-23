@@ -56,15 +56,15 @@ export default (props: WagerStatProps) => {
 
   if (props.isManager) {
     amountWagered = props.fund.amountWagered / 100;
-    amountCurrent = props.fund.absValue() / 100;
+    amountCurrent = (props.fund.absValue() + props.fund.fadeAbsValue()) / 100;
   } else {
     amountWagered = props.userWager;
     amountCurrent = props.userCurrent;
   }
 
   const investmentProgress = () => {
-    if (!props.fund.amountWagered) return 0;
-    return props.fund.amountWagered / props.fund.maxBalance * 100;
+    if (!props.fund.amountWagered || !props.fund.fadeAmountWagered) return 0;
+    return ((props.fund.amountWagered || 0) + (props.fund.fadeAmountWagered || 0)) / props.fund.maxBalance * 100;
   };
 
   const returnPct = () => {
