@@ -78,7 +78,6 @@
     }
 
     .carousel-item {
-        width: 384px !important;
         display: block;
     }
 }
