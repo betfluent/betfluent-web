@@ -3,6 +3,7 @@ module.exports = class Bet {
     agreeCount = 0,
     createdTimeMillis,
     disagreeCount = 0,
+    fade,
     fundId,
     gameId,
     gameLeague,
@@ -28,6 +29,7 @@ module.exports = class Bet {
     this.disagreeCount = disagreeCount;
     this.id = id;
     if (isTraining) this.isTraining = isTraining;
+    this.fade = fade;
     this.fundId = fundId;
     this.gameId = gameId;
     this.gameLeague = gameLeague;

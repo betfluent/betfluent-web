@@ -119,6 +119,7 @@ export default class Bet extends Component<BetProps> {
               />
             </span>
             <span style={selectionStyle}>{betSummary}</span>
+            {this.state.bet && this.state.bet.fade && <span style={{color: 'red'}}> - PENDING FADE BET</span>}
           </div>
         </div>
       </IntlProvider>
