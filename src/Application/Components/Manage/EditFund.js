@@ -32,7 +32,7 @@ type EditFundProps = {
 export default class EditFund extends Component<EditFundProps> {
   constructor(props) {
     super(props);
-    this.fundId = props.match.params.fund;
+    this.fundId = props.computedMatch.params.fund;
     this.navBack = this.navBack.bind(this);
     this.state = {
       open: false

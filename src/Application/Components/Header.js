@@ -82,7 +82,7 @@ const HistoryWithBadge = props => (
       style={{
         fill:
           props.selectedIndex === 2
-            ? "rgb(22, 106, 255)"
+            ? "rgb(26, 102, 26)"
             : "rgba(0, 0, 0, 0.54)"
       }}
     />

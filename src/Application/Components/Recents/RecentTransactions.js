@@ -208,7 +208,7 @@ export default class RecentTransactions extends Component<
     };
 
     return (
-      <div style={{ paddingBottom: 24 }}>
+      <div style={{ paddingBottom: 24, paddingTop: 56 }}>
         {[this.fundObjects, this.renderRecentTransactions({ dateStyle })]}
       </div>
     );

@@ -149,15 +149,6 @@ export default class WagerDetailItem extends Component<WagerDetailItemProps> {
               >
                 BET DETAILS
               </div>
-              <BetPrediction
-                fund={this.props.fund}
-                game={game}
-                bet={wager}
-                location={this.props.location}
-                willWin={this.state.willWin}
-                firstPrediction={!(this.props.user.firstTimes.prediction > 0)}
-                size={this.props.size}
-              />
             </div>
             <LearningModal
               open={this.state.learningModalOpen}
