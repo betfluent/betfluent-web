@@ -107,18 +107,11 @@ export default class ActivityItem extends Component<ActivityItemProps> {
     }
 
     const renderAmount = () => {
-      if (
-        this.props.user &&
-        this.props.user.publicId === this.props.interaction.userId ||
-        this.props.interaction.type !== "Wager"
-      ) {
-        if (amount >= 0) {
-          return `$${(amount / 100).toFixed(2)}`;
-        }
-        return `-$${(Math.abs(amount) / 100).toFixed(2)}`;
+      if (amount >= 0) {
+        return `$${(amount / 100).toFixed(2)}`;
       }
-      return null;
-    };
+      return `-$${(Math.abs(amount) / 100).toFixed(2)}`;
+    }
 
     const titleStyle = {
       fontSize: 12,
