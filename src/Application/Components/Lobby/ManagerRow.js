@@ -16,8 +16,7 @@ const ManagerRow = ({ manager, user, size, onClick }) => {
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
-          items: calcItems({ size, count: manager.funds.length }),
-          paritialVisibilityGutter: ((size - 1024) / Math.log(size - 1024)) - ((size - 1024) / 6)
+          items: calcItems({ size, count: manager.funds.length })
         },
         tablet: {
           breakpoint: { max: 1024, min: 624 },
@@ -44,7 +43,7 @@ const ManagerRow = ({ manager, user, size, onClick }) => {
                     </div>
                 </div>
                 <div className="pool-wrapper">
-                    <Carousel responsive={responsive} partialVisbile containerClass="carousel-container" itemClass="carousel-item" autoPlay={false}>
+                    <Carousel responsive={responsive} containerClass="carousel-container" itemClass="carousel-item" autoPlay={false}>
                         {manager.funds && manager.funds.map((fund, i) => (
                             <LobbyCard key={i} fund={fund} user={user} onClick={onClick} />
                         ))}
