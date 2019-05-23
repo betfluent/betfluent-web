@@ -17,7 +17,7 @@ const ManagerRow = ({ manager, user, size, onClick }) => {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
           items: calcItems({ size, count: manager.funds.length }),
-          paritialVisibilityGutter: 84
+          paritialVisibilityGutter: ((size - 1024) / Math.log(size - 1024)) - ((size - 1024) / 6)
         },
         tablet: {
           breakpoint: { max: 1024, min: 624 },
