@@ -86,7 +86,7 @@ export default class CreateFund extends Component<CreateFundProps> {
     this.onGameDateChange = this.onGameDateChange.bind(this);
     this.state = {
       open: false,
-      pctFee: "15%",
+      pctFee: "5%",
       initialSummary: "<p>Please enter your pool summary here...</p>",
       fundSummary: false,
       summaryChanged: false,
@@ -250,7 +250,10 @@ export default class CreateFund extends Component<CreateFundProps> {
         : 0,
       closedTimeMillis: -1,
       closingTime: poolCloseTime,
+      counterBalance: 0,
       createdTimeMillis: Date.now(),
+      fadeAmountReturned: 0,
+      fadeAmountWagered: 0,
       league: this.state.league,
       name: this.state.name,
       minInvestment: parseInt(this.state.minWager.replace(/,/gi, ""), 10) * 100,
