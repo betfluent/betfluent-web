@@ -723,7 +723,7 @@ export default class CreateFund extends Component<CreateFundProps> {
                       className="potentialGamesCopy"
                       style={{ color: textColor2 }}
                     >
-                      THIS POOL WILL BET ON 1 OR MORE OF THE FOLLOWING GAMES:
+                      THIS POOL WILL BET ON THE FOLLOWING GAME:
                     </div>
                     <PotentialGames selectedGames={this.state.selectedGames} />
                   </div>

@@ -152,7 +152,7 @@ export default class Summary extends Component<SummaryProps> {
         {this.state.potentialGames.length > 0 ? (
           <div>
             <div className="potentialGamesCopy" style={{ color: textColor2 }}>
-              {fund.manager.name} WILL BET ON 1 OR MORE OF THE FOLLOWING GAMES:
+              {fund.manager.name} WILL BET ON THE FOLLOWING GAME:
             </div>
             <PotentialGames selectedGames={this.state.potentialGames} />
           </div>
