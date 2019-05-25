@@ -43,6 +43,7 @@ export default class GameDetail extends Component<GameDetailProps> {
   }
 
   onFundChange(fund) {
+    fund.userReturn(this.props.user.investments[this.props.match.params.fund])
     this.setState({ fund });
   }
 
@@ -57,7 +58,7 @@ export default class GameDetail extends Component<GameDetailProps> {
       );
     }
 
-    const userWager = this.props.user.investments[this.state.fund.id] / 100;
+    const userWager = Math.abs(this.props.user.investments[this.state.fund.id] / 100);
 
     return (
       <ScrollGame
