@@ -16,6 +16,7 @@ import Alarm from "material-ui/svg-icons/action/alarm";
 import NavigationArrowBack from "material-ui/svg-icons/navigation/arrow-back";
 import Moment from "react-moment";
 import Lottie from "react-lottie";
+import FundModel from "../../Models/Fund";
 import "../../../Styles/Menu.css";
 import Summary from "../Fund/Summary";
 import Activity from "./Activity";
@@ -585,6 +586,9 @@ export default class FundDetail extends Component<FundProps> {
       );
 
     const fund = this.state.fund;
+    const fadeFund = new FundModel(fund);
+    fadeFund.userReturn(-1);
+
     let userWager;
     let userCurrent;
 
@@ -633,7 +637,7 @@ export default class FundDetail extends Component<FundProps> {
         <br />
         {fund.status !== "RETURNED"
           ? [
-              fund.amountWagered ? fund.playerCount : "0",
+              (fund.amountWagered ? fund.playerCount : 0) + (fund.fadeAmountWagered ? fund.fadePlayerCount : 0),
               " Players \u00B7 $",
               fund.minInvestment / 100,
               " Minimum / ",
@@ -708,7 +712,10 @@ export default class FundDetail extends Component<FundProps> {
                 </div>
                 <div style={titleStyle}>{fund.name}</div>
                 <SubTitle />
-                <FundDetailHeader fund={fund} isManager />
+                <div className="manager-fund-detail">
+                  <FundDetailHeader fund={fund} isManager />
+                  <FundDetailHeader fund={fadeFund} isManager fade />
+                </div>
               </div>
             </div>
             <Divider />

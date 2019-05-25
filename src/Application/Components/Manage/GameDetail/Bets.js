@@ -23,7 +23,7 @@ export default class Bets extends Component<BetsProps> {
 
   render() {
     const fund = this.props.fund;
-    const allBetsObj = Object.assign({}, fund.wagers, fund.pendingBets);
+    const allBetsObj = Object.assign({}, {...fund.wagers, ...fund.fadeWagers}, fund.pendingBets);
     return (
       <div>
         {Object.keys(allBetsObj).map((betId, index) => (

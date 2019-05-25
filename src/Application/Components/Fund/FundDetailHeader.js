@@ -40,8 +40,8 @@ export default (props: WagerStatProps) => {
     height: 8,
     borderRadius: 8,
     backgroundColor: props.isManager
-      ? "rgba(17,204,136,0.2)"
-      : "rgba(90,150,255,0.2)"
+      ? props.fade ? "rgb(213, 0, 0, 0.2)" : "rgba(26, 102, 26, 0.2)"
+      : "rgba(26, 102, 26, 0.2)"
   };
 
   const triStyle = {
@@ -56,7 +56,7 @@ export default (props: WagerStatProps) => {
 
   if (props.isManager) {
     amountWagered = props.fund.amountWagered / 100;
-    amountCurrent = (props.fund.absValue() + props.fund.fadeAbsValue()) / 100;
+    amountCurrent = props.fund.absValue() / 100;
   } else {
     amountWagered = props.userWager;
     amountCurrent = props.userCurrent;
@@ -76,6 +76,7 @@ export default (props: WagerStatProps) => {
 
   const renderColor = () => {
     if (props.fund.status === "OPEN" || props.fund.status === "STAGED") {
+      if (props.isManager && props.fade) return alertColor;
       if (props.isManager) return managerThemeColor;
       return themeColor;
     }
@@ -95,9 +96,13 @@ export default (props: WagerStatProps) => {
         marginTop:
           props.fund.status === "OPEN" || props.fund.status === "STAGED"
             ? 16
-            : 8
+            : 8,
+        width: 172
       }}
     >
+      <div>
+        {props.fade ? `AGAINST PROGRESS` : `FOR PROGRESS`}
+      </div>
       <span
         style={{
           fontSize:
@@ -155,6 +160,7 @@ export default (props: WagerStatProps) => {
         </span>
         {props.fund.status === "OPEN" || props.fund.status === "STAGED" ? (
           <LinearProgress
+            {...(props.fade ? { color: "rgb(213,0,0)" } : {})}
             style={linearStyle}
             mode="determinate"
             value={investmentProgress()}

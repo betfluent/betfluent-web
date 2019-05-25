@@ -383,7 +383,7 @@ export default class Fund extends Component<FundProps> {
         {`${this.state.fund.league} ${this.state.fund.type}`}
         <br />
         {[
-          props.fund.amountWagered ? props.fund.playerCount : "0",
+          (props.fund.amountWagered ? props.fund.playerCount : 0) + (props.fund.fadeAmountWagered ? props.fund.fadePlayerCount : 0),
           " Players \u00B7 $",
           props.fund.minInvestment / 100,
           " Minimum / ",

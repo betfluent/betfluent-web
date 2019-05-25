@@ -2586,3 +2586,7 @@ td {
     left: calc(50% + 120px);
   }
 }
+
+.manager-fund-detail {
+  display: flex;
+}

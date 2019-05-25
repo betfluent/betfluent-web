@@ -247,7 +247,7 @@ export default class Funds extends Component<FundsProps> {
       height: 8,
       borderRadius: 6,
       top: 15,
-      backgroundColor: "rgba(17,204,136,0.2)"
+      backgroundColor: "rgba(26, 102, 26, 0.2)"
     };
 
     const cardTitleStyle = {

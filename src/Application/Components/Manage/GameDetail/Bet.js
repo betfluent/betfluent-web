@@ -85,6 +85,7 @@ export default class Bet extends Component<BetProps> {
         if (bet.pctOfFund) return bet.pctOfFund / 100;
         return bet.wagered / 100;
       }
+      if (bet.fade) return this.props.userWager / this.props.fund.fadeAmountWagered * betReturn;
       return this.props.userWager / this.props.fund.amountWagered * betReturn;
     };
 
