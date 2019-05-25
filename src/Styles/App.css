@@ -2589,4 +2589,6 @@ td {
 
 .manager-fund-detail {
   display: flex;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }

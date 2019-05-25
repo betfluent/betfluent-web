@@ -3,6 +3,7 @@
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { IntlProvider, FormattedNumber } from "react-intl";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { MuiThemeProvider as V0MuiThemeProvider } from "material-ui";
@@ -120,6 +121,13 @@ export default class Account extends Component<AccountProps, AccountState> {
     const user = this.props.user;
     const authUser = this.props.authUser;
 
+    const titleStyle = {
+      fontSize: 20,
+      lineHeight: "28px",
+      color: textColor1,
+      fontWeight: 500
+    };
+
     const arrowStyle = {
       color: themeColor,
       position: "absolute",
@@ -184,6 +192,18 @@ export default class Account extends Component<AccountProps, AccountState> {
       marginLeft: 4
     };
 
+    const returnKeys = this.props.user.returns
+      ? Object.keys(this.props.user.returns)
+      : [];
+
+    const investments = this.props.user.investments
+      ? Object.keys(this.props.user.investments).reduce((total, key) => {
+          if (!returnKeys.includes(key))
+            return total + Math.abs(this.props.user.investments[key]);
+          return total;
+        }, 0)
+      : 0;
+
     const renderApprovedDeposit = () => {
       if (authUser.emailVerified) {
         return (
@@ -241,100 +261,114 @@ export default class Account extends Component<AccountProps, AccountState> {
       );
     };
 
-    if (this.props.isManager)
+    const renderManagerInfo = () => {
       return (
         <V0MuiThemeProvider muiTheme={mgMuiTheme}>
-          <div>
-            <div className="AccountHeader">
+            <React.Fragment>
+              <Avatar
+                width={80}
+                userName={user.name}
+                userAvatar={user.manager.avatarUrl}
+                key={user.manager.avatarUrl}
+                isManager
+                allowUpload
+              />
               <div
-                className="contentHeader flexContainer"
-                style={{ justifyContent: "flex-start" }}
+                className="flexVertical"
+                style={{ justifyContent: "space-between", flex: 1 }}
               >
-                <Avatar
-                  width={80}
-                  userName={user.name}
-                  userAvatar={user.manager.avatarUrl}
-                  key={user.manager.avatarUrl}
-                  isManager
-                  allowUpload
-                />
-                <div
-                  className="flexVertical"
-                  style={{ justifyContent: "space-between", flex: 1 }}
-                >
-                  <div style={{ paddingRight: 48 }}>
-                    <div style={headerTitleStyle}>
-                      {user.manager.name || null}
-                    </div>
-                    <div style={headerSubtitleStyle}>{user.name || null}</div>
-                    <div style={headerSubtitleStyle}>
-                      {user.manager.company || null}
-                    </div>
-                    <div
-                      style={{
-                        ...headerSubtitleStyle,
-                        fontSize: 14,
-                        fontWeight: 500,
-                        marginTop: 8
-                      }}
-                    >
-                      <span style={{ color: managerThemeColor }}>
-                        {user.manager.details.specialty || null}
-                      </span>{" "}
-                      Specialist
-                    </div>
+                <div style={{ paddingRight: 48 }}>
+                  <div style={headerTitleStyle}>
+                    {user.manager.name || null}
+                  </div>
+                  <div style={headerSubtitleStyle}>{user.name || null}</div>
+                  <div style={headerSubtitleStyle}>
+                    {user.manager.company || null}
                   </div>
                   <div
                     style={{
                       ...headerSubtitleStyle,
                       fontSize: 14,
-                      marginBottom: 8,
+                      fontWeight: 500,
                       marginTop: 8
                     }}
                   >
-                    {user.manager.details.summary
-                      ? user.manager.details.summary
-                      : "Your profile is empty! Write something to let players know more about you."}
+                    <span style={{ color: managerThemeColor }}>
+                      {user.manager.details.specialty || null}
+                    </span>{" "}
+                    Specialist
                   </div>
                 </div>
                 <div
-                  role="presentation"
-                  onClick={() => {
-                    this.setState({ isDialogOpen: true });
-                  }}
                   style={{
-                    ...editIconContainerStyle,
-                    color: managerThemeColor
+                    ...headerSubtitleStyle,
+                    fontSize: 14,
+                    marginBottom: 8,
+                    marginTop: 8
                   }}
                 >
-                  EDIT
-                  <Edit
-                    style={{
-                      ...editIconStyle,
-                      fill: managerThemeColor
-                    }}
-                  />
+                  {user.manager.details.summary
+                    ? user.manager.details.summary
+                    : "Your profile is empty! Write something to let players know more about you."}
                 </div>
-                <EditSummaryDialog
-                  managerId={user.manager.id}
-                  isDialogOpen={this.state.isDialogOpen}
-                  summary={user.manager.details.summary}
-                  handleClose={() => {
-                    this.setState({ isDialogOpen: false });
+                <div style={titleStyle}>
+                  <IntlProvider locale="en">
+                    <React.Fragment>
+                      <span style={{ color: textColor2 }}>
+                      <FormattedNumber
+                        style="currency"
+                        currency="USD"
+                        minimumFractionDigits={2}
+                        value={this.props.user.balance / 100}
+                      />{" "}
+                        {"\u00B7"}{" "}
+                      </span>
+                      <span style={{ color: themeColor }}>
+                        <FormattedNumber
+                          style="currency"
+                          currency="USD"
+                          minimumFractionDigits={2}
+                          value={investments / 100}
+                        />
+                      </span>
+                    </React.Fragment>
+                  </IntlProvider>
+                </div>
+                <div style={subtitleStyle}>
+                  <span>Available {"\u00B7"} </span>
+                  <span style={{ color: themeColor }}>Wagered</span>
+                </div>
+              </div>
+              <div
+                role="presentation"
+                onClick={() => {
+                  this.setState({ isDialogOpen: true });
+                }}
+                style={{
+                  ...editIconContainerStyle,
+                  color: managerThemeColor
+                }}
+              >
+                EDIT
+                <Edit
+                  style={{
+                    ...editIconStyle,
+                    fill: managerThemeColor
                   }}
                 />
               </div>
-            </div>
-            <button
-              className="logoutBtn"
-              style={{ color: managerThemeColor }}
-              onClick={this.logout}
-            >
-              SIGN OUT
-            </button>
-          </div>
+              <EditSummaryDialog
+                managerId={user.manager.id}
+                isDialogOpen={this.state.isDialogOpen}
+                summary={user.manager.details.summary}
+                handleClose={() => {
+                  this.setState({ isDialogOpen: false });
+                }}
+              />
+          </React.Fragment>
         </V0MuiThemeProvider>
       );
+    }
 
     return (
       <V0MuiThemeProvider muiTheme={gMuiTheme}>
@@ -343,11 +377,12 @@ export default class Account extends Component<AccountProps, AccountState> {
             <MobileTopHeaderContainer />
           ) : null}   
           <div className="AccountHeader">
-            <div className="contentHeader">
-              <UserInfo user={user} showRealName allowUpload />
+            <div className="contentHeader flexContainer">
+              {this.props.isManager
+                ? renderManagerInfo()
+                : <UserInfo user={user} showRealName allowUpload />}
             </div>
           </div>
-
           <div
             style={{
               maxHeight: this.renderHeight(),

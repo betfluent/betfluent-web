@@ -24,6 +24,7 @@ import { mgMuiTheme } from "../ManagerStyles";
 import WagerDialogContainer from "../../Containers/WagerDialogContainer";
 import OnFidoStatusDialog from "./OnFidoStatusDialog";
 import MobileTopHeaderContainer from "../../Containers/MobileTopHeaderContainer";
+import FundModel from "../../Models/Fund";
 import FundDetailHeader from "./FundDetailHeader";
 
 const themeColor = gMuiTheme.palette.themeColor;
@@ -352,12 +353,17 @@ export default class Fund extends Component<FundProps> {
       );
     }
 
+    const fadeFund = new FundModel(this.state.fund);
+    fadeFund.userReturn(-1);
+
+    let fadeUserWager;
     let userWager;
     let userCurrent;
     let isFade = false;
 
     if (this.state.fund.status === "OPEN") {
-      userWager = (this.state.fund.amountWagered || 0) + (this.state.fund.fadeAmountWagered || 0) / 100
+      userWager = (this.state.fund.amountWagered || 0) / 100
+      fadeUserWager = (this.state.fund.fadeAmountWagered || 0) / 100
     } else if (this.props.user && this.props.user.investments) {
       userWager = this.props.user.investments[this.state.fund.id];
       if (userWager < 0) isFade = true;
@@ -436,17 +442,26 @@ export default class Fund extends Component<FundProps> {
                   }}
                   style={{
                     transition: "all 0.3s ease-in-out",
-                    height: this.state.fund.status === "OPEN" ? 64 : 103,
+                    height: this.state.fund.status === "OPEN" ? 84 : 103,
                     overflowY: "hidden"
                   }}
                 >
                   <SubTitle fund={this.state.fund} />
-                  <FundDetailHeader
-                    fund={this.state.fund}
-                    isManager={this.props.isManager}
-                    userWager={userWager}
-                    userCurrent={userCurrent}
-                  />
+                  <div className="manager-fund-detail">
+                    <FundDetailHeader
+                      fund={this.state.fund}
+                      isManager={false}
+                      userWager={userWager}
+                      userCurrent={userCurrent}
+                    />
+                    <FundDetailHeader
+                      fund={fadeFund}
+                      isManager={false}
+                      userWager={fadeUserWager}
+                      userCurrent={userCurrent}
+                      fade
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -528,12 +543,10 @@ export default class Fund extends Component<FundProps> {
                 </Tab>
               </Tabs>
             </div>
-            {!this.props.isManager ? (
-              <div className="wager-button-wrapper">
-                <WagerButton open={this.state.fund.status === "OPEN"} user={!!this.props.user} />
-                <WagerButton open={this.state.fund.status === "OPEN"} user={!!this.props.user} fade />
-              </div>
-            ) : null}
+            <div className="wager-button-wrapper">
+              <WagerButton open={this.state.fund.status === "OPEN"} user={!!this.props.user} />
+              <WagerButton open={this.state.fund.status === "OPEN"} user={!!this.props.user} fade />
+            </div>
             <WagerDialogContainer
               user={this.props.user}
               fund={this.state.fund}

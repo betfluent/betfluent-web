@@ -17,8 +17,7 @@ import Work from "material-ui/svg-icons/action/work";
 import AvFeaturedPlayList from "material-ui/svg-icons/av/featured-play-list";
 import ActionHistory from "material-ui/svg-icons/action/history";
 import School from "material-ui/svg-icons/social/school";
-import Build from "material-ui/svg-icons/action/build";
-import Chart from "material-ui/svg-icons/editor/insert-chart";
+import Build from "material-ui/svg-icons/image/edit";
 import Badge from "material-ui/Badge";
 import { MenuItem } from "material-ui";
 import { getUserInteractionsCount } from "../Services/DbService";
@@ -165,22 +164,39 @@ const managerMenu = [
   {
     label: "Lobby",
     icon: AvFeaturedPlayList,
-    url: "/"
+    url: "/",
+    index: 0
   },
   {
-    label: "Manage",
+    label: "Portfolio",
+    icon: Work,
+    url: "/portfolio",
+    index: 1
+  },
+  {
+    label: false,
+    labelIcon: HistoryLabelWithBadge,
+    icon: ActionHistory,
+    url: "/recent",
+    index: 2
+  },
+  {
+    label: "Create",
     icon: Build,
-    url: "/manage"
+    url: "/manage",
+    index: 3,
   },
   {
-    label: "Performance",
-    icon: Chart,
-    url: "/manage/performance"
+    label: "Learn",
+    icon: School,
+    url: "/learn",
+    index: 4
   },
   {
     label: "Account",
     icon: ActionAccountCircle,
-    url: "/account"
+    url: "/account",
+    index: 5
   }
 ];
 
@@ -345,16 +361,24 @@ export default class Header extends Component<HeaderProps> {
           selectedIndex = 0;
           this.setState({ selectedIndex });
           break;
-        case "/manage":
+        case "/portfolio":
           selectedIndex = 1;
           this.setState({ selectedIndex });
           break;
-        case "/manage/performance":
+        case "/recent":
           selectedIndex = 2;
           this.setState({ selectedIndex });
           break;
-        case "/account":
+        case "/manage":
           selectedIndex = 3;
+          this.setState({ selectedIndex });
+          break;
+        case "/account":
+          selectedIndex = 5;
+          this.setState({ selectedIndex });
+          break;
+        case "/learn":
+          selectedIndex = 4;
           this.setState({ selectedIndex });
           break;
         default:
