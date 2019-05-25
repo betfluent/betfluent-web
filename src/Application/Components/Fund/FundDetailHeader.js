@@ -63,7 +63,7 @@ export default (props: WagerStatProps) => {
   }
 
   const investmentProgress = () => {
-    if (!props.fund.amountWagered || !props.fund.fadeAmountWagered) return 0;
+    if (!props.fund.amountWagered && !props.fund.fadeAmountWagered) return 0;
     return ((props.fund.amountWagered || 0) + (props.fund.fadeAmountWagered || 0)) / props.fund.maxBalance * 100;
   };
 
