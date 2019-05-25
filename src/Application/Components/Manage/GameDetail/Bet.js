@@ -170,18 +170,6 @@ export default class Bet extends Component<BetProps> {
               />
             </span>
             <span style={selectionStyle}>{betSummary}</span>
-            {bet.status === "STAGED" ? (
-              <div className="deleteBtn" style={{ color: alertColor }}>
-                <span
-                  role="presentation"
-                  onClick={() => {
-                    this.setState({ deleteBetOpen: true });
-                  }}
-                >
-                  Delete Bet
-                </span>
-              </div>
-            ) : null}
           </div>
           <Divider />
           <Dialog

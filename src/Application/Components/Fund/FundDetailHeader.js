@@ -101,7 +101,7 @@ export default (props: WagerStatProps) => {
       }}
     >
       <div>
-        {props.fade ? `AGAINST PROGRESS` : `FOR PROGRESS`}
+        {props.isManager && (props.fade ? `BETTING AGAINST YOU` : `BETTING WITH YOU`)}
       </div>
       <span
         style={{
