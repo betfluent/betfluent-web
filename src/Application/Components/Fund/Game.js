@@ -195,9 +195,9 @@ export default class Game extends Component<GameProps> {
   renderBaseBallScore = game => {
     let gamePeriod;
     if (game.homeScoring) {
-      if (game.homeScoring[game.period - 1].points === -1) {
+      if (game.status === "TOP") {
         gamePeriod = `Top ${ordinalSuffix(game.period)}`;
-      } else if (game.homeScoring[game.period - 1].points > -1) {
+      } else if (game.status === "BOTTOM") {
         gamePeriod = `Bottom ${ordinalSuffix(game.period)}`;
       }
       return (
