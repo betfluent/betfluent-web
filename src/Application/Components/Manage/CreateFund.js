@@ -252,7 +252,7 @@ export default class CreateFund extends Component<CreateFundProps> {
       closingTime: poolCloseTime,
       counterBalance: 0,
       createdTimeMillis: Date.now(),
-      fadeAmountReturned: 0,
+      fadeReturned: 0,
       fadeAmountWagered: 0,
       league: this.state.league,
       name: this.state.name,

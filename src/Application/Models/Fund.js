@@ -98,7 +98,7 @@ module.exports = class Fund {
 
   fadeStake() {
     const resultBetIds = this.fadeResults ? Object.keys(this.fadeResults) : [];
-    return this.wagers
+    return this.fadeWagers
       ? Object.keys(this.fadeWagers)
           .filter(betId => !resultBetIds.includes(betId))
           .reduce((total, betId) => total + this.fadeWagers[betId], 0)
