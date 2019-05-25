@@ -67,7 +67,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
       const investments = nextProps.user.investments
         ? Object.keys(nextProps.user.investments).reduce((total, key) => {
             if (!returnKeys.includes(key))
-              return total + nextProps.user.investments[key];
+              return total + Math.abs(nextProps.user.investments[key]);
             return total;
           }, 0)
         : 0;

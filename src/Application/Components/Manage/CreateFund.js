@@ -261,7 +261,7 @@ export default class CreateFund extends Component<CreateFundProps> {
       minInvestment: parseInt(this.state.minWager.replace(/,/gi, ""), 10) * 100,
       managerId: this.props.user.manager.id,
       pctOfFeeCommission:
-        this.props.user.manager.details.pctOfFeeCommission || 25,
+        this.props.user.manager.details.pctOfFeeCommission || 50,
       maxInvestment: parseInt(this.state.maxWager.replace(/,/gi, ""), 10) * 100,
       maxBalance: parseInt(this.state.fundCap.replace(/,/gi, ""), 10) * 100,
       openTimeMillis: -1,
