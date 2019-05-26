@@ -147,6 +147,12 @@ const clientMenu = [
     index: 2
   },
   {
+    label: "Create",
+    icon: Build,
+    url: "/manage",
+    index: 3,
+  },
+  {
     label: "Learn",
     icon: School,
     url: "/learn",
@@ -156,7 +162,7 @@ const clientMenu = [
     label: "Account",
     icon: ActionAccountCircle,
     url: "/account",
-    index: 3
+    index: 5
   }
 ];
 
@@ -174,7 +180,7 @@ const managerMenu = [
     index: 1
   },
   {
-    label: false,
+  label: false,
     labelIcon: HistoryLabelWithBadge,
     icon: ActionHistory,
     url: "/recent",
@@ -329,33 +335,7 @@ export default class Header extends Component<HeaderProps> {
   setRoute = props => {
     const iLocation = props.history.location.pathname;
     let selectedIndex = 0;
-    if (!!props.authUser && !props.isManager) {
-      switch (iLocation) {
-        case "/":
-          selectedIndex = 0;
-          this.setState({ selectedIndex });
-          break;
-        case "/portfolio":
-          selectedIndex = 1;
-          this.setState({ selectedIndex });
-          break;
-        case "/recent":
-          selectedIndex = 2;
-          this.setState({ selectedIndex });
-          break;
-        case "/account":
-          selectedIndex = 3;
-          this.setState({ selectedIndex });
-          break;
-        case "/learn":
-          selectedIndex = 4;
-          this.setState({ selectedIndex });
-          break;
-        default:
-          selectedIndex = this.state.selectedIndex;
-          this.setState({ selectedIndex });
-      }
-    } else if (!!props.authUser && props.isManager) {
+    if (!!props.authUser) {
       switch (iLocation) {
         case "/":
           selectedIndex = 0;

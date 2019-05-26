@@ -10,6 +10,7 @@ import Funds from "./Funds";
 import { getFundsFeed } from "../../Services/ManagerService";
 import { mgMuiTheme } from "../ManagerStyles";
 import Manager from "../../Models/Manager";
+import PromoteDialog from './PromoteDialog';
 import * as spinner from "../../../Assets/spinner.json";
 
 const spinnerOptions = {
@@ -34,25 +35,30 @@ type ManageProps = {
 export default class Manage extends Component<ManageProps> {
   constructor(props) {
     super(props);
+    this.handleClose = this.handleClose.bind(this);
     this.onTabChange = this.onTabChange.bind(this);
     this.onFundsChange = this.onFundsChange.bind(this);
   }
 
   componentWillMount() {
-    if (this.props.user && this.props.user.manager && !this.fundsFeed) {
+    if (this.props.isManager && this.props.user && this.props.user.manager && !this.fundsFeed) {
       this.fundsFeed = getFundsFeed(
         this.props.user.manager.id,
         this.onFundsChange
       );
+    } else {
+      if (!this.state || !this.state.showModal) this.setState({ showModal: true })
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.user && nextProps.user.manager && !this.fundsFeed) {
+    if (this.props.isManager && nextProps.user && nextProps.user.manager && !this.fundsFeed) {
       this.fundsFeed = getFundsFeed(
         nextProps.user.manager.id,
         this.onFundsChange
       );
+    } else {
+      if (!this.state || !this.state.showModal) this.setState({ showModal: true })
     }
   }
 
@@ -79,6 +85,11 @@ export default class Manage extends Component<ManageProps> {
     this.props.history.push(`#${tab}`);
   }
 
+  handleClose() {
+    this.setState({ showModal: false });
+    this.props.history.goBack();
+  }
+
   render() {
     const tabBarStyle = {
       height: 48
@@ -101,6 +112,16 @@ export default class Manage extends Component<ManageProps> {
           <Lottie options={spinnerOptions} width={20} />
         </div>
       );
+
+    if (!this.state.fundsCount) {
+      return (
+        <PromoteDialog
+          open={this.state.showModal}
+          handleClose={this.handleClose}
+          user={this.props.user}
+        />
+      )
+    }
 
     const stagedFundCount = this.state.fundsCount.STAGED || 0;
     const openFundCount = this.state.fundsCount.OPEN || 0;

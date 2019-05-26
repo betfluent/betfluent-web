@@ -201,6 +201,29 @@ export const WithdrawService = withdrawRequest =>
       });
   });
 
+export const PromoteService = promoteRequest => 
+  new Promise((resolve, rej) => {
+    firebase.auth().currentUser.getIdToken(true)
+    .then(idToken => {
+      fetch(`${BASE_URL}v1/operator/create-manager`, {
+        method: "post",
+        mode: "cors",
+        body: JSON.stringify(promoteRequest),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          token: idToken
+        }
+      })
+      .then(res => res.json())
+      .then(response => {
+        if (response.status === 'success') {
+          resolve(true);
+        }
+      });
+    })
+  })
+
 export const WagerService = wagerRequest =>
   new Promise((resolve, rej) => {
     firebase

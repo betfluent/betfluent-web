@@ -382,7 +382,7 @@ class App extends Component<AppProps> {
                 size={this.state.size}
                 isManager={this.props.isManager}
               />
-              <ManagerRoute
+              <PrivateRoute
                 exact
                 path="/manage"
                 component={ManagerRouter}

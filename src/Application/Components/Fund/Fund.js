@@ -442,7 +442,7 @@ export default class Fund extends Component<FundProps> {
                   }}
                   style={{
                     transition: "all 0.3s ease-in-out",
-                    height: this.state.fund.status === "OPEN" ? 84 : 103,
+                    height: this.state.fund.status === "OPEN" ? 84 : 132,
                     overflowY: "hidden"
                   }}
                 >
@@ -453,14 +453,15 @@ export default class Fund extends Component<FundProps> {
                       isManager={false}
                       userWager={userWager}
                       userCurrent={userCurrent}
+                      fade={isFade}
                     />
-                    <FundDetailHeader
-                      fund={fadeFund}
-                      isManager={false}
-                      userWager={fadeUserWager}
-                      userCurrent={userCurrent}
-                      fade
-                    />
+                    {this.state.fund.status === "OPEN" && <FundDetailHeader
+                        fund={fadeFund}
+                        isManager={false}
+                        userWager={fadeUserWager}
+                        userCurrent={userCurrent}
+                        fade
+                      />}
                   </div>
                 </div>
               </div>
