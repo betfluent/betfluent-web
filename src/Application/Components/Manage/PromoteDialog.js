@@ -94,7 +94,7 @@ class PromoteDialog extends Component {
         key={0}
         label="I'M READY"
         style={buttonStyle}
-        disabled={this.state.disabled}
+        disabled={this.state.disabled || (!this.props.state || !this.props.state.authUser.emailVerified)}
         primary
         fullWidth
         onClick={this.onPromoteUser}

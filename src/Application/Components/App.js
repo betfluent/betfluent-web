@@ -11,6 +11,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import "../../Styles/App.css";
 import NotFound from "./NotFound";
 import Login from "./Login";
+import VerifyBarContainer from "../Containers/VerifyBarContainer";
 import HeaderContainer from "../Containers/HeaderContainer";
 import FundsContainer from "../Containers/FundsContainer";
 import FundContainer from "../Containers/FundContainer";
@@ -473,13 +474,17 @@ class App extends Component<AppProps> {
             </Switch>
           </div>
           <TourDialog seenTour={this.seenTour} open={this.state.showTour} />
-          {this.props.isManager ? (
+          {this.props.isManager && (
             <ManagerOnboardingContainer
               finishOnboarding={this.finishOnboarding}
               setLock={this.setLock}
               showOnboarding={this.state.showOnboarding}
             />
-          ) : null}
+          )}
+          <VerifyBarContainer
+            authUser={this.props.authUser}
+            size={this.state.size}
+          />
         </div>
       );
     };
