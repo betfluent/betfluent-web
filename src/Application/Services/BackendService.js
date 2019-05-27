@@ -5,29 +5,26 @@ const BASE_URL = "https://boston-02108.herokuapp.com/api/";
 
 export const LocationService = locRequest =>
   new Promise(res => {
-    firebase
-      .auth()
-      .currentUser.getIdToken(true)
-      .then(idToken => {
         fetch(`${BASE_URL}v1/identity/location`, {
-          method: "post",
+          method: 'post',
           mode: "cors",
-          body: JSON.stringify(locRequest),
           headers: {
             Accept: "application/json",
-            "Content-Type": "application/json",
-            token: idToken
-          }
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            id: firebase.database().ref().push().key,
+            serviceType: 'CHECK_LOCATION'
+          })
         })
           .then(response => response.json())
-          .then(approved => {
-            res(approved);
+          .then(({ ok }) => {
+            res(ok);
           })
           .catch(() => {
             res(undefined);
           });
       });
-  });
 
 export const RegistrationService = (
   email,

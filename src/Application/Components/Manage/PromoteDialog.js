@@ -16,6 +16,7 @@ import * as second from './DialogAssets/second.svg';
 import * as third from './DialogAssets/third.svg';
 import * as fourth from './DialogAssets/fourth.svg';
 import * as arrow from './DialogAssets/arrow.svg';
+import * as restricted from './DialogAssets/restricted.svg';
 import './PromoteDialog.css';
 
 const textColor1 = gMuiTheme.palette.textColor1;
@@ -108,6 +109,37 @@ class PromoteDialog extends Component {
         onClick={this.props.handleClose}
       />
     ];
+
+    if (!this.props.approved) {
+      return (
+        <MuiThemeProvider muiTheme={gMuiTheme}>
+            <Dialog
+                title="LOCATION RESTRICTED"
+                titleStyle={wagerTitleStyle}
+                actions={[actions[1]]}
+                actionsContainerStyle={buttonContainerStyle}
+                modal
+                open={this.props.open}
+                onRequestClose={this.props.handleClose}
+                bodyClassName="proper-manager-modal-height"
+                bodyStyle={{ minHeight: 356, overflowX: "hidden", overflowY: "scroll" }}
+                contentStyle={modalStyle}
+                paperClassName="global-modal-paper"
+                className="global-modal-style"
+                style={{ overflowY: "scroll" }}
+            >
+                <div style={subTitleStyle}>
+                    <div className="manager-modal-restricted">
+                        SORRY! THE STATE YOU ARE IN PROHIBITS THIS FEATURE
+                    </div>
+                    <div className="manager-restricted-wrapper">
+                      <img src={restricted} alt="restricted location" />
+                    </div>
+                </div>
+            </Dialog>
+        </MuiThemeProvider>
+      );
+    }
 
     return (
         <MuiThemeProvider muiTheme={gMuiTheme}>

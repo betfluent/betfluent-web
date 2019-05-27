@@ -12,6 +12,7 @@ import { mgMuiTheme } from "../ManagerStyles";
 import Manager from "../../Models/Manager";
 import PromoteDialog from './PromoteDialog';
 import * as spinner from "../../../Assets/spinner.json";
+import { LocationService } from "../../Services/BackendService";
 
 const spinnerOptions = {
   loop: true,
@@ -66,6 +67,10 @@ export default class Manage extends Component<ManageProps> {
     if (this.fundsFeed) this.fundsFeed.off();
   }
 
+  componentDidMount() {
+    LocationService().then(ok => this.setState({ ok, showModal: true }));
+  }
+
   onFundsChange(funds) {
     const fundsGrouped = groupBy(funds, fund => fund.status);
     const playerCounts = {};
@@ -91,6 +96,14 @@ export default class Manage extends Component<ManageProps> {
   }
 
   render() {
+    if (!this.state || this.state.ok === undefined) {
+      return (
+        <div style={{ padding: "8px 0" }}>
+          <Lottie options={spinnerOptions} width={20} />
+        </div>
+      );
+    }
+
     const tabBarStyle = {
       height: 48
     };
@@ -113,12 +126,13 @@ export default class Manage extends Component<ManageProps> {
         </div>
       );
 
-    if (!this.state.fundsCount) {
+    if (!this.state.fundsCount || this.state.ok === false) {
       return (
         <PromoteDialog
           open={this.state.showModal}
           handleClose={this.handleClose}
           user={this.props.user}
+          approved={this.state.ok}
         />
       )
     }
