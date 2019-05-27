@@ -26,7 +26,6 @@ const Profile = (props: ProfileProps) => {
         </div>
       </MuiThemeProvider>
     );
-  if (props.isManager) return null;
 
   return (
     <V0MuiThemeProvider muiTheme={gMuiTheme}>

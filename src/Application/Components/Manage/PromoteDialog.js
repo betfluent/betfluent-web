@@ -41,7 +41,7 @@ class PromoteDialog extends Component {
       request: {
         name: this.props.user.name,
         userId: this.props.user.id,
-        company: "Someplace cool"
+        company: ""
       }
     };
 

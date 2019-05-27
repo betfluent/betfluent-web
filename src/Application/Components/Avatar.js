@@ -54,9 +54,8 @@ export default class Avatar extends Component<AvatarProps> {
         });
         if (this.props.isManager) {
           ManagerAvatarUploadService(e.target.files[0]);
-        } else {
-          AvatarUploadService(e.target.files[0]);
         }
+        AvatarUploadService(e.target.files[0]);
       }
     } catch (error) {
       this.setState({

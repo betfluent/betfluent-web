@@ -494,39 +494,36 @@ export default class Header extends Component<HeaderProps> {
       const { authUser, user } = this.props;
       const { data } = this.state;
 
-      if (!this.props.isManager) {
-        return (
-          <div style={{ height: 236 }}>
-            <div style={nameStyle}>{user && user.public.name}</div>
-            <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
-            <div style={balanceStyle}>
-              $<span style={{ position: "relative", bottom: 2 }}>
-                <OdometerExt
-                  value={data.length && data[0].value + 0.001}
-                  format="(,ddd).ddd"
-                />
-              </span>
-            </div>
-            <div style={balanceTitleStyle}>AMOUNT WAGERED</div>
-            <div style={balanceStyle}>
-              $<span style={{ position: "relative", bottom: 2 }}>
-                <OdometerExt
-                  value={data.length && data[1].value + 0.001}
-                  format="(,ddd).ddd"
-                />
-              </span>
-            </div>
-            <RaisedButton
-              style={{ width: 128 }}
-              primary
-              disabled={authUser && !authUser.emailVerified}
-              onClick={() => this.gotoDeposit()}
-              label={authUser ? "DEPOSIT" : "SIGN IN"}
-            />
+      return (
+        <div style={{ height: 236 }}>
+          <div style={nameStyle}>{user && user.public.name}</div>
+          <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
+          <div style={balanceStyle}>
+            $<span style={{ position: "relative", bottom: 2 }}>
+              <OdometerExt
+                value={data.length && data[0].value + 0.001}
+                format="(,ddd).ddd"
+              />
+            </span>
           </div>
-        );
-      }
-      return <div style={nameStyle}>{this.props.user ? this.props.user.name : ''}</div>;
+          <div style={balanceTitleStyle}>AMOUNT WAGERED</div>
+          <div style={balanceStyle}>
+            $<span style={{ position: "relative", bottom: 2 }}>
+              <OdometerExt
+                value={data.length && data[1].value + 0.001}
+                format="(,ddd).ddd"
+              />
+            </span>
+          </div>
+          <RaisedButton
+            style={{ width: 128 }}
+            primary
+            disabled={authUser && !authUser.emailVerified}
+            onClick={() => this.gotoDeposit()}
+            label={authUser ? "DEPOSIT" : "SIGN IN"}
+          />
+        </div>
+      );
     };
 
     const renderHeader = () => {
