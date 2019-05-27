@@ -519,7 +519,7 @@ export default class Fund extends Component<FundProps> {
                       fund={this.state.fund}
                       user={this.props.user}
                       location={this.props.location}
-                      allowComments={!this.props.isManager}
+                      allowComments={true}
                     />
                   </div>
                 </Tab>
