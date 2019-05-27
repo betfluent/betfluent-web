@@ -7,12 +7,12 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from "material-ui/TextField";
 import FlatButton from "material-ui/FlatButton";
 import Dialog from "material-ui/Dialog";
-import { updatePublicUser } from "../../Services/DbService";
+import { updatePublicUser, updateManager } from "../../Services/DbService";
 import { gMuiTheme } from "../Styles";
 
 const alertColor = gMuiTheme.palette.alertColor;
-
 type EditUserProfileDialogProps = {
+  managerId: String,
   isDialogOpen: boolean,
   publicUserId: string,
   publicName: string,
@@ -56,6 +56,8 @@ export default class EditUserProfileDialog extends Component<
     const updates = {
       name: this.state.publicName
     };
+
+    if (!!this.props.managerId) updateManager(this.props.managerId, updates);
 
     updatePublicUser(this.props.publicUserId, updates)
       .then(() => {
