@@ -110,18 +110,18 @@ const mainStyle = {
           color: gMuiTheme.palette.themeColor
         }}
       >
-        WITH $<OdometerExt
+        $<OdometerExt
           value={(props.fund.amountWagered ? props.fund.amountWagered / 100 : 0)}
           format="(,ddd)"
         />
       </span>
-      {" | "}
+      {" / "}
       <span
         style={{
           color: gMuiTheme.palette.alertColor
         }}
       >
-        AGAINST $<OdometerExt
+        $<OdometerExt
           value={(props.fund.fadeAmountWagered ? props.fund.fadeAmountWagered / 100 : 0)}
           format="(,ddd)"
         />
