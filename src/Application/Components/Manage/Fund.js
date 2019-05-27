@@ -21,6 +21,7 @@ import "../../../Styles/Menu.css";
 import Summary from "../Fund/Summary";
 import Activity from "./Activity";
 import Games from "./Games";
+import MobileTopHeaderContainer from "../../Containers/MobileTopHeaderContainer";
 import { getNewUid, getFundFeed } from "../../Services/DbService";
 import {
   closeFund,
@@ -674,127 +675,132 @@ export default class FundDetail extends Component<FundProps> {
     return (
       <MuiThemeProvider muiTheme={mgMuiTheme}>
         <IntlProvider locale="en">
-          <div>
-            <div className="FundHeader">
-              <div className="contentHeader">
-                <div>
-                  <NavigationArrowBack
-                    className="navbackArrow"
-                    onClick={this.navBack}
-                  />
-                  <div
-                    style={{
-                      fontSize: 14,
-                      fontWeight: 500,
-                      color: themeColor,
-                      float: "right",
-                      marginTop: 20
-                    }}
-                  >
-                    {fund.open ? (
-                      <span>
-                        OPEN <Alarm style={alarmStyle} />
-                        <span style={subtitleStyle}>
-                          Closing in{" "}
-                          <Moment
-                            key={0}
-                            fromNow
-                            ago
-                            date={fund.closingTime * 1000}
-                          />
+          <React.Fragment>
+            {this.props.size < mobileBreakPoint ? (
+                <MobileTopHeaderContainer />
+              ) : null}
+            <div>
+              <div className="FundHeader">
+                <div className="contentHeader">
+                  <div>
+                    <NavigationArrowBack
+                      className="navbackArrow"
+                      onClick={this.navBack}
+                    />
+                    <div
+                      style={{
+                        fontSize: 14,
+                        fontWeight: 500,
+                        color: themeColor,
+                        float: "right",
+                        marginTop: 20
+                      }}
+                    >
+                      {fund.open ? (
+                        <span>
+                          OPEN <Alarm style={alarmStyle} />
+                          <span style={subtitleStyle}>
+                            Closing in{" "}
+                            <Moment
+                              key={0}
+                              fromNow
+                              ago
+                              date={fund.closingTime * 1000}
+                            />
+                          </span>
                         </span>
-                      </span>
-                    ) : (
-                      fund.status
-                    )}
+                      ) : (
+                        fund.status
+                      )}
+                    </div>
+                    <div className="clear" />
                   </div>
-                  <div className="clear" />
-                </div>
-                <div style={titleStyle}>{fund.name}</div>
-                <SubTitle />
-                <div className="manager-fund-detail">
-                  <FundDetailHeader fund={fund} isManager />
-                  <FundDetailHeader fund={fadeFund} isManager fade />
+                  <div style={titleStyle}>{fund.name}</div>
+                  <SubTitle />
+                  <div className="manager-fund-detail">
+                    <FundDetailHeader fund={fund} isManager />
+                    <FundDetailHeader fund={fadeFund} isManager fade />
+                  </div>
                 </div>
               </div>
+              <Divider />
+              <div className="FillEdges" />
+              <div id="FundDetail" style={{ position: "relative" }}>
+                <Tabs
+                  inkBarStyle={{ background: themeColor }}
+                  tabItemContainerStyle={tabBarStyle}
+                >
+                  <Tab label="GAMES" id="GameTab">
+                    <div
+                      style={tabContentContainerStyle}
+                      ref={gamesContainer => {
+                        this.gamesContainer = gamesContainer;
+                        return gamesContainer;
+                      }}
+                    >
+                      <Games
+                        size={this.props.size}
+                        games={fund.games}
+                        userCurrent={userCurrent}
+                        userWager={userWager}
+                        fund={fund}
+                        user={this.props.user}
+                      />
+                    </div>
+                  </Tab>
+                  <Tab label="SUMMARY" id="SummaryTab">
+                    <div
+                      style={tabContentContainerStyle}
+                      ref={summaryContainer => {
+                        this.summaryContainer = summaryContainer;
+                        return summaryContainer;
+                      }}
+                    >
+                      <Summary
+                        size={this.props.size}
+                        fund={fund}
+                        user={this.props.user}
+                        location={this.props.location}
+                        isManager
+                        allowComments
+                      />
+                    </div>
+                  </Tab>
+                  <Tab label="ACTIVITY" id="ActivityTab">
+                    <div
+                      style={tabContentContainerStyle}
+                      ref={activityContainer => {
+                        this.activityContainer = activityContainer;
+                        return activityContainer;
+                      }}
+                    >
+                      <Activity
+                        size={this.props.size}
+                        user={this.props.user}
+                        fund={fund}
+                      />
+                    </div>
+                  </Tab>
+                </Tabs>
+                {this.renderMenu()}
+              </div>
+              <ConfirmationDialog
+                action="delete"
+                openConfirmation={this.state.confirmDelete}
+                confirmationAction={this.deleteStagedFund}
+                handleClose={() => {
+                  this.setState({ confirmDelete: false });
+                }}
+              />
+              <ConfirmationDialog
+                action="stageBet"
+                openConfirmation={this.state.confirmStage}
+                handleClose={() => {
+                  this.setState({ confirmStage: false });
+                }}
+              />
             </div>
-            <Divider />
-            <div className="FillEdges" />
-            <div id="FundDetail" style={{ position: "relative" }}>
-              <Tabs
-                inkBarStyle={{ background: themeColor }}
-                tabItemContainerStyle={tabBarStyle}
-              >
-                <Tab label="GAMES" id="GameTab">
-                  <div
-                    style={tabContentContainerStyle}
-                    ref={gamesContainer => {
-                      this.gamesContainer = gamesContainer;
-                      return gamesContainer;
-                    }}
-                  >
-                    <Games
-                      size={this.props.size}
-                      games={fund.games}
-                      userCurrent={userCurrent}
-                      userWager={userWager}
-                      fund={fund}
-                      user={this.props.user}
-                    />
-                  </div>
-                </Tab>
-                <Tab label="SUMMARY" id="SummaryTab">
-                  <div
-                    style={tabContentContainerStyle}
-                    ref={summaryContainer => {
-                      this.summaryContainer = summaryContainer;
-                      return summaryContainer;
-                    }}
-                  >
-                    <Summary
-                      size={this.props.size}
-                      fund={fund}
-                      user={this.props.user}
-                      location={this.props.location}
-                      isManager
-                      allowComments
-                    />
-                  </div>
-                </Tab>
-                <Tab label="ACTIVITY" id="ActivityTab">
-                  <div
-                    style={tabContentContainerStyle}
-                    ref={activityContainer => {
-                      this.activityContainer = activityContainer;
-                      return activityContainer;
-                    }}
-                  >
-                    <Activity
-                      size={this.props.size}
-                      user={this.props.user}
-                      fund={fund}
-                    />
-                  </div>
-                </Tab>
-              </Tabs>
-              {this.renderMenu()}
-            </div>
-            <ConfirmationDialog
-              action="delete"
-              openConfirmation={this.state.confirmDelete}
-              confirmationAction={this.deleteStagedFund}
-              handleClose={() => {
-                this.setState({ confirmDelete: false });
-              }}
-            />
-            <ConfirmationDialog
-              action="stageBet"
-              openConfirmation={this.state.confirmStage}
-              handleClose={() => {
-                this.setState({ confirmStage: false });
-              }}
-            />
-          </div>
+          </React.Fragment>
         </IntlProvider>
       </MuiThemeProvider>
     );

@@ -120,6 +120,11 @@ const clientMenuMobile = [
     url: "/recent"
   },
   {
+    label: "Create",
+    icon: Build,
+    url: "/manage",
+  },
+  {
     label: "Account",
     icon: ActionAccountCircle,
     url: "/account"
@@ -166,48 +171,8 @@ const clientMenu = [
   }
 ];
 
-const managerMenu = [
-  {
-    label: "Lobby",
-    icon: AvFeaturedPlayList,
-    url: "/",
-    index: 0
-  },
-  {
-    label: "Portfolio",
-    icon: Work,
-    url: "/portfolio",
-    index: 1
-  },
-  {
-  label: false,
-    labelIcon: HistoryLabelWithBadge,
-    icon: ActionHistory,
-    url: "/recent",
-    index: 2
-  },
-  {
-    label: "Create",
-    icon: Build,
-    url: "/manage",
-    index: 3,
-  },
-  {
-    label: "Learn",
-    icon: School,
-    url: "/learn",
-    index: 4
-  },
-  {
-    label: "Account",
-    icon: ActionAccountCircle,
-    url: "/account",
-    index: 5
-  }
-];
-
 const Logged = (props: LoggedProps) => {
-  const menu = props.isManager ? managerMenu : clientMenuMobile;
+  const menu = clientMenuMobile;
   return (
     <BottomNavigation
       style={props.bottomNavStyle}
@@ -248,8 +213,7 @@ type DesktopIconsType = {
 
 const DesktopIcons = (props: DesktopIconsType) => {
   let list;
-  if (props.isManager) list = managerMenu;
-  else if (props.isAuthenticated) list = clientMenu;
+  if (props.isAuthenticated) list = clientMenu;
   else list = unauthenticatedMenu;
 
   return (

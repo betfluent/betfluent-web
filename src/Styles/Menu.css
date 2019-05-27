@@ -659,7 +659,7 @@
   margin-top: -10.5px;
   transition: all 0.5s; }
 
-[data-mfb-toggle="hover"] [data-mfb-label]:hover:after,
+[data-mfb-state="closed"] [data-mfb-label]:after,
 [data-mfb-state="open"] [data-mfb-label]:after {
   content: attr(data-mfb-label);
   opacity: 1;

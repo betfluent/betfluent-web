@@ -146,25 +146,10 @@ export default class Manage extends Component<ManageProps> {
             )}
           >
             <Tab
-              label={stagedFundTabLabel}
-              id="StagedTab"
-              onActive={() => {
-                this.onTabChange(0);
-              }}
-            >
-              <div style={tabContentStyle}>
-                <Funds
-                  status="STAGED"
-                  user={this.props.user}
-                  size={this.props.size}
-                />
-              </div>
-            </Tab>
-            <Tab
               label={openFundTabLabel}
               id="OpenTab"
               onActive={() => {
-                this.onTabChange(1);
+                this.onTabChange(0);
               }}
             >
               <div style={tabContentStyle}>
@@ -179,7 +164,7 @@ export default class Manage extends Component<ManageProps> {
               label={pendingFundTabLabel}
               id="StagedTab"
               onActive={() => {
-                this.onTabChange(2);
+                this.onTabChange(1);
               }}
             >
               <div style={tabContentStyle}>
@@ -194,7 +179,7 @@ export default class Manage extends Component<ManageProps> {
               label={returnedFundTabLabel}
               id="OpenTab"
               onActive={() => {
-                this.onTabChange(3);
+                this.onTabChange(2);
               }}
             >
               <div style={tabContentStyle}>

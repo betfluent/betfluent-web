@@ -83,6 +83,7 @@ td {
 }
 
 .mobileBanner {
+  top: 0;
   background-color: #fff;
   text-align: left;
   padding: 0 6.25% 0 6.25%;
@@ -2581,14 +2582,23 @@ td {
   transform: translateX(-50%);
 }
 
-@media (min-width: 624px) {
-  .wager-button-wrapper {
-    left: calc(50% + 120px);
-  }
-}
-
 .manager-fund-detail {
   display: flex;
   margin-top: 16px;
   margin-bottom: 16px;
+}
+
+.above-all {
+  z-index: 9999999 !important;
+  bottom: 48px !important;
+}
+
+@media (min-width: 624px) {
+  .wager-button-wrapper {
+    left: calc(50% + 120px);
+  }
+
+  .above-all {
+    bottom: 0 !important;
+  }
 }

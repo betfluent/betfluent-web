@@ -435,7 +435,7 @@ export default class Funds extends Component<FundsProps> {
     const renderCreateButton = () => {
       const isTraining = this.props.user.manager.isTraining;
       if (
-        this.props.status === "STAGED" &&
+        this.props.status === "OPEN" &&
         (!isTraining || (isTraining && !this.state.allFunds.length))
       ) {
         return (
@@ -496,7 +496,7 @@ export default class Funds extends Component<FundsProps> {
             <div className="emptyPortfolio">
               <EmptyWork />
               <p>
-                No pools here<br />Go to the STAGED tab to create some pools
+                No pools here<br />Go to the OPEN tab to create some pools
               </p>
             </div>
           )}

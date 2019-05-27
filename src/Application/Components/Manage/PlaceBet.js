@@ -508,10 +508,11 @@ export default class PlaceBet extends Component<PlaceBetProps> {
         ) : (
           this.renderGameLines(gameSelected)
         )}
-        <BetsDrawer
-          fund={this.state.fund}
-          gamesWithBets={this.state.gamesWithBets}
-        />
+        {this.props.size > 624 &&
+          <BetsDrawer
+            fund={this.state.fund}
+            gamesWithBets={this.state.gamesWithBets}
+          />}
       </div>
     );
   }

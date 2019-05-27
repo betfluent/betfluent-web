@@ -889,11 +889,12 @@ export default class CreateFund extends Component<CreateFundProps> {
     return (
       <div>
         {renderCreationStep()}
-        <TooltipDrawer
-          field={this.state.inputField}
-          isTraining={this.props.user.manager.isTraining}
-          fundName={this.state.name}
-        />
+        {this.props.size > 624 && 
+          <TooltipDrawer
+            field={this.state.inputField}
+            isTraining={this.props.user.manager.isTraining}
+            fundName={this.state.name}
+          />}
       </div>
     );
   }

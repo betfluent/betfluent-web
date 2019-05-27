@@ -86,7 +86,7 @@ export default class Menu extends MFB.Menu {
 
     return (
       <ul
-        className={classes}
+        className={`${classes} above-all`}
         data-mfb-toggle={this.props.method}
         data-mfb-state={this.state.isOpen ? "open" : "closed"}
       >
