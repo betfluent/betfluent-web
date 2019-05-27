@@ -94,7 +94,7 @@ class PromoteDialog extends Component {
         key={0}
         label="I'M READY"
         style={buttonStyle}
-        disabled={this.state.disabled || (!this.props.state || !this.props.state.authUser.emailVerified)}
+        disabled={this.state.disabled || !this.props.emailVerified}
         primary
         fullWidth
         onClick={this.onPromoteUser}
@@ -164,4 +164,8 @@ class PromoteDialog extends Component {
   }
 }
 
-export default connect()(PromoteDialog);
+const mapStateToProps = state => ({
+  emailVerified: state.authUser && state.authUser.authUser.emailVerified
+});
+
+export default connect(mapStateToProps)(PromoteDialog);
