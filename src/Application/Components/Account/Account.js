@@ -422,7 +422,7 @@ export default class Account extends Component<AccountProps, AccountState> {
                   </div>
                 </div>
                 <EditUserProfileDialog
-                  managerId={user.manager.id}
+                  managerId={user.manager && user.manager.id || ""}
                   publicUserId={user.publicId}
                   isDialogOpen={this.state.isDialogOpen}
                   publicName={user.public.name}

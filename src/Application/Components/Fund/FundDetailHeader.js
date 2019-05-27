@@ -148,7 +148,7 @@ export default (props: WagerStatProps) => {
             value={
               props.fund.status === "OPEN" || props.fund.status === "STAGED"
                 ? props.fund.maxBalance / 100
-                : amountWagered
+                : amountWagered || 0
             }
           />
         </span>
@@ -187,7 +187,7 @@ export default (props: WagerStatProps) => {
                 style="percent"
                 currency="USD"
                 minimumFractionDigits={2}
-                value={returnPct()}
+                value={returnPct() || 0}
               />
             </span>
           </div>

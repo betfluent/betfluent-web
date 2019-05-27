@@ -136,6 +136,8 @@ export default class Fund extends Component<FundProps> {
   }
 
   onFundChange(fund) {
+    if ((!this.props.user || !this.props.user.investments || !this.props.user.investments[fund.id]) && fund.status !== "OPEN")
+      this.props.history.replace(`/managers/${fund.manager.id}`)
     this.setState({ fund });
   }
 
@@ -357,18 +359,27 @@ export default class Fund extends Component<FundProps> {
     fadeFund.userReturn(-1);
 
     let fadeUserWager;
+    let fadeUserCurrent;
     let userWager;
     let userCurrent;
     let isFade = false;
+    let isUserInPool;
 
     if (this.state.fund.status === "OPEN") {
       userWager = (this.state.fund.amountWagered || 0) / 100
       fadeUserWager = (this.state.fund.fadeAmountWagered || 0) / 100
-    } else if (this.props.user && this.props.user.investments) {
+    } else if (this.props.user && this.props.user.investments && this.props.user.investments[this.state.fund.id]) {
       userWager = this.props.user.investments[this.state.fund.id];
       if (userWager < 0) isFade = true;
       userCurrent = this.state.fund.userReturn(userWager) / 100;
       userWager = Math.abs(userWager / 100);
+      isUserInPool = true;
+    } else {
+      isUserInPool = false;
+      userWager = this.state.fund.amountWagered / 100;
+      fadeUserWager = this.state.fund.fadeAmountWagered / 100;
+      userCurrent = this.state.fund.amountReturned / 100;
+      fadeUserCurrent = this.state.fund.fadeReturned / 100;
     }
 
     const openSize = this.props.size < desktopBreakPoint ? "100%" : 320;
@@ -455,11 +466,11 @@ export default class Fund extends Component<FundProps> {
                       userCurrent={userCurrent}
                       fade={isFade}
                     />
-                    {this.state.fund.status === "OPEN" && <FundDetailHeader
+                    {(this.state.fund.status === "OPEN" || !this.props.user.investments || !this.props.user.investments[this.state.fund.id]) && <FundDetailHeader
                         fund={fadeFund}
                         isManager={false}
                         userWager={fadeUserWager}
-                        userCurrent={userCurrent}
+                        userCurrent={isUserInPool ? fadeUserCurrent : userCurrent}
                         fade
                       />}
                   </div>

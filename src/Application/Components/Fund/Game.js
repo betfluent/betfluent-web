@@ -102,7 +102,7 @@ export default class Game extends Component<GameProps> {
     this.gameFeed = getGameFeed(this.league, this.gameId, this.onGameChange);
     const bets = this.props.bets;
     if (bets) {
-      const returnPct = betsPercentChange(bets);
+      const returnPct = betsPercentChange(bets) || 0;
       let resultWin = null;
       if (returnPct === 0) {
         resultWin = "push";
@@ -346,7 +346,7 @@ export default class Game extends Component<GameProps> {
           >
             {renderArrow()}
           </span>
-          {Math.abs(this.state.returnPct)}%
+          {Math.abs(this.state.returnPct || 0)}%
         </span>
       </div>
     );

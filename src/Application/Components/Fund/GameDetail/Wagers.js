@@ -26,7 +26,7 @@ export default class Wagers extends Component<WagersProps> {
   render() {
     return (
       <div>
-        {Object.keys(this.props.fund.wagers).map((wager, index) => (
+        {this.props.fund.wagers && Object.keys(this.props.fund.wagers).map((wager, index) => (
           <Wager
             size={this.props.size}
             key={index}

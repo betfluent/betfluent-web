@@ -66,7 +66,7 @@ export default class Wagers extends Component<WagersProps> {
     return (
       <div>
         {this.props.isFade ?
-          Object.keys(this.props.fund.fadeWagers).map((wager, index) => (
+          this.props.fund.fadeWagers && Object.keys(this.props.fund.fadeWagers).map((wager, index) => (
             <WagerDetailItem
               size={this.props.size}
               key={index}
@@ -80,7 +80,7 @@ export default class Wagers extends Component<WagersProps> {
               isFade={this.props.isFade}
             />
           )) :
-          Object.keys(this.props.fund.wagers).map((wager, index) => (
+          this.props.fund.wagers && Object.keys(this.props.fund.wagers).map((wager, index) => (
             <WagerDetailItem
               size={this.props.size}
               key={index}
