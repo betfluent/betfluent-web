@@ -110,18 +110,18 @@ const mainStyle = {
           color: gMuiTheme.palette.themeColor
         }}
       >
-        $<OdometerExt
+        WITH $<OdometerExt
           value={(props.fund.amountWagered ? props.fund.amountWagered / 100 : 0)}
           format="(,ddd)"
         />
       </span>
-      {" / "}
+      {" | "}
       <span
         style={{
           color: gMuiTheme.palette.alertColor
         }}
       >
-        $<OdometerExt
+        AGAINST $<OdometerExt
           value={(props.fund.fadeAmountWagered ? props.fund.fadeAmountWagered / 100 : 0)}
           format="(,ddd)"
         />
@@ -143,7 +143,7 @@ const mainStyle = {
             ? "rgba(17,204,136,0.2)"
             : "rgba(90,150,255,0.2)"
     };
-    
+
     return (
         <React.Fragment>
             <Link key={fund.id} to={`/pools/${fund.id}`}>
