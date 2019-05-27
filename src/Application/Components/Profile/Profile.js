@@ -14,6 +14,7 @@ type ProfileProps = {
       managerId: string
     }
   },
+  user: User,
   isManager: boolean,
   size: number
 };
@@ -43,6 +44,7 @@ export default class Profile extends Component<ProfileProps> {
         isManager={this.props.isManager}
         manager={this.state.manager}
         size={this.props.size}
+        user={this.props.user}
       />
     );
   }

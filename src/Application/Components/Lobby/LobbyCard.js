@@ -145,7 +145,7 @@ const mainStyle = {
     };
     
     return (
-        <React.Fragment>
+        <div style={{position: 'relative'}}>
             <Link key={fund.id} to={`/pools/${fund.id}`}>
                 <IntlProvider locale="en">
                     <Card
@@ -184,7 +184,7 @@ const mainStyle = {
                     BET AGAINST
                 </div>
             </div>
-        </React.Fragment>
+        </div>
     )
   }
 
