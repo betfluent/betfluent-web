@@ -637,6 +637,7 @@ export default class CreateFund extends Component<CreateFundProps> {
             inputField: "Pool Summary"
           });
         }}
+        numberToSelect={1}
       />
     );
   };
