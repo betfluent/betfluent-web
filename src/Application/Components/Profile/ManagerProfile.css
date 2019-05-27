@@ -1,0 +1,142 @@
+.manager-profile-wrapper {
+    padding-top: 56px;
+}
+
+.manager-profile-name {
+    padding: 12px 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.manager-card-title {
+    padding: 0 0 6px;
+    font-weight: 700;
+}
+
+.manager-card-summary {
+    padding: 6px 0 12px;
+    color: rgb(0, 0, 0, 0.38);
+    font-size: 12px;
+}
+
+.manager-card-follow {
+    font-size: 14px;
+    color: #1A661A;
+    font-weight: 500;
+    padding: 6px 0;
+    text-align: center;
+}
+
+.manager-card-followers {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.manager-card-stats-wrapper {
+    padding-bottom: 24px;
+    max-width: 544px;
+    margin: 0 auto;
+}
+
+.manager-card-stats-title {
+    text-align: center;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 24px 0;
+}
+
+.manager-stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.manager-stat-field {
+    text-align: left;
+    width: 256px;
+}
+
+.manager-field-title {
+    margin: 12px 0;
+    font-size: 10px;
+    color: rgba(0,0,0, 0.38);
+}
+
+.manager-stat-progress {
+    position: relative;
+    height: 24px;
+    width: 256px;
+}
+
+.manager-stat-last-ten {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    width: 256px;
+}
+
+.manager-stat-last-ten > img {
+    margin: 3px;
+}
+
+.manager-stat-last-ten > img:first-child {
+    margin-left: 0;
+}
+
+.manager-life-time-record {
+    margin-bottom: 12px;
+    height: 26px;
+}
+
+.manager-total-wagered {
+    height: 26px;
+}
+
+.manager-stat-sub {
+    margin: 12px 0;
+    font-size: 12px;
+    max-width: 256px;
+}
+
+.active-pools-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 24px 0;
+}
+
+.manager-profile-pools {
+    position: relative;
+    max-width: 756px;
+    padding: 24px 0;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.last-divider {
+    display: none;
+}
+
+@media (max-width: 624px) {
+    .manager-stat-row {
+        flex-direction: column;
+    }
+
+    .manager-total-wagered {
+        padding-bottom: 12px;
+    }
+
+    .last-divider {
+        display: block;
+    }
+
+    .manager-profile-pools {
+        flex-direction: column;
+    }
+
+    .manager-profile-pools > div {
+        margin-bottom: 24px;
+    }
+}

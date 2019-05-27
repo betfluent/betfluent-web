@@ -136,6 +136,159 @@ export function getManagerDetailFeed(managerId, callback) {
   };
 }
 
+export const getManagerLongFade = async (managerId) => {
+  const snapshot = await firebase
+    .database()
+    .ref('funds')
+    .orderByChild('managerId')
+    .equalTo(managerId)
+    .once('value')
+
+  if (!snapshot.exists()) {
+    return {};
+  }
+
+  const fundObj = snapshot.val();
+
+  const funds = Object.keys(fundObj).map(k => fundObj[k]);
+
+  const longFadeRatio = funds.map(async (f) => {
+    const snap = await firebase.database().ref('interactions').orderByChild('fundId').equalTo(f.id).once('value');
+    if (!snap.exists()) return {};
+    const intObj = snap.val();
+    const interactions = Object.keys(intObj).map(k => intObj[k]).filter(i => i.type.includes('Wager'));
+    const results = interactions.reduce((obj, item) => {
+      const type = item.type === 'Wager' ? 'long' : 'fade';
+      if (!obj[type]) obj[type] = 0;
+      obj[type] += 1;
+      return obj;
+    }, {});
+    return results;
+  });
+
+  const resultsArray = await Promise.all(longFadeRatio);
+  
+  const results = resultsArray.reduce((obj, item) => {
+    obj.long = (obj.long || 0) + (item.long || 0);
+    obj.fade = (obj.fade || 0) + (item.fade || 0);
+    return obj;
+  }, {});
+
+  return results;
+}
+
+export const getManagerBias = async (managerId) => {
+  const snapshot = await firebase
+    .database()
+    .ref('interactions')
+    .orderByChild('managerId')
+    .equalTo(managerId)
+    .once('value')
+
+  if (!snapshot.exists()) {
+    return {};
+  }
+
+  const interactionObj = snapshot.val();
+
+  const interactions = Object.keys(interactionObj).map(k => interactionObj[k])
+  
+  const withWagersAndGames = interactions.filter(i => i.type === "BET").map(async (i) => {
+    const game = await getGame(i.gameId);
+    const wager = await getBet(i.wagerId);
+    if (wager.selection && wager.selection === game.homeTeamId) i.side = "home"
+    else if (wager.selection && wager.selection === game.awayTeamId) i.side = "away"
+    return i
+  });
+
+  const results = await Promise.all(withWagersAndGames);
+
+  const bias = results.filter(i => !!i.side).reduce((obj, item) => {
+    if (obj[item.side]) obj[item.side] = 0;
+    obj[item.side] += 1;
+    return obj;
+  }, {})
+
+  return bias;
+}
+
+export const getManagerWinStreak = async (managerId) => {
+  const snapshot = await firebase
+    .database()
+    .ref('interactions')
+    .orderByChild('managerId')
+    .equalTo(managerId)
+    .once('value')
+
+  if (!snapshot.exists()) {
+    return [];
+  }
+
+  const interactionObj = snapshot.val();
+  
+  const interactions = Object.keys(interactionObj).map(k => interactionObj[k]);
+
+  const resultsArray = interactions.filter(i => i.type.includes('Result'));
+
+  const results = resultsArray.sort((a, b) => b.time - a.time).slice(0, 10).map(r => r.type === 'Result Win' ? 'W' : 'L');
+  
+  return results;
+}
+
+export const getManagerAllTimeHistory = async (managerId) => {
+  const snapshot = await firebase
+    .database()
+    .ref('interactions')
+    .orderByChild('managerId')
+    .equalTo(managerId)
+    .once('value')
+
+  if (!snapshot.exists()) {
+    return {};
+  }
+
+  const interactionObj = snapshot.val();
+  
+  const interactions = Object.keys(interactionObj).map(k => interactionObj[k]);
+
+  const resultsArray = interactions.filter(i => i.type.includes('Result'));
+
+  const results = resultsArray.reduce((obj, item) => {
+    if (!obj.win) obj.win = 0;
+    if (!obj.total) obj.total = 0;
+    if (item.type.includes('Win')) obj.win += 1
+    obj.total += 1;
+    return obj;
+  }, {});
+
+  return results;
+}
+
+export const getManagerTotalWagered = async (managerId) => {
+  const snapshot = await firebase
+    .database()
+    .ref('funds')
+    .orderByChild('managerId')
+    .equalTo(managerId)
+    .once('value')
+
+  if (!snapshot.exists()) {
+    console.log('no funds have been wagered');
+    return 0;
+  }
+
+  const fundObj = snapshot.val();
+
+  const funds = Object.keys(fundObj).map(k => fundObj[k]);
+
+  const results = funds.reduce((sum, item) => {
+    sum += ((item.amountWagered || 0) + (item.amoutFadeWagered || 0))
+    return sum;
+  }, 0);
+
+  return results;
+}
+
 export function updateManager(managerId, updates) {
   if (typeof managerId !== "string" || managerId.length === 0) {
     return Promise.reject(new Error("managerId must be a non-blank string"));
