@@ -113,7 +113,7 @@ export default class CreateFund extends Component<CreateFundProps> {
           minWager: (fund.minInvestment / 100).toString(),
           maxWager: (fund.maxInvestment / 100).toString(),
           fundCap: (fund.maxBalance / 100).toString(),
-          initialSummary: fund.details.summaryHtml
+          summary: fund.details.summaryHtml
         });
       });
     }
@@ -225,12 +225,6 @@ export default class CreateFund extends Component<CreateFundProps> {
   };
 
   createFund() {
-    if (!this.state.summaryChanged) {
-      this.setState({ summaryError: "Please edit the pool summary" });
-      return null;
-    }
-    this.setState({ summaryError: null });
-
     const firstGame = this.state.selectedGames.sort(
       (a, b) => a.scheduledTimeUnix - b.scheduledTimeUnix
     )[0];
@@ -737,7 +731,7 @@ export default class CreateFund extends Component<CreateFundProps> {
                 <div style={{ margin: "32px 0" }}>
                   <Editor
                     content={this.state.summary}
-                    initialValue={this.state.initialSummary}
+                    initialValue={this.state.summary}
                     init={{
                       plugins: [
                         "advlist autolink lists link image charmap preview hr anchor pagebreak",
