@@ -107,29 +107,23 @@ const mainStyle = {
     <div style={props.wagerRatioStyle}>
       <span
         style={{
-          color: props.isManager
-            ? mgMuiTheme.palette.themeColor
-            : gMuiTheme.palette.themeColor
+          color: gMuiTheme.palette.themeColor
         }}
       >
         $<OdometerExt
-          value={(props.fund.amountWagered ? props.fund.amountWagered / 100 : 0) + (props.fund.fadeAmountWagered ? props.fund.fadeAmountWagered / 100 : 0)}
+          value={(props.fund.amountWagered ? props.fund.amountWagered / 100 : 0)}
           format="(,ddd)"
         />
       </span>
+      {" / "}
       <span
         style={{
-          color: props.isManager
-            ? mgMuiTheme.palette.textColor3
-            : gMuiTheme.palette.textColor3
+          color: gMuiTheme.palette.alertColor
         }}
       >
-        {" / "}
-        <FormattedNumber
-          style="currency"
-          currency="USD"
-          minimumFractionDigits={0}
-          value={props.fund.maxBalance / 100}
+        $<OdometerExt
+          value={(props.fund.fadeAmountWagered ? props.fund.fadeAmountWagered / 100 : 0)}
+          format="(,ddd)"
         />
       </span>
     </div>
