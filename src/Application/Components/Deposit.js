@@ -5,6 +5,7 @@ import TextField from 'material-ui/TextField';
 import { DepositService } from '../Services/BackendService';
 import { getNewUid } from '../Services/DbService'
 import { gMuiTheme } from './Styles';
+import FakeDeposit from './FakeDeposit';
 
 class Deposit extends React.Component {
     constructor() {
@@ -61,6 +62,7 @@ class Deposit extends React.Component {
                         type="number"
                     />
                     <div className={`error ${!this.state.error && 'hidden'}`}>You must depost more than $10 to initiate a transaction.</div>
+                    {this.state.error && <FakeDeposit />}
                     <div id="paypal-button-container" className={`deposit-buttons ${this.state.error && 'hidden'}`} />
                 </div>
             </V0MuiThemeProvider>

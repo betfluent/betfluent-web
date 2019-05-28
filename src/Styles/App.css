@@ -866,6 +866,7 @@ td {
 }
 
 .deposit-buttons {
+  position: relative;
   width: 256px;
   height: auto;
 }
@@ -880,6 +881,10 @@ td {
   text-align: left;
   font-size: 12px;
   width: 256px;
+}
+
+.disabled {
+  cursor: not-allowed !important;
 }
 
 /* -------------------------------- */

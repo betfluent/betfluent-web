@@ -1,0 +1,578 @@
+    .fake-paypal-button-container {
+        display: block;
+        white-space: nowrap;
+        margin: 0;
+        background: 0;
+        border: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: none;
+        font-weight: 500;
+        font-smoothing: antialiased;
+        z-index: 0;
+        font-size: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .fake-paypal-button {
+        border: 1px solid transparent;
+        border-radius: 0 3px 3px 0;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+        vertical-align: top;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-transparent {
+        cursor: auto;
+    }
+
+    .fake-paypal-button * {
+        cursor: pointer;
+    }
+
+    .fake-paypal-button-container.fake-paypal-button-env-test .fake-paypal-button-text {
+        font-family: Arial !important;
+        background: rgba(0, 0, 0, 0.5) !important;
+        color: transparent  !important;
+        text-shadow: none  !important;
+    }
+
+    .fake-paypal-button-card {
+        cursor: pointer;
+    }
+
+    .fake-paypal-logo {
+        padding: 0;
+        display: inline-block;
+        background: none;
+        border: none;
+        width: auto;
+    }
+
+    .fake-paypal-button-text {
+        display: inline-block;
+        white-space: pre-wrap;
+    }
+
+    .fake-paypal-button > .fake-paypal-logo,
+    .fake-paypal-button > .fake-paypal-logo-card,
+    .fake-paypal-button > .fake-paypal-button-text {
+        vertical-align: top;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: left;
+    }
+
+    .fake-paypal-button-tagline {
+        max-width: 100%;
+        font-weight: normal;
+        display: block;
+        text-align: center;
+        width: auto;
+    }
+
+    .fake-paypal-button .fake-paypal-button-spinner {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        box-sizing: border-box;
+        border: 3px solid rgba(0, 0, 0, .2);
+        border-top-color: rgba(33, 128, 192, 0.8);
+        border-radius: 100%;
+        animation: fake-paypal-button-spinner-rotation .7s infinite linear;
+    }
+
+    @keyframes fake-paypal-button-spinner-rotation {
+        from {
+            transform: translateX(-50%) translateY(-50%) rotate(0deg);
+        }
+        to {
+            transform: translateX(-50%) translateY(-50%) rotate(359deg);
+        }
+    }
+
+    .fake-paypal-button .fake-paypal-button-spinner {
+        display: none !important;
+    }
+
+    .fake-paypal-button.fake-paypal-button-loading * {
+        display: none;
+    }
+
+    .fake-paypal-button.fake-paypal-button-loading .fake-paypal-button-spinner {
+        display: block !important;
+    }
+
+    .fake-paypal-button-container .fake-paypal-vault-header {
+        margin-top: 20px;
+    }
+
+        
+
+    .fake-paypal-button.fake-paypal-button-color-gold {
+        background: rgba(0,0,0, 0.38);
+        color: #111;
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-gold:hover {
+        filter: brightness(0.95);
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-gold:focus {
+        outline: none;
+        box-shadow: 0px 0px 1px 3px #0c67ff inset;
+    }
+
+
+
+
+    .fake-paypal-button.fake-paypal-button-color-blue {
+        background: #rgba(0,0,0, 0.38);;
+        color: #fff;
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-blue:hover {
+        filter: brightness(0.95);
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-blue:focus {
+        outline: none;
+        box-shadow: 0px 0px 1px 3px #0c67ff inset;
+    }
+
+
+
+    .fake-paypal-button.fake-paypal-button-color-silver {
+        background: rgba(0,0,0, 0.38);;
+        color: #111;
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-silver:hover {
+        filter: brightness(0.95);
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-silver:focus {
+        outline: none;
+        box-shadow: 0px 0px 1px 3px #0c67ff inset;
+    }
+
+
+
+    .fake-paypal-button.fake-paypal-button-color-darkblue {
+        background: rgba(0,0,0, 0.38);;
+        color: #fff;
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-darkblue:hover {
+        filter: brightness(1.2);
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-darkblue:focus {
+        outline: none;
+        box-shadow: 0px 0px 1px 3px #0c67ff inset;
+    }
+
+
+
+    .fake-paypal-button.fake-paypal-button-color-black {
+        background: rgba(0,0,0, 0.38);
+        color: #fff;
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-black:hover {
+        filter: brightness(1.2);
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-black:focus {
+        outline: none;
+        box-shadow: 0px 0px 1px 3px #0c67ff inset;
+    }
+
+
+
+    .fake-paypal-button.fake-paypal-button-color-white {
+        background: rgba(0,0,0, 0.38);
+        color: #2C2E2F;
+        border: 1px solid #2C2E2F;
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-white:hover {
+        filter: brightness(0.95);
+    }
+
+    .fake-paypal-button.fake-paypal-button-color-white:focus {
+        outline: none;
+        box-shadow: 0px 0px 1px 3px #0c67ff inset;
+    }
+
+
+
+    .fake-paypal-button.fake-paypal-button-color-transparent {
+        background: transparent;
+        color: #111;
+    }
+
+
+
+    .fake-paypal-button .fake-paypal-button-card {
+        position: relative;
+    }
+
+    .fake-paypal-button .fake-paypal-button-card::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .fake-paypal-button .fake-paypal-button-card:hover {
+        filter: brightness(1.2);
+    }
+
+    .fake-paypal-button .fake-paypal-button-card:focus {
+        outline: none;
+    }
+
+    .fake-paypal-button .fake-paypal-button-card:focus::after {
+        box-shadow: 0px 0px 1px 3px #0c67ff inset;
+    }
+
+        
+
+    .fake-paypal-button.fake-paypal-button-label-card {
+        border-radius: 0 !important;
+    }
+
+    .fake-paypal-button .fake-paypal-vault-label {
+        max-width: 60%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-left: 4px;
+    }
+
+        
+
+            @media only screen and (min-width: 75px) {
+
+                .fake-paypal-button-container {
+                    
+                    max-width: 150px;
+                    font-size: 10px;
+                }
+
+                .fake-paypal-button {
+                    height: 35px;
+                }
+
+                .fake-paypal-button .fake-paypal-button-spinner {
+                    height: 13px;
+                    width: 13px;
+                }
+
+                .fake-paypal-button > .fake-paypal-logo,
+                .fake-paypal-button > .fake-paypal-logo-card {
+                    height: 14px;
+                    max-height: 15px;
+                   
+                }
+                
+                .fake-paypal-logo.fake-paypal-logo-eps,
+                .fake-paypal-logo.fake-paypal-logo-mybank {
+                    height: 18px;
+                    max-height: 18px;
+                   
+                }
+
+                .fake-paypal-button.fake-paypal-button-shape-rect {
+                    border-radius: 4px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-shape-pill {
+                    border-radius: 13px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-vertical {
+                    margin-bottom: 8px;
+                }
+                
+                .fake-paypal-button-tagline {
+                    height: 13px;
+                    line-height: 13px;
+                }
+
+                .fake-paypal-button-card {
+                    display: inline-block;
+                }
+
+                .fake-paypal-button .fake-paypal-button-card {
+                    width: 22.50%;
+                    max-width: 40px;
+                    margin-top: 0;
+                    margin-left: 1.25%;
+                    margin-right: 1.25%;
+                }
+
+                .fake-paypal-button .fake-paypal-button-card img {
+                    width: 100%;
+                }
+            }
+
+            @media only screen and (min-width: 75px) and (max-width: 140px) {
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-0 {
+                    width: 100%;
+                    margin-right: 0;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-1 {
+                    display: none;
+                }
+
+                .fake-paypal-button-container.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple .fake-paypal-button-tagline {
+                    display: none;
+                }
+            }
+
+            @media only screen and (min-width: 140px) {
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-0 {
+                    display: inline-block;
+                    width: calc(50% - 2px);
+                    margin-right: 4px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-1 {
+                    display: inline-block;
+                    width: calc(50% - 2px);
+                }
+
+                .fake-paypal-button-container.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple .fake-paypal-button-tagline {
+                    display: block;
+                }
+            }
+        
+
+
+            @media only screen and (min-width: 150px) {
+
+                .fake-paypal-button-container {
+                    
+                    max-width: 200px;
+                    font-size: 10px;
+                }
+
+                .fake-paypal-button {
+                    height: 25px;
+                   
+                    max-height: 35px;
+                }
+
+                .fake-paypal-button .fake-paypal-button-spinner {
+                    height: 13px;
+                    width: 13px;
+                }
+
+                .fake-paypal-button > .fake-paypal-logo,
+                .fake-paypal-button > .fake-paypal-logo-card {
+                    height: 14px;
+                    max-height: 15px;
+                   
+                }
+                
+                .fake-paypal-logo.fake-paypal-logo-eps,
+                .fake-paypal-logo.fake-paypal-logo-mybank {
+                    height: 18px;
+                    max-height: 18px;
+                   
+                }
+
+                .fake-paypal-button.fake-paypal-button-shape-rect {
+                    border-radius: 4px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-shape-pill {
+                    border-radius: 13px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-vertical {
+                    margin-bottom: 8px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-vertical:last-of-type {
+                    
+                }
+                
+                .fake-paypal-button-tagline {
+                    height: 13px;
+                    line-height: 13px;
+                }
+
+                .fake-paypal-button-card {
+                    display: inline-block;
+                }
+
+                .fake-paypal-button .fake-paypal-button-card {
+                    width: 22.50%;
+                    max-width: 40px;
+                    margin-top: 0;
+                    margin-left: 1.25%;
+                    margin-right: 1.25%;
+                }
+
+                .fake-paypal-button .fake-paypal-button-card img {
+                    width: 100%;
+                }
+            }
+
+            @media only screen and (min-width: 150px) and (max-width: 140px) {
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-0 {
+                    width: 100%;
+                    margin-right: 0;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-1 {
+                    display: none;
+                }
+
+                .fake-paypal-button-container.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple .fake-paypal-button-tagline {
+                    display: none;
+                }
+            }
+
+            @media only screen and (min-width: 150px) {
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-0 {
+                    display: inline-block;
+                    width: calc(50% - 2px);
+                    margin-right: 4px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-1 {
+                    display: inline-block;
+                    width: calc(50% - 2px);
+                }
+
+                .fake-paypal-button-container.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple .fake-paypal-button-tagline {
+                    display: block;
+                }
+            }
+        
+
+
+            @media only screen and (min-width: 200px) {
+
+                .fake-paypal-button-container {
+                    
+                    max-width: 300px;
+                    font-size: 11px;
+                }
+
+                .fake-paypal-button {
+                    height: 35px;
+                   
+                    max-height: 55px;
+                }
+
+                .fake-paypal-button .fake-paypal-button-spinner {
+                    height: 18px;
+                    width: 18px;
+                }
+
+                .fake-paypal-button > .fake-paypal-logo,
+                .fake-paypal-button > .fake-paypal-logo-card {
+                    height: 17px;
+                    max-height: 21px;
+                   
+                }
+                
+                .fake-paypal-logo.fake-paypal-logo-eps,
+                .fake-paypal-logo.fake-paypal-logo-mybank {
+                    height: 23px;
+                    max-height: 25px;
+                   
+                }
+
+                .fake-paypal-button.fake-paypal-button-shape-rect {
+                    border-radius: 4px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-shape-pill {
+                    border-radius: 18px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-vertical {
+                    margin-bottom: 11px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-vertical:last-of-type {
+                    
+                }
+                
+                .fake-paypal-button-tagline {
+                    height: 18px;
+                    line-height: 18px;
+                }
+
+                .fake-paypal-button-card {
+                    display: inline-block;
+                }
+
+                .fake-paypal-button .fake-paypal-button-card {
+                    width: 22.50%;
+                    max-width: 56px;
+                    margin-top: 0;
+                    margin-left: 1.25%;
+                    margin-right: 1.25%;
+                }
+
+                .fake-paypal-button .fake-paypal-button-card img {
+                    width: 100%;
+                }
+            }
+
+            @media only screen and (min-width: 200px) and (max-width: 196px) {
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-0 {
+                    width: 100%;
+                    margin-right: 0;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-1 {
+                    display: none;
+                }
+
+                .fake-paypal-button-container.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple .fake-paypal-button-tagline {
+                    display: none;
+                }
+            }
+
+            @media only screen and (min-width: 200px) {
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-0 {
+                    display: inline-block;
+                    width: calc(50% - 2px);
+                    margin-right: 4px;
+                }
+
+                .fake-paypal-button.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple.fake-paypal-button-number-1 {
+                    display: inline-block;
+                    width: calc(50% - 2px);
+                }
+
+                .fake-paypal-button-container.fake-paypal-button-layout-horizontal.fake-paypal-button-number-multiple .fake-paypal-button-tagline {
+                    display: block;
+                }
+            }
+        
