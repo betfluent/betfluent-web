@@ -30,6 +30,7 @@ import AccountContainer from "../Containers/AccountContainer";
 import VerifyEmail from "./Verify/VerifyEmail";
 import GameDetailContainer from "../Containers/GameDetailContainer";
 import TourDialog from "./TourDialog";
+import Deposit from './Deposit';
 import { scrollComponent } from "./Shared/Scroll";
 import { appTheme, desktopBreakPoint, mobileBreakPoint } from "./Styles";
 
@@ -443,6 +444,14 @@ class App extends Component<AppProps> {
                 exact
                 path="/account"
                 component={AccountContainer}
+                authUser={this.props.authUser}
+                size={this.state.size}
+                isManager={this.props.isManager}
+              />
+              <PrivateRoute
+                exact
+                path="/account/deposit"
+                component={Deposit}
                 authUser={this.props.authUser}
                 size={this.state.size}
                 isManager={this.props.isManager}

@@ -849,83 +849,24 @@ td {
 /* -------------------------------- */
 
 /* --------------Deposit Page Styles-------------- */
-.depositHeader {
-  margin: 0;
-  padding: 8px 24px;
-  color: #fff;
-  text-align: left;
+.deposit-page {
+  padding: 64px;
 }
 
-.depositHeader h1 {
-  font-size: 28px;
-  font-weight: 500;
+.deposit-input > input {
+  margin-left: 12px;
 }
 
-.depositTerms {
-  font-size: 12px;
-  padding: 0 24px;
-  text-align: left;
+.deposit-input::before {
+  content: '$';
+  position: absolute;
+  left: 0;
+  top: 12px;
 }
 
-.depositAmounts {
-  padding: 24px;
-}
-
-.depositAmounts h2 {
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0 auto 16px;
-  text-align: left;
-}
-
-.populatedAmount {
-  width: 40%;
-  background-color: #fff;
-  height: 86px;
-}
-
-.populatedAmount h3 {
-  font-weight: 500;
-  font-size: 28px;
-  text-align: center;
-}
-
-.depositReason {
-  background-color: #fff;
-  border-radius: 2px;
-  border: 1px solid #f0f0f0;
-  width: 300px;
-  margin: 24px 0;
-}
-
-.depositReason h3 {
-  font-size: 20px;
-  font-weight: 500;
-  margin: 24px auto ;
-}
-
-.depositReason ul {
-  list-style: disc;
-  margin-left: 24px;
-  padding-right: 24px;
-}
-
-.depositReason li {
-  text-align: left;
-  font-size: 24px;
-  line-height: 20px;
-  font-weight: 300;
-  margin-bottom: 12px;
-}
-
-.depositReason li span {
-  font-size: 16px;
-}
-
-.depositReason div {
-  margin: 36px auto;
-  font-size: 12px;
-  padding: 0 36px;
+.deposit-buttons {
+  width: 256px;
+  height: auto;
 }
 
 /* -------------------------------- */

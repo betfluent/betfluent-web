@@ -104,27 +104,14 @@ export const DepositService = sessionRequest =>
       .auth()
       .currentUser.getIdToken(true)
       .then(idToken => {
-        fetch(`${BASE_URL}v1/webcashier/deposit`, {
-          method: "POST",
-          mode: "cors",
-          body: JSON.stringify(sessionRequest),
-          headers: new Headers({
-            Accept: "application/json",
-            "Content-Type": "application/json",
+        fetch(`${BASE_URL}v1/cashier/deposit`, {
+          method: 'post',
+          headers: {
+            'content-type': 'application/json',
             token: idToken
-          })
-        })
-          .then(res => res.json())
-          .then(response => {
-            if (response.status === "success") {
-              resolve(response.data);
-            } else if (response.data.includes("UNKNOWN_ID")) {
-              reject(new Error("UNKNOWN_ID"));
-            } else {
-              reject(new Error(response.message));
-            }
-          })
-          .catch(err => reject(err));
+          },
+          body: JSON.stringify(sessionRequest)
+        });
       });
   });
 
