@@ -870,6 +870,18 @@ td {
   height: auto;
 }
 
+.hidden {
+  display: none;
+}
+
+.error {
+  color: #d50000;
+  font-weight: 500;
+  text-align: left;
+  font-size: 12px;
+  width: 256px;
+}
+
 /* -------------------------------- */
 
 .contentHeader, .content {

@@ -10,6 +10,7 @@ class Deposit extends React.Component {
     constructor() {
         super();
         this.state = { value: 20 }
+        this.handleChange = this.handleChange.bind(this);
     }
     
     componentDidMount() {
@@ -40,8 +41,12 @@ class Deposit extends React.Component {
                 });
             }
         }).render('#paypal-button-container')
+    }
 
-
+    handleChange(e) {
+        let error = false;
+        if (e.target.value < 10) error = true;
+        this.setState({ value: e.target.value, error });
     }
 
     render() {
@@ -52,10 +57,11 @@ class Deposit extends React.Component {
                         className="deposit-input"
                         style={{ display: 'block' }}
                         value={this.state && this.state.value}
-                        onChange={(e) => this.setState({ value: e.target.value })}
+                        onChange={this.handleChange}
                         type="number"
                     />
-                    <div id="paypal-button-container" className="deposit-buttons" />
+                    <div className={`error ${!this.state.error && 'hidden'}`}>You must depost more than $10 to initiate a transaction.</div>
+                    <div id="paypal-button-container" className={`deposit-buttons ${this.state.error && 'hidden'}`} />
                 </div>
             </V0MuiThemeProvider>
         )
