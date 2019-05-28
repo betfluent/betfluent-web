@@ -7,8 +7,12 @@ import { getNewUid } from '../Services/DbService'
 import { gMuiTheme } from './Styles';
 
 class Deposit extends React.Component {
+    constructor() {
+        super();
+        this.state = { value: 20 }
+    }
+    
     componentDidMount() {
-        console.log(this.props.userId)
         window.paypal.Buttons({
             createOrder: (data, actions) => {
                 // Set up the transaction
@@ -28,10 +32,16 @@ class Deposit extends React.Component {
                 }
                 return actions.order.capture().then(() => {
                     // Call your server to save the transaction
-                    return DepositService(sessionRequest);
+                    return DepositService(sessionRequest)
+                        .then(({ status }) => {
+                            if (status === 'success')
+                                this.props.history.push('/');
+                        });
                 });
             }
         }).render('#paypal-button-container')
+
+
     }
 
     render() {
@@ -45,7 +55,7 @@ class Deposit extends React.Component {
                         onChange={(e) => this.setState({ value: e.target.value })}
                         type="number"
                     />
-                    <div id="paypal-button-container" className="deposit-buttons" />;
+                    <div id="paypal-button-container" className="deposit-buttons" />
                 </div>
             </V0MuiThemeProvider>
         )

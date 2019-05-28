@@ -111,7 +111,9 @@ export const DepositService = sessionRequest =>
             token: idToken
           },
           body: JSON.stringify(sessionRequest)
-        });
+        })
+          .then(response => response.json())
+          .then(resolve);
       });
   });
 

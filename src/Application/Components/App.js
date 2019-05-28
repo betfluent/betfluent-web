@@ -161,6 +161,7 @@ const ProfileRouter = withRouter(ProfileContainer);
 const VerifyIdentityRouter = withRouter(VerifyIdentityLoader);
 const VerifyDocumentRouter = withRouter(VerifyDocumentLoader);
 const VerifyEmailRouter = withRouter(VerifyEmail);
+const DepositRoute = withRouter(Deposit);
 
 if (Number.parseInt === undefined) Number.parseInt = window.parseInt;
 
@@ -451,7 +452,7 @@ class App extends Component<AppProps> {
               <PrivateRoute
                 exact
                 path="/account/deposit"
-                component={Deposit}
+                component={DepositRoute}
                 authUser={this.props.authUser}
                 size={this.state.size}
                 isManager={this.props.isManager}
