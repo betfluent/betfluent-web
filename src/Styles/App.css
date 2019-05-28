@@ -855,6 +855,7 @@ td {
 
 .deposit-input > input {
   margin-left: 12px;
+  text-align: right;
 }
 
 .deposit-input::before {
