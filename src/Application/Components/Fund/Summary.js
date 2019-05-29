@@ -4,6 +4,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  RedditShareButton,
+  RedditIcon
+} from 'react-share';
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
 import Fund from "../../Models/Fund";
@@ -116,38 +128,93 @@ export default class Summary extends Component<SummaryProps> {
 
     return (
       <div className="tabContent">
-        <Link
-          to={`/managers/${fund.manager.id}`}
-          className="flexContainer"
-          style={{ justifyContent: "flex-start" }}
-        >
-          <div
-            className="poweredByDetail flexContainer"
-            style={{ alignItems: "center" }}
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Link
+            to={`/managers/${fund.manager.id}`}
+            className="flexContainer"
+            style={{ justifyContent: "flex-start" }}
           >
-            <Avatar
-              width={50}
-              userName={fund.manager.name}
-              userAvatar={fund.manager.avatarUrl}
-            />
+            
             <div
-              style={{
-                marginLeft: 8,
-                fontSize: 12
-              }}
+              className="poweredByDetail flexContainer"
+              style={{ alignItems: "center" }}
             >
-              <div style={{ color: textColor1 }}>
-                {fund.manager.name}{" "}
-                <span style={{ color: themeColor, fontWeight: 500 }}>
-                  · PROFILE
-                </span>
+              <Avatar
+                width={50}
+                userName={fund.manager.name}
+                userAvatar={fund.manager.avatarUrl}
+              />
+              <div
+                style={{
+                  marginLeft: 8,
+                  fontSize: 12
+                }}
+              >
+                <div style={{ color: textColor1 }}>
+                  {fund.manager.name}{" "}
+                  <span style={{ color: themeColor, fontWeight: 500 }}>
+                    · PROFILE
+                  </span>
+                </div>
+                <div style={{ color: textColor3 }}>{fund.manager.company}</div>
+                {/* <Moment format="M/D/YY @ h:mm A" date={fund.createdTimeMillis} /> */}
+                <Moment fromNow>{fund.createdTimeMillis}</Moment>
               </div>
-              <div style={{ color: textColor3 }}>{fund.manager.company}</div>
-              {/* <Moment format="M/D/YY @ h:mm A" date={fund.createdTimeMillis} /> */}
-              <Moment fromNow>{fund.createdTimeMillis}</Moment>
             </div>
+          </Link>
+          <div style={{ display: 'flex', width: 180, justifyContent: 'space-between' }}>
+            <FacebookShareButton
+              url={`www.betfluent.com/pools/${fund.id}`}
+              quote='betFluent'
+              className="Demo__some-network__share-button"
+            >
+              <FacebookIcon
+                size={32}
+                round
+              />
+            </FacebookShareButton>
+            <LinkedinShareButton
+              url={`www.betfluent.com/pools/${fund.id}`}
+              quote='betFluent'
+              className="Demo__some-network__share-button"
+            >
+              <LinkedinIcon
+                size={32}
+                round
+              />
+            </LinkedinShareButton>
+            <TwitterShareButton
+              url={`www.betfluent.com/pools/${fund.id}`}
+              quote='betFluent'
+              className="Demo__some-network__share-button"
+            >
+              <TwitterIcon
+                size={32}
+                round
+              />
+            </TwitterShareButton>
+            <WhatsappShareButton
+              url={`www.betfluent.com/pools/${fund.id}`}
+              quote='betFluent'
+              className="Demo__some-network__share-button"
+            >
+              <WhatsappIcon
+                size={32}
+                round
+              />
+            </WhatsappShareButton>
+            <RedditShareButton
+              url={`www.betfluent.com/pools/${fund.id}`}
+              quote='betFluent'
+              className="Demo__some-network__share-button"
+            >
+              <RedditIcon
+                size={32}
+                round
+              />
+            </RedditShareButton>
           </div>
-        </Link>
+        </div>
 
         {this.state.potentialGames.length > 0 ? (
           <div>
