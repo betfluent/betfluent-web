@@ -12,6 +12,9 @@
 .manager-card-title {
     padding: 0 0 6px;
     font-weight: 700;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
 }
 
 .manager-card-summary {

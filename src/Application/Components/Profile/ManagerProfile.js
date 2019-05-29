@@ -2,6 +2,18 @@
 /* eslint-disable */
 
 import React, { Component } from "react";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  RedditShareButton,
+  RedditIcon
+} from 'react-share';
 import { IntlProvider, FormattedNumber } from "react-intl";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -141,7 +153,61 @@ export default class Performance extends Component<PerformanceProps> {
 
             <Card style={{ maxWidth: 544, margin: "0 auto", padding: "12px 48px" }}>
               <div className="manager-card-title">
-                {`Specialty: ${manager.details.specialty}`}
+                <div>{`Specialty: ${manager.details.specialty}`}</div>
+                <div>
+                <div style={{ display: 'flex', width: 180, justifyContent: 'space-between' }}>
+            <FacebookShareButton
+              url={`www.betfluent.com/managers/${manager.id}`}
+              quote='betFluent'
+              className="Demo__some-network__share-button"
+            >
+              <FacebookIcon
+                size={32}
+                round
+              />
+            </FacebookShareButton>
+            <LinkedinShareButton
+              url={`www.betfluent.com/managers/${manager.id}`}
+              quote='betFluent'
+              className="Demo__some-network__share-button"
+            >
+              <LinkedinIcon
+                size={32}
+                round
+              />
+            </LinkedinShareButton>
+            <TwitterShareButton
+              url={`www.betfluent.com/managers/${manager.id}`}
+              quote='betFluent'
+              className="Demo__some-network__share-button"
+            >
+              <TwitterIcon
+                size={32}
+                round
+              />
+            </TwitterShareButton>
+            <WhatsappShareButton
+              url={`www.betfluent.com/managers/${manager.id}`}
+              quote='betFluent'
+              className="Demo__some-network__share-button"
+            >
+              <WhatsappIcon
+                size={32}
+                round
+              />
+            </WhatsappShareButton>
+            <RedditShareButton
+              url={`www.betfluent.com/managers/${manager.id}`}
+              quote='betFluent'
+              className="Demo__some-network__share-button"
+            >
+              <RedditIcon
+                size={32}
+                round
+              />
+            </RedditShareButton>
+          </div>
+                </div>
               </div>
               <div className="manager-card-summary">
                 {manager.details.summary}
