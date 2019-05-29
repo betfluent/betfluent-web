@@ -851,13 +851,17 @@ td {
 /* --------------Deposit Page Styles-------------- */
 .deposit-wrapper {
   padding-top: 56px;
+
 }
 
 .deposit-page {
-  padding: 18px 64px 64px;
+  position: relative;
+  width: 256px;
+  margin: 48px auto;
 }
 
 .deposit-title {
+  margin-top: 128px;
   text-align: center;
   color: rgb(26,102,26) !important;
 }
@@ -908,19 +912,16 @@ td {
 }
 
 @media (min-width: 624px) {
-  .deposit-wrapper {
-    padding-top: 0;
-  }
-
   .deposit-title {
-    margin-top: 128px;
+    margin-top: 64px;
   }
 
   .deposit-page {
-    position: absolute;
-    left: calc(50% + 120px);
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 128px;
+  }
+
+  .deposit-wrapper {
+    padding-top: 0;
   }
 }
 

@@ -208,7 +208,7 @@ export const PromoteService = promoteRequest =>
         }
       });
     })
-  })
+  }) 
 
 export const WagerService = wagerRequest =>
   new Promise((resolve, rej) => {

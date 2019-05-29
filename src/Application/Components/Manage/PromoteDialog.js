@@ -197,7 +197,7 @@ class PromoteDialog extends Component {
 }
 
 const mapStateToProps = state => ({
-  emailVerified: state.authUser && state.authUser.authUser.emailVerified
+  emailVerified: state.authUser.authUser && state.authUser.authUser.emailVerified
 });
 
 export default connect(mapStateToProps)(PromoteDialog);
