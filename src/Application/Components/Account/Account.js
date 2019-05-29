@@ -237,25 +237,12 @@ export default class Account extends Component<AccountProps, AccountState> {
           </div>
         );
       }
-
-      if (user.documentStatus === "VERIFIED") {
-        return (
-          <Link to="/account/withdraw">
-            <div style={{ color: textColor1 }}>
-              Withdraw
-              <ArrowRight style={arrowStyle} />
-              <div style={subtitleStyle}>Withdraw from available balance</div>
-            </div>
-          </Link>
-        );
-      }
-
       return (
-        <Link to="/account/verify-document">
-          <div style={{ color: textColor1 }} className="accountOption">
+        <Link to="/account/withdraw">
+          <div style={{ color: textColor1 }}>
             Withdraw
-            <ArrowRight style={{ ...arrowStyle, color: textColor3 }} />
-            <div style={subtitleStyle}>Photo ID verification required</div>
+            <ArrowRight style={arrowStyle} />
+            <div style={subtitleStyle}>Withdraw from available balance</div>
           </div>
         </Link>
       );

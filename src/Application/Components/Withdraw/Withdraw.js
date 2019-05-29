@@ -77,7 +77,7 @@ export default class Withdraw extends Component<WithdrawProps> {
       pinError: "",
       disabled: false,
       barOpen: false,
-      withdrawMethod: "paypal",
+      withdrawMethod: "check",
       withdrawByPaypal: false,
       withdrawAll: false,
       isAddressEdit: false,
@@ -369,20 +369,6 @@ export default class Withdraw extends Component<WithdrawProps> {
   render() {
     if (!this.props.user) return null;
 
-    if (this.props.user.documentStatus !== "VERIFIED")
-      return <Redirect to="/account/verify-document" />;
-
-    if (!this.props.isAuthenticated) {
-      return (
-        <ReauthenticateModal
-          size={this.props.size}
-          open
-          authUser={this.props.authUser}
-          authenticateUser={this.props.authenticateUser}
-        />
-      );
-    }
-
     const rootStyle = {
       width: "100%",
       maxWidth: 300,
@@ -488,13 +474,13 @@ export default class Withdraw extends Component<WithdrawProps> {
                   <div style={rootStyle}>
                     <RadioButtonGroup
                       name="withdrawMethod"
-                      defaultSelected="paypal"
+                      defaultSelected="check"
                       className="flexContainer"
                       onChange={event => {
                         this.setState({ withdrawMethod: event.target.value });
                       }}
                     >
-                      <RadioButton
+                      {/* <RadioButton
                         value="paypal"
                         label={[
                           <img
@@ -508,14 +494,14 @@ export default class Withdraw extends Component<WithdrawProps> {
                         iconStyle={radioIconStyle}
                         labelStyle={radioLabelStyle}
                         disabled={this.state.withdrawAll}
-                      />
-                      {/*<RadioButton
+                      /> */}
+                      <RadioButton
                         value="check"
                         label="Check"
                         style={radioButtonStyle}
                         iconStyle={radioIconStyle}
                         labelStyle={radioLabelStyle}
-                      />*/}
+                      />
                     </RadioButtonGroup>
                   </div>
 

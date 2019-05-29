@@ -31,6 +31,7 @@ import VerifyEmail from "./Verify/VerifyEmail";
 import GameDetailContainer from "../Containers/GameDetailContainer";
 import TourDialog from "./TourDialog";
 import Deposit from './Deposit';
+import WithdrawContainer from '../Containers/WithdrawContainer';
 import { scrollComponent } from "./Shared/Scroll";
 import { appTheme, desktopBreakPoint, mobileBreakPoint } from "./Styles";
 
@@ -162,6 +163,7 @@ const VerifyIdentityRouter = withRouter(VerifyIdentityLoader);
 const VerifyDocumentRouter = withRouter(VerifyDocumentLoader);
 const VerifyEmailRouter = withRouter(VerifyEmail);
 const DepositRoute = withRouter(Deposit);
+const WithdrawRoute = withRouter(WithdrawContainer);
 
 if (Number.parseInt === undefined) Number.parseInt = window.parseInt;
 
@@ -453,6 +455,14 @@ class App extends Component<AppProps> {
                 exact
                 path="/account/deposit"
                 component={DepositRoute}
+                authUser={this.props.authUser}
+                size={this.state.size}
+                isManager={this.props.isManager}
+              />
+              <PrivateRoute
+                exact
+                path="/account/withdraw"
+                component={WithdrawRoute}
                 authUser={this.props.authUser}
                 size={this.state.size}
                 isManager={this.props.isManager}
