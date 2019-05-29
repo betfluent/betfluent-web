@@ -220,32 +220,26 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
           <Link to="/">
             <img
               alt="Betfluent Logo"
-              src={
-                this.props.isManager
-                  ? "/betfluent-logo.png"
-                  : "/bf-logo.png"
-              }
+              src={"/bf-logo.png"}
               height={48}
               style={logoStyle}
             />
           </Link>
           <IntlProvider locale="en">{renderUserData()}</IntlProvider>
           <Divider style={dividerStyle} />
-          {!this.props.isManager ? (
-            <MenuItem
-              leftIcon={
-                <School
-                  style={
-                    iLocation === "/learn" ? activeIconStyle : inactiveIconStyle
-                  }
-                />
-              }
-              style={iLocation === "/learn" ? activeStyle : inactiveStyle}
-              primaryText="Learn"
-              innerDivStyle={primaryTextStyle}
-              containerElement={<Link to="/learn" />}
-            />
-          ) : null}
+          <MenuItem
+            leftIcon={
+              <School
+                style={
+                  iLocation === "/learn" ? activeIconStyle : inactiveIconStyle
+                }
+              />
+            }
+            style={iLocation === "/learn" ? activeStyle : inactiveStyle}
+            primaryText="Learn"
+            innerDivStyle={primaryTextStyle}
+            containerElement={<Link to="/learn" />}
+          />
         </Drawer>
       </div>
     );

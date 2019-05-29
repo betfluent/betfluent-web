@@ -18,6 +18,7 @@ import {
 } from 'react-share';
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
+import Card from "material-ui/Card";
 import Fund from "../../Models/Fund";
 import Comment from "./Comment";
 import { gMuiTheme } from "../Styles";
@@ -26,10 +27,16 @@ import {
   getCommentsFeed,
   uploadComment
 } from "../../Services/DbService";
+import {
+  getFundBets
+} from "../../Services/ManagerService";
+import { LocationService } from "../../Services/BackendService";
 import "../../../Styles/Summary.css";
 import usaFlag from "../../../Assets/usaFlag.png";
 import Avatar from "../Avatar";
 import PotentialGames from "../Shared/PotentialGames";
+import LearningModal from "./LearningModal";
+import PromoteDialog from "../Manage/PromoteDialog";
 
 const themeColor = gMuiTheme.palette.themeColor;
 const textColor1 = gMuiTheme.palette.textColor1;
@@ -56,6 +63,10 @@ export default class Summary extends Component<SummaryProps> {
   }
 
   componentDidMount() {
+    getFundBets(this.props.fund.id).then(bets => {
+      const longBet = bets.find(b => !b.fade)
+      this.setState({ learningModalOpen: true, longBet })
+    });
     if (!this.blogRendered && this.props.fund) this.renderSummary();
     if (this.props.fund)
       this.comments = getCommentsFeed(this.props.fund.id, this.commentsFeed);
@@ -115,6 +126,12 @@ export default class Summary extends Component<SummaryProps> {
       }
     });
   };
+
+  showBet = () => {
+    LocationService().then(ok => {
+      this.setState({ ok });
+    });
+  }
 
   render() {
     const fund = this.props.fund;
@@ -225,6 +242,19 @@ export default class Summary extends Component<SummaryProps> {
           </div>
         ) : null}
 
+        {this.state.longBet && (
+          <Card style={{ marginTop: 24, padding: 12 }}>
+            <div className="staged-bet">STAGED BET</div>
+            <div className="staged-bet-details">
+              <div className="staged-bet-disclaimer">
+                Users in permitted states can view bets influencers have staged.
+              </div>
+              <div className="staged-bet-view" onClick={this.showBet}>
+                BET DETAILS
+              </div>
+            </div>
+          </Card>)}
+
         <div className="entry-content">
           <div
             style={summaryStyle}
@@ -284,6 +314,20 @@ export default class Summary extends Component<SummaryProps> {
             All Rights Reserved
           </p>
         </div>
+        {this.state.longBet && this.state.ok && (
+          <LearningModal
+            open={this.state.learningModalOpen}
+            handleClose={() => this.setState({ learningModalOpen: false })}
+            wager={this.state.longBet}
+            userWagered={100}
+            size={this.props.size}
+          />)}
+          {
+            this.state.learningModalOpen && this.state.ok === false && (
+              <PromoteDialog
+                approved={false}
+              />
+          )}
       </div>
     );
   }

@@ -1078,6 +1078,12 @@ td {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
 }
 
+@media (max-width: 624px) {
+  .GameDetails {
+    padding-top: 76px;
+  }
+}
+
 .PortfolioCard, .GameCard {
   margin: 16px auto;
   padding: 12px 32px;
@@ -2597,4 +2603,31 @@ td {
   .above-all {
     bottom: 0 !important;
   }
+}
+
+.staged-bet {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 6px 0;
+}
+
+.staged-bet-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.staged-bet-disclaimer {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0,0,0,0.38)
+}
+
+.staged-bet-view {
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 96px;
+  text-align: right;
+  color: rgb(26,102,26);
+  cursor: pointer;
 }
