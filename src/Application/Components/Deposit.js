@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import V0MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
+import MobileTopHeaderContainer from '../Containers/MobileTopHeaderContainer';
 import { DepositService } from '../Services/BackendService';
 import { getNewUid } from '../Services/DbService'
-import { gMuiTheme } from './Styles';
+import { gMuiTheme, mobileBreakPoint } from './Styles';
 import FakeDeposit from './FakeDeposit';
 
 class Deposit extends React.Component {
@@ -53,18 +54,28 @@ class Deposit extends React.Component {
     render() {
         return (
             <V0MuiThemeProvider muiTheme={gMuiTheme}>
-                <div className="deposit-page">
-                    <TextField
-                        className="deposit-input"
-                        style={{ display: 'block' }}
-                        value={this.state && this.state.value}
-                        onChange={this.handleChange}
-                        type="number"
-                    />
-                    <div className={`error ${!this.state.error && 'hidden'}`}>You must depost more than $10 to initiate a transaction.</div>
-                    {this.state.error && <FakeDeposit />}
-                    <div id="paypal-button-container" className={`deposit-buttons ${this.state.error && 'hidden'}`} />
-                </div>
+                <React.Fragment>
+                    {this.props.size < mobileBreakPoint ? (
+                        <MobileTopHeaderContainer />
+                    ) : null}
+                    <div className="deposit-wrapper">
+                    <h1 className="deposit-title">SECURE DEPOSIT</h1>
+                    <h4>For access to immediate funds, we recommend using "Pay with Debit or Credit Card" Option on the PayPal list.</h4>
+                        <div className="deposit-page">
+                            <TextField
+                                className="deposit-input"
+                                style={{ display: 'block' }}
+                                inputStyle={{ width: 232 }}
+                                value={this.state && this.state.value}
+                                onChange={this.handleChange}
+                                type="number"
+                            />
+                            <div className={`error ${!this.state.error && 'hidden'}`}>You must depost more than $10 to initiate a transaction.</div>
+                            {this.state.error && <FakeDeposit />}
+                            <div id="paypal-button-container" className={`deposit-buttons ${this.state.error && 'hidden'}`} />
+                        </div>
+                    </div>
+                </React.Fragment>
             </V0MuiThemeProvider>
         )
     }

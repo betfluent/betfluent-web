@@ -156,43 +156,40 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
     const iLocation = this.props.history.location.pathname;
 
     const renderUserData = () => {
-      if (!this.props.isManager) {
-        return (
-          <div style={{ height: 236 }}>
-            <div style={nameStyle}>{this.props.user && this.props.user.public.name}</div>
-            <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
-            <div style={balanceStyle}>
-              <span style={{ position: "relative", bottom: 2 }}>
-                <FormattedNumber
-                  style="currency"
-                  currency="USD"
-                  minimumFractionDigits={0}
-                  value={this.data.length && this.data[0].value}
-                />
-              </span>
-            </div>
-            <div style={balanceTitleStyle}>AMOUNT WAGERED</div>
-            <div style={balanceStyle}>
-              <span style={{ position: "relative", bottom: 2 }}>
-                <FormattedNumber
-                  style="currency"
-                  currency="USD"
-                  minimumFractionDigits={0}
-                  value={this.data.length && this.data[1].value}
-                />
-              </span>
-            </div>
-            <RaisedButton
-              style={{ width: 128 }}
-              primary
-              onClick={() => this.gotoDeposit()}
-              label="Deposit"
-              disabled={this.props.authUser && !this.props.authUser.emailVerified}
-            />
+      return (
+        <div style={{ height: 236 }}>
+          <div style={nameStyle}>{this.props.user && this.props.user.public.name}</div>
+          <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
+          <div style={balanceStyle}>
+            <span style={{ position: "relative", bottom: 2 }}>
+              <FormattedNumber
+                style="currency"
+                currency="USD"
+                minimumFractionDigits={0}
+                value={this.data.length && this.data[0].value}
+              />
+            </span>
           </div>
-        );
-      }
-      return <div style={nameStyle}>{this.props.user && this.props.user.name}</div>;
+          <div style={balanceTitleStyle}>AMOUNT WAGERED</div>
+          <div style={balanceStyle}>
+            <span style={{ position: "relative", bottom: 2 }}>
+              <FormattedNumber
+                style="currency"
+                currency="USD"
+                minimumFractionDigits={0}
+                value={this.data.length && this.data[1].value}
+              />
+            </span>
+          </div>
+          <RaisedButton
+            style={{ width: 128 }}
+            primary
+            onClick={() => this.gotoDeposit()}
+            label="Deposit"
+            disabled={this.props.authUser && !this.props.authUser.emailVerified}
+          />
+        </div>
+      );
     };
 
     return (
