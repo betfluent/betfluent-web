@@ -319,7 +319,7 @@ export default class Summary extends Component<SummaryProps> {
             open={this.state.learningModalOpen}
             handleClose={() => this.setState({ learningModalOpen: false })}
             wager={this.state.longBet}
-            userWagered={100}
+            userWagered={this.props.fund.minInvestment / 100}
             size={this.props.size}
           />)}
           {
