@@ -70,7 +70,7 @@ class Deposit extends React.Component {
                                 onChange={this.handleChange}
                                 type="number"
                             />
-                            <div className={`error ${!this.state.error && 'hidden'}`}>You must depost more than $10 to initiate a transaction.</div>
+                            <div className={`error ${!this.state.error && 'hidden-space'}`}>You must depost more than $10 to initiate a transaction.</div>
                             {this.state.error && <FakeDeposit />}
                             <div id="paypal-button-container" className={`deposit-buttons ${this.state.error && 'hidden'}`} />
                         </div>
