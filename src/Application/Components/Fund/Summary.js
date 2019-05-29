@@ -65,7 +65,7 @@ export default class Summary extends Component<SummaryProps> {
   componentDidMount() {
     getFundBets(this.props.fund.id).then(bets => {
       const longBet = bets.find(b => !b.fade)
-      this.setState({ learningModalOpen: true, longBet })
+      this.setState({ longBet })
     });
     if (!this.blogRendered && this.props.fund) this.renderSummary();
     if (this.props.fund)
@@ -129,7 +129,7 @@ export default class Summary extends Component<SummaryProps> {
 
   showBet = () => {
     LocationService().then(ok => {
-      this.setState({ ok });
+      this.setState({ ok, learningModalOpen: true });
     });
   }
 
@@ -326,6 +326,8 @@ export default class Summary extends Component<SummaryProps> {
             this.state.learningModalOpen && this.state.ok === false && (
               <PromoteDialog
                 approved={false}
+                open={this.state.learningModalOpen}
+                handleClose={() => this.setState({ learningModalOpen: false })}
               />
           )}
       </div>
