@@ -893,7 +893,7 @@ td {
 .error {
   color: #d50000;
   font-weight: 500;
-  text-align: left;
+  text-align: center;
   font-size: 12px;
   width: 256px;
 }
