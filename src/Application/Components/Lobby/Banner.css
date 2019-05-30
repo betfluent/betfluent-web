@@ -1,5 +1,5 @@
 .lobby-banner {
-    background-image: url('./MOBILE HEADER BETFLUENT.png');
+    background-image: url('./MOBILE HEADER BETFLUENT.webp');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 100% 100%;
@@ -11,7 +11,7 @@
 
 @media (min-width: 624px) {
     .lobby-banner {
-        background-image: url('./DESKTOP HEADER BETFLUENT.png');
+        background-image: url('./DESKTOP HEADER BETFLUENT.webp');
         background-size: cover;
         height: 18vw;
         box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
