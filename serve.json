@@ -1,0 +1,5 @@
+{
+    "redirects": [
+        { "source": "https://betfluent.com/**", "destination": "https://www.betfluent.com/**" }
+      ]
+}
