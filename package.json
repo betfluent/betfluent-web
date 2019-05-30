@@ -51,7 +51,7 @@
   },
   "scripts": {
     "dev": "set HTTPS=true&&react-scripts start",
-    "start": "serve --debug -s build",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
