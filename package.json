@@ -53,7 +53,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "flow": "flow"
+    "flow": "flow",
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
