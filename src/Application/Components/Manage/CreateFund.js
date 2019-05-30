@@ -134,7 +134,17 @@ export default class CreateFund extends Component<CreateFundProps> {
         returnDate: new Date(returnDateTime),
         returnTime: new Date(returnDateTime),
         initialSummary: "<p>This is a training pool for you.</p>"
+      }, () => {
       });
+    }
+    const input = document.getElementById('fundName');
+    if (input) input.setAttribute('maxLength', 28);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.creationStep === 'name' && prevState.creationStep !== 'name') {
+      const input = document.getElementById('fundName');
+      if (input) input.setAttribute('maxLength', 28);
     }
   }
 
