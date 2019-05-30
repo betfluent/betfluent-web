@@ -50,7 +50,6 @@ export const RegistrationService = (
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then(userCredential => {
-      userCredential.user.sendEmailVerification()
       return userCredential.user.getIdToken(true)
     })
     .then(idToken =>
