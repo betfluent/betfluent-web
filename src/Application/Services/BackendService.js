@@ -1,8 +1,6 @@
 import firebase from "../../firebase";
 import { getNewUid } from "../Services/DbService";
 
-
-
 let BASE_URL;
 if (
   process.env.NODE_ENV === "development" ||
