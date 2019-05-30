@@ -362,7 +362,7 @@ export default class Account extends Component<AccountProps, AccountState> {
         <div>
           {this.props.size < mobileBreakPoint ? (
             <MobileTopHeaderContainer />
-          ) : null}   
+          ) : null}
           <div className="AccountHeader">
             <div className="contentHeader flexContainer">
               {this.props.isManager
@@ -464,6 +464,7 @@ export default class Account extends Component<AccountProps, AccountState> {
             >
               SIGN OUT
             </button>
+            <p> Questions? Email Support@betfluent.com </p>
           </div>
         </div>
       </V0MuiThemeProvider>
