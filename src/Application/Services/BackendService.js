@@ -2,14 +2,14 @@ import firebase from "../../firebase";
 import { getNewUid } from "../Services/DbService";
 
 let BASE_URL;
-if (
-  process.env.NODE_ENV === "development" ||
-  process.env.REACT_APP_FRONTEND_ENV === "debug"
-) {
-  BASE_URL = "https://providence-02108.herokuapp.com/api/";
-} else {
+// if (
+//   process.env.NODE_ENV === "development" ||
+//   process.env.REACT_APP_FRONTEND_ENV === "debug"
+// ) {
+//   BASE_URL = "https://providence-02108.herokuapp.com/api/";
+// } else {
   BASE_URL = "https://boston-02108.herokuapp.com/api/";
-}
+// }
 
 export const LocationService = locRequest =>
   new Promise(res => {
