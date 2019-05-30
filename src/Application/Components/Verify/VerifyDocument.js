@@ -11,7 +11,6 @@ import {
   GetOnFidoTokenService,
   CompleteOnFidoService
 } from "../../Services/BackendService";
-import Onfido from "../../Extensions/OnfidoExt";
 import MobileTopHeaderContainer from "../../Containers/MobileTopHeaderContainer";
 import { appTheme, gMuiTheme } from "../Styles";
 import { getNewUid } from "../../Services/DbService";
@@ -161,53 +160,6 @@ export default class Verify extends Component<VerifyProps> {
 
   onFidoInit = () => {
     this.initOnFido = true;
-    this.onFidoObject = Onfido.init({
-      token: this.state.onFidoToken,
-      containerId: "onfido-mount",
-      steps: [
-        {
-          type: "welcome",
-          options: {
-            title: "Upload your photo identification",
-            descriptions: ["We need a photo id to verify your identity"]
-          }
-        },
-        "document"
-      ],
-      onComplete: () => {
-        let onFidoDialogOpen = true;
-        let onFidoSuccess = false;
-        let onFidoLoading = true;
-        let onFidoPending = false;
-        this.setState({
-          onFidoDialogOpen,
-          onFidoSuccess,
-          onFidoLoading,
-          onFidoPending
-        });
-        const payLoad = {
-          dateCreated: new Date().getTime(),
-          id: getNewUid(),
-          request: {},
-          serviceType: "DOCUMENT",
-          deviceLocation: this.props.location
-        };
-        CompleteOnFidoService(payLoad).then(results => {
-          if (results.status === "error") {
-            onFidoDialogOpen = true;
-            onFidoSuccess = false;
-            onFidoLoading = false;
-            onFidoPending = false;
-            this.setState({
-              onFidoDialogOpen,
-              onFidoSuccess,
-              onFidoLoading,
-              onFidoPending
-            });
-          }
-        });
-      }
-    });
   };
 
   getOnFidoToken = () => {
