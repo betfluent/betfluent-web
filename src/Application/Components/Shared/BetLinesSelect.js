@@ -65,7 +65,11 @@ export default class BetLinesSelect extends Component<BetLinesSelectProps> {
               "ddd, MMM DD, YYYY @ hh:mm a"
             )}
           </h3>
-
+          <div className="red medium">
+            **All betting lines are subject to change.
+            Final lines published 10 minutes before game start.
+            Questions? E-mail: support@bettorhalf.com
+          </div>
           <div className="flexContainer gameLines">
             {
               sortedLines.map((line, index) => {

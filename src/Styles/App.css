@@ -2630,5 +2630,23 @@ td {
   min-width: 96px;
   text-align: right;
   color: rgb(26,102,26);
-  cursor: pointer;
+}
+
+.legal-stuff {
+  padding: 32px;
+  text-align: left;
+}
+
+.red {
+  color: #d50000;
+}
+
+.small {
+  font-weight: 400;
+  font-size: 10px;
+}
+
+.medium {
+  font-weight: 400;
+  font-size: 12px;
 }

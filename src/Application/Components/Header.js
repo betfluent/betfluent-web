@@ -161,13 +161,13 @@ const clientMenu = [
     label: "Learn",
     icon: School,
     url: "/learn",
-    index: 4
+    index: 5
   },
   {
     label: "Account",
     icon: ActionAccountCircle,
     url: "/account",
-    index: 5
+    index: 4
   }
 ];
 
@@ -317,11 +317,11 @@ export default class Header extends Component<HeaderProps> {
           selectedIndex = 3;
           this.setState({ selectedIndex });
           break;
-        case "/account":
+        case "/learn":
           selectedIndex = 5;
           this.setState({ selectedIndex });
           break;
-        case "/learn":
+        case "/account":
           selectedIndex = 4;
           this.setState({ selectedIndex });
           break;

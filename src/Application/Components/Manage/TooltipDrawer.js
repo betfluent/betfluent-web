@@ -82,7 +82,7 @@ export default class TooltipDrawer extends Component<TooltipDrawerProps> {
       case "Pool Cap":
         return "The total amount of money a pool can accept. When a pool reaches its cap users will no longer be able to wager on it.";
       case "% Fee Charged":
-        return "Betfluent charges 15% of user profit.";
+        return "Influencer receives 5% of profit.";
       case "Pool Date/Time":
         return (
           <div>

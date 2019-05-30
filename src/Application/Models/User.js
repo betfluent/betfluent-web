@@ -14,7 +14,7 @@ module.exports = class User {
       managerId,
       name,
       pin,
-      preferences: { receiveBetEmail, receiveReturnEmail, sports },
+      preferences: { receiveBetEmail, receiveReturnEmail },
       publicId,
       returns
     },
@@ -36,8 +36,7 @@ module.exports = class User {
     this.pin = pin;
     this.preferences = {
       receiveBetEmail,
-      receiveReturnEmail,
-      sports
+      receiveReturnEmail
     };
     this.publicId = publicId;
     this.returns = returns;

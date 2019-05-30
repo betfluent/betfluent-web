@@ -264,8 +264,7 @@ export default class CreateFund extends Component<CreateFundProps> {
       name: this.state.name,
       minInvestment: parseInt(this.state.minWager.replace(/,/gi, ""), 10) * 100,
       managerId: this.props.user.manager.id,
-      pctOfFeeCommission:
-        this.props.user.manager.details.pctOfFeeCommission || 50,
+      pctOfFeeCommission: 100,
       maxInvestment: parseInt(this.state.maxWager.replace(/,/gi, ""), 10) * 100,
       maxBalance: parseInt(this.state.fundCap.replace(/,/gi, ""), 10) * 100,
       openTimeMillis: -1,
@@ -415,12 +414,8 @@ export default class CreateFund extends Component<CreateFundProps> {
             onChange={this.onLeagueChange}
             errorText={this.state.errorTextLeague}
           >
-            <MenuItem value={"FIFA"} primaryText="FIFA" />
             <MenuItem value={"MLB"} primaryText="MLB" />
             <MenuItem value={"NBA"} primaryText="NBA" />
-            <MenuItem value={"NCAAF"} primaryText="NCAAF" />
-            <MenuItem value={"NCAAMB"} primaryText="NCAAMB" />
-            <MenuItem value={"NFL"} primaryText="NFL" />
           </SelectField>
           {/* <SelectField
             id="fundType"
