@@ -12,8 +12,9 @@ app.all(/.*/, function(req, res, next) {
         } else {
             res.redirect(301, "https://www." + host);
         }
+    } else {
+        next();
     }
-    next();
 });
 
 app.use(express.static("build"));
