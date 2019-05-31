@@ -151,7 +151,7 @@ export default class Summary extends Component<SummaryProps> {
             className="flexContainer"
             style={{ justifyContent: "flex-start" }}
           >
-            
+
             <div
               className="poweredByDetail flexContainer"
               style={{ alignItems: "center" }}
@@ -248,11 +248,11 @@ export default class Summary extends Component<SummaryProps> {
               <div className="staged-bet">STAGED BET</div>
               <div className="staged-bet-details">
                 <div className="staged-bet-disclaimer">
-                  <div>Users in permitted states can view bets</div>
-                  <div class="red small">*Proposed lines are subject to change</div>
+                  <div>Permitted states can view bets</div>
+                  <div class="red small">*Proposed lines subject to change</div>
                 </div>
                 <div className="staged-bet-view">
-                  BET DETAILS
+                  CLICK TO VIEW
                 </div>
               </div>
             </Card>
