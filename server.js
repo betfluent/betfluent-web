@@ -10,7 +10,7 @@ app.all(/.*/, function(req, res, next) {
         if (host.match(/^www\..*/i)) {
             next();
         } else {
-            res.redirect(301, "https://www." + host);
+            res.redirect(301, "https://www.betfluent.com" + req.originalUrl);
         }
     } else {
         next();
@@ -25,5 +25,5 @@ app.use(function(req, res, next) {
 });
 
 app.listen(process.env.PORT || 8080, function() {
-    console.log('App ready on port 8080');
+    console.log(`App ready on port ${process.env.PORT}`);
 });
