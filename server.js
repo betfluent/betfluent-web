@@ -23,6 +23,6 @@ app.use(function(req, res, next) {
     else next();
 });
 
-app.listen(8080, function() {
+app.listen(process.env.PORT || 8080, function() {
     console.log('App ready on port 8080');
 });
