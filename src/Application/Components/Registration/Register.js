@@ -200,8 +200,8 @@ export default class Register extends Component {
     }
     this.setState({ dobError: null });
 
-    if (moment().diff(moment(new Date(this.state.date)), "years") < 21) {
-      this.setState({ dobError: "You must be 21 years of age to register" });
+    if (moment().diff(moment(new Date(this.state.date)), "years") < 18) {
+      this.setState({ dobError: "You must be 18 years of age to register" });
       return null;
     }
     this.setState({ dobError: null });
@@ -514,7 +514,7 @@ export default class Register extends Component {
                     >
                       Privacy Policy
                     </Link>{" "}
-                    and confirm that I am at least 21 years of age.
+                    and confirm that I am at least 18 years of age.
                   </span>
                 </div>
                 <RaisedButton

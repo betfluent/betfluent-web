@@ -162,7 +162,8 @@ export default class PlaceBet extends Component<PlaceBetProps> {
       gameSelected: null,
       confirmBet: false,
       bets: [],
-      line: {}
+      line: {},
+      wagerPct: '100%'
     };
   }
 
@@ -293,17 +294,6 @@ export default class PlaceBet extends Component<PlaceBetProps> {
   };
 
   placeBet() {
-    let wagered = this.state.wagered;
-    let pctOfFund = this.state.wagerPct;
-
-    if (wagered) {
-      wagered = Number(Number(wagered.replace(/,/gi, "")).toFixed(2)) * 100;
-    }
-
-    if (pctOfFund) {
-      pctOfFund = Number(Number(pctOfFund.slice(0, -1)).toFixed(2));
-    }
-
     const bet = {
       fundId: this.state.fund.id,
       gameId: this.state.gameSelected.id,
@@ -312,8 +302,8 @@ export default class PlaceBet extends Component<PlaceBetProps> {
       status: "STAGED",
       line: this.state.line,
       fade: this.state.fade,
-      pctOfFund,
-      wagered
+      pctOfFund: 100,
+      wagered: 0
     };
 
     if (this.props.user.manager.isTraining) {
@@ -360,49 +350,6 @@ export default class PlaceBet extends Component<PlaceBetProps> {
             style={{ color: textColor1, paddingBottom: 48 }}
           >
             <BetLinesSelect game={game} selectLine={this.selectLine} />
-            {game.lines && (
-              <Card
-                style={{
-                  marginTop: 20,
-                  width: "100%",
-                  padding: "0 20px 8px"
-                }}
-              >
-                {this.state.fund.status === "PENDING" ? (
-                  <TextField
-                    id="wagerValue"
-                    style={rootStyle}
-                    value={this.state.wagered}
-                    onFocus={() => {
-                      this.setState({ errorTextWagered: null });
-                    }}
-                    onChange={this.onWagerChange}
-                    className="formInputStyle"
-                    floatingLabelText={`What will you wager? (Up to $${this
-                      .state.remainingAmount / 100})`}
-                    errorText={this.state.errorTextWagered}
-                    errorStyle={errorStyle}
-                  />
-                ) : (
-                  <TextField
-                    id="wagerValue"
-                    style={rootStyle}
-                    value={this.state.wagerPct}
-                    onFocus={() => {
-                      this.setState({ errorTextWagered: null });
-                    }}
-                    onChange={this.onWagerPctChange}
-                    onKeyDown={this.onWagerPctInput}
-                    className="formInputStyle"
-                    floatingLabelText={`What will you wager? (${
-                      this.state.remainingPercent
-                    }% remaining)`}
-                    errorText={this.state.errorTextWagered}
-                    errorStyle={errorStyle}
-                  />
-                )}
-              </Card>
-            )}
             <div style={{ marginTop: 48 }}>
               <RaisedButton
                 style={{ marginRight: 10 }}

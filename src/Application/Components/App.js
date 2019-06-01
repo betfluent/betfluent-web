@@ -32,6 +32,9 @@ import GameDetailContainer from "../Containers/GameDetailContainer";
 import TourDialog from "./TourDialog";
 import Deposit from './Deposit';
 import WithdrawContainer from '../Containers/WithdrawContainer';
+import TermsOfUse from "./Registration/Terms";
+import PrivacyPolicy from "./Registration/Privacy";
+import FAQ from "./FAQ";
 import { scrollComponent } from "./Shared/Scroll";
 import { appTheme, desktopBreakPoint, mobileBreakPoint } from "./Styles";
 
@@ -376,6 +379,9 @@ class App extends Component<AppProps> {
                   />
                 )}
               />
+              <Route path="/termsofuse" component={TermsOfUse} />
+              <Route path="/privacypolicy" component={PrivacyPolicy} />
+              <Route path="/faq" component={FAQ} />
               <PrivateRoute
                 path="/portfolio"
                 component={PortfolioContainer}

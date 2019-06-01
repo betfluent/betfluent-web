@@ -151,7 +151,7 @@ export default class Summary extends Component<SummaryProps> {
             className="flexContainer"
             style={{ justifyContent: "flex-start" }}
           >
-            
+
             <div
               className="poweredByDetail flexContainer"
               style={{ alignItems: "center" }}
@@ -243,17 +243,20 @@ export default class Summary extends Component<SummaryProps> {
         ) : null}
 
         {this.state.longBet && (
-          <Card style={{ marginTop: 24, padding: 12 }}>
-            <div className="staged-bet">STAGED BET</div>
-            <div className="staged-bet-details">
-              <div className="staged-bet-disclaimer">
-                Users in permitted states can view bets influencers have staged.
+          <div onClick={this.showBet} style={{ cursor: 'pointer' }}>
+            <Card style={{ marginTop: 24, padding: 12 }}>
+              <div className="staged-bet">STAGED BET</div>
+              <div className="staged-bet-details">
+                <div className="staged-bet-disclaimer">
+                  <div>Permitted states can view bets</div>
+                  <div class="red small">*Proposed lines subject to change</div>
+                </div>
+                <div className="staged-bet-view">
+                  CLICK TO VIEW
+                </div>
               </div>
-              <div className="staged-bet-view" onClick={this.showBet}>
-                BET DETAILS
-              </div>
-            </div>
-          </Card>)}
+            </Card>
+          </div>)}
 
         <div className="entry-content">
           <div
