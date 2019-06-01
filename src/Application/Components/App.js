@@ -481,11 +481,13 @@ class App extends Component<AppProps> {
                 size={this.state.size}
                 isManager={this.props.isManager}
               />
-              <PrivateRoute
+              <Route
                 path="/account/verify-email"
-                component={VerifyEmailRouter}
-                authUser={this.props.authUser}
-                size={this.state.size}
+                render={() => {
+                  <VerifyEmailRouter
+                    size={this.state.size}
+                  />
+                }}
               />
               <Route
                 path="*"

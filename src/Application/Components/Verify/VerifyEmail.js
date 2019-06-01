@@ -30,51 +30,35 @@ export default class VerifyEmail extends Component<VerifyEmailProps> {
   state = { message: null };
 
   componentDidMount() {
-    if (this.props.authUser) {
-      this.verifyEmail(this.props.authUser);
-    }
+    this.verifyEmail(this.props.authUser);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.authUser) {
-      this.verifyEmail(nextProps.authUser);
-    }
-  }
-
-  verifyEmail(authUser) {
-    if (authUser.emailVerified) {
-      const message = `${authUser.email} has already been verified.`;
-      this.setState({ emailVerified: true, message });
-      setTimeout(() => {
-        this.props.history.replace("/");
-      }, 3000);
-    } else {
-      const emailCode = window.location.hash.replace("#", "");
-      VerifyEmailService(emailCode)
-        .then(response => {
-          if (response.status === "success") {
-            authUser.reload();
-            this.setState({
-              emailVerified: true,
-              message: response.message
-            });
-            setTimeout(() => {
-              this.props.history.replace("/");
-            }, 3000);
-          } else {
-            this.setState({
-              emailVerified: false,
-              message: response.message
-            });
-          }
-        })
-        .catch(err => {
+  verifyEmail() {
+    const emailCode = window.location.hash.replace("#", "");
+    VerifyEmailService(emailCode)
+      .then(response => {
+        if (response.status === "success") {
+          authUser.reload();
+          this.setState({
+            emailVerified: true,
+            message: response.message
+          });
+          setTimeout(() => {
+            this.props.history.replace("/");
+          }, 3000);
+        } else {
           this.setState({
             emailVerified: false,
-            message: err.message
+            message: response.message
           });
+        }
+      })
+      .catch(err => {
+        this.setState({
+          emailVerified: false,
+          message: err.message
         });
-    }
+      });
   }
 
   renderLottie = () => {

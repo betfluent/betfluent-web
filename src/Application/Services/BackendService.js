@@ -425,22 +425,16 @@ export const DeleteCommentService = ({ commentId, fundId }) =>
   });
 
 export const VerifyEmailService = emailCode =>
-  firebase
-    .auth()
-    .currentUser.getIdToken(true)
-    .then(idToken =>
-      fetch(`${BASE_URL}v1/users/verify-email`, {
-        method: "POST",
-        mode: "cors",
-        body: JSON.stringify({
-          id: getNewUid(),
-          serviceType: "VERIFY_EMAIL",
-          request: emailCode
-        }),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          token: idToken
-        }
-      }).then(res => res.json())
-    );
+  fetch(`${BASE_URL}v1/users/verify-email`, {
+    method: "POST",
+    mode: "cors",
+    body: JSON.stringify({
+      id: getNewUid(),
+      serviceType: "VERIFY_EMAIL",
+      request: emailCode
+    }),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  }).then(res => res.json())
