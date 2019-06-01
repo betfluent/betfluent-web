@@ -11,6 +11,7 @@ import MobileTopHeaderContainer from "../../Containers/MobileTopHeaderContainer"
 import { appTheme, gMuiTheme } from "../Styles";
 import * as verifySuccess from "./verify_success.json";
 import * as verifyError from "./verify_error.json";
+import fb from '../../../firebase';
 
 const mobileBreakPoint = gMuiTheme.palette.mobileBreakPoint;
 
@@ -30,7 +31,7 @@ export default class VerifyEmail extends Component<VerifyEmailProps> {
   state = { message: null };
 
   componentDidMount() {
-    this.verifyEmail(this.props.authUser);
+    this.verifyEmail();
   }
 
   verifyEmail() {
@@ -38,7 +39,9 @@ export default class VerifyEmail extends Component<VerifyEmailProps> {
     VerifyEmailService(emailCode)
       .then(response => {
         if (response.status === "success") {
-          authUser.reload();
+          const { customToken } = response;
+          if (!this.props.authUser) fb.auth().signInWithCustomToken(customToken);
+          else this.props.authUser.reload();
           this.setState({
             emailVerified: true,
             message: response.message
@@ -86,15 +89,6 @@ export default class VerifyEmail extends Component<VerifyEmailProps> {
   };
 
   render() {
-    if (!this.props.authUser)
-      return (
-        <MuiThemeProvider theme={appTheme}>
-          <div className="fill-window center-flex">
-            <CircularProgress />
-          </div>
-        </MuiThemeProvider>
-      );
-
     return (
       <V0MuiThemeProvider muiTheme={gMuiTheme}>
         <div>

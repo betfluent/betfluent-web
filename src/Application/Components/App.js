@@ -483,11 +483,12 @@ class App extends Component<AppProps> {
               />
               <Route
                 path="/account/verify-email"
-                render={() => {
+                render={() => 
                   <VerifyEmailRouter
                     size={this.state.size}
+                    authUser={this.state.authUser}
                   />
-                }}
+                }
               />
               <Route
                 path="*"
