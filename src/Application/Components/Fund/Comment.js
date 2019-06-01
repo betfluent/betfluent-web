@@ -248,7 +248,7 @@ export default class Comments extends Component<CommentsProps> {
             />{" "}
             ago
           </div>
-          {this.props.reportedTimeMillis && this.props.user && this.props.user.manager ? (
+          {this.props.reportedTimeMillis && this.props.user && this.props.user.manager && this.props.user.manager.id === this.props.fund.managerId ? (
             <span className="reportedFlag">
               <Flag color={alertColor} />
             </span>
@@ -265,7 +265,7 @@ export default class Comments extends Component<CommentsProps> {
           {this.props.comment}
         </div>
         <div style={{ bottom: 10, position: "relative" }}>
-          {this.props.user && this.props.user.manager ? (
+          {this.props.user && this.props.user.manager && this.props.user.manager.id === this.props.fund.managerId ? (
             <span>
               <Link to="#" onClick={this.deleteComment} className="deleteBtn">
                 Delete
