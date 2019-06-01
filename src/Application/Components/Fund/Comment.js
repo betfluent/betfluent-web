@@ -75,54 +75,58 @@ export default class Comments extends Component<CommentsProps> {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.votes)
+    if (nextProps.votes && nextProps.user)
       this.colorThumb(nextProps.votes[nextProps.user.publicId]);
     else this.colorThumb(null);
   }
 
   componentDidUpdate() {
-    if (this.props.votes)
+    if (this.props.votes && this.props.user)
       this.colorThumb(this.props.votes[this.props.user.publicId]);
     else this.colorThumb(null);
   }
 
   onMouseEnter(thumb) {
-    if (thumb === "thumbUp") {
-      this.thumbUpContainer.style.cursor = "pointer";
-      if (
-        !this.props.votes ||
-        this.props.votes[this.props.user.publicId] !== true
-      ) {
-        this.thumbUpContainer.childNodes[0].style.color = themeColor;
-      } else this.thumbUpContainer.childNodes[0].style.color = textColor3;
-    } else {
-      this.thumbDownContainer.style.cursor = "pointer";
-      if (
-        !this.props.votes ||
-        this.props.votes[this.props.user.publicId] !== false
-      ) {
-        this.thumbDownContainer.childNodes[0].style.color = themeColor;
-      } else this.thumbDownContainer.childNodes[0].style.color = textColor3;
+    if (this.props.user) {
+      if (thumb === "thumbUp") {
+        this.thumbUpContainer.style.cursor = "pointer";
+        if (
+          !this.props.votes ||
+          this.props.votes[this.props.user.publicId] !== true
+        ) {
+          this.thumbUpContainer.childNodes[0].style.color = themeColor;
+        } else this.thumbUpContainer.childNodes[0].style.color = textColor3;
+      } else {
+        this.thumbDownContainer.style.cursor = "pointer";
+        if (
+          !this.props.votes ||
+          this.props.votes[this.props.user.publicId] !== false
+        ) {
+          this.thumbDownContainer.childNodes[0].style.color = themeColor;
+        } else this.thumbDownContainer.childNodes[0].style.color = textColor3;
+      }
     }
   }
 
   onMouseLeave(thumb) {
-    if (thumb === "thumbUp") {
-      this.thumbUpContainer.style.cursor = "auto";
-      if (
-        !this.props.votes ||
-        this.props.votes[this.props.user.publicId] !== true
-      ) {
-        this.thumbUpContainer.childNodes[0].style.color = textColor3;
-      } else this.thumbUpContainer.childNodes[0].style.color = themeColor;
-    } else {
-      this.thumbDownContainer.style.cursor = "auto";
-      if (
-        !this.props.votes ||
-        this.props.votes[this.props.user.publicId] !== false
-      ) {
-        this.thumbDownContainer.childNodes[0].style.color = textColor3;
-      } else this.thumbDownContainer.childNodes[0].style.color = themeColor;
+    if (this.props.user) {
+      if (thumb === "thumbUp") {
+        this.thumbUpContainer.style.cursor = "auto";
+        if (
+          !this.props.votes ||
+          this.props.votes[this.props.user.publicId] !== true
+        ) {
+          this.thumbUpContainer.childNodes[0].style.color = textColor3;
+        } else this.thumbUpContainer.childNodes[0].style.color = themeColor;
+      } else {
+        this.thumbDownContainer.style.cursor = "auto";
+        if (
+          !this.props.votes ||
+          this.props.votes[this.props.user.publicId] !== false
+        ) {
+          this.thumbDownContainer.childNodes[0].style.color = textColor3;
+        } else this.thumbDownContainer.childNodes[0].style.color = themeColor;
+      }
     }
   }
 
@@ -202,7 +206,7 @@ export default class Comments extends Component<CommentsProps> {
             <ThumbUp
               onClick={e => {
                 e.preventDefault();
-                this.actionVote({ vote: true });
+                this.props.user && this.actionVote({ vote: true });
               }}
             />
           </div>
@@ -223,7 +227,7 @@ export default class Comments extends Component<CommentsProps> {
             <ThumbDown
               onClick={e => {
                 e.preventDefault();
-                this.actionVote({ vote: false });
+                this.props.user && this.actionVote({ vote: false });
               }}
             />
           </div>
@@ -244,7 +248,7 @@ export default class Comments extends Component<CommentsProps> {
             />{" "}
             ago
           </div>
-          {this.props.reportedTimeMillis && this.props.user.manager ? (
+          {this.props.reportedTimeMillis && this.props.user && this.props.user.manager && this.props.user.manager.id === this.props.fund.managerId ? (
             <span className="reportedFlag">
               <Flag color={alertColor} />
             </span>
@@ -261,13 +265,13 @@ export default class Comments extends Component<CommentsProps> {
           {this.props.comment}
         </div>
         <div style={{ bottom: 10, position: "relative" }}>
-          {this.props.user.manager ? (
+          {this.props.user && this.props.user.manager && this.props.user.manager.id === this.props.fund.managerId ? (
             <span>
               <Link to="#" onClick={this.deleteComment} className="deleteBtn">
                 Delete
               </Link>
             </span>
-          ) : (
+          ) : this.props.user && (
             <Link
               to="#"
               onClick={() => {

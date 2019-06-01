@@ -86,6 +86,9 @@ export default class CreateFund extends Component<CreateFundProps> {
     this.onGameDateChange = this.onGameDateChange.bind(this);
     this.state = {
       open: false,
+      minWager: "10",
+      maxWager: "100",
+      fundCap: "1,000",
       pctFee: "5%",
       initialSummary: "<p>Please enter your pool summary here...</p>",
       fundSummary: false,
@@ -110,9 +113,9 @@ export default class CreateFund extends Component<CreateFundProps> {
           name: fund.name,
           league: fund.league,
           sport: fund.sport,
-          minWager: (fund.minInvestment / 100).toString(),
-          maxWager: (fund.maxInvestment / 100).toString(),
-          fundCap: (fund.maxBalance / 100).toString(),
+          minWager: "10",
+          maxWager: "100",
+          fundCap: "1,000",
           summary: fund.details.summaryHtml
         });
       });
@@ -235,6 +238,8 @@ export default class CreateFund extends Component<CreateFundProps> {
   };
 
   createFund() {
+    this.setState({ fundCreated: true });
+
     const firstGame = this.state.selectedGames.sort(
       (a, b) => a.scheduledTimeUnix - b.scheduledTimeUnix
     )[0];
@@ -286,8 +291,6 @@ export default class CreateFund extends Component<CreateFundProps> {
         return map;
       }, {})
     });
-
-    this.setState({ fundCreated: true });
 
     window.setTimeout(() => {
       this.setState({ fundCreated: false });
@@ -445,9 +448,6 @@ export default class CreateFund extends Component<CreateFundProps> {
                 errorTextMin: null
               });
             }}
-            onChange={event => {
-              this.onMinChange(event);
-            }}
             className="formInputStyle"
             floatingLabelText="Min Wager"
             errorText={this.state.errorTextMin}
@@ -463,9 +463,6 @@ export default class CreateFund extends Component<CreateFundProps> {
                 errorTextMax: null
               });
             }}
-            onChange={event => {
-              this.onMaxChange(event);
-            }}
             className="formInputStyle"
             floatingLabelText="Max Wager"
             errorText={this.state.errorTextMax}
@@ -477,11 +474,6 @@ export default class CreateFund extends Component<CreateFundProps> {
             value={this.state.fundCap}
             onFocus={() => {
               this.setState({ inputField: "Pool Cap", errorTextCap: null });
-            }}
-            onChange={event => {
-              if (!this.state.isTraining) {
-                this.onCapChange(event);
-              }
             }}
             className="formInputStyle"
             floatingLabelText="Pool Cap"

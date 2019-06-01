@@ -11,6 +11,7 @@ import MobileTopHeaderContainer from "../../Containers/MobileTopHeaderContainer"
 import { appTheme, gMuiTheme } from "../Styles";
 import * as verifySuccess from "./verify_success.json";
 import * as verifyError from "./verify_error.json";
+import fb from '../../../firebase';
 
 const mobileBreakPoint = gMuiTheme.palette.mobileBreakPoint;
 
@@ -30,51 +31,41 @@ export default class VerifyEmail extends Component<VerifyEmailProps> {
   state = { message: null };
 
   componentDidMount() {
-    if (this.props.authUser) {
-      this.verifyEmail(this.props.authUser);
-    }
+    if (!this.props.authUser || !this.props.authUser.emailVerified) this.verifyEmail();
+    else this.setState({
+      emailVerified: true,
+      message: `You have been successfully verified.`
+    });
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.authUser) {
-      this.verifyEmail(nextProps.authUser);
-    }
-  }
-
-  verifyEmail(authUser) {
-    if (authUser.emailVerified) {
-      const message = `${authUser.email} has already been verified.`;
-      this.setState({ emailVerified: true, message });
-      setTimeout(() => {
-        this.props.history.replace("/");
-      }, 3000);
-    } else {
-      const emailCode = window.location.hash.replace("#", "");
-      VerifyEmailService(emailCode)
-        .then(response => {
-          if (response.status === "success") {
-            authUser.reload();
-            this.setState({
-              emailVerified: true,
-              message: response.message
-            });
-            setTimeout(() => {
-              this.props.history.replace("/");
-            }, 3000);
-          } else {
-            this.setState({
-              emailVerified: false,
-              message: response.message
-            });
-          }
-        })
-        .catch(err => {
+  verifyEmail() {
+    const emailCode = window.location.hash.replace("#", "");
+    VerifyEmailService(emailCode)
+      .then(response => {
+        if (response.status === "success") {
+          const { customToken } = response;
+          if (!this.props.authUser) fb.auth().signInWithCustomToken(customToken);
+          else this.props.authUser.reload();
+          this.setState({
+            emailVerified: true,
+            message: response.message
+          });
+          setTimeout(() => {
+            this.props.history.replace("/");
+          }, 3000);
+        } else {
           this.setState({
             emailVerified: false,
-            message: err.message
+            message: response.message
           });
+        }
+      })
+      .catch(err => {
+        this.setState({
+          emailVerified: false,
+          message: err.message
         });
-    }
+      });
   }
 
   renderLottie = () => {
@@ -102,15 +93,6 @@ export default class VerifyEmail extends Component<VerifyEmailProps> {
   };
 
   render() {
-    if (!this.props.authUser)
-      return (
-        <MuiThemeProvider theme={appTheme}>
-          <div className="fill-window center-flex">
-            <CircularProgress />
-          </div>
-        </MuiThemeProvider>
-      );
-
     return (
       <V0MuiThemeProvider muiTheme={gMuiTheme}>
         <div>

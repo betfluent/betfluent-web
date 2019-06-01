@@ -49,8 +49,13 @@ class PromoteDialog extends Component {
     PromoteService(promoteRequest)
       .then((success) => {
         if (success) {
-          this.props.dispatch(setManager(true));
-          this.props.handleClose();
+          PromoteService(promoteRequest)
+            .then(() => {
+              this.props.authUser.reload();
+              setTimeout(() => {
+                window.location.reload(false);
+              }, 3000);
+          });
         }
       })
     return null;

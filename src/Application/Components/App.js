@@ -281,8 +281,11 @@ class App extends Component<AppProps> {
 
     const renderRoutes = ({ idle }) => {
       if (
-        (idle && this.props.authUser) ||
-        (this.state.lock && this.props.authUser)
+        (this.props.location.pathname !== '/account/verify-email') &&
+        (
+          (idle && this.props.authUser) ||
+          (this.state.lock && this.props.authUser)
+        )
       ) {
         return <PinScreenContainer setLock={this.setLock} />;
       }
@@ -487,11 +490,14 @@ class App extends Component<AppProps> {
                 size={this.state.size}
                 isManager={this.props.isManager}
               />
-              <PrivateRoute
+              <Route
                 path="/account/verify-email"
-                component={VerifyEmailRouter}
-                authUser={this.props.authUser}
-                size={this.state.size}
+                render={() => 
+                  <VerifyEmailRouter
+                    size={this.state.size}
+                    authUser={this.state.authUser}
+                  />
+                }
               />
               <Route
                 path="*"

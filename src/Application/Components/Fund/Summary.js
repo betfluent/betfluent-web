@@ -282,7 +282,7 @@ export default class Summary extends Component<SummaryProps> {
               />
             ))
           : null}
-        {this.props.allowComments ? (
+        {this.props.user && this.props.allowComments ? (
           <div style={{ marginTop: 32 }}>
             <div style={{ marginBottom: 8 }}>Add Comment:</div>
             <TextField
