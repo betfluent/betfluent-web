@@ -133,6 +133,7 @@ export default class Manage extends Component<ManageProps> {
           handleClose={this.handleClose}
           user={this.props.user}
           approved={this.state.ok}
+          authUser={this.props.authUser}
         />
       )
     }
