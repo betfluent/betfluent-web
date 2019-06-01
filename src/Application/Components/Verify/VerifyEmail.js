@@ -31,7 +31,11 @@ export default class VerifyEmail extends Component<VerifyEmailProps> {
   state = { message: null };
 
   componentDidMount() {
-    this.verifyEmail();
+    if (!this.props.authUser || !this.props.authUser.emailVerified) this.verifyEmail();
+    else this.setState({
+      emailVerified: true,
+      message: `You have been successfully verified.`
+    });
   }
 
   verifyEmail() {

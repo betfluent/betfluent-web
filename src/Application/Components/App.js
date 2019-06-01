@@ -278,8 +278,11 @@ class App extends Component<AppProps> {
 
     const renderRoutes = ({ idle }) => {
       if (
-        (idle && this.props.authUser) ||
-        (this.state.lock && this.props.authUser)
+        (this.props.location.pathname !== '/account/verify-email') &&
+        (
+          (idle && this.props.authUser) ||
+          (this.state.lock && this.props.authUser)
+        )
       ) {
         return <PinScreenContainer setLock={this.setLock} />;
       }
