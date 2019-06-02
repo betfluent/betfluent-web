@@ -274,7 +274,7 @@ class App extends Component<AppProps> {
         return { marginLeft: 240 };
       }
       if (this.state.size < mobileBreakPoint) {
-        return { marginBottom: 56 };
+        return { marginBottom: 56, height: "135%" };
       }
       return { marginLeft: 184 };
     };

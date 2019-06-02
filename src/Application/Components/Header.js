@@ -120,9 +120,9 @@ const clientMenuMobile = [
     url: "/recent"
   },
   {
-    label: "Create",
-    icon: Build,
-    url: "/manage",
+    label: "Learn",
+    icon: School,
+    url: "/learn",
   },
   {
     label: "Account",
@@ -155,13 +155,13 @@ const clientMenu = [
     label: "Create",
     icon: Build,
     url: "/manage",
-    index: 3,
+    index: 5,
   },
   {
     label: "Learn",
     icon: School,
     url: "/learn",
-    index: 5
+    index: 3
   },
   {
     label: "Account",
@@ -314,11 +314,11 @@ export default class Header extends Component<HeaderProps> {
           this.setState({ selectedIndex });
           break;
         case "/manage":
-          selectedIndex = 3;
+          selectedIndex = 5;
           this.setState({ selectedIndex });
           break;
         case "/learn":
-          selectedIndex = 5;
+          selectedIndex = 3;
           this.setState({ selectedIndex });
           break;
         case "/account":
@@ -326,7 +326,7 @@ export default class Header extends Component<HeaderProps> {
           this.setState({ selectedIndex });
           break;
         default:
-          selectedIndex = this.state.selectedIndex;
+          selectedIndex = -1;
           this.setState({ selectedIndex });
       }
     } else {
@@ -340,7 +340,7 @@ export default class Header extends Component<HeaderProps> {
           this.setState({ selectedIndex });
           break;
         default:
-          selectedIndex = this.state.selectedIndex;
+          selectedIndex = -1;
           this.setState({ selectedIndex });
       }
     }
