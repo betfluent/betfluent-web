@@ -21,6 +21,7 @@ import LinearProgress from "material-ui/LinearProgress";
 import { MuiThemeProvider as V0MuiThemeProvider } from "material-ui";
 import { Card } from "material-ui/Card";
 import Divider from "material-ui/Divider";
+import NavigationArrowBack from "material-ui/svg-icons/navigation/arrow-back";
 import Moment from 'react-moment';
 import {
   getManagerLongFade,
@@ -118,6 +119,10 @@ export default class Performance extends Component<PerformanceProps> {
     }
   }
 
+  navBack = () => {
+    this.props.history.goBack();
+  }
+
   render() {
     if (
       !this.state ||
@@ -134,12 +139,21 @@ export default class Performance extends Component<PerformanceProps> {
     const manager = this.props.manager;
     const { longFade, bias, streak, history, total, managerFunds } = this.state;
 
+    longFade.long = longFade.long || 0;
+    longFade.short = longFade.short || 0;
+
     return (
       <V0MuiThemeProvider
         muiTheme={gMuiTheme}
       >
         <IntlProvider locale="en">
           <div className="manager-profile-wrapper">
+            <div className="nav-back">
+              <NavigationArrowBack
+                className="navbackArrow"
+                onClick={this.navBack}
+              />
+            </div>
             <Avatar
               width={160}
               userName={manager.name}
@@ -224,13 +238,13 @@ export default class Performance extends Component<PerformanceProps> {
                 <div className="manager-card-stats-title">
                   {`${manager.name.split(' ')[0]}'s Stats`}
                 </div>
-                <Divider style={{ position: "absolute", width: "100%", left: 0 }} />
+                <Divider style={{ position: "relative", width: "100%", left: 0 }} />
                 <div className="manager-stat-row">
                   <div className="manager-stat-field">
                     <div className="manager-field-title">FAN SUPPORT</div>
                     <div className="manager-stat-progress">
                       <LinearProgress
-                        style={{ ...linearStyle, backgroundColor: "rgb(213,0,0)"}}
+                        style={(longFade.long + longFade.short === 0) ? greyLinearStyle : { ...linearStyle, backgroundColor: "rgb(213,0,0)"}}
                         mode="determinate"
                         value={(longFade.long || 0) / ((longFade.long + longFade.fade) || 1) * 100}
                       />
@@ -290,13 +304,14 @@ export default class Performance extends Component<PerformanceProps> {
                       <div className="manager-field-title">LAST TEN BETS</div>
                       <div className="manager-stat-last-ten">
                         {streak.map(s => <img src={s === 'W' ? win : lose} alt={s} />)}
+                        {!streak.length && <span className="no-wager">No wagers have been placed yet</span>}
                       </div>
                       <Divider />
                     </div>
                     <div className="manager-stat-field">
                       <div className="manager-field-title">LIFE TIME RECORD</div>
                       <div className="manager-life-time-record">
-                        {(history.win || 0) + ' / ' + (history.total)}
+                        {(history.win || 0) + ' / ' + (history.total || 0)}
                       </div>
                       <Divider />
                     </div>

@@ -99,7 +99,7 @@ export default class Fund extends Component<FundProps> {
       this.setState({ wagering: true });
     }
     if (!this.classesSet) this.setClasses();
-    this.renderTabContentContainer();
+    // this.renderTabContentContainer();
     if (
       this.summaryContainer &&
       this.activityContainer &&
@@ -116,7 +116,7 @@ export default class Fund extends Component<FundProps> {
 
   componentDidUpdate() {
     if (!this.classesSet) this.setClasses();
-    this.renderTabContentContainer();
+    // this.renderTabContentContainer();
     if (
       this.summaryContainer &&
       this.activityContainer &&
@@ -391,7 +391,6 @@ export default class Fund extends Component<FundProps> {
 
     const tabContentContainerStyle = {
       paddingTop: 16,
-      overflowY: "scroll",
       boxSizing: "border-box"
     };
 
@@ -441,9 +440,6 @@ export default class Fund extends Component<FundProps> {
               position: "relative"
             }}
           >
-            {this.props.size < mobileBreakPoint ? (
-              <MobileTopHeaderContainer />
-            ) : null}
             <div className="FundHeader">
               <div className="contentHeader">
                 {this.renderFundName()}

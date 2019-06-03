@@ -452,7 +452,10 @@ export default class WagerDialog extends Component<WagerDialogProps> {
         bodyStyle={{ minHeight: 270, overflowX: "hidden", overflowY: "scroll" }}
         contentStyle={modalStyle}
         paperClassName="global-modal-paper"
-        paperProps={{ style: { minHeight: this.props.authUser ? this.props.size > 375 ? 610 : 526 : 424 } }}
+        paperProps={{ style: { 
+          minHeight: this.props.size < 625 ? '99vh' : 626,
+          minWidth: this.props.size < 625 ? '98vw' : 350
+        }}}
         className="global-modal-style"
         style={{ overflowY: "scroll" }}
       >

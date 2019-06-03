@@ -61,8 +61,8 @@ export const scrollComponent = WrappedComponent =>
       const containerHeight = container.style.maxHeight;
       this.scrollPosition = 0;
       /* eslint-disable-next-line */
-      container.onscroll = () =>
-        this.onTabContentScroll(container, containerHeight);
+      container.onscroll = () => null;
+        // this.onTabContentScroll(container, containerHeight);
     };
 
     render() {

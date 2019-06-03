@@ -12,7 +12,7 @@ import MenuItem from "material-ui/MenuItem";
 import Divider from "material-ui/Divider";
 import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
-import School from "material-ui/svg-icons/social/school";
+import Build from "material-ui/svg-icons/image/edit";
 import User from "../Models/User";
 
 import { gMuiTheme } from "./Styles";
@@ -205,7 +205,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
             </Link>
           }
           className="mobileBanner"
-          style={{ backgroundColor: "white", position: "fixed" }}
+          style={{ backgroundColor: "white", position: "absolute" }}
           titleStyle={{ height: "36px", lineHeight: "36px", marginTop: "12px" }}
           onLeftIconButtonClick={this.showNavMenu}
         />
@@ -229,16 +229,16 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
           <Divider style={dividerStyle} />
           <MenuItem
             leftIcon={
-              <School
+              <Build
                 style={
-                  iLocation === "/learn" ? activeIconStyle : inactiveIconStyle
+                  iLocation === "/manage" ? activeIconStyle : inactiveIconStyle
                 }
               />
             }
-            style={iLocation === "/learn" ? activeStyle : inactiveStyle}
-            primaryText="Learn"
+            style={iLocation === "/manage" ? activeStyle : inactiveStyle}
+            primaryText="Create"
             innerDivStyle={primaryTextStyle}
-            containerElement={<Link to="/learn" />}
+            containerElement={<Link to="/manage" />}
           />
         </Drawer>
       </div>

@@ -45,6 +45,7 @@ export default class Profile extends Component<ProfileProps> {
         manager={this.state.manager}
         size={this.props.size}
         user={this.props.user}
+        history={this.props.history}
       />
     );
   }

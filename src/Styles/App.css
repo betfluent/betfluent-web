@@ -998,12 +998,6 @@ td {
   padding: 20px 0 16px 0;
 }
 
-@media (max-width: 624px) {
-  .FundHeader {
-    margin-top: 56px;
-  }
-}
-
 .MuiCardContent-root-10 {
   padding: 16px !important;
 }
@@ -2564,7 +2558,14 @@ td {
 }
 
 .proper-wager-modal-height {
-  max-height: 396px !important;
+  max-height: unset !important;
+}
+
+@media (min-width: 624px) {
+  .proper-wager-modal-height {
+    max-height: 424px !important;
+    overflow-y: hidden !important;
+  }
 }
 
 .fade-wager-button > button {
@@ -2649,4 +2650,10 @@ td {
 .medium {
   font-weight: 400;
   font-size: 12px;
+}
+
+@media (max-width: 624px) {
+  body, html, .App, #root {
+    height: 100%;
+  }
 }

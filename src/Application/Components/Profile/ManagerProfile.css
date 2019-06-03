@@ -143,3 +143,18 @@
         margin-bottom: 24px;
     }
 }
+
+.no-wager {
+    height: 26px;
+}
+
+.nav-back {
+    position: relative;
+    left: 42px;
+}
+
+@media (min-width: 624px) {
+    .nav-back {
+        left: 324px;
+    }   
+}

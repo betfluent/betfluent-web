@@ -123,7 +123,7 @@ export default class Funds extends Component<FundsProps> {
         muiTheme={this.props.isManager ? mgMuiTheme : gMuiTheme}
       >
         <React.Fragment>
-          <div>
+          <div style={{ marginTop: 56 }}>
             {this.props.size < mobileBreakPoint ? (
               <MobileTopHeaderContainer />
             ) : null}

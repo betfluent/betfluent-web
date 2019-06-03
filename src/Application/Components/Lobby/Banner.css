@@ -1,12 +1,15 @@
 .lobby-banner {
     background-image: url('./MOBILE HEADER BETFLUENT.png');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: 100% 100%;
-    height: 200px;
+    height: 37vw;
     width: 100%;
     vertical-align: middle;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1299;
 }
 
 @media (min-width: 624px) {
@@ -15,5 +18,8 @@
         background-size: cover;
         height: 18vw;
         box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
+        position: initial;
+        top: 0;
+        z-index: 999999;
     }
 }
