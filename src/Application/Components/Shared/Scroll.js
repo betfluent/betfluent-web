@@ -58,7 +58,7 @@ export const scrollComponent = WrappedComponent =>
     };
 
     receiveContainer = container => {
-      const containerHeight = container.style.maxHeight;
+      const containerHeight = "100%";
       this.scrollPosition = 0;
       /* eslint-disable-next-line */
       container.onscroll = () => null;

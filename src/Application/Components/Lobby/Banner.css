@@ -15,11 +15,13 @@
 @media (min-width: 624px) {
     .lobby-banner {
         background-image: url('./DESKTOP HEADER BETFLUENT.png');
-        background-size: cover;
-        height: 18vw;
-        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
-        position: initial;
+        background-size: contain;
+        position: fixed;
+        height: 20vw;
+        width: 100%;
         top: 0;
-        z-index: 999999;
+        left: 0;
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 8px 0 rgba(0, 0, 0, 0.08);
+        z-index: 1299;
     }
 }
