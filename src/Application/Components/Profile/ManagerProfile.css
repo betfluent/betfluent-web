@@ -149,9 +149,8 @@
 }
 
 .nav-back {
-    position: absolute;
+    position: relative;
     left: 42px;
-    top: 18px;
 }
 
 @media (min-width: 624px) {

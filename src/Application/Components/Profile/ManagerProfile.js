@@ -119,6 +119,10 @@ export default class Performance extends Component<PerformanceProps> {
     }
   }
 
+  navBack = () => {
+    this.props.history.goBack();
+  }
+
   render() {
     if (
       !this.state ||
@@ -234,7 +238,7 @@ export default class Performance extends Component<PerformanceProps> {
                 <div className="manager-card-stats-title">
                   {`${manager.name.split(' ')[0]}'s Stats`}
                 </div>
-                <Divider style={{ position: "absolute", width: "100%", left: 0 }} />
+                <Divider style={{ position: "relative", width: "100%", left: 0 }} />
                 <div className="manager-stat-row">
                   <div className="manager-stat-field">
                     <div className="manager-field-title">FAN SUPPORT</div>
