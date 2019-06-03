@@ -140,7 +140,7 @@ export default class Performance extends Component<PerformanceProps> {
     const { longFade, bias, streak, history, total, managerFunds } = this.state;
 
     longFade.long = longFade.long || 0;
-    longFade.short = longFade.short || 0;
+    longFade.fade = longFade.fade || 0;
 
     return (
       <V0MuiThemeProvider
@@ -244,7 +244,7 @@ export default class Performance extends Component<PerformanceProps> {
                     <div className="manager-field-title">FAN SUPPORT</div>
                     <div className="manager-stat-progress">
                       <LinearProgress
-                        style={(longFade.long + longFade.short === 0) ? greyLinearStyle : { ...linearStyle, backgroundColor: "rgb(213,0,0)"}}
+                        style={(longFade.long + longFade.fade === 0) ? greyLinearStyle : { ...linearStyle, backgroundColor: "rgb(213,0,0)"}}
                         mode="determinate"
                         value={(longFade.long || 0) / ((longFade.long + longFade.fade) || 1) * 100}
                       />
