@@ -436,7 +436,6 @@ export default class Fund extends Component<FundProps> {
           <div
             style={{
               height: this.props.size > mobileBreakPoint ? "100vh" : "100%",
-              overflowY: "hidden",
               position: "relative"
             }}
           >
@@ -449,8 +448,7 @@ export default class Fund extends Component<FundProps> {
                   }}
                   style={{
                     transition: "all 0.3s ease-in-out",
-                    height: this.state.fund.status === "OPEN" ? 84 : 132,
-                    overflowY: "hidden"
+                    height: this.state.fund.status === "OPEN" ? 84 : 132
                   }}
                 >
                   <SubTitle fund={this.state.fund} />

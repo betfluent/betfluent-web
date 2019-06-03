@@ -2,9 +2,9 @@ import firebase from "../../firebase";
 import { getNewUid } from "../Services/DbService";
 
 let BASE_URL;
-if (
-  process.env.NODE_ENV === "development" ||
-  process.env.REACT_APP_FRONTEND_ENV === "debug"
+if (false
+  // process.env.NODE_ENV === "development" ||
+  // process.env.REACT_APP_FRONTEND_ENV === "debug"
 ) {
   BASE_URL = "https://providence-02108.herokuapp.com/api/";
 } else {

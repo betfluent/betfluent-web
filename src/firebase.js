@@ -5,9 +5,9 @@ import "firebase/storage";
 
 let config;
 
-if (
-  process.env.NODE_ENV === "development" ||
-  process.env.REACT_APP_FRONTEND_ENV === "debug"
+if (false
+  // process.env.NODE_ENV === "development" ||
+  // process.env.REACT_APP_FRONTEND_ENV === "debug"
 ) {
   config = {
     apiKey: "AIzaSyALTKmSmehVCCsXWr_aY9MDmHAfVJhiZOs",

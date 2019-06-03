@@ -6,9 +6,9 @@ import Game from "../Models/Game";
 import Fund from "../Models/Fund";
 
 let BASE_URL;
-if (
-  process.env.NODE_ENV === "development" ||
-  process.env.REACT_APP_FRONTEND_ENV === "debug"
+if (false
+  // process.env.NODE_ENV === "development" ||
+  // process.env.REACT_APP_FRONTEND_ENV === "debug"
 ) {
   BASE_URL = "https://providence-02108.herokuapp.com/api/";
 } else {
