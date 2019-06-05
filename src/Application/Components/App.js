@@ -212,6 +212,7 @@ class App extends Component<AppProps> {
 
   componentDidMount() {
     window.addEventListener("resize", this.windowResize);
+    mixpanel.track("Page Load");
   }
 
   componentWillReceiveProps(nextProps) {

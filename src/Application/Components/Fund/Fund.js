@@ -176,7 +176,10 @@ export default class Fund extends Component<FundProps> {
   }
 
   setWagering(fade) {
-    return () => this.setState({ wagering: true, fade });
+    return () => {
+      mixpanel.track("Wager Dialog Opened");
+      this.setState({ wagering: true, fade });
+    }
   }
 
   endWagering() {

@@ -224,6 +224,7 @@ export default class FundDetail extends Component<FundProps> {
   componentDidMount() {
     if (!this.classesSet) this.setClasses();
     this.renderTabContentContainer();
+    mixpanel.track("Visit Pool Detail Page");
   }
 
   componentDidUpdate() {

@@ -151,6 +151,7 @@ export default class WagerDialog extends Component<WagerDialogProps> {
           const disabled = false;
           this.setState({ wagerConfirmed, disabled });
           window.setTimeout(() => {
+            mixpanel.track("Wager by user placed");
             this.handleClose();
           }, 3500);
         }
