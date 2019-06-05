@@ -36,6 +36,7 @@ export default class Login extends Component {
   }
 
   emailLogin() {
+    mixpanel.track("Login");
     signInWithEmail(
       this.email.getValue(),
       this.password.getValue(),

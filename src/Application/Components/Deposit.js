@@ -16,6 +16,7 @@ class Deposit extends React.Component {
     }
     
     componentDidMount() {
+        window.mixpanel.track("Visit deposit page");
         window.paypal.Buttons({
             createOrder: (data, actions) => {
                 // Set up the transaction
@@ -35,6 +36,7 @@ class Deposit extends React.Component {
                 }
                 return actions.order.capture().then(() => {
                     // Call your server to save the transaction
+                    window.mixpanel.track("Complete Deposit");
                     return DepositService(sessionRequest)
                         .then(({ status }) => {
                             if (status === 'success')

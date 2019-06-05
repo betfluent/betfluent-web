@@ -277,6 +277,7 @@ export default class Register extends Component {
         this.setState({ passwordError });
       }
     });
+    mixpanel.track("User Registration");
     return null;
   }
 
