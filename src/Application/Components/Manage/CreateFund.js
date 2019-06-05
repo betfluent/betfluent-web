@@ -238,6 +238,11 @@ export default class CreateFund extends Component<CreateFundProps> {
   };
 
   createFund() {
+    if (!this.state.summary) {
+      this.setState({ summaryError: 'Please add a summary.'});
+      return null;
+    }
+
     this.setState({ fundCreated: true });
 
     const firstGame = this.state.selectedGames.sort(
