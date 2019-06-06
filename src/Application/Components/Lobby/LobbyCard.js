@@ -96,7 +96,7 @@ const timeStyle = {
 };
 
 const mainStyle = {
-    height: 198,
+    height: 164,
     width: 352,
     margin: "0 16px",
     position: "relative"
@@ -176,14 +176,6 @@ const mainStyle = {
                     </Card>
                 </IntlProvider>
             </Link>
-            <div className="pool-actions">
-                <div id="bet-with" className="pool-action" onClick={onClick(fund)}>
-                    BET WITH
-                </div>
-                <div id="bet-against" className="pool-action left-border red" onClick={onClick(fund)}>
-                    BET AGAINST
-                </div>
-            </div>
         </div>
     )
   }
