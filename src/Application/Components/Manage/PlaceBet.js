@@ -344,7 +344,7 @@ export default class PlaceBet extends Component<PlaceBetProps> {
 
     return (
       <V0MuiThemeProvider muiTheme={mgMuiTheme}>
-        <div style={{ height: "100vh" }}>
+        <div>
           <div
             className="tabContent"
             style={{ color: textColor1, paddingBottom: 48 }}

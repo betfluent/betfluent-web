@@ -2560,6 +2560,12 @@ td {
   max-height: unset !important;
 }
 
+@media (max-width: 340px) {
+  .proper-wager-modal-height {
+    max-height: 352px !important;
+  }
+}
+
 @media (min-width: 624px) {
   .proper-wager-modal-height {
     max-height: 424px !important;

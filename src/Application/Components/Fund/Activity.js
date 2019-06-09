@@ -52,12 +52,15 @@ export default class Activity extends Component<ActivityProps, ActiviyState> {
   renderActivity() {
     if (this.state.interactions) {
       const interactions = this.state.interactions;
+      const user = this.props.user;
       return interactions
         .map((interaction, i) => {
           if (
-            interaction.type !== "Return" ||
+            (interaction.type !== "Return" && !interaction.type.includes('Bet') && !interaction.type.includes('Result')) ||
             (interaction.type === "Return" &&
-              interaction.userId === this.props.user.publicId)
+              interaction.userId === user.publicId) ||
+            ((interaction.type.includes('Bet') || interaction.type.includes('Result')) && 
+            interaction.fade === (user.investments && user.investments[interaction.fundId] < 0))
           ) {
             return (
               <ActivityItem

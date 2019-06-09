@@ -229,8 +229,6 @@ export default class GamesSelect extends Component<
     return (
       <div
         style={{
-          overflowY: "scroll",
-          height: "100vh",
           padding: "24px 0",
           boxSizing: "border-box"
         }}
