@@ -92,7 +92,7 @@ export default class TooltipDrawer extends Component<TooltipDrawerProps> {
       case "Potential Games":
         return "Choose one or more games you will place bets on. These selections will be displayed to users in the pool summary on the next page.";
       case "Pool Summary":
-        return "Showcase your knowledge and creativity to draw users to your pool. Hook them, show them value and convince them to wager. You are constantly competing against other betting managers. Good Luck!";
+        return "Showcase your knowledge and creativity to draw users to your pool. Hook them, show them value and convince them to wager. You are constantly competing against other influencers. Good Luck!";
       default:
         return null;
     }
@@ -143,7 +143,7 @@ export default class TooltipDrawer extends Component<TooltipDrawerProps> {
             <div>
               Showcase your knowledge and creativity to draw users to your pool.
               Hook them, show them value and convince them to wager. You are
-              constantly competing against other betting managers. Good Luck!
+              constantly competing against other influencers. Good Luck!
             </div>
             <div style={{ marginTop: 24 }}>
               <span>

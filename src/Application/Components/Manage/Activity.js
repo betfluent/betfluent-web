@@ -97,7 +97,7 @@ export default class Activity extends Component<ActivityProps, ActiviyState> {
               />
             ) : null}
             <div style={{ flexGrow: 1, textAlign: "left" }}>
-              <div style={titleStyle}>Betting manager created pool</div>
+              <div style={titleStyle}>Influencer created pool</div>
               <div>
                 <Moment fromNow style={subtitleStyle}>
                   {this.props.fund.createdTimeMillis}

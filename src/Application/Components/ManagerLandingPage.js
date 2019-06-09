@@ -5,7 +5,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Divider from "material-ui/Divider";
 import { mgMuiTheme } from "./ManagerStyles";
 import homePageBgImg from "../../Assets/managerLandingpageBgImg.png";
-import videoCover from "../../Assets/legal_sports_betting.jpg";
+import videoCover from "../../Assets/legal_dfs.jpeg";
 import idVerification from "../../Assets/manager_id_verification.png";
 import managerProfile from "../../Assets/manager_manager_profile.png";
 import placeBet from "../../Assets/manager_place_bet.png";
@@ -49,7 +49,7 @@ export class ManagerLandingPage extends Component {
           <ManagerLandingPageHeader size={this.props.size} />
 
           <div className="mlpHome">
-            <img src={homePageBgImg} alt="BettorHalf" />
+            <img src={homePageBgImg} alt="betFleunt" />
             <div className="mlpHomeContent">
               <Link to="/register">
                 <RaisedButton
@@ -57,7 +57,7 @@ export class ManagerLandingPage extends Component {
                   buttonStyle={{ borderRadius: 6 }}
                   overlayStyle={{ borderRadius: 6 }}
                   primary
-                  label="BECOME A MANAGER"
+                  label="BECOME AN INFLUENCER"
                 />
               </Link>
             </div>
@@ -68,14 +68,11 @@ export class ManagerLandingPage extends Component {
               <div className="mlpContent">
                 <h1 style={{ color: themeColor }}>A Perfect Fit...</h1>
                 <p>
-                  A great way for ex-players, influencers, handicappers, and
-                  experienced bettors to make some money while getting a piece
-                  of the action is becoming a Betting Manager with BettorHalf.
-                  If you’re 21 years old, have extensive experience in sports
-                  betting and want to help thousands from around the nation
+                  If you’re 18 years old, have sports
+                  betting experience and want to help thousands from around the nation
                   learn how to sports bet and be comfortable with making
-                  individual wagers, then becoming a Betting Manager with
-                  BettorHalf might be right for you!
+                  individual wagers, then becoming an influencer with
+                  betfluent might be right for you!
                 </p>
                 <div
                   className="flexContainer"
@@ -98,7 +95,7 @@ export class ManagerLandingPage extends Component {
                   </div>
                   <div className="mlpFit">
                     <h2 style={{ color: themeColor }}>
-                      In a Legal Sports Betting State?
+                      In a Legal DFS state?
                     </h2>
                     <Divider />
                     <div className="learnMoreVideo">
@@ -126,14 +123,12 @@ export class ManagerLandingPage extends Component {
 
             <div className="mlpGuides">
               <div className="mlpContent">
-                <h1 style={{ color: themeColor }}>How to Become a Manager</h1>
+                <h1 style={{ color: themeColor }}>How to Become an influencer</h1>
                 <p>
-                  Becoming a Betting Manager with BettorHalf is a risk free way
+                  Becoming a influencer with betFluent is a risk free way
                   to make money, especially if you love sports betting. However
                   we take the regulations around this industry very seriously
-                  for benefit of both you and our users. Therefore, every
-                  applicant must go through a thorough vetting process in order
-                  to use our platform.
+                  for benefit of both you and our users.
                 </p>
 
                 <div
@@ -141,8 +136,8 @@ export class ManagerLandingPage extends Component {
                   style={{ justifyContent: "space-evenly" }}
                 >
                   <div className="mlpGuide">
-                    <h2 style={{ color: themeColor }}>Identity Check</h2>
-                    <img src={idVerification} alt="Identity Check" />
+                    <h2 style={{ color: themeColor }}>Register</h2>
+                    <img src={idVerification} alt="Register" />
                     <p>
                       Provide us some basic information such as your Name, DOB
                       and Address.
@@ -160,7 +155,7 @@ export class ManagerLandingPage extends Component {
                     <h2 style={{ color: themeColor }}>Start Betting</h2>
                     <img src={placeBet} alt="Start Betting" />
                     <p>
-                      Create a pool, place your bets and start promoting your
+                      Create a contest, place your bets and start promoting your
                       picks on instagram, facebook and twitter.
                     </p>
                   </div>
@@ -172,7 +167,7 @@ export class ManagerLandingPage extends Component {
                     buttonStyle={{ borderRadius: 6 }}
                     overlayStyle={{ borderRadius: 6 }}
                     primary
-                    label="BECOME A MANAGER"
+                    label="BECOME AN INFLUENCER"
                   />
                 </Link>
               </div>
