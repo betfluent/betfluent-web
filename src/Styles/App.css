@@ -376,7 +376,6 @@ td {
 
 /* -------- Styles for landing page -------- */
 .lpHeader, .mlpHeader {
-  width: 100vw;
   height: 80px;
   padding: 0 20px;
   box-sizing: border-box;

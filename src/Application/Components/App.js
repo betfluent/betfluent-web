@@ -9,6 +9,7 @@ import debounce from "lodash/debounce";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import "../../Styles/App.css";
+import ManagerLandingPage from "./ManagerLandingPage";
 import NotFound from "./NotFound";
 import Login from "./Login";
 import VerifyBarContainer from "../Containers/VerifyBarContainer";
@@ -307,6 +308,15 @@ class App extends Component<AppProps> {
                     authUser={this.props.authUser}
                     size={this.state.size}
                     isManager={this.props.isManager}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/influencer-info"
+                render={() => (
+                  <ManagerLandingPage
+                    size={this.state.size}
                   />
                 )}
               />
