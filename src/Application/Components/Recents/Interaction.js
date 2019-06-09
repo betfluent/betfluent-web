@@ -78,9 +78,9 @@ export default class Interaction extends Component<InteractionProps> {
       this.state.userRatio
     ) {
       interactionAmount = (
-        interaction.amount *
+        (interaction.amount *
         this.state.userRatio /
-        100
+        100) || 0
       ).toFixed(2);
     } else {
       interactionAmount = interaction.amount / 100;

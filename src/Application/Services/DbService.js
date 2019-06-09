@@ -882,8 +882,11 @@ export function getUserInteractionsCount(userId, callback) {
 
       fundInteractionsFeeds = Object.keys(user.investments).map(fundId =>
         getFundInteractionsFeed(fundId, interactions => {
-          const relevantInteractions = interactions.filter(
-            interaction => interaction.type !== "Wager"
+          const relevantInteractions = interactions.filter(interaction => {
+              const show = interaction.type !== "Wager";
+              const correctSide = user.investments[fundId] < 0;
+              return show && correctSide === interaction.fade;
+            }
           );
           fundInteractionsMap[fundId] = relevantInteractions;
           fireCallback();

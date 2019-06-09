@@ -32,7 +32,7 @@ export default class FundInteractions extends Component<FundInteractionsProps> {
     if (interactions) {
       const interactionsArray = Object.keys(interactions).map(
         k => interactions[k]
-      );
+      ).filter(i => i.fade === this.props.side);
       this.props.sendBack(interactionsArray, this.props.num);
     }
   }
