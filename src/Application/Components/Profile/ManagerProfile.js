@@ -142,6 +142,9 @@ export default class Performance extends Component<PerformanceProps> {
     longFade.long = longFade.long || 0;
     longFade.fade = longFade.fade || 0;
 
+    bias.home = bias.home || 0;
+    bias.away = bias.away || 0;
+
     return (
       <V0MuiThemeProvider
         muiTheme={gMuiTheme}
@@ -273,7 +276,7 @@ export default class Performance extends Component<PerformanceProps> {
                       <LinearProgress
                         style={!bias.home && !bias.away ? greyLinearStyle : linearStyle}
                         mode="determinate"
-                        value={(bias.home || 0) / ((longFade.home + longFade.away) || 1) * 100}
+                        value={(bias.home || 0) / ((bias.home + bias.away) || 1) * 100}
                       />
                     </div>
                     <div className="manager-stat-sub">
@@ -283,15 +286,15 @@ export default class Performance extends Component<PerformanceProps> {
                             <FormattedNumber
                               style="percent"
                               currency="USD"
-                              value={(bias.home || 0) / ((longFade.home + longFade.away) || 1) * 100}
-                            /> of fans bet with {manager.name.split(' ')[0]}
+                              value={(bias.home || 0) / ((bias.home + bias.away) || 1)}
+                            /> of bets are on the home team
                           </div>
                           <div>
                             <FormattedNumber
                                 style="percent"
                                 currency="USD"
-                                value={(bias.away || 0) / ((longFade.home + longFade.away) || 1) * 100}
-                              /> of fans bet with {manager.name.split(' ')[0]}
+                                value={(bias.away || 0) / ((bias.home + bias.away) || 1)}
+                              /> of bets are on the away team
                           </div>
                         </React.Fragment>)
                       : <div>Not enough bets with selections have been placed.</div>}

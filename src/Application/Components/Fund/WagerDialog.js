@@ -214,7 +214,7 @@ export default class WagerDialog extends Component<WagerDialogProps> {
 
     const buttonContainerStyle = {
       position: "absolute",
-      bottom: 15,
+      bottom: 39,
       left: "50%",
       transform: "translateX(-50%)",
       width: "200px",

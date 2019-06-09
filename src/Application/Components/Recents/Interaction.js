@@ -24,8 +24,9 @@ export default class Interaction extends Component<InteractionProps> {
     const interaction = this.props.interaction;
     if (interaction.fundId) {
       getFund(interaction.fundId).then(fund => {
+        const userAmount = this.props.user.investments[interaction.fundId]
         const userRatio =
-          this.props.user.investments[interaction.fundId] / fund.amountWagered;
+          Math.abs(userAmount) / (userAmount > 0 ? fund.amountWagered : fund.fadeAmountWagered);
         this.setState({ userRatio, fund });
       });
     }
@@ -78,9 +79,9 @@ export default class Interaction extends Component<InteractionProps> {
       this.state.userRatio
     ) {
       interactionAmount = (
-        interaction.amount *
+        (interaction.amount *
         this.state.userRatio /
-        100
+        100) || 0
       ).toFixed(2);
     } else {
       interactionAmount = interaction.amount / 100;

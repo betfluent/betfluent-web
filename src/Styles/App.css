@@ -376,7 +376,6 @@ td {
 
 /* -------- Styles for landing page -------- */
 .lpHeader, .mlpHeader {
-  width: 100vw;
   height: 80px;
   padding: 0 20px;
   box-sizing: border-box;
@@ -2559,6 +2558,12 @@ td {
 
 .proper-wager-modal-height {
   max-height: unset !important;
+}
+
+@media (max-width: 340px) {
+  .proper-wager-modal-height {
+    max-height: 352px !important;
+  }
 }
 
 @media (min-width: 624px) {

@@ -78,6 +78,7 @@ export default class RecentTransactions extends Component<
     this.fundObjects = userFunds
       ? Object.keys(userFunds).map((fund, index) => (
           <FundInteractions
+            side={userFunds[fund] < 0}
             key={index}
             num={index}
             fund={fund}

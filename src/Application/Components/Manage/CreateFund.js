@@ -814,8 +814,6 @@ export default class CreateFund extends Component<CreateFundProps> {
 
     const paperStyle = {
       backgroundColor: "#fff",
-      overflowY: "scroll",
-      height: "100vh",
       padding: "24px 0",
       boxSizing: "border-box"
     };

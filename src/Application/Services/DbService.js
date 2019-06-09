@@ -193,18 +193,18 @@ export const getManagerBias = async (managerId) => {
 
   const interactions = Object.keys(interactionObj).map(k => interactionObj[k])
   
-  const withWagersAndGames = interactions.filter(i => i.type === "BET").map(async (i) => {
-    const game = await getGame(i.gameId);
+  const withWagersAndGames = interactions.filter(i => i.type === "Bet" && !i.fade).map(async (i) => {
+    const game = await getGame(i.gameLeague.toLowerCase(), i.gameId);
     const wager = await getBet(i.wagerId);
-    if (wager.selection && wager.selection === game.homeTeamId) i.side = "home"
-    else if (wager.selection && wager.selection === game.awayTeamId) i.side = "away"
+    if (wager.selectionId === game.homeTeamId) i.side = "home"
+    else if (wager.selectionId === game.awayTeamId) i.side = "away"
     return i
   });
 
   const results = await Promise.all(withWagersAndGames);
 
   const bias = results.filter(i => !!i.side).reduce((obj, item) => {
-    if (obj[item.side]) obj[item.side] = 0;
+    if (!obj[item.side]) obj[item.side] = 0;
     obj[item.side] += 1;
     return obj;
   }, {})
@@ -228,7 +228,7 @@ export const getManagerWinStreak = async (managerId) => {
   
   const interactions = Object.keys(interactionObj).map(k => interactionObj[k]);
 
-  const resultsArray = interactions.filter(i => i.type.includes('Result'));
+  const resultsArray = interactions.filter(i => i.type.includes('Result') && !i.fade);
 
   const results = resultsArray.sort((a, b) => b.time - a.time).slice(0, 10).map(r => r.type === 'Result Win' ? 'W' : 'L');
   
@@ -251,7 +251,7 @@ export const getManagerAllTimeHistory = async (managerId) => {
   
   const interactions = Object.keys(interactionObj).map(k => interactionObj[k]);
 
-  const resultsArray = interactions.filter(i => i.type.includes('Result'));
+  const resultsArray = interactions.filter(i => i.type.includes('Result') && !i.fade);
 
   const results = resultsArray.reduce((obj, item) => {
     if (!obj.win) obj.win = 0;
@@ -882,8 +882,11 @@ export function getUserInteractionsCount(userId, callback) {
 
       fundInteractionsFeeds = Object.keys(user.investments).map(fundId =>
         getFundInteractionsFeed(fundId, interactions => {
-          const relevantInteractions = interactions.filter(
-            interaction => interaction.type !== "Wager"
+          const relevantInteractions = interactions.filter(interaction => {
+              const show = interaction.type !== "Wager";
+              const correctSide = user.investments[fundId] < 0;
+              return show && correctSide === interaction.fade;
+            }
           );
           fundInteractionsMap[fundId] = relevantInteractions;
           fireCallback();
