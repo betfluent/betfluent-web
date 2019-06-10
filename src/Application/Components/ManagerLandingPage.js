@@ -128,7 +128,7 @@ export class ManagerLandingPage extends Component {
                   Becoming a influencer with betFluent is a risk free way
                   to make money, especially if you love sports betting. However
                   we take the regulations around this industry very seriously
-                  for benefit of both you and our users.
+                  for the benefit of both you and our users.
                 </p>
 
                 <div
@@ -141,14 +141,6 @@ export class ManagerLandingPage extends Component {
                     <p>
                       Provide us some basic information such as your Name, DOB
                       and Address.
-                    </p>
-                  </div>
-                  <div className="mlpGuide">
-                    <h2 style={{ color: themeColor }}>User Profile</h2>
-                    <img src={managerProfile} alt="Track Record" />
-                    <p>
-                      Create a User Profile so users can learn a little bit
-                      about you, the bets you make and your experience.
                     </p>
                   </div>
                   <div className="mlpGuide">
