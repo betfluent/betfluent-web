@@ -733,6 +733,7 @@ export default class CreateFund extends Component<CreateFundProps> {
 
                 <div style={{ margin: "32px 0" }}>
                   <Editor
+                    apiKey="frgb2ptb61bxwf411iu0evpn5lnq4vszb0rcswn5luou827a"
                     content={this.state.summary}
                     initialValue={this.state.summary}
                     init={{
@@ -740,7 +741,8 @@ export default class CreateFund extends Component<CreateFundProps> {
                         "advlist autolink lists link image charmap preview hr anchor pagebreak",
                         "searchreplace wordcount visualblocks visualchars code",
                         "insertdatetime media nonbreaking table contextmenu directionality",
-                        "emoticons template paste textcolor colorpicker textpattern imagetools codesample"
+                        "emoticons template paste textcolor colorpicker textpattern imagetools codesample",
+                        "media mediaembed"
                       ],
                       toolbar:
                         "codesample | bold italic underline | sizeselect fontselect fontsizeselect | hr alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | insertfile undo redo | forecolor backcolor emoticons | code",
