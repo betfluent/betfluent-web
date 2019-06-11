@@ -95,6 +95,7 @@ export default class EditFund extends Component<EditFundProps> {
         <div style={{ width: "90%", margin: "0 auto 54px" }}>
           <div style={{ margin: "48px 0" }}>
             <Editor
+              apiKey="frgb2ptb61bxwf411iu0evpn5lnq4vszb0rcswn5luou827a"
               content={this.state.summary}
               initialValue={this.state.summary}
               init={{
