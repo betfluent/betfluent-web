@@ -55,7 +55,7 @@ const linearStyle = {
   width: 256,
   height: 24,
   borderRadius: 8,
-  backgroundColor: "rgba(26, 102, 26, 0.2)",
+  backgroundColor: "rgba(112,23,208, 0.2)",
   left: 0
 };
 
@@ -115,7 +115,7 @@ export default class Performance extends Component<PerformanceProps> {
       e.stopPropagation();
       const wagering = true;
       const fade = e.target.id === 'bet-against';
-      this.setState({ wagering, fundToWager, fade })  
+      this.setState({ wagering, fundToWager, fade })
     }
   }
 

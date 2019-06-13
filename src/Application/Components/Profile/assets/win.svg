@@ -2,7 +2,7 @@
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="BF/IDP/bet-record/single-win">
             <g>
-                <circle id="Oval" fill="#1A661A" cx="10" cy="10" r="10"></circle>
+                <circle id="Oval" fill="#7017D0" cx="10" cy="10" r="10"></circle>
                 <text id="W" font-family="Roboto-Medium, Roboto" font-size="10" font-weight="400" fill="#FFFFFF">
                     <tspan x="5.60058594" y="14">W</tspan>
                 </text>

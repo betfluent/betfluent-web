@@ -3,10 +3,10 @@
 /* eslint-disable */
 import React, { Component } from "react";
 import { gMuiTheme } from "./Styles";
-import moneylineB from "../../Assets/moneyline_blue.png";
-import spreadB from "../../Assets/spread_blue.png";
-import overunderB from "../../Assets/overunder_blue.png";
-import progressBar from "../../Assets/progressBarGreen.png";
+import moneylineB from "../../Assets/moneyline_purple.png";
+import spreadB from "../../Assets/spread_purple.png";
+import overunderB from "../../Assets/overunder_purple.png";
+import progressBar from "../../Assets/progressBarPurple.png";
 
 type CardProps = {
   betDetail: string,
