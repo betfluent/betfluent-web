@@ -22,6 +22,7 @@ const themeColor = gMuiTheme.palette.themeColor;
 const managerThemeColor = mgMuiTheme.palette.themeColor;
 const textColor1 = gMuiTheme.palette.textColor1;
 const textColor3 = gMuiTheme.palette.textColor3;
+const usernameColor = '#000000';
 
 type MobileTopHeaderProps = {
   user: User,
@@ -146,7 +147,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
     };
 
     const nameStyle = {
-      color: this.props.isManager ? managerThemeColor : themeColor,
+      color: this.props.isManager ? managerThemeColor : usernameColor,
       fontSize: 14,
       fontWeight: 500,
       lineHeight: "24px",
