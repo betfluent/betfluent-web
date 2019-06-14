@@ -9,6 +9,8 @@ import { gMuiTheme } from "../Styles";
 
 const themeColor = gMuiTheme.palette.themeColor;
 const mobileBreakPoint = gMuiTheme.palette.mobileBreakPoint;
+const greenColor = '#1A661A';
+
 
 const titleStyle = {
   fontSize: 14,
@@ -93,7 +95,7 @@ export default class VerifyBar extends Component<VerifyBarProps> {
         backgroundColor:
           this.props.user && this.props.user.documentStatus === "RETRY"
             ? "#888"
-            : themeColor
+            : greenColor
       }}
       contentStyle={{
         width: "100%",
