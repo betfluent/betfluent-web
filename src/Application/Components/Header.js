@@ -460,7 +460,7 @@ export default class Header extends Component<HeaderProps> {
 
       return (
         <div style={{ height: 236 }}>
-          <div style={nameStyle}>{user && user.public.name}</div>
+          <div style={nameStyle}>@{user && user.public.name}</div>
           <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
           <div style={balanceStyle}>
             $<span style={{ position: "relative", bottom: 2 }}>

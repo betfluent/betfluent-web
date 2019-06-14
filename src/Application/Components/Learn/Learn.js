@@ -374,9 +374,6 @@ export default class LandingPage extends Component<BetProps, BetState> {
                   offset={-50}
                   duration={500}
                 >
-                  <div className="scrollBtn scrollUpBtn">
-                    <ArrowUp style={arrowUpStyle} />
-                  </div>
                 </ScrollLink>
               </div>
             </div>
