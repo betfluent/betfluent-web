@@ -107,7 +107,7 @@ const mainStyle = {
     <div style={props.wagerRatioStyle}>
       <span
         style={{
-          color: gMuiTheme.palette.themeColor
+          color: '#1A661A'
         }}
       >
         $<OdometerExt
