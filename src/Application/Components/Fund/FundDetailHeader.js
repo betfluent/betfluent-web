@@ -39,7 +39,7 @@ export default (props: WagerStatProps) => {
     width: 64,
     height: 8,
     borderRadius: 8,
-    backgroundColor: props.fade ? "rgb(213, 0, 0, 0.2)" : "rgba(26, 102, 26, 0.2)"
+    backgroundColor: props.fade ? "rgb(213, 0, 0, 0.2)" : "rgba(112,23,208, 0.2)"
   };
 
   const triStyle = {

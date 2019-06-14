@@ -1,8 +1,8 @@
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import { createMuiTheme } from "@material-ui/core/styles";
 
-const themeColor = "rgb(26,102,26)";
-const themeColorLight = "rgba(26,102,26, 0.16)";
+const themeColor = "rgb(112,23,208)";
+const themeColorLight = "rgba(112,23,208, 0.16)";
 const alertColor = "#d50000";
 const textColor1 = "rgba(0,0,0,0.87)";
 const textColor2 = "rgba(0,0,0,0.54)";

@@ -2,8 +2,8 @@
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="BF/IDP/bet-record/single-loss">
             <g id="BF/IDP/bet-record/single-win">
-                <circle id="Oval" stroke="#1A661A" fill="#FFFFFF" cx="10" cy="10" r="9.5"></circle>
-                <text id="L" font-family="Roboto-Medium, Roboto" font-size="10" font-weight="400" fill="#1A661A">
+                <circle id="Oval" stroke="#7017D0" fill="#FFFFFF" cx="10" cy="10" r="9.5"></circle>
+                <text id="L" font-family="Roboto-Medium, Roboto" font-size="10" font-weight="400" fill="#7017D0">
                     <tspan x="7.29492188" y="14">L</tspan>
                 </text>
             </g>
