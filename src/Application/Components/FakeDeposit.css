@@ -85,7 +85,7 @@
         transform: translateX(-50%) translateY(-50%);
         box-sizing: border-box;
         border: 3px solid rgba(0, 0, 0, .2);
-        border-top-color: rgba(33, 128, 192, 0.8);
+        border-top-color: rgba(112,23,208, 0.8);
         border-radius: 100%;
         animation: fake-paypal-button-spinner-rotation .7s infinite linear;
     }
@@ -115,7 +115,7 @@
         margin-top: 20px;
     }
 
-        
+
 
     .fake-paypal-button.fake-paypal-button-color-gold {
         background: rgba(0,0,0, 0.38);
@@ -247,7 +247,7 @@
         box-shadow: 0px 0px 1px 3px #0c67ff inset;
     }
 
-        
+
 
     .fake-paypal-button.fake-paypal-button-label-card {
         border-radius: 0 !important;
@@ -261,12 +261,12 @@
         margin-left: 4px;
     }
 
-        
+
 
             @media only screen and (min-width: 75px) {
 
                 .fake-paypal-button-container {
-                    
+
                     max-width: 150px;
                     font-size: 10px;
                 }
@@ -284,14 +284,14 @@
                 .fake-paypal-button > .fake-paypal-logo-card {
                     height: 14px;
                     max-height: 15px;
-                   
+
                 }
-                
+
                 .fake-paypal-logo.fake-paypal-logo-eps,
                 .fake-paypal-logo.fake-paypal-logo-mybank {
                     height: 18px;
                     max-height: 18px;
-                   
+
                 }
 
                 .fake-paypal-button.fake-paypal-button-shape-rect {
@@ -305,7 +305,7 @@
                 .fake-paypal-button.fake-paypal-button-layout-vertical {
                     margin-bottom: 8px;
                 }
-                
+
                 .fake-paypal-button-tagline {
                     height: 13px;
                     line-height: 13px;
@@ -361,20 +361,20 @@
                     display: block;
                 }
             }
-        
+
 
 
             @media only screen and (min-width: 150px) {
 
                 .fake-paypal-button-container {
-                    
+
                     max-width: 200px;
                     font-size: 10px;
                 }
 
                 .fake-paypal-button {
                     height: 25px;
-                   
+
                     max-height: 35px;
                 }
 
@@ -387,14 +387,14 @@
                 .fake-paypal-button > .fake-paypal-logo-card {
                     height: 14px;
                     max-height: 15px;
-                   
+
                 }
-                
+
                 .fake-paypal-logo.fake-paypal-logo-eps,
                 .fake-paypal-logo.fake-paypal-logo-mybank {
                     height: 18px;
                     max-height: 18px;
-                   
+
                 }
 
                 .fake-paypal-button.fake-paypal-button-shape-rect {
@@ -410,9 +410,9 @@
                 }
 
                 .fake-paypal-button.fake-paypal-button-layout-vertical:last-of-type {
-                    
+
                 }
-                
+
                 .fake-paypal-button-tagline {
                     height: 13px;
                     line-height: 13px;
@@ -468,20 +468,20 @@
                     display: block;
                 }
             }
-        
+
 
 
             @media only screen and (min-width: 200px) {
 
                 .fake-paypal-button-container {
-                    
+
                     max-width: 300px;
                     font-size: 11px;
                 }
 
                 .fake-paypal-button {
                     height: 35px;
-                   
+
                     max-height: 55px;
                 }
 
@@ -494,14 +494,14 @@
                 .fake-paypal-button > .fake-paypal-logo-card {
                     height: 17px;
                     max-height: 21px;
-                   
+
                 }
-                
+
                 .fake-paypal-logo.fake-paypal-logo-eps,
                 .fake-paypal-logo.fake-paypal-logo-mybank {
                     height: 23px;
                     max-height: 25px;
-                   
+
                 }
 
                 .fake-paypal-button.fake-paypal-button-shape-rect {
@@ -517,9 +517,9 @@
                 }
 
                 .fake-paypal-button.fake-paypal-button-layout-vertical:last-of-type {
-                    
+
                 }
-                
+
                 .fake-paypal-button-tagline {
                     height: 18px;
                     line-height: 18px;
@@ -575,4 +575,3 @@
                     display: block;
                 }
             }
-        
