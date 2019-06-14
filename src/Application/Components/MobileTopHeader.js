@@ -158,7 +158,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
     const renderUserData = () => {
       return (
         <div style={{ height: 236 }}>
-          <div style={nameStyle}>{this.props.user && this.props.user.public.name}</div>
+          <div style={nameStyle}>@{this.props.user && this.props.user.public.name}</div>
           <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
           <div style={balanceStyle}>
             <span style={{ position: "relative", bottom: 2 }}>
