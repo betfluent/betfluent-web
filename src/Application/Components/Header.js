@@ -33,7 +33,7 @@ const textColor1 = gMuiTheme.palette.textColor1;
 const textColor3 = gMuiTheme.palette.textColor3;
 const mobileBreakPoint = gMuiTheme.palette.mobileBreakPoint;
 const desktopBreakPoint = gMuiTheme.palette.desktopBreakPoint;
-const blackColor = '#000000';
+const usernameColor = '#000000';
 
 type LoggedProps = {
   bottomNavStyle: {},
@@ -448,7 +448,7 @@ export default class Header extends Component<HeaderProps> {
     };
 
     const nameStyle = {
-      color: this.props.isManager ? managerThemeColor : blackColor,
+      color: this.props.isManager ? managerThemeColor : usernameColor,
       fontSize: 14,
       fontWeight: 500,
       lineHeight: "24px",
