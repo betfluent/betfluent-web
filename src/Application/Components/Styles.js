@@ -42,7 +42,7 @@ export const gMuiTheme = getMuiTheme({
     primaryColor: themeColor,
     secondaryColor: "#fff",
     secondaryTextColor: themeColor,
-    disabledColor: "rgba(45,177,47, 0.7)",
+    disabledColor: "rgba(112,23,208, 0.7)",
     disabledTextColor: "#fff"
   },
   palette: {
