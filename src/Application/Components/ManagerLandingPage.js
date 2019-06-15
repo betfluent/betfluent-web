@@ -7,7 +7,7 @@ import { mgMuiTheme } from "./ManagerStyles";
 import homePageBgImg from "../../Assets/managerLandingpageBgImg.png";
 import videoCover from "../../Assets/legal_dfs.jpeg";
 import idVerification from "../../Assets/manager_id_verification.png";
-import managerProfile from "../../Assets/manager_manager_profile.png";
+import connect from "../../Assets/connect.png";
 import placeBet from "../../Assets/manager_place_bet.png";
 import ManagerLandingPageHeader from "./ManagerLandingPageHeader";
 
@@ -144,11 +144,19 @@ export class ManagerLandingPage extends Component {
                     </p>
                   </div>
                   <div className="mlpGuide">
-                    <h2 style={{ color: themeColor }}>Start Betting</h2>
-                    <img src={placeBet} alt="Start Betting" />
+                    <h2 style={{ color: themeColor }}>Connect</h2>
+                    <img src={connect} alt="Connect" />
                     <p>
-                      Create a contest, place your bets and start promoting your
-                      picks on instagram, facebook and twitter.
+                      Find users, invite friends, and create a following to
+                      educate users about your picks.
+                    </p>
+                  </div>
+                  <div className="mlpGuide">
+                    <h2 style={{ color: themeColor }}>Bet</h2>
+                    <img src={placeBet} alt="Bet" />
+                    <p>
+                      Create a contest and promote your
+                      pool on Instagram Facebook and Twitter.
                     </p>
                   </div>
                 </div>
