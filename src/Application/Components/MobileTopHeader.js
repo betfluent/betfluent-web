@@ -207,7 +207,7 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
           }
           className="mobileBanner"
           style={{ backgroundColor: "white", position: "absolute" }}
-          titleStyle={{ height: "36px", lineHeight: "36px", marginTop: "12px" }}
+          titleStyle={{paddingRight:"30px",textAlign: "center", height: "36px", lineHeight: "36px", marginTop: "12px" }}
           onLeftIconButtonClick={this.showNavMenu}
         />
         <Drawer
