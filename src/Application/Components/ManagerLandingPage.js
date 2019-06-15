@@ -155,7 +155,7 @@ export class ManagerLandingPage extends Component {
                     <h2 style={{ color: themeColor }}>Bet</h2>
                     <img src={placeBet} alt="Bet" />
                     <p>
-                      Deposit funds, create a contest and promote your
+                      Create a contest and promote your
                       pool on Instagram Facebook and Twitter.
                     </p>
                   </div>
