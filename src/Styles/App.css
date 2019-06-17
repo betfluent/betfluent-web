@@ -615,7 +615,7 @@ td {
 }
 
 .industryPartners {
-  background-color: #f5f5f5;
+  background-color: #f8f6fc;
   padding-bottom: 24px;
 }
 
@@ -988,7 +988,7 @@ td {
 }
 
 .FundCardItem:hover {
-  background-color: #f5f5f5 !important;
+  background-color: #f8f6fc !important;
 }
 
 .FundHeader {
@@ -1365,7 +1365,7 @@ td {
 
 .logoutBtn {
   border: none;
-  background-color: #f5f5f5;
+  background-color: #f8f6fc;
   margin: 20px auto;
   color: #36642E;
   font-size: 14px;
@@ -2479,7 +2479,7 @@ td {
 .moneyAlert span {
   display: inline-block;
   padding: 6px 2px;
-  background-color: #f5f5f5;
+  background-color: #f8f6fc;
 }
 
 @media only screen and (max-width: 624px) {
