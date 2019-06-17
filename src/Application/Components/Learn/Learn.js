@@ -121,7 +121,7 @@ export default class LandingPage extends Component<BetProps, BetState> {
 
           <div
             className="guideCards"
-            style={{ backgroundColor: "#f5f5f5", padding: "12px 0 0 0" }}
+            style={{ backgroundColor: "#f8f6fc", padding: "12px 0 0 0" }}
           >
             <div className="lpContent">
               <h1>How it Works</h1>
@@ -379,7 +379,7 @@ export default class LandingPage extends Component<BetProps, BetState> {
             </div>
           </div>
 
-          <div className="faqBlock" style={{ backgroundColor: "#f5f5f5" }}>
+          <div className="faqBlock" style={{ backgroundColor: "#f8f6fc" }}>
             <div className="lpContent">
               <h1>FAQ</h1>
               <div style={{ color: textColor2 }}>
