@@ -202,7 +202,7 @@ export default class RecentTransactions extends Component<
 
   render() {
     const dateStyle = {
-      backgroundColor: "#f5f5f5",
+      backgroundColor: "#f8f6fc",
       padding: "12px 0",
       textAlign: "left",
       color: textColor3

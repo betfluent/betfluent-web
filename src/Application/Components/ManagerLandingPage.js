@@ -40,7 +40,7 @@ export class ManagerLandingPage extends Component {
       position: "relative",
       height: "100%",
       width: "100%",
-      backgroundColor: "#f5f5f5"
+      backgroundColor: "#f8f6fc"
     };
 
     return (

@@ -81,7 +81,7 @@ export default class Games extends Component<GamesProps> {
             Object.keys(gameGrouped).map((key, index) => {
               const gamesGrouped = gameGrouped[key].map(g => g.id);
               return (
-                <div key={index} style={{ backgroundColor: "#F5F5F5" }}>
+                <div key={index} style={{ backgroundColor: "#f8f6fc" }}>
                   <div style={dateStyle}>
                     {moment(key)
                       .format("MMM DD")
