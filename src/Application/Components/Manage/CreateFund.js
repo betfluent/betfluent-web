@@ -51,7 +51,6 @@ const titleStyle = {
   lineHeight: "28px",
   fontWeight: 500,
   color: textColor1,
-  marginRight: "30%",
   marginBottom: "16px"
 };
 
@@ -90,7 +89,7 @@ export default class CreateFund extends Component<CreateFundProps> {
       maxWager: "100",
       fundCap: "1,000",
       pctFee: "5%",
-      initialSummary: "<p>Please enter your pool summary here...</p>",
+      initialSummary: "<p>Please enter your contest summary here...</p>",
       fundSummary: false,
       summaryChanged: false,
       summaryError: null,
@@ -310,7 +309,7 @@ export default class CreateFund extends Component<CreateFundProps> {
 
   toDateStep() {
     if (!this.state.name) {
-      this.setState({ errorTextName: "Please enter a pool name." });
+      this.setState({ errorTextName: "Please enter a contest name." });
       return null;
     }
     this.setState({ errorTextName: null });
@@ -340,7 +339,7 @@ export default class CreateFund extends Component<CreateFundProps> {
     this.setState({ errorTextMax: null });
 
     if (!this.state.fundCap) {
-      this.setState({ errorTextCap: "Please set a pool cap." });
+      this.setState({ errorTextCap: "Please set a contest cap." });
       return null;
     }
     this.setState({ errorTextCap: null });
@@ -390,13 +389,13 @@ export default class CreateFund extends Component<CreateFundProps> {
     <V0MuiThemeProvider muiTheme={mgMuiTheme}>
       <div style={props.paperStyle}>
         <div style={props.contentStyle} className="dialogContent">
-          <div style={titleStyle}>Create Pool</div>
+          <div style={titleStyle}>Create Contest</div>
           <TextField
             id="fundName"
             style={props.rootStyle}
             value={this.state.name}
             onFocus={() => {
-              this.setState({ inputField: "Pool Name", errorTextName: null });
+              this.setState({ inputField: "Contest Name", errorTextName: null });
             }}
             onChange={event => {
               if (!this.state.isTraining) {
@@ -404,7 +403,7 @@ export default class CreateFund extends Component<CreateFundProps> {
               }
             }}
             className="formInputStyle"
-            floatingLabelText="Pool Name"
+            floatingLabelText="Contest Name"
             errorText={this.state.errorTextName}
             errorStyle={props.errorStyle}
           />
@@ -471,18 +470,6 @@ export default class CreateFund extends Component<CreateFundProps> {
             className="formInputStyle"
             floatingLabelText="Max Wager"
             errorText={this.state.errorTextMax}
-            errorStyle={props.errorStyle}
-          />
-          <TextField
-            id="fundCap"
-            style={props.rootStyle}
-            value={this.state.fundCap}
-            onFocus={() => {
-              this.setState({ inputField: "Pool Cap", errorTextCap: null });
-            }}
-            className="formInputStyle"
-            floatingLabelText="Pool Cap"
-            errorText={this.state.errorTextCap}
             errorStyle={props.errorStyle}
           />
           <TextField
@@ -636,7 +623,7 @@ export default class CreateFund extends Component<CreateFundProps> {
           this.setState({
             selectedGames,
             creationStep: "summary",
-            inputField: "Pool Summary"
+            inputField: "Contest Summary"
           });
         }}
         numberToSelect={1}
@@ -725,7 +712,7 @@ export default class CreateFund extends Component<CreateFundProps> {
                       className="potentialGamesCopy"
                       style={{ color: textColor2 }}
                     >
-                      THIS POOL WILL BET ON THE FOLLOWING GAME:
+                      THIS CONTEST WILL BET ON THE FOLLOWING GAME:
                     </div>
                     <PotentialGames selectedGames={this.state.selectedGames} />
                   </div>
@@ -773,7 +760,7 @@ export default class CreateFund extends Component<CreateFundProps> {
                 <RaisedButton
                   primary
                   style={{ marginLeft: 10 }}
-                  label="Create Pool"
+                  label="Create Contest"
                   onClick={this.createFund}
                   disabled={this.state.fundCreated}
                 />
@@ -792,7 +779,7 @@ export default class CreateFund extends Component<CreateFundProps> {
                     color: themeColor
                   }}
                 >
-                  Pool Created
+                  Contest Created
                 </div>
                 <div style={{ height: 50 }} />
               </div>

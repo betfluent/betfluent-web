@@ -444,7 +444,7 @@ export default class Funds extends Component<FundsProps> {
               <Link to="/manage/pools/create">
                 <RaisedButton
                   primary
-                  label={isTraining ? "Start Training" : "Create Pool"}
+                  label={isTraining ? "Start Training" : "Create Contest"}
                 />
               </Link>
             </div>

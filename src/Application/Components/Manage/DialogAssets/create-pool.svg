@@ -2,7 +2,7 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect id="Rectangle" fill="#7017D0" x="0" y="0" width="74" height="19" rx="2"></rect>
         <text id="CREATE-POOL" font-family="Roboto-Bold, Roboto" font-size="7" font-weight="bold" fill="#FFFFFF">
-            <tspan x="14" y="12">CREATE POOL</tspan>
+            <tspan x="14" y="12">CREATE CONTEST</tspan>
         </text>
     </g>
 </svg>
