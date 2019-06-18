@@ -1249,7 +1249,7 @@ td {
   outline: none;
   border: none;
   letter-spacing: 8px;
-  color: #36642E;
+  color: #7017D0;
   font-size: 24px;
   width: 65px;
   display: block;
@@ -1257,16 +1257,16 @@ td {
 }
 
 .pinInput::-webkit-input-placeholder {
-  color: #36642E;
+  color: #7017D0;
 }
 .pinInput:-moz-placeholder {
-  color: #36642E;
+  color: #7017D0;
 }
 .pinInput::-moz-placeholder {
-  color: #36642E;
+  color: #7017D0;
 }
 .pinInput:-ms-input-placeholder {
-  color: #36642E;
+  color: #7017D0;
 }
 
 /* ---------------Fund Activity Style----------------  */
