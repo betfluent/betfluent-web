@@ -153,12 +153,6 @@ const clientMenu = [
     index: 2
   },
   {
-    label: "Create",
-    icon: Build,
-    url: "/manage",
-    index: 5,
-  },
-  {
     label: "Learn",
     icon: School,
     url: "/learn",
