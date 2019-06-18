@@ -153,12 +153,6 @@ const clientMenu = [
     index: 2
   },
   {
-    label: "Create",
-    icon: Build,
-    url: "/manage",
-    index: 5,
-  },
-  {
     label: "Learn",
     icon: School,
     url: "/learn",
@@ -378,6 +372,11 @@ export default class Header extends Component<HeaderProps> {
     else this.props.history.push("/login");
   }
 
+  gotoManage() {
+    if (this.props.authUser) this.props.history.push("/manage");
+    else this.props.history.push("/login");
+  }
+
   render() {
     const primaryTextStyle = {
       padding: "0 0 0 36px"
@@ -426,7 +425,8 @@ export default class Header extends Component<HeaderProps> {
     };
 
     const dividerStyle = {
-      marginBottom: 24
+      marginTop: 48,
+      marginBottom: 12
     };
 
     const balanceTitleStyle = {
@@ -481,11 +481,18 @@ export default class Header extends Component<HeaderProps> {
             </span>
           </div>
           <RaisedButton
-            style={{ width: 128 }}
+            style={{ width: 128, marginBottom: 16 }}
             primary
             disabled={authUser && !authUser.emailVerified}
             onClick={() => this.gotoDeposit()}
             label={authUser ? "DEPOSIT" : "SIGN IN"}
+          />
+          <RaisedButton
+            style={{ width: 128, marginBottom: 24 }}
+            primary
+            disabled={authUser && !authUser.emailVerified}
+            onClick={() => this.gotoManage()}
+            label={ "CREATE" }
           />
         </div>
       );
