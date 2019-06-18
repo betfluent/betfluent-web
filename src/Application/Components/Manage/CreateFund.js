@@ -815,7 +815,7 @@ export default class CreateFund extends Component<CreateFundProps> {
     }
 
     const paperStyle = {
-      backgroundColor: "#fff",
+      backgroundColor: "#f8f6fc",
       padding: "24px 0",
       boxSizing: "border-box"
     };
@@ -886,7 +886,7 @@ export default class CreateFund extends Component<CreateFundProps> {
     return (
       <div>
         {renderCreationStep()}
-        {this.props.size > 624 && 
+        {this.props.size > 624 &&
           <TooltipDrawer
             field={this.state.inputField}
             isTraining={this.props.user.manager.isTraining}
