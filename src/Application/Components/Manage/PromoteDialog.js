@@ -168,9 +168,9 @@ class PromoteDialog extends Component {
                     <div className="manager-modal-instructions">
                         <ol>
                             <li>
-                                Click the CREATE POOL button on the “Create” tab.
+                                Click the CREATE CONTEST button on the “Create” tab.
                                 <div className="create-pool-svg">
-                                    <img src={createPoolImg} alt="Create Pool" />
+                                    <img src={createPoolImg} alt="Create Contest" />
                                 </div>
                             </li>
                             <li>
