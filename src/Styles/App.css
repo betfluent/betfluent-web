@@ -562,7 +562,7 @@ td {
 }
 
 .betCard p, .guideCard p {
-  color: #36642E;
+  color: #7017D0;
   font-weight: 500;
   font-size: 16px;
 }
@@ -681,7 +681,7 @@ td {
   height: 48px;
   margin-bottom: 24px;
   text-align: left;
-  border-left: 4px solid #36642E;
+  border-left: 4px solid #7017D0;
   border-radius: 2px;
   padding: 6px 12px;
   cursor: pointer;
@@ -1249,7 +1249,7 @@ td {
   outline: none;
   border: none;
   letter-spacing: 8px;
-  color: #36642E;
+  color: #7017D0;
   font-size: 24px;
   width: 65px;
   display: block;
@@ -1257,16 +1257,16 @@ td {
 }
 
 .pinInput::-webkit-input-placeholder {
-  color: #36642E;
+  color: #7017D0;
 }
 .pinInput:-moz-placeholder {
-  color: #36642E;
+  color: #7017D0;
 }
 .pinInput::-moz-placeholder {
-  color: #36642E;
+  color: #7017D0;
 }
 .pinInput:-ms-input-placeholder {
-  color: #36642E;
+  color: #7017D0;
 }
 
 /* ---------------Fund Activity Style----------------  */
@@ -1367,7 +1367,7 @@ td {
   border: none;
   background-color: #f8f6fc;
   margin: 20px auto;
-  color: #36642E;
+  color: #7017D0;
   font-size: 14px;
   line-height: 16px;
   font-weight: 600;
@@ -1428,7 +1428,7 @@ td {
   font-weight: 500;
   width: 90px;
   cursor: pointer;
-  color: #36642E;
+  color: #7017D0;
 }
 
 .btbThumbs {
@@ -1597,7 +1597,7 @@ td {
 .btbRules ul li {
   padding-left: 24px;
   padding-bottom: 24px;
-  border-left: 2px solid #36642E;
+  border-left: 2px solid #7017D0;
   position: relative;
 }
 
@@ -1612,8 +1612,8 @@ td {
   left: -10px;
   width: 18px;
   height: 18px;
-  color: #36642E;
-  border: 2px solid #36642E;
+  color: #7017D0;
+  border: 2px solid #7017D0;
   border-radius: 50%;
   box-sizing: border-box;
   background-color: #fff;
@@ -1758,7 +1758,7 @@ td {
   width: 48px;
   height: 48px;
   background-color: #fff;
-  border: 1px solid #36642E;
+  border: 1px solid #7017D0;
   border-radius: 50%;
   text-align: center;
   right: 16px;
@@ -1849,7 +1849,7 @@ td {
 }
 
 .reportBtn:hover {
-  color: #36642E;
+  color: #7017D0;
 }
 
 .deleteBtn:hover {
@@ -2661,4 +2661,35 @@ td {
   body, html, .App, #root {
     height: 100%;
   }
+}
+
+.landing-header-link {
+  font-family: "Gotham Book";
+  padding: 0 24px;
+  line-height: 3em;
+}
+
+.landing-sub-list {
+  list-style-type: none;
+  text-align: left;
+  position: relative;
+}
+
+.landing-sub-item {
+  display: block;
+  font-family: "Acherus Regular";
+  line-height: 2em;
+  position: relative;
+}
+
+.landing-sub-item:before {
+  content: '';
+  position: absolute;
+  background-image: url(../Assets/bulletpoint.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: -32px;
+  top: 25%;
+  height: 16px;
+  width: 16px;
 }

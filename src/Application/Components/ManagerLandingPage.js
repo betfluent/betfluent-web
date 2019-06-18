@@ -47,33 +47,16 @@ export class ManagerLandingPage extends Component {
       <MuiThemeProvider muiTheme={mgMuiTheme}>
         <div style={paperStyle}>
           <ManagerLandingPageHeader size={this.props.size} />
-
-          <div className="mlpHome">
-            <img src={homePageBgImg} alt="betFleunt" />
-            <div className="mlpHomeContent">
-              <Link to="/register">
-                <RaisedButton
-                  style={{ width: 220, borderRadius: 6 }}
-                  buttonStyle={{ borderRadius: 6 }}
-                  overlayStyle={{ borderRadius: 6 }}
-                  primary
-                  label="BECOME AN INFLUENCER"
-                />
-              </Link>
-            </div>
-          </div>
-
           <div className="mlpbody">
             <div className="mlpFits">
               <div className="mlpContent">
-                <h1 style={{ color: themeColor }}>A Perfect Fit...</h1>
-                <p>
-                  If you’re 18 years old, have sports
-                  betting experience and want to help thousands from around the nation
-                  learn how to sports bet and be comfortable with making
-                  individual wagers, then becoming an influencer with
-                  betfluent might be right for you!
-                </p>
+                  <div className="landing-title">A Perfect Fit If You...</div>
+                  <ul className="landing-sub-list">
+                  <li className="landing-sub-item">Want to help thousands learn about making wagers</li>
+                  <li className="landing-sub-item">Love sports and are an experienced bettor</li>
+                  <li className="landing-sub-item">Hold strong social presence</li>
+                  <li className="landing-sub-item">Are 18+ years old</li>
+                </ul>
                 <div
                   className="flexContainer"
                   style={{ justifyContent: "space-evenly", marginTop: 36 }}
