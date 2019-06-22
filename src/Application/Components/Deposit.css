@@ -11,16 +11,19 @@
   }
 
   .deposit-card {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 0;
+    padding-top: 48px;
     min-height: 553px;
     border-radius: 30px;
     box-shadow: 0 0 9.5px 3.5px rgba(0, 0, 0, 0.06);
     border: solid 0.5px #a8a8a8;
     background-color: #ffffff;
+  }
+
+  .deposit-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
 
   .deposit-sub-card {
@@ -130,6 +133,20 @@
     background-color: #7630a9;
     box-sizing: border-box;
     padding: 8px;
+  }
+
+  .deposit-copy {
+    font-family: "Acherus Regular";
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.38px;
+    text-align: left;
+    color: #929292;
+    margin: 48px;
+    max-width: 742px;
   }
 
   @media (min-width: 624px) {
