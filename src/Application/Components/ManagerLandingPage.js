@@ -10,6 +10,7 @@ import idVerification from "../../Assets/manager_id_verification.png";
 import connect from "../../Assets/connect.png";
 import placeBet from "../../Assets/manager_place_bet.png";
 import ManagerLandingPageHeader from "./ManagerLandingPageHeader";
+import * as MacBook from "../../Assets/macbook-image.png";
 
 // type ManagerLandingPageProps = {
 //   size: number
@@ -59,49 +60,21 @@ export class ManagerLandingPage extends Component {
                 </ul>
                 <div
                   className="flexContainer"
-                  style={{ justifyContent: "space-evenly", marginTop: 36 }}
+                  style={{ justifyContent: "space-around", marginTop: 36 }}
                 >
-                  <div className="mlpFit">
-                    <h2 style={{ color: themeColor }}>Do You?</h2>
-                    <Divider />
-                    <ul>
-                      <li>
-                        <p>Enjoy betting on sports</p>
-                      </li>
-                      <li>
-                        <p>Think you have an edge</p>
-                      </li>
-                      <li>
-                        <p>Have strong social presence</p>
-                      </li>
-                    </ul>
+                  <div className="mac-image-wrapper">
+                    <img className="mac-image" src={MacBook} alt="app-on-screen" />
                   </div>
-                  <div className="mlpFit">
-                    <h2 style={{ color: themeColor }}>
-                      In a Legal DFS state?
-                    </h2>
-                    <Divider />
-                    <div className="learnMoreVideo">
-                      <img src={videoCover} alt="Learn more" />
-                    </div>
-                  </div>
-                  <div className="mlpFit">
-                    <h2 style={{ color: themeColor }}>Are You?</h2>
-                    <Divider />
-                    <ul>
-                      <li>
-                        <p>An experienced sports bettor</p>
-                      </li>
-                      <li>
-                        <p>Capable of explaining your picks</p>
-                      </li>
-                      <li>
-                        <p>Committed to educating novices</p>
-                      </li>
+                  <div>
+                    <ul className="landing-sub-list">
+                      <li className="landing-sub-item-alt">Create Pools</li>
+                      <li className="landing-sub-item-alt">Explain Your Picks</li>
+                      <li className="landing-sub-item-alt">Bet With &amp; Against</li>
+                      <li className="landing-sub-item-link"><Link to="/register">Register Now</Link></li>
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div>  
             </div>
 
             <div className="mlpGuides">

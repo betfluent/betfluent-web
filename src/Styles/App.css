@@ -426,7 +426,7 @@ td {
 .mlpbody p {
   width: 90%;
   margin: auto;
-  font-size: 18px;
+  font-size: 12px;
   line-height: 24px;
   font-weight: 300;
 }
@@ -472,7 +472,7 @@ td {
 }
 
 .lpContent, .mlpContent {
-  width: 90%;
+  max-width: 524px;
   margin: auto;
   position: relative;
   padding: 36px 0;
@@ -2669,6 +2669,11 @@ td {
   line-height: 3em;
 }
 
+.landing-title {
+  font-family: "Gotham Black Regular";
+  font-size: 48px;
+}
+
 .landing-sub-list {
   list-style-type: none;
   text-align: left;
@@ -2679,6 +2684,7 @@ td {
   display: block;
   font-family: "Acherus Regular";
   line-height: 2em;
+  font-size: 18px;
   position: relative;
 }
 
@@ -2692,4 +2698,45 @@ td {
   top: 25%;
   height: 16px;
   width: 16px;
+}
+
+.landing-sub-item-alt {
+  display: block;
+  font-family: "Gotham Black Regular";
+  line-height: 2em;
+  font-size: 18px;
+  position: relative;
+}
+
+.landing-sub-item-alt:after {
+  content: '';
+  position: absolute;
+  background-image: url(../Assets/checkmark.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 25%;
+  margin-left: 10px;
+  height: 16px;
+  width: 16px;
+}
+
+.landing-sub-item-link {
+  font-family: "Acherus Regular";
+  font-size: 14px;
+  color: #7017D0;
+  margin-top: 8px;
+}
+
+.landing-sub-item-link:after {
+  content: '>';
+  margin-left: 2px;
+  font-weight: bold;
+}
+
+.mac-image-wrapper {
+  text-align: left;
+}
+
+.mac-image-wrapper .mac-image {
+  max-width: 256px;
 }
