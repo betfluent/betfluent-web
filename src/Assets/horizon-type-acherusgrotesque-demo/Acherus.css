@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Acherus Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: url('Horizon Type - AcherusGrotesque-Regular.otf');
+}
+
+
+@font-face {
+    font-family: 'Acherus Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: url('Horizon Type - AcherusGrotesque-RegularItalic.otf');
+}
