@@ -105,7 +105,7 @@ class Deposit extends React.Component {
                                             style={{ display: 'block', flexGrow: 1, marginLeft: 18, marginBottom: -12 }}
                                             value={this.state && this.state.value}
                                             onChange={this.handleChange}
-                                            placeholder="Ex. 20"
+                                            placeholder="Min $10"
                                             type="number"
                                         />
                                     </div>
