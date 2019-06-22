@@ -59,7 +59,7 @@ export default class Activity extends Component<ActivityProps, ActiviyState> {
             (interaction.type !== "Return" && !interaction.type.includes('Bet') && !interaction.type.includes('Result')) ||
             (interaction.type === "Return" &&
               interaction.userId === user.publicId) ||
-            ((interaction.type.includes('Bet') || interaction.type.includes('Result')) && 
+            ((interaction.type.includes('Bet') || interaction.type.includes('Result')) &&
             interaction.fade === (user.investments && user.investments[interaction.fundId] < 0))
           ) {
             return (
@@ -110,7 +110,7 @@ export default class Activity extends Component<ActivityProps, ActiviyState> {
             ) : null}
             <div style={{ flexGrow: 1, textAlign: "left" }}>
               <div style={titleStyle}>
-                {fund.manager.name} created betting pool
+                {fund.manager.name} created contest
               </div>
               <div>
                 <Moment fromNow style={subtitleStyle}>
