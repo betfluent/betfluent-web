@@ -342,7 +342,7 @@ export default class Register extends Component {
               </Link>
             </div>
             <div>
-              <div style={hybridStyle}>Online Sports Betting</div>
+              <div style={hybridStyle}>Registration</div>
               <div style={descStyle} />
             </div>
 
