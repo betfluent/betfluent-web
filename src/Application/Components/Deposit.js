@@ -76,40 +76,48 @@ class Deposit extends React.Component {
                     <div className="deposit-wrapper">
                         <h1 className="deposit-funds">DEPOSIT FUNDS</h1>
                         <div className="deposit-card">
-                            <div className="deposit-sub-card">
-                                <img
-                                    src={creditCard}
-                                    class="credit-card"
-                                    alt="credit-card"
-                                />
-                                <div className="deposit-accept">We Accept The Following:</div>
-                                <div className="deposit-credit-card-wrapper">
-                                    <img className="deposit-card-icon" src={mastercard} alt="master card" />
-                                    <img className="deposit-card-icon" src={visa} alt="visa" />
-                                    <img className="deposit-card-icon" src={amex} alt="amex" style={{ marginTop: 3, height: 45 }} />
-                                    <img className="deposit-card-icon" src={discover} alt="discover" />
+                            <div className="deposit-card-wrapper">
+                                <div className="deposit-sub-card">
+                                    <img
+                                        src={creditCard}
+                                        class="credit-card"
+                                        alt="credit-card"
+                                    />
+                                    <div className="deposit-accept">We Accept The Following:</div>
+                                    <div className="deposit-credit-card-wrapper">
+                                        <img className="deposit-card-icon" src={mastercard} alt="master card" />
+                                        <img className="deposit-card-icon" src={visa} alt="visa" />
+                                        <img className="deposit-card-icon" src={amex} alt="amex" style={{ marginTop: 3, height: 45 }} />
+                                        <img className="deposit-card-icon" src={discover} alt="discover" />
+                                    </div>
+                                </div>
+                                <div className="deposit-page">
+                                    <div className="deposit-amount-title">AMOUNT:</div>
+                                    <div className="deposit-choices">
+                                        <div id={20} className={`deposit-choice ${selected === 20 && 'selected'}`} onClick={this.handleClick}><span id={20} className={`deposit-choice-text ${selected === 20 && 'selected'}`}>$20</span></div>
+                                        <div id={50} className={`deposit-choice ${selected === 50 && 'selected'}`} onClick={this.handleClick}><span id={50} className={`deposit-choice-text ${selected === 50 && 'selected'}`}>$50</span></div>
+                                        <div id={100} className={`deposit-choice ${selected === 100 && 'selected'}`} onClick={this.handleClick}><span id={100} className={`deposit-choice-text ${selected === 100 && 'selected'}`}>$100</span></div>
+                                    </div>
+                                    <div className="deposit-choice-custom">
+                                        <img src={dollarSign} alt="dollar-sign" className="dollar-sign" />
+                                        <TextField
+                                            className="deposit-input"
+                                            style={{ display: 'block', flexGrow: 1, marginLeft: 18, marginBottom: -12 }}
+                                            value={this.state && this.state.value}
+                                            onChange={this.handleChange}
+                                            placeholder="Ex. 500"
+                                            type="number"
+                                        />
+                                    </div>
+                                    <div className={`error ${!this.state.error && 'hidden-space'}`}>You must depost more than $10 to initiate a transaction.</div>
+                                    <div id="paypal-button-container" className={`deposit-buttons`} />
                                 </div>
                             </div>
-                            <div className="deposit-page">
-                                <div className="deposit-amount-title">AMOUNT:</div>
-                                <div className="deposit-choices">
-                                    <div id={20} className={`deposit-choice ${selected === 20 && 'selected'}`} onClick={this.handleClick}><span id={20} className={`deposit-choice-text ${selected === 20 && 'selected'}`}>$20</span></div>
-                                    <div id={50} className={`deposit-choice ${selected === 50 && 'selected'}`} onClick={this.handleClick}><span id={50} className={`deposit-choice-text ${selected === 50 && 'selected'}`}>$50</span></div>
-                                    <div id={100} className={`deposit-choice ${selected === 100 && 'selected'}`} onClick={this.handleClick}><span id={100} className={`deposit-choice-text ${selected === 100 && 'selected'}`}>$100</span></div>
-                                </div>
-                                <div className="deposit-choice-custom">
-                                    <img src={dollarSign} alt="dollar-sign" className="dollar-sign" />
-                                    <TextField
-                                        className="deposit-input"
-                                        style={{ display: 'block', flexGrow: 1, marginLeft: 18, marginBottom: -12 }}
-                                        value={this.state && this.state.value}
-                                        onChange={this.handleChange}
-                                        placeholder="Ex. 500"
-                                        type="number"
-                                    />
-                                </div>
-                                <div className={`error ${!this.state.error && 'hidden-space'}`}>You must depost more than $10 to initiate a transaction.</div>
-                                <div id="paypal-button-container" className={`deposit-buttons`} />
+                            <div className="deposit-copy">
+                                For access to immediate funds, we recommend using "Pay with Debit or Credit Card" 
+                                Option on the PayPal list. All transactions are secured with SSL protocol. Using SSL 
+                                helps  encrypt the information so that the card details and all other sensitive data 
+                                is protected.
                             </div>
                         </div>
                     </div>
