@@ -7,6 +7,7 @@ import { DepositService } from '../Services/BackendService';
 import { getNewUid } from '../Services/DbService'
 import { gMuiTheme, mobileBreakPoint } from './Styles';
 import FakeDeposit from './FakeDeposit';
+import './Deposit.css';
 
 class Deposit extends React.Component {
     constructor() {
@@ -61,7 +62,7 @@ class Deposit extends React.Component {
                         <MobileTopHeaderContainer />
                     ) : null}
                     <div className="deposit-wrapper">
-                    <h1 className="deposit-title">SECURE DEPOSIT</h1>
+                    <h1 className="deposit-funds">DEPOSIT FUNDS</h1>
                     <h4>For access to immediate funds, we recommend using "Pay with Debit or Credit Card" Option on the PayPal list.</h4>
                         <div className="deposit-page">
                             <TextField
