@@ -6,7 +6,6 @@ import MobileTopHeaderContainer from '../Containers/MobileTopHeaderContainer';
 import { DepositService } from '../Services/BackendService';
 import { getNewUid } from '../Services/DbService'
 import { gMuiTheme, mobileBreakPoint } from './Styles';
-import FakeDeposit from './FakeDeposit';
 import creditCard from '../../Assets/credit-card/credit-card.png';
 import mastercard from '../../Assets/mastercard.svg';
 import visa from '../../Assets/visa.svg';
@@ -57,7 +56,7 @@ class Deposit extends React.Component {
 
     handleChange(e) {
         let error = false;
-        if (e.target.value < 10) error = true;
+        if (e.target.value && e.target.value < 10) error = true;
         this.setState({ value: e.target.value, error });
     }
 
@@ -110,8 +109,7 @@ class Deposit extends React.Component {
                                     />
                                 </div>
                                 <div className={`error ${!this.state.error && 'hidden-space'}`}>You must depost more than $10 to initiate a transaction.</div>
-                                {this.state.error && <FakeDeposit />}
-                                <div id="paypal-button-container" className={`deposit-buttons ${this.state.error && 'hidden'}`} />
+                                <div id="paypal-button-container" className={`deposit-buttons`} />
                             </div>
                         </div>
                     </div>

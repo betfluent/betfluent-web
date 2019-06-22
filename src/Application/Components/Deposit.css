@@ -1,6 +1,6 @@
 .deposit-funds {
     font-family: "Gotham Black Regular";
-    font-size: 63px;
+    font-size: 32px;
     font-weight: 900;
     font-style: normal;
     font-stretch: normal;
@@ -12,9 +12,11 @@
 
   .deposit-card {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    width: 841px;
-    height: 553px;
+    justify-content: center;
+    padding: 48px 0;
+    min-height: 553px;
     border-radius: 30px;
     box-shadow: 0 0 9.5px 3.5px rgba(0, 0, 0, 0.06);
     border: solid 0.5px #a8a8a8;
@@ -66,7 +68,6 @@
   }
 
   .deposit-amount-title {
-    height: 23px;
     font-family: "Gotham Black Regular";
     font-size: 30px;
     font-weight: 900;
@@ -129,4 +130,10 @@
     background-color: #7630a9;
     box-sizing: border-box;
     padding: 8px;
+  }
+
+  @media (min-width: 624px) {
+    .deposit-funds {
+      font-size: 64px;
+    }
   }
