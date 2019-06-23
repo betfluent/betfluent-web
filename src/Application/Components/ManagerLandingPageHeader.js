@@ -17,6 +17,7 @@ export class ManagerLandingPageHeader extends Component {
               src="/betfluent-logo.png"
               alt="betFluent"
               style={{ height: "40px" }}
+              className="betfluent-logo-mlp"
             />
           </Link>
           {this.props.size > mobileBreakPoint ? (
