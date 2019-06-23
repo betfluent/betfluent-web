@@ -17,7 +17,7 @@ import './Deposit.css';
 class Deposit extends React.Component {
     constructor() {
         super();
-        this.state = { selected: 20 }
+        this.state = { selected: 20, value: 20 }
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
@@ -56,12 +56,12 @@ class Deposit extends React.Component {
 
     handleChange(e) {
         let error = false;
-        if (e.target.value && e.target.value < 10) error = true;
-        this.setState({ value: e.target.value, error });
+        if (!e.target.value || e.target.value < 10) error = true;
+        this.setState({ selected: null, value: parseInt(e.target.value), error });
     }
 
     handleClick(e) {
-        this.setState({ selected: parseInt(e.target.id) });
+        this.setState({ selected: parseInt(e.target.id), value: parseInt(e.target.id), error: null });
     }
 
     render() {
@@ -105,7 +105,7 @@ class Deposit extends React.Component {
                                             style={{ display: 'block', flexGrow: 1, marginLeft: 18, marginBottom: -12 }}
                                             value={this.state && this.state.value}
                                             onChange={this.handleChange}
-                                            placeholder="Min $10"
+                                            placeholder="Min: 10"
                                             type="number"
                                         />
                                     </div>
