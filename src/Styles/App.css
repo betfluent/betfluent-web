@@ -423,10 +423,14 @@ td {
   margin: auto;
 }
 
+.mlpbody {
+  background-color: #fff;
+}
+
 .mlpbody p {
   width: 90%;
   margin: auto;
-  font-size: 18px;
+  font-size: 12px;
   line-height: 24px;
   font-weight: 300;
 }
@@ -472,17 +476,10 @@ td {
 }
 
 .lpContent, .mlpContent {
-  width: 90%;
+  max-width: 856px;
   margin: auto;
   position: relative;
   padding: 36px 0;
-}
-
-.lpContent h1, .mlpContent h1 {
-  font-size: 36px;
-  font-weight: 500;
-  margin-top: 0;
-  margin-bottom: 36px;
 }
 
 .mlpContent h2 {
@@ -496,7 +493,7 @@ td {
 }
 
 .mlpFits {
-  background-color: #fff;
+  background-image: linear-gradient(350deg, rgba(90,24,199, 0.2), rgba(255,255,255, 1));
 }
 
 .mlpFit .learnMoreVideo img {
@@ -519,7 +516,7 @@ td {
 }
 
 .mlpGuide {
-  width: 26%;
+  width: 30%;
   margin: 42px 0;
 }
 
@@ -562,7 +559,7 @@ td {
 }
 
 .betCard p, .guideCard p {
-  color: #36642E;
+  color: #7017D0;
   font-weight: 500;
   font-size: 16px;
 }
@@ -1352,7 +1349,7 @@ td {
   border: none;
   background-color: #f8f6fc;
   margin: 20px auto;
-  color: #36642E;
+  color: #7017D0;
   font-size: 14px;
   line-height: 16px;
   font-weight: 600;
@@ -1413,7 +1410,7 @@ td {
   font-weight: 500;
   width: 90px;
   cursor: pointer;
-  color: #36642E;
+  color: #7017D0;
 }
 
 .btbThumbs {
@@ -1582,7 +1579,7 @@ td {
 .btbRules ul li {
   padding-left: 24px;
   padding-bottom: 24px;
-  border-left: 2px solid #36642E;
+  border-left: 2px solid #7017D0;
   position: relative;
 }
 
@@ -1597,8 +1594,8 @@ td {
   left: -10px;
   width: 18px;
   height: 18px;
-  color: #36642E;
-  border: 2px solid #36642E;
+  color: #7017D0;
+  border: 2px solid #7017D0;
   border-radius: 50%;
   box-sizing: border-box;
   background-color: #fff;
@@ -1743,7 +1740,7 @@ td {
   width: 48px;
   height: 48px;
   background-color: #fff;
-  border: 1px solid #36642E;
+  border: 1px solid #7017D0;
   border-radius: 50%;
   text-align: center;
   right: 16px;
@@ -1834,7 +1831,7 @@ td {
 }
 
 .reportBtn:hover {
-  color: #36642E;
+  color: #7017D0;
 }
 
 .deleteBtn:hover {
@@ -2645,5 +2642,323 @@ td {
 @media (max-width: 624px) {
   body, html, .App, #root {
     height: 100%;
+  }
+}
+
+.landing-header-link {
+  font-family: "Gotham Book";
+  padding: 0 24px;
+  line-height: 3em;
+}
+
+.landing-title {
+  font-family: "Gotham Black Regular";
+  font-size: 80px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -1.6px;
+  text-align: center;
+  color: #000000;
+}
+
+.landing-sub-list {
+  list-style-type: none;
+  text-align: left;
+  position: relative;
+}
+
+.landing-sub-item {
+  display: block;
+  font-family: "Acherus Regular";
+  line-height: normal;
+  font-size: 32px;
+  position: relative;
+  margin-left: 18px;
+}
+
+.landing-sub-item:before {
+  content: '';
+  position: absolute;
+  background-image: url(../Assets/bulletpoint.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: -48px;
+  top: 25%;
+  height: 24px;
+  width: 24px;
+}
+
+.landing-sub-item-alt {
+  display: block;
+  font-family: "Gotham Black Regular";
+  line-height: 1.5;
+  font-size: 30px;
+  position: relative;
+}
+
+.landing-sub-item-alt:after {
+  content: '';
+  position: absolute;
+  background-image: url(../Assets/check/check-1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 25%;
+  margin-left: 10px;
+  height: 24px;
+  width: 24px;
+}
+
+.landing-sub-item-link {
+  font-family: "Acherus Regular";
+  font-size: 24.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2;
+  letter-spacing: -0.49px;
+  text-align: left;
+  color: #0715d1;
+  font-weight: 900;
+}
+
+.landing-sub-item-link:after {
+  content: '>';
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 6px;
+}
+
+.mac-image-wrapper {
+  text-align: left;
+}
+
+.mac-image-wrapper .mac-image {
+  max-width: 500px;
+}
+
+.legal-dfs-state {
+  max-width: 856px;
+  margin: 68px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.legal-dfs-state-title {
+  width: 372px;
+  font-family: "Gotham Black Regular";
+  font-size: 35px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: -0.7px;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 24px;
+}
+
+.legal-dfs-state-content {
+  width: 364px;
+  font-family: "Acherus Regular";
+  font-size: 26.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.32;
+  letter-spacing: -0.53px;
+  text-align: left;
+  color: #000000;
+}
+
+.legal-dfs-map {
+  width: 542px;
+}
+
+.how-to-title {
+  margin-top: 68px;
+  font-family: "Gotham Black Regular";
+  font-size: 46.5px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.12;
+  letter-spacing: -0.93px;
+  text-align: center;
+  color: #000000;
+}
+
+.guide-sub-title {
+  font-family: "Acherus Regular";
+  font-size: 29.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 3.46;
+  letter-spacing: -0.59px;
+  text-align: center;
+  color: #7017d0;
+  text-transform: uppercase;
+}
+
+.guide-sub-content {
+  font-family: "Acherus Regular";
+  font-size: 23.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.47;
+  letter-spacing: -0.47px;
+  text-align: center;
+  color: #000000;
+}
+
+.join-influencer-program {
+  border-radius: 26px;
+  box-shadow: 0 0 25.7px 0.3px rgba(0, 0, 0, 0.09);
+  background-color: #7017d0;
+  width: 364px;
+  padding: 8px 38px;
+  font-family: "Acherus Regular";
+  font-size: 26px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -0.52px;
+  text-align: center;
+  color: #ffffff;
+  margin: auto;
+}
+
+@media (max-width: 624px) {
+  .mlpHeader {
+    display: block;
+    padding-top: 32px;
+    text-align: center;
+  }
+
+  .betfluent-logo-mlp {
+    width: 142px;
+    height: 21px !important;
+  }
+
+  .landing-title {
+    font-size: 48px;
+  }
+  
+  .landing-sub-list {
+    list-style-type: none;
+    text-align: left;
+    position: relative;
+  }
+  
+  .landing-sub-item {
+    display: block;
+    font-family: "Acherus Regular";
+    line-height: normal;
+    font-size: 18px;
+    position: relative;
+    margin-left: 18px;
+  }
+  
+  .landing-sub-item:before {
+    left: -24px;
+    top: 10%;
+    height: 16px;
+    width: 16px;
+  }
+  
+  .landing-sub-item-alt {
+    font-size: 24px;
+  }
+  
+  .landing-sub-item-alt:after {
+    top: 25%;
+    margin-left: 10px;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .landing-sub-item-link {
+    font-size: 18px;
+  }
+  
+  .landing-sub-item-link:after {
+    content: '>';
+      position: absolute;
+      margin-top: 1px;
+      margin-left: 6px;
+  }
+  
+  .mac-image-wrapper {
+    text-align: center;
+  }
+  
+  .mac-image-wrapper .mac-image {
+    max-width: 90%;
+  }
+
+  .legal-dfs-state {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .legal-dfs-state-title {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .legal-dfs-state-content {
+    width: unset;
+    font-size: 16px;
+    padding: 0 24px 24px;
+    text-align: center;
+  }
+  
+  .legal-dfs-map {
+    width: 542px;
+  }
+  
+  .how-to-title {
+    font-size: 24px;
+  }
+  
+  .guide-sub-title {
+    line-height: 1.5;
+  }
+  
+  .guide-sub-content {
+    font-size: 18px;
+  }
+  
+  .join-influencer-program {
+    border-radius: 26px;
+    box-shadow: 0 0 25.7px 0.3px rgba(0, 0, 0, 0.09);
+    background-color: #7017d0;
+    width: 256px;
+    padding: 8px 38px;
+    font-family: "Acherus Regular";
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: -0.52px;
+    text-align: center;
+    color: #ffffff;
+    margin: 24px auto;
+  }
+
+  .mlpContent {
+    padding-top: 24px;
+  }
+
+  .mlpFits {
+    padding-bottom: 0;
+  }
+
+  .mlpGuide {
+    margin: 24px 0;
   }
 }
