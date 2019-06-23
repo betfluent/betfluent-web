@@ -21,7 +21,7 @@ class Deposit extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
-    
+
     componentDidMount() {
         window.mixpanel.track("Visit deposit page");
         window.paypal.Buttons({
@@ -114,9 +114,9 @@ class Deposit extends React.Component {
                                 </div>
                             </div>
                             <div className="deposit-copy">
-                                For access to immediate funds, we recommend using "Pay with Debit or Credit Card" 
-                                Option on the PayPal list. All transactions are secured with SSL protocol. Using SSL 
-                                helps  encrypt the information so that the card details and all other sensitive data 
+                                For access to immediate funds, we recommend using "Pay with Debit or Credit Card"
+                                Option on the PayPal list. All transactions are secured with SSL protocol. Using SSL
+                                helps  encrypt the information so that the card details and all other sensitive data
                                 is protected.
                             </div>
                         </div>
