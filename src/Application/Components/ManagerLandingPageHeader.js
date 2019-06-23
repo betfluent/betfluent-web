@@ -17,12 +17,13 @@ export class ManagerLandingPageHeader extends Component {
               src="/betfluent-logo.png"
               alt="betFluent"
               style={{ height: "40px" }}
+              className="betfluent-logo-mlp"
             />
           </Link>
           {this.props.size > mobileBreakPoint ? (
             <div className="mlpHeaderBtns flexContainer">
               <Link to="/">
-                <FlatButton label="Home" />
+                <span className="landing-header-link">HOME</span>
               </Link>
               <Link
                 to={{
@@ -30,7 +31,15 @@ export class ManagerLandingPageHeader extends Component {
                   state: { fromManagerLandingpage: true }
                 }}
               >
-                <FlatButton label="FAQ" />
+                <span className="landing-header-link">FAQ</span>
+              </Link>
+              <Link
+                to={{
+                  pathname: "/login",
+                  state: { fromManagerLandingpage: true }
+                }}
+              >
+                <span className="landing-header-link">SIGN IN</span>
               </Link>
               <Link to="/register">
                 <RaisedButton
