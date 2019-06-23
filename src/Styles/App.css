@@ -850,42 +850,28 @@ td {
 /* --------------Deposit Page Styles-------------- */
 .deposit-wrapper {
   padding-top: 56px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .deposit-page {
   position: relative;
-  width: 256px;
-  margin: 48px auto;
-}
-
-.deposit-title {
-  margin-top: 128px;
-  text-align: center;
-  color: rgb(26,102,26) !important;
+  margin: 48px 48px 0;
 }
 
 .deposit-input > input {
   margin-left: 12px;
   font-size: 2em !important;
   font-weight: 700 !important;
-  color: rgb(26,102,26) !important;
-  text-align: center;
-}
-
-.deposit-input::before {
-  content: '$';
-  font-size: 1.5em !important;
-  font-weight: 700 !important;
-  color: rgb(26,102,26) !important;
-  position: absolute;
-  left: 0;
-  top: 12px;
+  color: #7630a9 !important;
+  text-align: left;
 }
 
 .deposit-buttons {
   position: relative;
-  width: 256px;
+  width: 100%;
   height: auto;
 }
 
@@ -903,7 +889,6 @@ td {
   font-weight: 500;
   text-align: center;
   font-size: 12px;
-  width: 256px;
 }
 
 .disabled {
@@ -916,7 +901,7 @@ td {
   }
 
   .deposit-page {
-    margin-top: 128px;
+    margin: 0 48px 0 0;
   }
 
   .deposit-wrapper {
@@ -2521,7 +2506,7 @@ td {
 }
 
 .header-sign-in {
-  background-color: rgb(26,102,26);
+  background-color: rgb(112,23,208);
   color: #fff;
   display: flex;
   align-items: center;

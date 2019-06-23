@@ -1,0 +1,156 @@
+.deposit-funds {
+    font-family: "Gotham Black Regular";
+    font-size: 32px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -1.26px;
+    text-align: left;
+    color: #929292;
+  }
+
+  .deposit-card {
+    padding-top: 48px;
+    min-height: 553px;
+    border-radius: 30px;
+    box-shadow: 0 0 9.5px 3.5px rgba(0, 0, 0, 0.06);
+    border: solid 0.5px #a8a8a8;
+    background-color: #ffffff;
+  }
+
+  .deposit-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .deposit-sub-card {
+    margin: 0 48px;
+    width: 357px;
+    height: 352px;
+    border-radius: 30px;
+    box-shadow: 0 0 9.5px 3.5px rgba(0, 0, 0, 0.06);
+    border: solid 0.5px #a8a8a8;
+    background-color: #f6f3fb;
+    text-align: center;
+  }
+
+  .credit-card {
+    margin-top: 38px;
+    width: 173px;
+    height: 173px;
+    object-fit: contain;
+  }
+
+  .deposit-accept {
+    margin: 18px 0;
+    font-family: "Acherus Regular";
+    font-size: 22.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.45px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .deposit-credit-card-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+  }
+
+  .deposit-card-icon {
+    width: 64px;
+    height: 42px;
+    object-fit: cover;
+  }
+
+  .deposit-amount-title {
+    font-family: "Gotham Black Regular";
+    font-size: 30px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    text-align: left;
+    color: #8f8f8f;
+    margin: 18px 0;
+  }
+
+  .deposit-choices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 348px;
+  }
+
+  .deposit-choice {
+    width: 106px;
+    height: 45px;
+    border: solid 3px #7630a9;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .deposit-choice.selected {
+    background-color: #ca92f3;
+  }
+
+  .deposit-choice-text {
+    font-family: "Acherus Regular";
+    font-size: 20.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 42px;
+    letter-spacing: -0.41px;
+    text-align: left;
+    color: #bb98d4;
+  }
+
+  .deposit-choice-text.selected {
+    color: #ffffff;
+  }
+
+  .deposit-choice-custom {
+    margin: 18px 0;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dollar-sign {
+    width: 45px;
+    height: 44px;
+    border: solid 3px #7630a9;
+    background-color: #7630a9;
+    box-sizing: border-box;
+    padding: 8px;
+  }
+
+  .deposit-copy {
+    font-family: "Acherus Regular";
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: -0.38px;
+    text-align: left;
+    color: #929292;
+    margin: 48px;
+    max-width: 742px;
+  }
+
+  @media (min-width: 624px) {
+    .deposit-funds {
+      font-size: 64px;
+    }
+  }
