@@ -51,6 +51,23 @@ mixpanel.init("8d8955ae5c4ae604cd2ac099fadc0fea");</script><!-- end Mixpanel -->
   selector: "textarea",
   plugins: "media mediaembed",
 });</script>
+<!-- Snap Pixel Code -->
+<script type='text/javascript'>
+(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+{a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+r.src=n;var u=t.getElementsByTagName(s)[0];
+u.parentNode.insertBefore(r,u);})(window,document,
+'https://sc-static.net/scevent.min.js');
+
+snaptr('init', 'f7785291-5674-4871-97b7-73249e1bedd0', {
+'user_email': '__INSERT_USER_EMAIL__'
+});
+
+snaptr('track', 'PAGE_VIEW');
+
+</script>
+<!-- End Snap Pixel Code -->
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
