@@ -36,6 +36,7 @@ import WithdrawContainer from '../Containers/WithdrawContainer';
 import TermsOfUse from "./Registration/Terms";
 import PrivacyPolicy from "./Registration/Privacy";
 import FAQ from "./FAQ";
+import Home from "./Home";
 import { scrollComponent } from "./Shared/Scroll";
 import { appTheme, desktopBreakPoint, mobileBreakPoint } from "./Styles";
 
@@ -300,9 +301,16 @@ class App extends Component<AppProps> {
           />
           <div style={paneSize()}>
             <Switch>
-              <Route
+            <Route
                 exact
                 path="/"
+                render={() => 
+                  <Home />
+                }
+              />
+              <Route
+                exact
+                path="/lobby"
                 render={() => (
                   <FundsContainer
                     authUser={this.props.authUser}

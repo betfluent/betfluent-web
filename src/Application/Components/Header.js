@@ -550,7 +550,7 @@ export default class Header extends Component<HeaderProps> {
           )
           : (
             <div className="header-sign-in" onClick={() => this.props.history.push("/login")}>
-              SIGN IN
+              JOIN OUR COMMUNITY TODAY!
             </div>
           )
       }
