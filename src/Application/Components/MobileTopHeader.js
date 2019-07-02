@@ -3,20 +3,27 @@
 
 /* eslint-disable react/style-prop-object */
 
-import React, { Component } from "react";
+import React, { Component, Header } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { IntlProvider, FormattedNumber } from "react-intl";
 import RaisedButton from "material-ui/RaisedButton";
 import MenuItem from "material-ui/MenuItem";
 import Divider from "material-ui/Divider";
-import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
 import Build from "material-ui/svg-icons/image/edit";
 import User from "../Models/User";
 
+import * as topBarShape from "../../Assets/topBarShape.png";
+import * as signInButton from "../../Assets/signin-button.png";
+import * as registerButton from "../../Assets/register-button.png";
+import * as learnButton from "../../Assets/learn-button.png";
+import * as homeButton from "../../Assets/home-button.png";
+import * as logo from "../../Assets/betfluent-logo-and-text.png";
+
 import { gMuiTheme } from "./Styles";
 import { mgMuiTheme } from "./ManagerStyles";
+import { Z_FIXED } from "zlib";
 
 const themeColor = gMuiTheme.palette.themeColor;
 const managerThemeColor = mgMuiTheme.palette.themeColor;
@@ -141,11 +148,6 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
       marginBottom: 16
     };
 
-    const logoStyle = {
-      margin: "20px auto",
-      marginBottom: 16
-    };
-
     const nameStyle = {
       color: this.props.isManager ? managerThemeColor : usernameColor,
       fontSize: 14,
@@ -154,94 +156,80 @@ class MobileTopHeader extends Component<MobileTopHeaderProps> {
       marginBottom: 16
     };
 
-    const iLocation = this.props.history.location.pathname;
-
-    const renderUserData = () => {
-      return (
-        <div style={{ height: 236 }}>
-          <div style={nameStyle}>@{this.props.user && this.props.user.public.name}</div>
-          <div style={balanceTitleStyle}>AVAILABLE BALANCE</div>
-          <div style={balanceStyle}>
-            <span style={{ position: "relative", bottom: 2 }}>
-              <FormattedNumber
-                style="currency"
-                currency="USD"
-                minimumFractionDigits={0}
-                value={this.data.length && this.data[0].value}
-              />
-            </span>
-          </div>
-          <div style={balanceTitleStyle}>AMOUNT WAGERED</div>
-          <div style={balanceStyle}>
-            <span style={{ position: "relative", bottom: 2 }}>
-              <FormattedNumber
-                style="currency"
-                currency="USD"
-                minimumFractionDigits={0}
-                value={this.data.length && this.data[1].value}
-              />
-            </span>
-          </div>
-          <RaisedButton
-            style={{ width: 128 }}
-            primary
-            onClick={() => this.gotoDeposit()}
-            label="Deposit"
-            disabled={this.props.authUser && !this.props.authUser.emailVerified}
-          />
-        </div>
-      );
+    const headerContainer = {
+      position: 'fixed',
+      width: '100%',
+      marginTop: -2
     };
 
+    const headerContainerTop = {
+      height: '50%',
+      marginTop: -84
+    };
+
+    const headerBackgroundContainer = {
+      flex: 1,
+      width: undefined,
+      height: undefined,
+      backgroundColor:'transparent'
+    };
+
+    const logoStyle = {
+      width: '40%',
+      marginLeft: -210
+    };
+
+    const buttonStyle = {
+      width: 105
+    };
+
+    const navigationButtonStyle = {
+      width: 77
+    };
+
+    const buttonContainer = { 
+      height: '50%',
+      marginLeft: 165,
+      marginTop: -44
+    }
+
+    const navigationContainer = { 
+      height: '50%',
+      marginLeft: -212,
+      marginTop: 10
+    }
+
+    const iLocation = this.props.history.location.pathname;
+
     return (
-      <div>
-        <AppBar
-          title={
-            <Link to="/">
-              <img
-                src="/betfluent-logo.png"
-                alt="Betfluent"
-                style={{ height: "36px" }}
-              />
-            </Link>
-          }
-          className="mobileBanner"
-          style={{ backgroundColor: "white", position: "absolute" }}
-          titleStyle={{paddingRight:"30px",textAlign: "center", height: "36px", lineHeight: "36px", marginTop: "12px" }}
-          onLeftIconButtonClick={this.showNavMenu}
-        />
-        <Drawer
-          width={184}
-          docked={false}
-          open={this.state.drawerOpen}
-          onRequestChange={drawerOpen => {
-            this.setState({ drawerOpen });
-          }}
-        >
+      <div style={headerContainer}>
+
+        <img src={topBarShape} style={headerBackgroundContainer}/>
+
+        <div style={headerContainerTop}>
           <Link to="/">
-            <img
-              alt="Betfluent Logo"
-              src={"/bf-logo.png"}
-              height={48}
-              style={logoStyle}
-            />
+            <img src={logo} style={logoStyle}/>
           </Link>
-          <IntlProvider locale="en">{renderUserData()}</IntlProvider>
-          <Divider style={dividerStyle} />
-          <MenuItem
-            leftIcon={
-              <Build
-                style={
-                  iLocation === "/manage" ? activeIconStyle : inactiveIconStyle
-                }
-              />
-            }
-            style={iLocation === "/manage" ? activeStyle : inactiveStyle}
-            primaryText="Create"
-            innerDivStyle={primaryTextStyle}
-            containerElement={<Link to="/manage" />}
-          />
-        </Drawer>
+        </div>
+
+        <div style={navigationContainer}>
+          <Link to="/">
+            <img src={learnButton} style={navigationButtonStyle}/>
+          </Link>
+          <Link to="/lobby">
+            <img src={homeButton} style={navigationButtonStyle}/>
+          </Link>
+        </div>
+
+        <div style={buttonContainer}>
+          <Link to="/login">
+            <img src={signInButton} style={buttonStyle}/>
+          </Link>
+          <Link to="/register">
+            <img src={registerButton} style={buttonStyle}/>
+          </Link>
+        </div>
+
       </div>
     );
   }

@@ -2,22 +2,61 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .home-odd {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color:#FFFFFF;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: space-around;
+  background-color:#FFFFFF;
+  margin: 20px;
 }
 
 .home-image {
-  height: 86px;
-  width: 86px;
-  margin: 16px;
+  height: 80px
+}
+
+.bottom-button {
+  height: 120px;
+}
+
+.view-lobby-button{
+  margin-top: 5px;
+  height: 35px;
+  margin-left: 148px;
+}
+
+.ad-image {
+  margin-top: 95px;
+  height: 66px
+}
+
+.learn-container{
+  margin-left: 245px;
+  margin-top: -42px;
+}
+
+.learn-button{
+  margin-top: 5px;
+  height: 27px
 }
 
 .copy-wrapper {
   margin: 16px;
+}
+
+.copy-wrapper-2 {
+  margin: 16px;
+  background-color:#FFFFFF;
+  width: 100%;
 }
 
 .home-copy {
@@ -27,8 +66,20 @@
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
-  letter-spacing: 2.84px;
+  letter-spacing: 0px;
   text-align: left;
+  color: #000000;
+}
+
+.home-copy-2 {
+  font-family: "Gotham Black Regular";
+  font-size: 22px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0px;
+  text-align: right;
   color: #000000;
 }
 
@@ -42,4 +93,10 @@
   letter-spacing: 0.26px;
   text-align: left;
   color: #0c07f8;
+}
+
+@media (min-width: 624px) {
+  .mobile-header {
+    margin-top: 400px
+  }
 }

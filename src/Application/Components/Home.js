@@ -6,6 +6,11 @@ import MobileTopHeaderContainer from "../Containers/MobileTopHeaderContainer";
 import * as explain from "../../Assets/explain-image/explain-image.png";
 import * as click from "../../Assets/click-money/click-money.png";
 import * as like from "../../Assets/like/like.png";
+import * as ad from "../../Assets/ad.png";
+import * as learnHow from "../../Assets/learn-how-button.png";
+import * as viewLobby from "../../Assets/view-lobby-button.png";
+import * as influencerProgram from "../../Assets/influencer-program.png";
+import * as faq from "../../Assets/faq.png";
 import "../../Styles/Home.css";
 
 // type ManagerLandingPageProps = {
@@ -34,17 +39,23 @@ export class ManagerLandingPage extends Component {
 
   render() {
     const paperStyle = {
-      position: "relative",
-      paddingTop: 56,
+      paddingTop: 10,
       height: "100%",
-      width: "100%",
-      backgroundColor: "#f8f6fc"
+      width: "95%",
+      backgroundColor: "transparent",
+      zIndex: 0,
+      marginLeft: 10
     };
 
     return (
       <MuiThemeProvider muiTheme={mgMuiTheme}>
-        <React.Fragment>
-          <MobileTopHeaderContainer />
+          <MobileTopHeaderContainer className='mobile-header' />
+          <img src={ad} alt="promocode" className="ad-image" />
+
+          <div className="learn-container">
+            <img src={learnHow} alt="promocode" className="learn-button" />
+          </div>
+
           <div style={paperStyle}>
             <div className="home-container">
               <div className="home-even">
@@ -55,8 +66,9 @@ export class ManagerLandingPage extends Component {
                 </div>
               </div>
               <div className="home-odd">
-                <div className="copy-wrapper">
-                  <div className="home-copy">You choose to bet with or against</div>
+                <div className="copy-wrapper-2">
+                  <div className="home-copy-2">You choose to bet with or against</div>
+                  <img src={viewLobby} alt="explain" className="view-lobby-button" />
                 </div>
                 <img src={click} alt="click" className="home-image" />
               </div>
@@ -66,14 +78,14 @@ export class ManagerLandingPage extends Component {
                   <div className="home-copy">Build reputation, gain followers, learn, and earn!</div>
                 </div>
               </div>
-              <div className="home-odd">
+              <div className="bottom-container">
                 <div className="copy-wrapper">
-                  <div className="copy"></div>
+                  <img src={influencerProgram} alt="influencer-prograk" className="bottom-button" />
+                  <img src={faq} alt="faq" className="bottom-button" />
                 </div>
               </div>
             </div>
           </div>
-        </React.Fragment>
       </MuiThemeProvider>
     );
   }
