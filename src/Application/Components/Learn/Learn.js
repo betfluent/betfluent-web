@@ -119,62 +119,6 @@ export default class LandingPage extends Component<BetProps, BetState> {
             <MobileTopHeaderContainer />
           ) : null}
 
-          <div
-            className="guideCards"
-            style={{ backgroundColor: "#f8f6fc", padding: "12px 0 0 0" }}
-          >
-            <div className="lpContent">
-              <h1>How it Works</h1>
-              <div className="flexVertical">
-                <div className="guideCopies flexContainer">
-                  <div className="guideCopyContainer">
-                    <div className="guideIcon">
-                      <img src={browseLobby} alt="Browse Lobby" />
-                    </div>
-                    <div className="guideCopy">
-                      <h3>
-                        Explore the Lobby<br />Choose a Sport
-                      </h3>
-                      <p>
-                        Influencers host different sports themed betting
-                        pools — find one you love and make a wager.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="guideCopyContainer">
-                    <div className="guideIcon">
-                      <img src={placeBet} alt="Place Bet" />
-                    </div>
-                    <div className="guideCopy">
-                      <h3>
-                        Bets are placed<br />after Pools close
-                      </h3>
-                      <p>
-                        The influencer decides what bets should be placed based on
-                        the theme of the pool you choose.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="guideCopyContainer">
-                    <div className="guideIcon">
-                      <img src={followBet} alt="Follow Bet" />
-                    </div>
-                    <div className="guideCopy">
-                      <h3>
-                        View the Bets<br />Follow the Action
-                      </h3>
-                      <p>
-                        Receive notification of the bets before the start of the
-                        game. Live scoring allows you to follow along in
-                        real-time!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="betExplanation">
             <ScrollElement name="betExplanation" />
             <div className="lpContent">
