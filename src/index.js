@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import "./Assets/gotham-cufonfonts-webfont/Gotham.css";
 import "./Assets/horizon-type-acherusgrotesque-demo/Acherus.css";
+import "./Assets/zorque/zorque.css";
+import "./Assets/motion-control/motion-control.css";
 import "./index.css";
 import reducer from "./Application/Reducers";
 import AppContainer from "./Application/Containers/AppContainer";
