@@ -2,14 +2,14 @@ import React from 'react';
 import moment from 'moment';
 import Moment from 'react-moment';
 import * as clock from '../../../Assets/clock-casino/clock.png';
-import { getFundFeed, getFundDetails, getManagerWinStreak, getTeam } from '../../Services/DbService';
+import { getFundFeed, getFundDetails, getManagerWinStreak, getTeam, getManagerLongFade } from '../../Services/DbService';
 import { getFundBets } from '../../Services/ManagerService';
 import CountDown from '../CountDown';
 import './card.css';
 
 const renderTime = closingTime => {
   const diff = closingTime - Date.now() / 1000;
-  if (diff < 0) return <span style={{ flexGrow: 2, textAlign: 'left', letterSpacing: 8, marginLeft: 8 }}>LIVE</span>;
+  if (diff < 0) return <span style={{ flexGrow: 2, textAlign: 'left', letterSpacing: 8, marginLeft: 0 }}>LIVE</span>;
   if (diff / 3600 > 1) {
       return <Moment fromNow ago date={closingTime * 1000} />;
   }
@@ -19,9 +19,8 @@ const renderTime = closingTime => {
 export default class extends React.Component {
   componentDidMount() {
     const { fundId } = this.props;
-    getFundFeed(fundId, (fund) => {
-      const withPct = fund.playerCount / (fund.playerCount + fund.fadePlayerCount) || 0;
-      const fadePct = fund.fadePlayerCount / (fund.playerCount + fund.fadePlayerCount) || 0;
+    getFundFeed(fundId, async (fund) => {
+      const { long, fade } = await getManagerLongFade(fund.managerId);
       getFundBets(fundId).then(async (bets) => {
         const longBet = bets.find(bet => !bet.fade);
         const { potentialGames } = await getFundDetails(fundId);
@@ -34,19 +33,18 @@ export default class extends React.Component {
           home: await getTeam(fund.league, game.homeTeamId),
           away: await getTeam(fund.league, game.awayTeamId)
         }
-        getManagerWinStreak(fund.managerId).then(streak => {
-          const obj = {
-            fund,
-            withPct,
-            fadePct,
-            streak,
-            selectedTeam,
-            gameTeams,
-            longBet,
-            gameDescription
-          }
-          this.setState(obj);
-        });
+        const streak = await getManagerWinStreak(fund.managerId)
+        const obj = {
+          fund,
+          withPct: long / (long + fade) * 100 || 0,
+          fadePct: fade / (long + fade) * 100 || 0,
+          streak,
+          selectedTeam,
+          gameTeams,
+          longBet,
+          gameDescription
+        }
+        this.setState(obj);
       });
     });
   }

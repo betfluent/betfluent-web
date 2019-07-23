@@ -143,12 +143,12 @@
 }
 
 .card-stat-with {
-  width: 64px;
+  width: 72px;
   height: 38px;
   border-radius: 9px;
   background-color: #14a814;
   font-family: Helvetica;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
@@ -171,12 +171,12 @@
 }
 
 .card-stat-fade {
-  width: 64px;
+  width: 72px;
   height: 38px;
   border-radius: 9px;
   background-color: #a81430;
   font-family: Helvetica;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
@@ -199,7 +199,7 @@
 }
 
 .card-stat-time-left {
-  width: 148px;
+  width: 136px;
   height: 38px;
   display: flex;
   align-items: center;
@@ -207,7 +207,7 @@
   border-radius: 9px;
   background-color: #a1a1a1;
   font-family: Helvetica;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
@@ -218,5 +218,5 @@
 }
 
 .card-stat-time-left > img {
-  margin: 0 4px;
+  margin: 0 8px;
 }
