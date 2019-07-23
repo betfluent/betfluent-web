@@ -12,6 +12,7 @@ import "../../Styles/App.css";
 import ManagerLandingPage from "./ManagerLandingPage";
 import NotFound from "./NotFound";
 import Login from "./Login";
+import Casino from "./Casino";
 import VerifyBarContainer from "../Containers/VerifyBarContainer";
 import HeaderContainer from "../Containers/HeaderContainer";
 import FundsContainer from "../Containers/FundsContainer";
@@ -310,6 +311,11 @@ class App extends Component<AppProps> {
                     isManager={this.props.isManager}
                   />
                 )}
+              />
+              <Route
+                exact
+                path="/casino"
+                component={Casino}
               />
               <Route
                 exact

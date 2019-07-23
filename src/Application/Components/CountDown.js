@@ -31,9 +31,9 @@ export default class CountDown extends Component<CountDownProps> {
     return obj;
   }
 
-  static renderTime(minutes, seconds) {
+  static renderTime(minutes, seconds, hideSeconds) {
     if (minutes) {
-      if (minutes > 0) {
+      if (minutes > 0 || hideSeconds) {
         return (
           <span>
             {minutes}:{seconds}
@@ -84,9 +84,10 @@ export default class CountDown extends Component<CountDownProps> {
   }
 
   render() {
+    const { hideSeconds } = this.props;
     return (
       <span className="countDown">
-        {CountDown.renderTime(this.state.time.m, this.state.time.s)}
+        {CountDown.renderTime(this.state.time.m, this.state.time.s, hideSeconds)}
       </span>
     );
   }
