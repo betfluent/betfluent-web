@@ -9,10 +9,11 @@ import './card.css';
 
 const renderTime = closingTime => {
   const diff = closingTime - Date.now() / 1000;
+  if (diff < 0) return <span style={{ flexGrow: 2, textAlign: 'left', letterSpacing: 8, marginLeft: 8 }}>LIVE</span>;
   if (diff / 3600 > 1) {
       return <Moment fromNow ago date={closingTime * 1000} />;
   }
-  return <CountDown diff={diff} />;
+  return <CountDown diff={diff} hideSeconds />;
 }
 
 export default class extends React.Component {
@@ -23,10 +24,16 @@ export default class extends React.Component {
       const fadePct = fund.fadePlayerCount / (fund.playerCount + fund.fadePlayerCount) || 0;
       getFundBets(fundId).then(async (bets) => {
         const longBet = bets.find(bet => !bet.fade);
-        const selectedTeam = await getTeam(fund.league, longBet.selectionId);
         const { potentialGames } = await getFundDetails(fundId);
         const game = potentialGames[0];
         const gameDescription = `Game Info: Major League Baseball, ${game.awayTeamAlias}  @ ${game.homeTeamAlias}, ${moment(game.scheduledTimeUnix).format('hh:mm a')}`
+        let selectedTeam;
+        let gameTeams;
+        if (longBet.selectionId) selectedTeam = await getTeam(fund.league, longBet.selectionId);
+        else gameTeams = {
+          home: await getTeam(fund.league, game.homeTeamId),
+          away: await getTeam(fund.league, game.awayTeamId)
+        }
         getManagerWinStreak(fund.managerId).then(streak => {
           const obj = {
             fund,
@@ -34,6 +41,7 @@ export default class extends React.Component {
             fadePct,
             streak,
             selectedTeam,
+            gameTeams,
             longBet,
             gameDescription
           }
@@ -46,7 +54,7 @@ export default class extends React.Component {
   render() {
     if (!this.state) return null;
 
-    const { fund: { closingTime, manager }, withPct, fadePct, streak, selectedTeam, longBet, gameDescription } = this.state;
+    const { fund: { closingTime, manager }, withPct, fadePct, streak, selectedTeam, gameTeams, longBet, gameDescription } = this.state;
     return (
       <div className="card-wrapper">
         <div className="card-avatar-wrapper">
@@ -56,16 +64,17 @@ export default class extends React.Component {
         <div className="card-subtitle">
           <span className="card-subtitle-text">Last Ten: </span>{streak.map((result, i) => <div key={i} className={result === 'W' ? 'subtitle-win' : 'subtitle-loss'}>{result}</div>)}
         </div>
-        <div className="selection-wrapper">
-          <img className="selection-avatar" src={selectedTeam.avatarUrl} alt="Selected Team" />
+        <div className={`selection-wrapper ${gameTeams ? 'selection-wrapper-over-under' : ''}`}>
+          <img style={gameTeams ? { marginRight: 0 } : {}} className="selection-avatar" src={`${selectedTeam ? selectedTeam.avatarUrl : gameTeams.away.avatarUrl}`} alt="Selected Team" />
           <div>
             <div className="selected-title">
-              {selectedTeam.name}
+              {selectedTeam ? selectedTeam.name : longBet.overUnder}
             </div>
             <div className="selected-subtitle">
               {`${longBet.points ? '(' + longBet.points + ')' : 'MONEYLINE'}`}
             </div>
           </div>
+          {gameTeams && <img style={{ marginRight: 0 }} className="selection-avatar" src={gameTeams.home.avatarUrl} alt="Selected Team" />}
         </div>
         <div className="card-game-info">{gameDescription}</div>
         <div className="card-status-wrapper">

@@ -68,6 +68,12 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  text-align: left;
+}
+
+.selection-wrapper-over-under {
+  justify-content: space-between;
+  text-align: center;
 }
 
 .selection-avatar {
@@ -83,7 +89,6 @@
   font-stretch: normal;
   line-height: normal;
   letter-spacing: 0.68px;
-  text-align: left;
   color: #000000;
 }
 
@@ -198,7 +203,7 @@
   height: 38px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   border-radius: 9px;
   background-color: #a1a1a1;
   font-family: Helvetica;
@@ -210,4 +215,8 @@
   letter-spacing: 1.04px;
   text-align: center;
   color: #ffffff;
+}
+
+.card-stat-time-left > img {
+  margin: 0 4px;
 }

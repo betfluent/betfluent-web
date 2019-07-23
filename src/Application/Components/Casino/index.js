@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './card';
 import "./index.css";
 
-const poolIds = ['-LkLhY1mR77dZkwzBb7v', '-LkLhY1mR77dZkwzBb7v', '-LkLhY1mR77dZkwzBb7v', '-LkLhY1mR77dZkwzBb7v'];
+const poolIds = ['-LkLhY1mR77dZkwzBb7v', '-LkLhO0nD4EJuKMHBjNg', '-LkLhFArftlkhbFzhBSa', '-LkLhY1mR77dZkwzBb7v'];
 
 const CasinoPage = () => {
   return (
