@@ -11,7 +11,7 @@ class CasinoPage extends React.Component {
 
   componentDidMount() {
     firebase.database().ref('casinoPools').on('value', snapshot => {
-      const val = snapshot.val();
+      const val = snapshot.val() || [];
       const poolIds = Object.keys(val).filter(p => val[p]);
       this.setState({ poolIds });
     });
