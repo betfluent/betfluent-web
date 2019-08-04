@@ -39,6 +39,7 @@ import PrivacyPolicy from "./Registration/Privacy";
 import FAQ from "./FAQ";
 import { scrollComponent } from "./Shared/Scroll";
 import { appTheme, desktopBreakPoint, mobileBreakPoint } from "./Styles";
+import AdBoard from "./AdBoard";
 
 const ScrollFund = scrollComponent(FundContainer);
 
@@ -311,6 +312,11 @@ class App extends Component<AppProps> {
                     isManager={this.props.isManager}
                   />
                 )}
+              />
+              <Route
+                  exact
+                  path="/ad-board"
+                  component={AdBoard}
               />
               <Route
                 exact
