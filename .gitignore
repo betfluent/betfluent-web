@@ -1,5 +1,6 @@
 package-lock.json
 .DS_Store
+.idea
 Notes.txt
 coverage_report.txt
 /e2e/**.png
