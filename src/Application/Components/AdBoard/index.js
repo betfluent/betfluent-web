@@ -1,6 +1,7 @@
 import React from 'react';
 import firebase from '../../../firebase';
 import "./index.css";
+import InfluencerAdCard from "../common/influencer-ad-card/influencer-ad-card";
 
 class AdBoard extends React.Component {
   constructor() {
@@ -20,7 +21,7 @@ class AdBoard extends React.Component {
     return (
       <div className="ad-board-wrapper">
         <div className="left-section">
-
+          <InfluencerAdCard />
         </div>
         <div className="right-section">
           <div className="title">

@@ -5,6 +5,22 @@ body {
   background-color: #f8f6fc;
 }
 
+.d-flex {
+  display: flex !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.align-items-center {
+   align-items: center !important;
+ }
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
 .center-flex {
   display: flex;
   justify-content: center;
