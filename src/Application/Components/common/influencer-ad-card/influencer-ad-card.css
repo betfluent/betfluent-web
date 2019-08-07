@@ -1,32 +1,33 @@
-.card-wrapper {
+.influencer-card-wrapper {
     font-family: Helvetica;
     border-radius: 18px;
     box-shadow: 0 9px 30px 6px rgba(0, 0, 0, 0.6);
     background-color: #ffffff;
     width: 344px;
+    min-width: 344px;
     text-align: left;
     overflow: hidden;
 }
 
-.card-avatar-wrapper {
+.influencer-card-avatar-wrapper {
     width: 100%;
     height: 180px;
     overflow-y: hidden;
 }
 
-.card-avatar-wrapper .card-avatar {
+.influencer-card-avatar-wrapper .influencer-card-avatar {
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
     mix-blend-mode: hard-light;
     width: 100%;
 }
 
-.card-body {
+.influencer-card-body {
     position: relative;
     padding: 0 16px;
 }
 
-.card-body::before {
+.influencer-card-body::before {
     content: '';
     display: block;
     position: absolute;
@@ -37,8 +38,7 @@
     box-shadow: 0 -12px 40px 32px #fff;
 }
 
-.card-title {
-    box-shadow: 0 -5px 5px -5px #fff;
+.influencer-card-title {
     font-size: 24px;
     font-weight: bold;
     padding: 14px 0 4px;
@@ -46,22 +46,24 @@
     letter-spacing: 0.98px;
 }
 
-.card-title .twitter-link {
+.influencer-card-title .twitter-link {
     font-size: 12px;
     font-weight: normal;
+    position: relative;
+    z-index: 100;
 }
 
-.card-title .twitter-link img {
+.influencer-card-title .twitter-link img {
     width: 16px;
 }
 
-.card-subtitle {
+.influencer-card-subtitle {
     padding: 8px 0;
     border-bottom: 3px solid #e7e7e7;
     letter-spacing: 0.58px;
 }
 
-.card-subtitle .card-subtitle-text {
+.influencer-card-subtitle .influencer-card-subtitle-text {
     font-size: 14px;
     margin-right: 10px;
 }
@@ -72,7 +74,7 @@
     border-radius: 50%;
     font-size: 11px;
     text-align: center;
-    line-height: 16px;
+    line-height: 18px;
     color: #fff;
 }
 
@@ -104,26 +106,29 @@
     letter-spacing: 0.82px;
 }
 
+.game-teams.over-under .game-team-title {
+    text-align: center;
+}
+
 .game-teams .game-team-subtitle {
     font-size: 52px;
     font-family: 'Gotham Bold';
     letter-spacing: 2.1px;
 }
 
-.card-game-info, .card-status-title {
+.influencer-card-game-info, .influencer-card-status-title {
     font-size: 10px;
     font-weight: normal;
     padding: 8px 0;
+    letter-spacing: 0.4px;
 }
 
-.card-game-info {
+.influencer-card-game-info {
     border-bottom: solid 3px #e7e7e7;
-    letter-spacing: 0.4px;
 }
 
-.card-status-title {
+.influencer-card-status-title {
     font-weight: bold;
-    letter-spacing: 0.4px;
 }
 
 .status-tag, .time-left {
@@ -165,7 +170,7 @@
     padding-right: 8px;
 }
 
-.card-footer {
+.influencer-card-footer {
     margin-top: 32px;
     position: relative;
     background-color: #c0c0c0;

@@ -1,15 +1,3 @@
-.ad-board-wrapper {
-  position: absolute;
-  background-color: #fff;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
-  left: 0;
-  top: 0;
-  z-index: 99999;
-  display: flex;
-}
-
 .ad-board-wrapper .left-section {
   width: 66vw;
   background: rgb(26, 39, 114);
@@ -49,6 +37,7 @@
   margin: auto;
   font-size: 33px;
   line-height: 40px;
+  letter-spacing: 1.32px;
 }
 
 .ad-board-wrapper .right-section .disclaimer {
@@ -59,4 +48,5 @@
   font-size: 12px;
   padding: 16px;
   text-align: left;
+  letter-spacing: 0.48px;
 }

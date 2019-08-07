@@ -1,72 +1,137 @@
-.betfluence-wrapper {
-  position: absolute;
-  background-color: #003663;
-  overflow-y: scroll;
-  height: 100vh;
-  width: 100vw;
-  left: 0;
-  top: 0;
-  z-index: 99999;
+.casino-board-wrapper {
+  color: #fff;
+  background: rgb(3, 3, 30);
 }
 
-
-.betfluence-title {
-  text-shadow: 0 0 7px rgba(0, 0, 0, 0.54);
-  -webkit-text-stroke: 1px #040dcc;
+.casino-board-title {
   font-family: 'Zorque Regular';
-  font-size: 87px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 3.48px;
-  text-align: center;
-  color: #ffffff;
+  margin: 48px auto 8px;
+  text-shadow: 0 0 4px #040dcc, 0 0 12px #7630a9;
+  font-size: 69px;
 }
 
-.betfluence-subtitle {
-  text-shadow: 2.5px 3.1px 4px rgba(0, 0, 0, 0.86);
-  font-family: 'Motion Control';
-  font-size: 42px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 1.68px;
-  text-align: center;
-  color: #ffffff;
+.casino-board-subtitle {
+  font-family: 'Gotham Bold';
+  width: 66vw;
+  max-width: 903px;
+  margin: auto;
+  font-size: 31px;
+  letter-spacing: 1.24px;
 }
 
-.todays-picks {
-  text-shadow: 2.5px 3.1px 4px rgba(0, 0, 0, 0.86);
-  font-family: Helvetica;
-  font-size: 26px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 1.04px;
-  text-align: center;
-  color: #ffffff;
-  margin: 45px 0;
-}
-
-.picks-wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.betfluence-bottom {
+.casino-board-wrapper .game-picks {
   margin-top: 32px;
-  text-shadow: 2.5px 3.1px 4px rgba(0, 0, 0, 0.86);
-  font-family: 'Motion Control';
-  font-size: 42px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 1.68px;
-  text-align: center;
-  color: #ffffff;
+  padding: 0 10vw;
+  color: #000;
+}
+
+.casino-board-wrapper .influencer-card-wrapper {
+  width: 286px;
+  min-width: 286px;
+  margin-right: 24px;
+}
+
+.casino-board-wrapper .influencer-card-wrapper:last-child {
+  margin-right: 0;
+}
+
+.casino-board-wrapper .influencer-card-avatar-wrapper {
+  height: 142px;
+}
+
+.casino-board-wrapper .influencer-card-body {
+  padding: 0 12px;
+}
+
+.casino-board-wrapper .influencer-card-body::before {
+  box-shadow: 0 -12px 32px 24px #fff;
+}
+
+.casino-board-wrapper .influencer-card-title {
+  font-size: 21px;
+  letter-spacing: 0.82px;
+}
+
+.casino-board-wrapper .influencer-card-title .twitter-link {
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.casino-board-wrapper .influencer-card-title .twitter-link img {
+  width: 12px;
+}
+
+.casino-board-wrapper .influencer-card-subtitle .influencer-card-subtitle-text {
+  font-size: 12px;
+}
+
+.casino-board-wrapper .streak-tag {
+  width: 13px;
+  height: 13px;
+  font-size: 8px;
+  line-height: 16px;
+}
+
+.casino-board-wrapper .game-teams {
+  padding: 8px 0 4px;
+}
+
+.casino-board-wrapper .game-teams img.team-avatar {
+  max-width: 64px;
+  max-height: 64px;
+}
+
+.casino-board-wrapper .game-teams .game-team-title {
+  font-size: 17px;
+  letter-spacing: 0.68px;
+}
+
+.casino-board-wrapper .game-teams .game-team-subtitle {
+  font-size: 44px;
+  letter-spacing: 1.74px;
+}
+
+.casino-board-wrapper .influencer-card-game-info, .casino-board-wrapper .influencer-card-status-title {
+  font-size: 8.5px;
+  letter-spacing: 0.34px;
+}
+
+.casino-board-wrapper .status-tag, .casino-board-wrapper .time-left {
+  width: 64px;
+  height: 38px;
+  font-size: 26px;
+  line-height: 38px;
+  letter-spacing: 1.04px;
+}
+
+.casino-board-wrapper .time-left {
+  width: 117px;
+}
+
+.casino-board-wrapper .time-left img.clock {
+  margin: 0 4px 0 8px;
+}
+
+.casino-board-wrapper .status-note {
+  font-size: 8.5px;
+  padding-right: 8px;
+}
+
+.casino-board-wrapper .influencer-card-footer {
+  margin-top: 24px;
+}
+
+.casino-board-wrapper .game-pick-source {
+  font-size: 6.5px;
+}
+
+.casino-board-wrapper .disclaimer {
+  font-family: 'Gotham Bold';
+  width: 694px;
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  font-size: 10px;
+  text-align: left;
+  letter-spacing: 0.4px;
 }
