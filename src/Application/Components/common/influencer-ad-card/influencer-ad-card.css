@@ -157,6 +157,14 @@
     background-color: #a1a1a1;
 }
 
+.time-left.in-progress {
+    background-color: #e5b638;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+    text-align: center;
+}
+
 .time-left img.clock {
     margin: 0 8px;
 }

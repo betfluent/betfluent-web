@@ -53,13 +53,25 @@ class InfluencerAdCard extends React.Component {
       }
     };
 
-    const renderTime = closingTime => {
+    const renderTimeLeft = () => {
       const diff = closingTime - Date.now() / 1000;
-      if (diff < 0) return <span style={{ flexGrow: 2, textAlign: 'left', letterSpacing: 8, marginLeft: 0 }}>LIVE</span>;
-      if (diff / 3600 > 1) {
-        return <Moment fromNow ago date={closingTime * 1000} />;
+      if (diff < 0) {
+        return <div className="time-left in-progress">In Progress</div>;
       }
-      return <CountDown diff={diff} hideSeconds />;
+      if (diff / 3600 > 1) {
+        return (
+          <div className="time-left d-flex align-items-center">
+            <img src={clock} alt="clock" className='clock' />
+            <Moment fromNow ago date={closingTime * 1000} />
+          </div>
+        );
+      }
+      return (
+        <div className="time-left d-flex align-items-center">
+          <img src={clock} alt="clock" className='clock' />
+          <CountDown diff={diff} hideSeconds />
+        </div>
+      );
     };
 
     return (
@@ -103,10 +115,7 @@ class InfluencerAdCard extends React.Component {
                 </div>
                 <div className='status-note'>Against</div>
               </div>
-              <div className="time-left d-flex align-items-center">
-                <img src={clock} alt="clock" className='clock' />
-                {renderTime(closingTime)}
-              </div>
+              {renderTimeLeft()}
             </div>
           </div>
         </div>

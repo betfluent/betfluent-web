@@ -35,7 +35,7 @@ class AdBoard extends React.Component {
         {
           id: 'gamePick1',
           fund: {
-            closingTime: Date.now() / 1000 + 3000,
+            closingTime: Date.now() / 1000 - 3000,
             manager: {
               avatarUrl: 'https://foxsports-wordpress-www-prsupports-prod.s3.amazonaws.com/uploads/sites/2/2016/12/PHOTO-Travis-HS-727x727-480x480.jpg',
               name: 'Clay Travis',
@@ -71,6 +71,37 @@ class AdBoard extends React.Component {
     //   const val = snapshot.val() || [];
     //   const poolIds = Object.keys(val).filter(p => val[p]);
     //   this.setState({ poolIds });
+    //
+    //   // const { fundId } = this.props;
+    //   // getFundFeed(fundId, async (fund) => {
+    //   //   const { long, fade } = await getManagerLongFade(fund.managerId);
+    //   //   getFundBets(fundId).then(async (bets) => {
+    //   //     const longBet = bets.find(bet => !bet.fade);
+    //   //     const { potentialGames } = await getFundDetails(fundId);
+    //   //     const game = potentialGames[0];
+    //   //     const gameDescription = `Game Info: Major League Baseball, ${game.awayTeamAlias}  @ ${game.homeTeamAlias}, ${moment(game.scheduledTimeUnix).format('hh:mm a')}`
+    //   //     let selectedTeam;
+    //   //     let gameTeams;
+    //   //     if (longBet.selectionId) selectedTeam = await getTeam(fund.league, longBet.selectionId);
+    //   //     else gameTeams = {
+    //   //       home: await getTeam(fund.league, game.homeTeamId),
+    //   //       away: await getTeam(fund.league, game.awayTeamId)
+    //   //     }
+    //   //     const streak = await getManagerWinStreak(fund.managerId)
+    //   //     const obj = {
+    //   //       fund,
+    //   //       withPct: long / (long + fade) * 100 || 0,
+    //   //       fadePct: fade / (long + fade) * 100 || 0,
+    //   //       streak,
+    //   //       selectedTeam,
+    //   //       gameTeams,
+    //   //       longBet,
+    //   //       gameDescription
+    //   //     }
+    //   //     this.setState(obj);
+    //   //   });
+    //   // });
+    //
     // });
   }
 

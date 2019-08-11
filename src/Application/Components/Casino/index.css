@@ -108,6 +108,10 @@
   width: 117px;
 }
 
+.casino-board-wrapper .time-left.in-progress {
+  font-size: 17.5px;
+}
+
 .casino-board-wrapper .time-left img.clock {
   margin: 0 4px 0 8px;
 }

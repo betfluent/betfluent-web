@@ -89,7 +89,7 @@ class CasinoPage extends React.Component {
             {
                 id: 'gamePick3',
                 fund: {
-                    closingTime: Date.now() / 1000 + 3000,
+                    closingTime: Date.now() / 1000 - 3000,
                     manager: {
                         avatarUrl: 'https://foxsports-wordpress-www-prsupports-prod.s3.amazonaws.com/uploads/sites/2/2016/12/PHOTO-Travis-HS-727x727-480x480.jpg',
                         name: 'Clay Travis',
