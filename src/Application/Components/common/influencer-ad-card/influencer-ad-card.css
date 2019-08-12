@@ -4,15 +4,15 @@
     border-radius: 18px;
     box-shadow: 0 9px 30px 6px rgba(0, 0, 0, 0.6);
     background-color: #ffffff;
-    width: 344px;
-    min-width: 344px;
+    width: 286px;
+    min-width: 286px;
     text-align: left;
     overflow: hidden;
 }
 
 .influencer-card-avatar-wrapper {
     width: 100%;
-    height: 180px;
+    height: 140px;
     overflow-y: hidden;
 }
 
@@ -25,7 +25,7 @@
 
 .influencer-card-body {
     position: relative;
-    padding: 0 16px;
+    padding: 0 12px;
 }
 
 .influencer-card-body::before {
@@ -36,19 +36,20 @@
     left: 0;
     width: 100%;
     height: 100%;
-    box-shadow: 0 -12px 40px 32px #fff;
+    box-shadow: 0 -12px 32px 20px #fff;
 }
 
 .influencer-card-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
-    padding: 14px 0 4px;
+    padding: 12px 0 4px;
     border-bottom: 3px solid #e7e7e7;
-    letter-spacing: 0.98px;
+    letter-spacing: 0.8px;
 }
 
 .influencer-card-title .twitter-link {
-    font-size: 12px;
+    font-size: 9.5px;
+    letter-spacing: 0.38px;
     position: relative;
     z-index: 100;
     font-weight: 400;
@@ -59,23 +60,23 @@
 }
 
 .influencer-card-subtitle {
-    padding: 8px 0;
+    padding: 4px 0;
     border-bottom: 3px solid #e7e7e7;
-    letter-spacing: 0.58px;
 }
 
 .influencer-card-subtitle .influencer-card-subtitle-text {
-    font-size: 14px;
+    font-size: 10px;
+    letter-spacing: 0.4px;
     margin-right: 10px;
 }
 
 .streak-tag {
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    font-size: 11px;
+    font-size: 8px;
+    line-height: 12px;
     text-align: center;
-    line-height: 18px;
     color: #fff;
 }
 
@@ -88,50 +89,50 @@
 }
 
 .game-teams {
-    padding: 20px 0 4px;
+    padding: 16px 0 0;
     font-family: 'Montserrat Alternates';
     font-weight: 700;
 }
 
 .game-teams img.team-avatar {
-    max-width: 85px;
-    max-height: 85px;
+    max-width: 72px;
+    max-height: 72px;
     margin-right: 10px;
 }
 
 .game-teams.over-under .team-avatars {
-    min-width: 64px;
+    min-width: 72px;
     margin-right: 10px;
 }
 
 .game-teams.over-under img.team-avatar {
-    max-width: 40px;
-    max-height: 40px;
+    max-width: 34px;
+    max-height: 34px;
     margin: 0;
 }
 
 .game-teams .bet-type {
-    font-size: 9px;
+    font-size: 7.5px;
+    letter-spacing: 0.3px;
     color: #a1a1a1;
-    letter-spacing: 0.36px;
 }
 
 .game-teams .game-team-title {
-    font-size: 16px;
-    letter-spacing: 0.64px;
-    margin: 8px 0 12px;
+    font-size: 12.5px;
+    letter-spacing: 0.5px;
+    margin: 6px 0 10px;
 }
 
 .game-teams .game-team-subtitle {
-    font-size: 36px;
+    font-size: 29px;
     font-weight: 800;
-    letter-spacing: 1.42px;
+    letter-spacing: 1.16px;
 }
 
 .influencer-card-game-info, .influencer-card-status-title {
-    font-size: 10px;
-    padding: 16px 0 8px;
-    letter-spacing: 0.4px;
+    font-size: 8px;
+    letter-spacing: 0.32px;
+    padding: 12px 0 6px;
 }
 
 .influencer-card-game-info {
@@ -143,15 +144,15 @@
 }
 
 .status-tag, .time-left {
-    width: 77px;
-    height: 45px;
+    width: 62px;
+    height: 36px;
     border-radius: 9px;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 45px;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 36px;
     color: #fff;
     text-align: center;
-    letter-spacing: 1.24px;
+    letter-spacing: 0.8px;
 }
 
 .status-tag.with {
@@ -163,34 +164,35 @@
 }
 
 .time-left {
-    width: 141px;
+    width: 114px;
     text-align: left;
     background-color: #a1a1a1;
 }
 
 .time-left.in-progress {
     background-color: #e5b638;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.7px;
+    font-size: 16px;
+    letter-spacing: 0.6px;
     text-align: center;
 }
 
 .time-left img.clock {
     margin: 0 8px;
+    width: 18px;
+    height: 18px;
 }
 
 .status-note {
     text-align: right;
-    font-size: 10px;
+    font-size: 8px;
     font-weight: 700;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.32px;
     line-height: 18px;
     padding-right: 8px;
 }
 
 .influencer-card-footer {
-    margin-top: 32px;
+    margin-top: 20px;
     position: relative;
     background-color: #c0c0c0;
     box-shadow: 0 24px 48px 40px #acacac;
@@ -199,7 +201,7 @@
 .game-pick-source {
     padding: 0 16px 10px;
     text-align: right;
-    font-size: 8px;
-    letter-spacing: 0.32px;
+    font-size: 6.5px;
+    letter-spacing: 0.26px;
     color: #fff;
 }
