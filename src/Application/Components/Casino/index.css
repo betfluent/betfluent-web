@@ -25,109 +25,109 @@
   color: #000;
 }
 
-.casino-board-wrapper .influencer-card-wrapper {
-  width: 286px;
-  min-width: 286px;
-  margin-right: 24px;
-}
+/*.casino-board-wrapper .influencer-card-wrapper {*/
+  /*width: 286px;*/
+  /*min-width: 286px;*/
+  /*margin-right: 24px;*/
+/*}*/
 
-.casino-board-wrapper .influencer-card-wrapper:last-child {
-  margin-right: 0;
-}
+/*.casino-board-wrapper .influencer-card-wrapper:last-child {*/
+  /*margin-right: 0;*/
+/*}*/
 
-.casino-board-wrapper .influencer-card-avatar-wrapper {
-  height: 142px;
-}
+/*.casino-board-wrapper .influencer-card-avatar-wrapper {*/
+  /*height: 142px;*/
+/*}*/
 
-.casino-board-wrapper .influencer-card-body {
-  padding: 0 12px;
-}
+/*.casino-board-wrapper .influencer-card-body {*/
+  /*padding: 0 12px;*/
+/*}*/
 
-.casino-board-wrapper .influencer-card-body::before {
-  box-shadow: 0 -12px 32px 24px #fff;
-}
+/*.casino-board-wrapper .influencer-card-body::before {*/
+  /*box-shadow: 0 -12px 32px 24px #fff;*/
+/*}*/
 
-.casino-board-wrapper .influencer-card-title {
-  font-size: 21px;
-  letter-spacing: 0.82px;
-}
+/*.casino-board-wrapper .influencer-card-title {*/
+  /*font-size: 21px;*/
+  /*letter-spacing: 0.82px;*/
+/*}*/
 
-.casino-board-wrapper .influencer-card-title .twitter-link {
-  font-size: 10px;
-  font-weight: normal;
-}
+/*.casino-board-wrapper .influencer-card-title .twitter-link {*/
+  /*font-size: 10px;*/
+  /*font-weight: normal;*/
+/*}*/
 
-.casino-board-wrapper .influencer-card-title .twitter-link img {
-  width: 12px;
-}
+/*.casino-board-wrapper .influencer-card-title .twitter-link img {*/
+  /*width: 12px;*/
+/*}*/
 
-.casino-board-wrapper .influencer-card-subtitle .influencer-card-subtitle-text {
-  font-size: 12px;
-}
+/*.casino-board-wrapper .influencer-card-subtitle .influencer-card-subtitle-text {*/
+  /*font-size: 12px;*/
+/*}*/
 
-.casino-board-wrapper .streak-tag {
-  width: 13px;
-  height: 13px;
-  font-size: 8px;
-  line-height: 16px;
-}
+/*.casino-board-wrapper .streak-tag {*/
+  /*width: 13px;*/
+  /*height: 13px;*/
+  /*font-size: 8px;*/
+  /*line-height: 15px;*/
+/*}*/
 
-.casino-board-wrapper .game-teams {
-  padding: 8px 0 4px;
-}
+/*.casino-board-wrapper .game-teams {*/
+  /*padding: 8px 0 4px;*/
+/*}*/
 
-.casino-board-wrapper .game-teams img.team-avatar {
-  max-width: 64px;
-  max-height: 64px;
-}
+/*.casino-board-wrapper .game-teams img.team-avatar {*/
+  /*max-width: 64px;*/
+  /*max-height: 64px;*/
+/*}*/
 
-.casino-board-wrapper .game-teams .game-team-title {
-  font-size: 17px;
-  letter-spacing: 0.68px;
-}
+/*.casino-board-wrapper .game-teams .game-team-title {*/
+  /*font-size: 17px;*/
+  /*letter-spacing: 0.68px;*/
+/*}*/
 
-.casino-board-wrapper .game-teams .game-team-subtitle {
-  font-size: 44px;
-  letter-spacing: 1.74px;
-}
+/*.casino-board-wrapper .game-teams .game-team-subtitle {*/
+  /*font-size: 44px;*/
+  /*letter-spacing: 1.74px;*/
+/*}*/
 
-.casino-board-wrapper .influencer-card-game-info, .casino-board-wrapper .influencer-card-status-title {
-  font-size: 8.5px;
-  letter-spacing: 0.34px;
-}
+/*.casino-board-wrapper .influencer-card-game-info, .casino-board-wrapper .influencer-card-status-title {*/
+  /*font-size: 8.5px;*/
+  /*letter-spacing: 0.34px;*/
+/*}*/
 
-.casino-board-wrapper .status-tag, .casino-board-wrapper .time-left {
-  width: 64px;
-  height: 38px;
-  font-size: 26px;
-  line-height: 38px;
-  letter-spacing: 1.04px;
-}
+/*.casino-board-wrapper .status-tag, .casino-board-wrapper .time-left {*/
+  /*width: 64px;*/
+  /*height: 38px;*/
+  /*font-size: 20px;*/
+  /*line-height: 38px;*/
+  /*letter-spacing: 1.04px;*/
+/*}*/
 
-.casino-board-wrapper .time-left {
-  width: 117px;
-}
+/*.casino-board-wrapper .time-left {*/
+  /*width: 117px;*/
+/*}*/
 
-.casino-board-wrapper .time-left.in-progress {
-  font-size: 17.5px;
-}
+/*.casino-board-wrapper .time-left.in-progress {*/
+  /*font-size: 16px;*/
+/*}*/
 
-.casino-board-wrapper .time-left img.clock {
-  margin: 0 4px 0 8px;
-}
+/*.casino-board-wrapper .time-left img.clock {*/
+  /*margin: 0 4px 0 8px;*/
+/*}*/
 
-.casino-board-wrapper .status-note {
-  font-size: 8.5px;
-  padding-right: 8px;
-}
+/*.casino-board-wrapper .status-note {*/
+  /*font-size: 8.5px;*/
+  /*padding-right: 8px;*/
+/*}*/
 
-.casino-board-wrapper .influencer-card-footer {
-  margin-top: 24px;
-}
+/*.casino-board-wrapper .influencer-card-footer {*/
+  /*margin-top: 24px;*/
+/*}*/
 
-.casino-board-wrapper .game-pick-source {
-  font-size: 6.5px;
-}
+/*.casino-board-wrapper .game-pick-source {*/
+  /*font-size: 6.5px;*/
+/*}*/
 
 .casino-board-wrapper .disclaimer {
   font-family: 'Gotham Bold';

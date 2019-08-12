@@ -57,7 +57,7 @@ class AdBoard extends React.Component {
             }
           },
           longBet: {
-            overUnder: '48.5 Over (-110)'
+            overUnder: 'Over 10'
           },
           gameDescription: 'Major League Baseball, LAA @ STL, 6:30pm',
           gamePickSource: 'FS1’s Lock It In'

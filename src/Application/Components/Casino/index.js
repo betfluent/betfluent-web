@@ -57,7 +57,7 @@ class CasinoPage extends React.Component {
                     }
                 },
                 longBet: {
-                    overUnder: '48.5 Over (-110)'
+                    overUnder: 'Over 10'
                 },
                 gameDescription: 'Major League Baseball, LAA @ STL, 6:30pm',
                 gamePickSource: 'FS1’s Lock It In'
@@ -80,9 +80,7 @@ class CasinoPage extends React.Component {
                     avatarUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/25/NewYorkYankees_PrimaryLogo.svg/1200px-NewYorkYankees_PrimaryLogo.svg.png'
                 },
                 gameTeams: '',
-                longBet: {
-                    points: '+4'
-                },
+                longBet: { },
                 gameDescription: 'Major League Baseball, LAA @ STL, 6:30pm',
                 gamePickSource: 'FS1’s Lock It In'
             },
@@ -111,7 +109,7 @@ class CasinoPage extends React.Component {
                     }
                 },
                 longBet: {
-                    overUnder: '48.5 Over (-110)'
+                    overUnder: 'Over 10'
                 },
                 gameDescription: 'Major League Baseball, LAA @ STL, 6:30pm',
                 gamePickSource: 'FS1’s Lock It In'

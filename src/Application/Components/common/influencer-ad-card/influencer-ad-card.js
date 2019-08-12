@@ -32,20 +32,42 @@ class InfluencerAdCard extends React.Component {
     const renderTeams = () => {
       if (gameTeams) {
         return (
-          <div className='game-teams over-under d-flex align-items-center justify-content-between'>
-            <img src={gameTeams.away.avatarUrl} alt='away team' className='team-avatar'/>
-            <div className='game-team-title'>{longBet.overUnder}</div>
-            <img src={gameTeams.home.avatarUrl} alt='home team' className='team-avatar'/>
+          <div className='game-teams over-under d-flex align-items-center'>
+            <div className='team-avatars align-self-stretch d-flex flex-column justify-content-between align-items-center'>
+              <img src={gameTeams.away.avatarUrl} alt='away team' className='team-avatar'/>
+              <img src={gameTeams.home.avatarUrl} alt='home team' className='team-avatar'/>
+            </div>
+            <div className='team-info'>
+              <div className='bet-type'>Total</div>
+              <div className='game-team-title'>{gameTeams.away.name.substring(0,3)} @ {gameTeams.home.name.substring(0,3)}</div>
+              <div className='game-team-subtitle'>
+                {longBet.overUnder}
+              </div>
+            </div>
+          </div>
+        );
+      } else if (longBet.points) {
+        return (
+          <div className='game-teams d-flex align-items-center'>
+            <img src={selectedTeam.avatarUrl} alt='selected team' className='team-avatar'/>
+            <div className='team-info'>
+              <div className='bet-type'>Spread</div>
+              <div className='game-team-title'>{selectedTeam.name}</div>
+              <div className='game-team-subtitle'>
+                {longBet.points}
+              </div>
+            </div>
           </div>
         );
       } else {
         return (
           <div className='game-teams d-flex align-items-center'>
             <img src={selectedTeam.avatarUrl} alt='selected team' className='team-avatar'/>
-            <div className='selected-team-info'>
+            <div className='team-info'>
+              <div className='bet-type'>Moneyline</div>
               <div className='game-team-title'>{selectedTeam.name}</div>
               <div className='game-team-subtitle'>
-                {longBet.points ? '(' + longBet.points + ')' : 'MONEYLINE'}
+                (+3.5/-110)
               </div>
             </div>
           </div>

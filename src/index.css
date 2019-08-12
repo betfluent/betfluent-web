@@ -9,6 +9,10 @@ body {
   display: flex !important;
 }
 
+.flex-column {
+  flex-direction: column !important;
+}
+
 .justify-content-between {
   justify-content: space-between !important;
 }
@@ -20,6 +24,10 @@ body {
 .align-items-center {
    align-items: center !important;
  }
+
+.align-self-stretch {
+  align-self: stretch !important;
+}
 
 .flex-grow-1 {
   flex-grow: 1;

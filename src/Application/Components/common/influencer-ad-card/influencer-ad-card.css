@@ -1,5 +1,6 @@
 .influencer-card-wrapper {
-    font-family: Helvetica;
+    font-family: 'Montserrat';
+    font-weight: 400;
     border-radius: 18px;
     box-shadow: 0 9px 30px 6px rgba(0, 0, 0, 0.6);
     background-color: #ffffff;
@@ -40,7 +41,7 @@
 
 .influencer-card-title {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
     padding: 14px 0 4px;
     border-bottom: 3px solid #e7e7e7;
     letter-spacing: 0.98px;
@@ -48,9 +49,9 @@
 
 .influencer-card-title .twitter-link {
     font-size: 12px;
-    font-weight: normal;
     position: relative;
     z-index: 100;
+    font-weight: 400;
 }
 
 .influencer-card-title .twitter-link img {
@@ -87,39 +88,49 @@
 }
 
 .game-teams {
-    padding: 14px 0 8px;
+    padding: 20px 0 4px;
+    font-family: 'Montserrat Alternates';
+    font-weight: 700;
 }
 
 .game-teams img.team-avatar {
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 85px;
+    max-height: 85px;
     margin-right: 10px;
 }
 
-.game-teams img.team-avatar:last-child {
-    margin: 0 0 0 10px;
+.game-teams.over-under .team-avatars {
+    min-width: 64px;
+    margin-right: 10px;
+}
+
+.game-teams.over-under img.team-avatar {
+    max-width: 40px;
+    max-height: 40px;
+    margin: 0;
+}
+
+.game-teams .bet-type {
+    font-size: 9px;
+    color: #a1a1a1;
+    letter-spacing: 0.36px;
 }
 
 .game-teams .game-team-title {
-    font-size: 21px;
-    font-weight: normal;
-    letter-spacing: 0.82px;
-}
-
-.game-teams.over-under .game-team-title {
-    text-align: center;
+    font-size: 16px;
+    letter-spacing: 0.64px;
+    margin: 8px 0 12px;
 }
 
 .game-teams .game-team-subtitle {
-    font-size: 52px;
-    font-family: 'Gotham Bold';
-    letter-spacing: 2.1px;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: 1.42px;
 }
 
 .influencer-card-game-info, .influencer-card-status-title {
     font-size: 10px;
-    font-weight: normal;
-    padding: 8px 0;
+    padding: 16px 0 8px;
     letter-spacing: 0.4px;
 }
 
@@ -128,16 +139,16 @@
 }
 
 .influencer-card-status-title {
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .status-tag, .time-left {
     width: 77px;
     height: 45px;
     border-radius: 9px;
-    font-size: 31px;
-    font-weight: bold;
-    line-height: 44px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 45px;
     color: #fff;
     text-align: center;
     letter-spacing: 1.24px;
@@ -160,7 +171,7 @@
 .time-left.in-progress {
     background-color: #e5b638;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.7px;
     text-align: center;
 }
@@ -172,9 +183,9 @@
 .status-note {
     text-align: right;
     font-size: 10px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 0.4px;
-    line-height: 16px;
+    line-height: 18px;
     padding-right: 8px;
 }
 
